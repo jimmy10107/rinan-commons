@@ -2,8 +2,11 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "走傱日南｜活動與地方指南",
-  description: "2026 走傱日南 10/24–25 節目、市集、地方店家、觀光地圖、策展手冊與夥伴資訊。",
+  title: {
+    default: "日南稻站 Rinan Commons",
+    template: "%s｜日南稻站",
+  },
+  description: "日南車站旁的地方文化據點。從一粒米出發，認識日南的人、土地與生活。",
   other: { "codex-preview": "development" },
   icons: { icon: "/favicon.svg", shortcut: "/favicon.svg" },
 };
