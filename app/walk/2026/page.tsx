@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { SiteFooter, SiteHeader } from "../../site-shell";
+import { sitePath } from "../../site-path";
 
 type View = "1024" | "1025" | "local";
 
@@ -176,7 +177,7 @@ function LocalInfo() {
     <details className="info-card">
       <summary><span className="card-icon">冊</span><div><small>TO AND FROM</small><strong>《往・返》展覽手冊</strong><em>閱讀四個章節</em></div><i>＋</i></summary>
       <div className="card-body chapter-grid"><div><b>TO｜往</b><p>出發、鐵道與離開。</p></div><div><b>MOTION｜走傱</b><p>移動、勞動與生活。</p></div><div><b>RETURN｜返</b><p>記憶、回望與回家。</p></div><div><b>GROUND｜生根</b><p>參與、留下與未來。</p></div></div>
-      <div className="details-route-link"><a href="/exhibition/to-and-from">進入展覽手冊頁 ↗</a></div>
+      <div className="details-route-link"><a href={sitePath("/exhibition/to-and-from/")}>進入展覽手冊頁 ↗</a></div>
     </details>
     <details className="info-card">
       <summary><span className="card-icon">名</span><div><small>ORGANIZATIONS</small><strong>指導・主辦單位</strong><em>依正式順序查看</em></div><i>＋</i></summary>

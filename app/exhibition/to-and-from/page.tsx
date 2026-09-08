@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { SiteFooter, SiteHeader } from "../../site-shell";
+import { sitePath } from "../../site-path";
 
 export const metadata: Metadata = {
   title: "往・返 TO AND FROM",
@@ -89,7 +90,7 @@ export default function ExhibitionPage() {
         <span>NEXT STOP</span>
         <h2>走傱日南 2026</h2>
         <p>從展覽走到市集、音樂、影像與走讀，繼續在往返之間認識日南。</p>
-        <a href="/walk/2026">查看活動資訊 ↗</a>
+        <a href={sitePath("/walk/2026/")}>查看活動資訊 ↗</a>
       </section>
 
       <SiteFooter note="往返 TO AND FROM・資料將隨展覽進度更新" />

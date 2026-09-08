@@ -1,4 +1,5 @@
 import { SiteFooter, SiteHeader } from "./site-shell";
+import { sitePath } from "./site-path";
 
 const spaceUses = [
   {
@@ -34,7 +35,7 @@ export default function HomePage() {
           <h1>從一粒米出發，<br />認識日南。</h1>
           <p className="home-intro">一個可以看展、坐一下、認識地方，也能再往日南裡走的文化據點。</p>
           <div className="home-actions">
-            <a className="primary-action" href="/walk/2026">走傱日南 2026 <span>↗</span></a>
+            <a className="primary-action" href={sitePath("/walk/2026/")}>走傱日南 2026 <span>↗</span></a>
             <a className="text-action" href="#space">認識這個空間 ↓</a>
           </div>
         </div>
@@ -79,12 +80,12 @@ export default function HomePage() {
           <h2 id="entries-title">從這裡，繼續往日南裡走。</h2>
         </header>
         <div className="entry-grid">
-          <a className="entry-card walk-entry" href="/walk/2026">
+          <a className="entry-card walk-entry" href={sitePath("/walk/2026/")}>
             <span>2026.10.24—25</span>
             <div><small>RINAN IN MOTION</small><h3>走傱日南 2026</h3><p>市集、音樂、影像與走讀，一起認識日南與海線的生活。</p></div>
             <b>查看活動資訊 ↗</b>
           </a>
-          <a className="entry-card exhibition-entry" href="/exhibition/to-and-from">
+          <a className="entry-card exhibition-entry" href={sitePath("/exhibition/to-and-from/")}>
             <span>TO AND FROM</span>
             <div><small>EXHIBITION</small><h3>往・返</h3><p>從出發、走傱、回望到生根，閱讀日南持續發生的往返。</p></div>
             <b>閱讀展覽手冊 ↗</b>
