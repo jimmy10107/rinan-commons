@@ -7,6 +7,7 @@ export const metadata: Metadata = {
     template: "%s｜日南稻站",
   },
   description: "日南車站旁的地方文化據點。從一粒米出發，認識日南的人、土地與生活。",
+  robots: { index: false, follow: false },
   other: { "codex-preview": "development" },
   icons: { icon: "/favicon.svg", shortcut: "/favicon.svg" },
 };
