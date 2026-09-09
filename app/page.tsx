@@ -10,7 +10,7 @@ const spaceUses = [
   {
     number: "02",
     title: "風土米食",
-    text: "從一粒米與在地農產開始，認識土地、耕作，也認識一個地方。",
+    text: "從地方生活與在地農產開始，認識土地、耕作，也認識一個地方。",
   },
   {
     number: "03",
@@ -32,7 +32,7 @@ export default function HomePage() {
       <section className="home-hero">
         <div className="home-hero-copy">
           <p className="eyebrow">RINAN COMMONS・日南車站旁</p>
-          <h1>從一粒米出發，<br />認識日南。</h1>
+          <h1>在往返之間，<br />認識日南。</h1>
           <p className="home-intro">一個可以看展、坐一下、認識地方，也能再往日南裡走的文化據點。</p>
           <div className="home-actions">
             <a className="primary-action" href={sitePath("/walk/2026/")}>走傱日南 2026 <span>↗</span></a>
