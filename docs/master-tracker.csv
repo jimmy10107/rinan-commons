@@ -1,4 +1,4 @@
 id,task,owner,deadline,checkpoint,definition_of_done,status,evidence
 WEB-01,參考網站與現有程式基線,Codex,本回合,參考研究,三站內容與首頁畫面已檢視,completed,docs/website-redesign-2026-09-10.md
 WEB-02,頁面與SQLite內容整合,Codex,本回合,實作,SQL可重建且頁面共用公開資料,completed,content/seed.sql
-WEB-03,驗證並提交GitHub,Codex,本回合,發布前,靜態輸出與資料測試通過且部署可讀,in_progress,tests/pages.test.mjs
+WEB-03,驗證並提交GitHub,Codex,本回合,發布前,靜態輸出與資料測試通過且部署可讀,completed,https://github.com/jimmy10107/rinan-commons/actions/runs/34433630119
