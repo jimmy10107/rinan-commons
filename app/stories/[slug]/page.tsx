@@ -1,0 +1,9 @@
+import type { Metadata } from 'next';
+import { notFound } from 'next/navigation';
+import { articles, photoSource } from '../../content';
+import { sitePath } from '../../site-path';
+import { SiteHeader,SiteFooter } from '../../site-shell';
+export const dynamicParams=false;
+export function generateStaticParams(){return articles.map(a=>({slug:a.slug}));}
+export async function generateMetadata({params}:{params:Promise<{slug:string}>}):Promise<Metadata>{const {slug}=await params;const a=articles.find(a=>a.slug===slug);return {title:a?.title,description:a?.summary};}
+export default async function StoryPage({params}:{params:Promise<{slug:string}>}){const {slug}=await params;const a=articles.find(a=>a.slug===slug);if(!a)notFound();return <main className="commons-page" id="top"><SiteHeader active="stories"/><article className="reading-page" id="content"><a className="underlined-link" href={sitePath('/stories/')}>← 地方筆記</a><header><p className="kicker">{a.category} / 約 {a.readingMinutes} 分鐘</p><h1>{a.title}</h1><p className="article-deck">{a.summary}</p></header>{a.image&&<figure><img src={sitePath(a.image)} alt={a.imageAlt} width="1200" height="800"/><figcaption><a href={photoSource}>影像來源：臺中市文化資產處</a></figcaption></figure>}<div className="article-body">{a.sections.map(section=><section key={section.heading}><h2>{section.heading}</h2><p>{section.text}</p></section>)}<aside className="article-source"><strong>資料來源</strong><p>{a.sourceUrl?<a href={a.sourceUrl} target="_blank" rel="noreferrer">{a.sourceLabel} ↗</a>:a.sourceLabel}</p><small>整理更新：{a.updatedAt}</small></aside></div><div className="article-next"><span className="kicker">繼續認識日南</span>{articles.filter(other=>other.slug!==slug).map(other=><a key={other.id} href={sitePath(`/stories/${other.slug}/`)}>{other.title} ↗</a>)}<a href={sitePath('/visit/')}>安排一次到訪 ↗</a></div></article><SiteFooter note="從一段故事，走進日南的生活。"/></main>}

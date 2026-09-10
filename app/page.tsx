@@ -1,99 +1,37 @@
-import { SiteFooter, SiteHeader } from "./site-shell";
-import { sitePath } from "./site-path";
-
-const spaceUses = [
-  {
-    number: "01",
-    title: "地方文化策展",
-    text: "從鐵道、農業、產業與人物出發，慢慢整理日南的生活與記憶。",
-  },
-  {
-    number: "02",
-    title: "風土米食",
-    text: "從地方生活與在地農產開始，認識土地、耕作，也認識一個地方。",
-  },
-  {
-    number: "03",
-    title: "青年交流",
-    text: "讓返鄉、留鄉與第一次來到日南的人，可以在這裡相遇、聊天與合作。",
-  },
-  {
-    number: "04",
-    title: "旅遊與單車驛站",
-    text: "在車站旁坐一下、休息一下，再從這裡往聚落、田野與海線出發。",
-  },
-];
+import { SiteFooter, SiteHeader } from './site-shell';
+import { sitePath } from './site-path';
+import { articles, site, photoSource } from './content';
 
 export default function HomePage() {
-  return (
-    <main className="home-page" id="top">
-      <SiteHeader active="home" />
-
-      <section className="home-hero">
-        <div className="home-hero-copy">
-          <p className="eyebrow">RINAN COMMONS・日南車站旁</p>
-          <h1>在往返之間，<br />認識日南。</h1>
-          <p className="home-intro">一個可以看展、坐一下、認識地方，也能再往日南裡走的文化據點。</p>
-          <div className="home-actions">
-            <a className="primary-action" href={sitePath("/walk/2026/")}>走傱日南 2026 <span>↗</span></a>
-            <a className="text-action" href="#space">認識這個空間 ↓</a>
-          </div>
-        </div>
-        <aside className="station-note" aria-label="日南稻站位置">
-          <span>STOP 01</span>
-          <strong>日南車站旁</strong>
-          <p>437 臺中市大甲區孟春里<br />中山路二段 1 號對面</p>
-          <a href="https://www.google.com/maps/search/?api=1&query=24.37778%2C120.65444" target="_blank" rel="noreferrer">開啟導航 ↗</a>
-        </aside>
-      </section>
-
-      <section className="home-story" id="space">
-        <div className="section-label"><span>ABOUT</span><b>關於日南稻站</b></div>
-        <div className="story-copy">
-          <h2>稻站是走進日南<br />最溫柔的農村入口。</h2>
-          <div>
-            <p>日南稻站位在日南車站旁。我們整理臺鐵原有的閒置空間，保留舊有尺度，讓它重新成為人可以停留的地方。</p>
-            <p>這裡從稻米開始，慢慢談日南的農業、鐵道、產業、信仰與生活。你可以先坐一下、看看展，也可以從這裡再往地方裡走。</p>
-          </div>
-        </div>
-      </section>
-
-      <section className="space-uses" aria-labelledby="space-uses-title">
-        <header className="section-heading">
-          <div className="section-label"><span>COMMONS</span><b>一個空間，四種使用</b></div>
-          <h2 id="space-uses-title">讓停留成為<br />認識地方的開始。</h2>
-        </header>
-        <div className="use-grid">
-          {spaceUses.map((item) => (
-            <article key={item.number}>
-              <span>{item.number}</span>
-              <h3>{item.title}</h3>
-              <p>{item.text}</p>
-            </article>
-          ))}
-        </div>
-      </section>
-
-      <section className="site-entries" aria-labelledby="entries-title">
-        <header className="section-heading compact">
-          <div className="section-label"><span>NOW</span><b>目前進行中</b></div>
-          <h2 id="entries-title">從這裡，繼續往日南裡走。</h2>
-        </header>
-        <div className="entry-grid">
-          <a className="entry-card walk-entry" href={sitePath("/walk/2026/")}>
-            <span>2026.10.24—25</span>
-            <div><small>RINAN IN MOTION</small><h3>走傱日南 2026</h3><p>市集、音樂、影像與走讀，一起認識日南與海線的生活。</p></div>
-            <b>查看活動資訊 ↗</b>
-          </a>
-          <a className="entry-card exhibition-entry" href={sitePath("/exhibition/to-and-from/")}>
-            <span>TO AND FROM</span>
-            <div><small>EXHIBITION</small><h3>往・返</h3><p>從出發、走傱、回望到生根，閱讀日南持續發生的往返。</p></div>
-            <b>閱讀展覽手冊 ↗</b>
-          </a>
-        </div>
-      </section>
-
-      <SiteFooter note="從這裡出發，也從這裡回來。" />
-    </main>
-  );
+  return <main className="commons-page" id="top">
+    <SiteHeader active="home" />
+    <section className="commons-hero" id="content">
+      <div className="hero-editorial">
+        <p className="kicker">臺中・海線・日南 <span>RINAN COMMONS</span></p>
+        <h1>在往返之間，<br /><em>認識日南。</em></h1>
+        <p className="hero-deck">車站旁，留一個可以停下來的地方。<br />看看展、坐一下，再往日南裡走。</p>
+        <a className="solid-link" href={sitePath('/about/')}>走進日南稻站 <span aria-hidden="true">↗</span></a>
+        <div className="hero-footnote"><span>從這裡出發，也從這裡回來。</span><span>24°22′ N · 120°39′ E</span></div>
+      </div>
+      <figure className="hero-photo"><img src={sitePath('/images/rinan-station.jpg')} alt="日南車站的木造站房、月台與鐵軌" fetchPriority="high" width="1200" height="800" /><figcaption>日南車站｜日常往返的地方 <a href={photoSource} target="_blank" rel="noreferrer">影像來源：臺中市文化資產處</a></figcaption></figure>
+    </section>
+    <a className="announcement" href={sitePath('/walk/2026/')}><span className="announcement-label">下一次相遇</span><strong>10.24 — 25</strong><span>走傱日南 2026 <small>開幕・音樂・市集・走讀</small></span><b>查看活動 <span aria-hidden="true">↗</span></b></a>
+    <section className="editorial-section home-introduction">
+      <div className="section-mast"><p className="kicker">01 / 一個地方的入口</p><span>ABOUT THE COMMONS</span></div>
+      <div className="introduction-grid"><h2>下了火車，<br />還有好多日南。</h2><div><p>木造車站、田野、聚落，和每天為生活走傱的人。熟悉的日南，也有你還沒遇見的樣子。</p><p>我們整理車站旁的舊空間，把地方故事、展覽與交流慢慢帶進來。讓離開、回來、留下與初次抵達的人，有一個可以相遇的地方。</p><a className="underlined-link" href={sitePath('/about/')}>空間的故事與願景 ↗</a></div></div>
+    </section>
+    <section className="editorial-section current-section">
+      <div className="section-mast"><p className="kicker">02 / 在日南，正在發生</p><span>WHAT'S ON</span></div>
+      <div className="feature-pair">
+        <a href={sitePath('/walk/2026/')} className="event-feature"><div className="feature-meta"><span>年度活動</span><span>2026.10.24—25</span></div><p className="feature-english">RINAN<br />IN MOTION</p><h2>走傱日南<span>2026</span></h2><p>午後看影像，傍晚聽音樂。<br />跟著走讀，把日南走進生活。</p><b>節目、時間與報名資訊 ↗</b></a>
+        <a href={sitePath('/exhibition/to-and-from/')} className="exhibit-feature"><div className="feature-meta"><span>日南稻站開館展</span><span>TO AND FROM</span></div><div className="exhibit-title">往<span>・</span>返</div><p className="chapter-inline">往 / 走傱 / 返 / 生根</p><p>離開之後，怎麼看見家鄉？<br />在人的往返裡，閱讀日南。</p><b>進入展覽・閱讀手冊 ↗</b></a>
+      </div>
+    </section>
+    <section className="editorial-section journal-section">
+      <div className="section-mast"><p className="kicker">03 / 慢慢讀日南</p><a href={sitePath('/stories/')} className="underlined-link">地方筆記 ↗</a></div>
+      <div className="story-teasers">{articles.map((article,index)=><a href={sitePath(`/stories/${article.slug}/`)} key={article.id} className="story-teaser">{article.image ? <img src={sitePath(article.image)} alt={article.imageAlt} width="640" height="420" loading="lazy" /> : <div className="type-cover" aria-hidden="true"><span>COMMONS / NOTES</span><strong>坐一下，<br />休息一下。</strong><small>日南稻站</small></div>}<div className="teaser-copy"><p className="kicker">{article.category} <span>0{index+1}</span></p><h3>{article.title}</h3><p>{article.summary}</p><span className="read-story">閱讀筆記 ↗</span></div></a>)}</div>
+    </section>
+    <section className="visit-invitation"><p className="kicker">下一站，日南。</p><h2>來坐一下。</h2><div><p>{site.address}<br />{site.opening}</p><a className="solid-link light" href={sitePath('/visit/')}>安排到訪 <span>↗</span></a></div></section>
+    <SiteFooter note="在往返之間，認識日南。" />
+  </main>;
 }

@@ -1,3 +1,27 @@
+# 日南稻站 Rinan Commons｜GitHub Pages
+
+主軸：**在往返之間，認識日南。**
+
+網站：https://jimmy10107.github.io/rinan-commons/
+
+本 repository 的正式發布流程為 `.github/workflows/deploy-pages.yml`。main 更新後，先驗證 SQLite 內容與靜態路由，再部署 GitHub Pages。原 ChatGPT Site 是獨立網站，不是此流程的發布目的地。
+
+- 改版研究、來源與驗收：[docs/website-redesign-2026-09-10.md](docs/website-redesign-2026-09-10.md)
+- 內容與 SQLite 更新方式：[content/README.md](content/README.md)
+- 本次交接：[docs/session-handoff.md](docs/session-handoff.md)
+
+```bash
+npm ci
+npm run content:build
+npm run test:content
+npm run build:pages
+npm run test:pages
+```
+
+目前資料庫是建置時 SQLite，沒有啟用雲端即時資料庫或 CMS。以下保留匯入時的原 Sites／Worker 技術文件，僅作原架構參考；請勿據此部署到舊站。
+
+---
+
 # vinext-starter
 
 A clean full-stack starter running on

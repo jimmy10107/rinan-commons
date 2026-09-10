@@ -13,7 +13,13 @@
     "test": "npm run build && node --test tests/rendered-html.test.mjs",
     "validate:artifact": "bash scripts/validate-artifact.sh",
     "lint": "bash scripts/sites-env.sh -- eslint . --ignore-pattern dist --ignore-pattern .next",
-    "db:generate": "bash scripts/sites-env.sh -- drizzle-kit generate"
+    "db:generate": "bash scripts/sites-env.sh -- drizzle-kit generate",
+    "content:build": "node scripts/build-content.mjs",
+    "predev": "npm run content:build",
+    "prebuild": "npm run content:build",
+    "build:pages": "npm run content:build && GITHUB_PAGES=true NEXT_PUBLIC_BASE_PATH=/rinan-commons next build",
+    "test:content": "node --test tests/content.test.mjs",
+    "test:pages": "node --test tests/pages.test.mjs"
   },
   "dependencies": {
     "drizzle-orm": "0.45.2",
@@ -40,5 +46,5 @@
     "wrangler": "4.92.0"
   },
   "type": "module",
-  "displayName": "\u8d70\u50b1\u65e5\u5357\uff5c\u4e92\u52d5\u8d70\u8b80"
+  "displayName": "走傱日南｜互動走讀"
 }

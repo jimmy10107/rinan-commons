@@ -27,13 +27,17 @@ jobs:
           cache: npm
       - name: Install dependencies
         run: npm ci
+      - name: Validate content database
+        run: npm run content:build && npm run test:content
       - name: Configure Pages
         uses: actions/configure-pages@v5
       - name: Export site
-        run: npx next build
+        run: npm run build:pages
         env:
           GITHUB_PAGES: "true"
           NEXT_PUBLIC_BASE_PATH: /rinan-commons
+      - name: Verify exported routes and assets
+        run: npm run test:pages
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v4
         with:

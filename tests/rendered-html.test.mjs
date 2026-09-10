@@ -37,7 +37,7 @@ test("renders the main site and both independent content routes", async () => {
   assert.match(homeResponse.headers.get("content-type") ?? "", /^text\/html\b/i);
   const homeHtml = await homeResponse.text();
   assert.match(homeHtml, developmentPreviewMeta);
-  assert.match(homeHtml, /從一粒米出發/);
+  assert.match(homeHtml, /在往返之間/);
   assert.match(homeHtml, /\/walk\/2026/);
   assert.match(homeHtml, /\/exhibition\/to-and-from/);
   assert.match(homeHtml, /\/partners\/rinan-commons\.jpg/);
