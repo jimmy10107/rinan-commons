@@ -13,3 +13,12 @@ Open questions: 正式報名表單、營業時間、最終卡司與攤商；是�
 Relevant files: content/seed.sql、db/migrations/0001_content.sql、scripts/build-content.mjs、app/commons.css、app/content.ts。
 Risk: draft 在公開 GitHub 中不保密；目前沒有即時雲端寫入能力；未做新版瀏覽器互動及手機實機 QA。
 Next actions: 正式資訊補入 seed.sql；如需雲端 CMS，另取得獨立後端服務並測試權限後再發布。
+
+## 發布驗證完成
+
+- 部署版本：b774649c705853e4faba1b17e14ffbabbbe568c3。
+- GitHub Actions：https://github.com/jimmy10107/rinan-commons/actions/runs/34433630119；build、deploy 皆 success。
+- 正式首頁、地方筆記、活動、展覽、到訪頁皆 HTTP 200，且包含新版對應內容。
+- 本機與 CI 通過 SQLite 3 項測試、靜態輸出 3 項測試及 TypeScript 建置。
+- 未執行新版瀏覽器互動／手機實機驗收；不將 HTTP 檢查視為視覺 QA。
+- 本節僅更新交接紀錄，不改動網站程式。
