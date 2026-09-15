@@ -42,7 +42,7 @@ export default function Walk2026Page() {
         {site.registrationUrl ? <a className="solid-link light" href={site.registrationUrl} target="_blank" rel="noreferrer">前往報名 ↗</a> : <b>報名連結準備中</b>}
       </section>
 
-      <div className="event-visit-link"><a className="underlined-link" href={sitePath("/visit/")}>交通方式・安排到訪 ↗</a></div><SiteFooter note="活動內容以最終公告為準。" />
+      <div className="event-visit-link"><a className="underlined-link" href={sitePath("/visit/")}>交通方式・安排到訪 ↗</a><br/><a className="underlined-link" href={sitePath("/visit/#rinan-map")}>探索日南九里地圖 ↗</a></div><SiteFooter note="活動內容以最終公告為準。" />
       <nav className="bottom-tabs" aria-label="手機快速切換">
         <button className={view === "1024" ? "active" : ""} onClick={() => switchView("1024")}><span>24</span>10/24</button>
         <button className={view === "1025" ? "active" : ""} onClick={() => switchView("1025")}><span>25</span>10/25</button>
