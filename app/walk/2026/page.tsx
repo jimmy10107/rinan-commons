@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { SiteFooter, SiteHeader } from "../../site-shell";
 import { sitePath } from "../../site-path";
-import { site, vendors, organizations, places, programs, chapters } from "../../content";
+import { site, placeMapUrl, vendors, organizations, places, programs, chapters } from "../../content";
 
 type View = "1024" | "1025" | "local";
 
@@ -86,7 +86,7 @@ function LocalInfo() {
     </details>
     <details className="info-card">
       <summary><span className="card-icon">圖</span><div><small>LOCAL MAP</small><strong>日南觀光地圖</strong><em>開啟地點導航</em></div><i>＋</i></summary>
-      <div className="card-body place-links">{places.map((place) => <a key={place.id} href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(place.query)}`} target="_blank" rel="noreferrer"><strong>{place.name}</strong><span>導航 ↗</span></a>)}</div>
+      <div className="card-body place-links">{places.map((place) => <a key={place.id} href={placeMapUrl(place)} target="_blank" rel="noreferrer"><strong>{place.name}</strong><span>導航 ↗</span></a>)}</div>
     </details>
     <details className="info-card">
       <summary><span className="card-icon">冊</span><div><small>TO AND FROM</small><strong>《往・返》展覽手冊</strong><em>閱讀四個章節</em></div><i>＋</i></summary>
@@ -114,7 +114,7 @@ function OrganizationSection({ label, english, items, organizer = false }: { lab
             {item.logo ? <img src={sitePath(item.logo)} alt="" loading="lazy" /> : <b className="text-logo">{item.textMark}</b>}
           </span>
           <strong>{item.name}</strong>
-          {item.href && <small>官方連結 ↗</small>}
+          {item.href && <small>{item.href.includes("facebook.com") ? "Facebook 粉專 ↗" : "官方網站 ↗"}</small>}
         </>;
         return item.href
           ? <a key={item.name} href={item.href.startsWith("/") ? sitePath(item.href) : item.href} target={item.href.startsWith("http") ? "_blank" : undefined} rel={item.href.startsWith("http") ? "noreferrer" : undefined}>{contents}</a>

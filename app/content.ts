@@ -10,3 +10,8 @@ export const places = data.places;
 export const organizations = data.organizations;
 export const vendors: { id: string; name: string; category: string; theme: string; status: string; note?: string }[] = data.vendors;
 export const photoSource = 'https://www.tchac.taichung.gov.tw/building?pid=22&uid=33';
+
+// The venue's confirmed Maps share link takes precedence over address search.
+export function placeMapUrl(place: { id: string; query: string }) {
+  return place.id === 'place-1' ? site.mapUrl : `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(place.query)}`;
+}
