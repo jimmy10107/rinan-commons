@@ -21,10 +21,12 @@
     "test:content": "node --test tests/content.test.mjs",
     "test:pages": "node --test tests/pages.test.mjs",
     "images:build": "node scripts/build-public-images.mjs",
-    "check:media": "node scripts/check-public-media.mjs && node --test tests/media-privacy.test.mjs"
+    "check:media": "node scripts/check-public-media.mjs && node --test tests/media-privacy.test.mjs",
+    "test:media-service": "node --test media-service/service.test.mjs"
   },
   "dependencies": {
     "drizzle-orm": "0.45.2",
+    "jose": "6.2.12",
     "next": "16.2.6",
     "react": "19.2.6",
     "react-dom": "19.2.6"

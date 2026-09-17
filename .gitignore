@@ -54,3 +54,7 @@ next-env.d.ts
 
 # Reproducible display variants of already-public photos
 /public/images/optimized/
+
+# Account-specific media backend settings; do not commit identities or imported photos.
+/media-service/wrangler.jsonc
+/media-service/import-set/

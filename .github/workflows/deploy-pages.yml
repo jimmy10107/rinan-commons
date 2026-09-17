@@ -29,6 +29,8 @@ jobs:
         run: npm ci
       - name: Validate content database
         run: npm run content:build && npm run test:content
+      - name: Verify private media authorization
+        run: npm run test:media-service
       - name: Configure Pages
         uses: actions/configure-pages@v5
       - name: Export site

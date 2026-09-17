@@ -2,6 +2,6 @@ id,task,owner,deadline,checkpoint,definition_of_done,status,evidence
 WEB-01,參考網站與現有程式基線,Codex,本回合,參考研究,三站內容與首頁畫面已檢視,completed,docs/website-redesign-2026-09-10.md
 WEB-02,頁面與SQLite內容整合,Codex,本回合,實作,SQL可重建且頁面共用公開資料,completed,content/seed.sql
 WEB-03,驗證並提交GitHub,Codex,本回合,發布前,靜態輸出與資料測試通過且部署可讀,completed,https://github.com/jimmy10107/rinan-commons/actions/runs/34433630119
-WEB-04,手機閱讀與互動改版,Codex,2026-09-17,備份與建置後發布,保留回復版本且主要操作可用,in_progress,docs/mobile-refresh-2026-09-17.md
+WEB-04,手機閱讀與互動改版,Codex,2026-09-17,備份與建置後發布,保留回復版本且主要操作可用,completed,docs/mobile-refresh-2026-09-17.md
 WEB-05,私人照片資料庫,Codex,2026-09-17,原始bytes與去重校驗,20來源19素材私人保存且未進公開GitHub,completed,docs/mobile-refresh-2026-09-17.md
-WEB-06,受權限保護的雲端照片API,Codex,待服務連線,連線及角色權限確認,匿名不可取得原圖且公開圖經核准,blocked,docs/mobile-refresh-2026-09-17.md
+WEB-06,受權限保護的雲端照片API,Codex,待服務連線,連線及角色權限確認,匿名不可取得原圖且公開圖經核准,blocked,media-service/README.md
