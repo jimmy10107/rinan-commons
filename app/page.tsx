@@ -10,14 +10,14 @@ export default function HomePage() {
       <div className="hero-editorial">
         <p className="kicker">臺中・海線・日南 <span>RINAN COMMONS</span></p>
         <h1>在往返之間，<br /><em>認識日南。</em></h1>
-        <p className="hero-deck">車站旁，留一個可以停下來的地方。<br />看看展、坐一下，再往日南裡走。</p>
+        <p className="hero-deck">車站旁，一個可以停下來休息的地方！<br />看看展、坐一下，再往日南裡走。</p>
         <a className="solid-link" href={sitePath('/about/')}>走進日南稻站 <span aria-hidden="true">↗</span></a>
         <div className="hero-footnote"><span>從這裡出發，也從這裡回來。</span><span>海線・日南車站旁</span></div>
       </div>
       <figure className="hero-photo"><ResponsivePhoto src="/images/rinan-station.jpg" alt="日南車站的木造站房、月台與鐵軌" priority /><figcaption>日南車站｜日常往返的地方 <a href={photoSource} target="_blank" rel="noreferrer">影像來源：臺中市文化資產處</a></figcaption></figure>
     </section>
     <a className="announcement" href={sitePath('/walk/2026/')}><span className="announcement-label">下一次相遇</span><strong>10.24 — 25</strong><span>走傱日南 2026 <small>開幕・音樂・市集・走讀</small></span><b>查看活動 <span aria-hidden="true">↗</span></b></a>
-    <nav className="start-here" aria-label="快速找到想看的內容"><a href={sitePath('/about/')}><span>01 / 認識稻站</span><strong>這裡是什麼地方？</strong><b aria-hidden="true">↗</b></a><a href={sitePath('/exhibition/to-and-from/')}><span>02 / 看一場展</span><strong>往・返，閱讀日南</strong><b aria-hidden="true">↗</b></a><a href={sitePath('/visit/')}><span>03 / 準備出發</span><strong>交通與九里地圖</strong><b aria-hidden="true">↗</b></a></nav>
+    <nav className="start-here" aria-label="快速找到想看的內容"><a href={sitePath('/about/')}><span>01 / 認識稻站</span><strong>這裡是什麼地方？</strong><b aria-hidden="true">↗</b></a><a href={sitePath('/exhibition/to-and-from/')}><span>02 / 看一場展</span><strong>往・返，閱讀日南</strong><b aria-hidden="true">↗</b></a><a href={sitePath('/visit/')}><span>03 / 準備出發</span><strong>搭火車，來日南</strong><b aria-hidden="true">↗</b></a></nav>
     <section className="editorial-section home-introduction">
       <div className="section-mast"><p className="kicker">01 / 一個地方的入口</p><span>ABOUT THE COMMONS</span></div>
       <div className="introduction-grid"><h2>下了火車，<br />還有好多日南。</h2><div><p>木造車站、田野、聚落，和每天為生活走傱的人。熟悉的日南，也有你還沒遇見的樣子。</p><p>我們整理車站旁的舊空間，把地方故事、展覽與交流慢慢帶進來。讓離開、回來、留下與初次抵達的人，有一個可以相遇的地方。</p><a className="underlined-link" href={sitePath('/about/')}>空間的故事與願景 ↗</a></div></div>
