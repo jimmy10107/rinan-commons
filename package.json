@@ -17,9 +17,11 @@
     "content:build": "node scripts/build-content.mjs",
     "predev": "npm run content:build",
     "prebuild": "npm run content:build",
-    "build:pages": "npm run content:build && GITHUB_PAGES=true NEXT_PUBLIC_BASE_PATH=/rinan-commons next build",
+    "build:pages": "npm run content:build && npm run images:build && npm run check:media && GITHUB_PAGES=true NEXT_PUBLIC_BASE_PATH=/rinan-commons next build",
     "test:content": "node --test tests/content.test.mjs",
-    "test:pages": "node --test tests/pages.test.mjs"
+    "test:pages": "node --test tests/pages.test.mjs",
+    "images:build": "node scripts/build-public-images.mjs",
+    "check:media": "node scripts/check-public-media.mjs && node --test tests/media-privacy.test.mjs"
   },
   "dependencies": {
     "drizzle-orm": "0.45.2",
@@ -39,6 +41,7 @@
     "eslint": "9.39.4",
     "eslint-config-next": "16.2.6",
     "react-server-dom-webpack": "19.2.6",
+    "sharp": "0.34.5",
     "tailwindcss": "4.2.1",
     "typescript": "5.9.3",
     "vinext": "0.0.50",

@@ -45,3 +45,12 @@ next-env.d.ts
 /.content/
 /app/generated/
 *.tsbuildinfo
+
+# Never publish private media originals or catalogs
+/private-media/
+/media-private/
+*.sqlite
+*.sqlite3
+
+# Reproducible display variants of already-public photos
+/public/images/optimized/

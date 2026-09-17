@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import { SiteFooter, SiteHeader } from "../../site-shell";
 import { sitePath } from "../../site-path";
 import { site, placeMapUrl, vendors, organizations, places, programs, chapters } from "../../content";
@@ -13,7 +13,9 @@ const organizers = organizations.filter(o => o.role === 'organizer');
 
 export default function Walk2026Page() {
   const [view, setView] = useState<View>("1024");
-  const switchView = (next: View) => { setView(next); scrollTo({ top: 180, behavior: "smooth" }); };
+  const panel=useRef<HTMLElement>(null);
+  useEffect(()=>{const sync=()=>{const value=location.hash.slice(1);setView(value==='1025'||value==='local'?value:'1024');};sync();window.addEventListener('hashchange',sync);return()=>window.removeEventListener('hashchange',sync);},[]);
+  const switchView=(next:View)=>{setView(next);if(location.hash!==`#${next}`)history.pushState(null,'',`#${next}`);requestAnimationFrame(()=>{panel.current?.focus({preventScroll:true});panel.current?.scrollIntoView({block:'start',behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'instant':'smooth'});});};
 
   return (
     <main className="event-page" id="top">
@@ -24,15 +26,15 @@ export default function Walk2026Page() {
       <section className="welcome event-welcome" id="content">
         <p className="eyebrow">2026 RINAN IN MOTION</p>
         <h1>走傱日南 <em>2026</em></h1><p className="event-tagline">在往返之間，認識日南。</p><p className="event-date-large">10.24 <span>—</span> 10.25</p>
-      </section>
+      <div className="event-quick-actions"><a href="#registration">報名資訊 ↓</a><a href={site.mapUrl} target="_blank" rel="noreferrer">場地導航 ↗</a></div></section>
 
       <nav className="view-tabs" aria-label="主要資訊分類">
-        <button className={view === "1024" ? "active" : ""} onClick={() => setView("1024")} aria-pressed={view === "1024"}><span>10/24</span><strong>生命・文化的走傱</strong></button>
-        <button className={view === "1025" ? "active" : ""} onClick={() => setView("1025")} aria-pressed={view === "1025"}><span>10/25</span><strong>身體的走傱</strong></button>
-        <button className={view === "local" ? "active" : ""} onClick={() => setView("local")} aria-pressed={view === "local"}><span>日南</span><strong>店家・地圖・手冊</strong></button>
+        <button className={view === "1024" ? "active" : ""} onClick={() => switchView("1024")} aria-controls="event-program" aria-pressed={view === "1024"}><span>10/24・六</span><strong>開幕・音樂市集</strong></button>
+        <button className={view === "1025" ? "active" : ""} onClick={() => switchView("1025")} aria-controls="event-program" aria-pressed={view === "1025"}><span>10/25・日</span><strong>走讀・劇場交流</strong></button>
+        <button className={view === "local" ? "active" : ""} onClick={() => switchView("local")} aria-controls="event-program" aria-pressed={view === "local"}><span>來到日南</span><strong>地圖・實用資訊</strong></button>
       </nav>
 
-      <section className="content-panel" aria-live="polite">
+      <section ref={panel} id="event-program" className="content-panel" tabIndex={-1} aria-label={view==="1024"?"10月24日節目":view==="1025"?"10月25日節目":"日南在地資訊"}>
         {view === "1024" && <DayOne />}{view === "1025" && <DayTwo />}{view === "local" && <LocalInfo />}
       </section>
 
@@ -43,11 +45,7 @@ export default function Walk2026Page() {
       </section>
 
       <div className="event-visit-link"><a className="underlined-link" href={sitePath("/visit/")}>交通方式・安排到訪 ↗</a><br/><a className="underlined-link" href={sitePath("/visit/#rinan-map")}>探索日南九里地圖 ↗</a></div><SiteFooter note="活動內容以最終公告為準。" />
-      <nav className="bottom-tabs" aria-label="手機快速切換">
-        <button className={view === "1024" ? "active" : ""} onClick={() => switchView("1024")}><span>24</span>10/24</button>
-        <button className={view === "1025" ? "active" : ""} onClick={() => switchView("1025")}><span>25</span>10/25</button>
-        <button className={view === "local" ? "active" : ""} onClick={() => switchView("local")}><span>日</span>日南資訊</button>
-      </nav>
+
     </main>
   );
 }

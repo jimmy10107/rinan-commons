@@ -1,3 +1,4 @@
+import { MobileMenu } from './mobile-menu';
 import { sitePath } from './site-path';
 import { site } from './content';
 export type SiteSection = 'home' | 'about' | 'stories' | 'walk' | 'exhibition' | 'visit';
@@ -10,7 +11,7 @@ export function SiteHeader({ active }: { active: SiteSection }) {
   return <><a className="skip-link" href="#content">跳至主要內容</a><header className="site-header">
     <a className="site-brand" href={sitePath('/')} aria-label="日南稻站首頁"><span className="site-brand-logo"><img src={sitePath('/partners/rinan-commons.jpg')} alt="" width="86" height="52" /></span><span><strong>日南稻站</strong><small>RINAN COMMONS</small></span></a>
     <nav className="site-navigation" aria-label="網站主要導覽">{links}</nav>
-    <details className="mobile-menu"><summary>選單 <span aria-hidden="true">＋</span></summary><nav aria-label="手機網站導覽">{links}</nav></details>
+    <MobileMenu items={navigation} active={active} />
   </header></>;
 }
 export function SiteFooter({ note }: { note: string }) {
