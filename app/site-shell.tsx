@@ -1,3 +1,5 @@
+import Link from 'next/link';
+import { DraftMobileMenu } from './draft-mobile-menu';
 import { MobileMenu } from './mobile-menu';
 import { sitePath } from './site-path';
 import { site } from './content';
@@ -7,11 +9,12 @@ const navigation = [
   ['exhibition','往・返展覽','/exhibition/to-and-from/'], ['walk','走傱日南 2026','/walk/2026/'], ['explore','九里互動地圖','/explore/'], ['visit','到訪交通','/visit/'],
 ] as const;
 export function SiteHeader({ active }: { active: SiteSection }) {
-  const links = navigation.map(([id,label,path])=><a key={id} className={active===id?'active':''} href={sitePath(path)} aria-current={active===id?'page':undefined}>{label}</a>);
+  const draft = active !== 'walk' && active !== 'exhibition';
+  const links = navigation.map(([id,label,path])=>draft?<Link key={id} className={active===id?'active':''} href={path} aria-current={active===id?'page':undefined}>{label}</Link>:<a key={id} className={active===id?'active':''} href={sitePath(path)} aria-current={active===id?'page':undefined}>{label}</a>);
   return <><a className="skip-link" href="#content">跳至主要內容</a><header className="site-header">
     <a className="site-brand" href={sitePath('/')} aria-label="日南稻站首頁"><span className="site-brand-logo"><img src={sitePath('/partners/rinan-commons.jpg')} alt="" width="86" height="52" /></span><span><strong>日南稻站</strong><small>RINAN COMMONS</small></span></a>
     <nav className="site-navigation" aria-label="網站主要導覽">{links}</nav>
-    <MobileMenu items={navigation} active={active} />
+    {draft ? <DraftMobileMenu items={navigation} active={active} /> : <MobileMenu items={navigation} active={active} />}
   </header></>;
 }
 export function SiteFooter({ note }: { note: string }) {

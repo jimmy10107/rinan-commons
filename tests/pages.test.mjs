@@ -18,7 +18,8 @@ test('all nine public routes export headings, main content and indexable metadat
 });
 test('internal links and images resolve inside the GitHub Pages base path', () => {
   for (const file of htmlFiles) {
-    const html=readFileSync(file,'utf8');
+    // Origin preconnect hints are not document routes (Next may emit href="/").
+    const html=readFileSync(file,'utf8').replace(/<link\b[^>]*rel="preconnect"[^>]*>/g,'');
     for (const match of html.matchAll(/(?:href|src)="(\/[^"#?]*)/g)) {
       const url = match[1];
       assert.ok(url.startsWith('/rinan-commons/'), `${file}: missing basePath: ${url}`);

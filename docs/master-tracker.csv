@@ -5,3 +5,4 @@ WEB-03,驗證並提交GitHub,Codex,本回合,發布前,靜態輸出與資料測�
 WEB-04,手機閱讀與互動改版,Codex,2026-09-17,備份與建置後發布,保留回復版本且主要操作可用,completed,docs/mobile-refresh-2026-09-17.md
 WEB-05,私人照片資料庫,Codex,2026-09-17,原始bytes與去重校驗,20來源19素材私人保存且未進公開GitHub,completed,docs/mobile-refresh-2026-09-17.md
 WEB-06,受權限保護的雲端照片API,Codex,待服務連線,連線及角色權限確認,匿名不可取得原圖且公開圖經核准,blocked,media-service/README.md
+WEB-CIS-02,CIS第二版33項UIUX草稿,Codex,2026-09-19,研究與互動驗收,獨立分支及可操作預覽且不發布,completed,docs/cis-v2-uiux-review.md

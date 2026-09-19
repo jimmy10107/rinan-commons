@@ -69,3 +69,13 @@ Next actions: 正式資訊補入 seed.sql；如需雲端 CMS，另取得獨立�
 - 頂端九里互動地圖與到訪交通入口保留，移除兩個頁面內容上方的重複切換列。
 - /visit/ 首個內容為下一站日南、火車插畫與交通；不嵌入九里地圖。/explore/ 才嵌入地圖。
 - 修改前備份 backup/pre-nav-dedup-2026-09-19。
+
+## 2026-09-19 CIS v2 UI/UX（未發布）
+
+- 使用者要求：v1 缺質感且不順；研究公開 GitHub UI/UX，至少20項調整。延續「說更新才發布」。
+- v1 保留在 design/cis-v1-draft-2026-09-19；v2 存 design/cis-v2-ux-draft-2026-09-19。
+- 33項調整與7組來源：docs/cis-v2-uiux-review.md。包括版面、手機 modal、搜尋、地圖狀態、交通複製、Next 導覽、中文子集字型。
+- 選用 Digital & Data Lead 與 Versioned Visual Review 方法；本回合未啟動子代理。
+- 全站建置及9路由檢查通過；Chromium 模擬28項互動/版面驗收通過，非手機實機驗收。
+- 單檔附件使用實際React元件，路由與資產作附件適配；活動展覽連原頁。正式站 main、原ChatGPT Site、資料庫及私人照片未更動。
+- 不要合併或部署，直到使用者明確說「更新」。審閱後再按指定差異修訂。
