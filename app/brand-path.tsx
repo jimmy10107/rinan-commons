@@ -1,0 +1,2 @@
+/** Supporting route graphic; never used as a replacement for the master logo. */
+export function BrandPath(){return <svg className="brand-path" viewBox="0 0 1200 120" fill="none" aria-hidden="true"><path d="M-20 78C180-12 285 142 480 65S795 12 960 62s185 20 260-5M-20 95C145 140 335-15 520 62s306 59 478-8 150 14 225 33" stroke="currentColor" strokeWidth="2"/><circle cx="480" cy="65" r="8" fill="var(--cis-orange)"/></svg>}

@@ -1,10 +1,11 @@
+import { BrandPath } from './brand-path';
 import { ResponsivePhoto } from './responsive-photo';
 import { SiteFooter, SiteHeader } from './site-shell';
 import { sitePath } from './site-path';
 import { articles, site, photoSource } from './content';
 
 export default function HomePage() {
-  return <main className="commons-page" id="top">
+  return <main className="commons-page cis-theme" id="top">
     <SiteHeader active="home" />
     <section className="commons-hero" id="content">
       <div className="hero-editorial">
@@ -16,6 +17,7 @@ export default function HomePage() {
       </div>
       <figure className="hero-photo"><ResponsivePhoto src="/images/rinan-station.jpg" alt="日南車站的木造站房、月台與鐵軌" priority /><figcaption>日南車站｜日常往返的地方 <a href={photoSource} target="_blank" rel="noreferrer">影像來源：臺中市文化資產處</a></figcaption></figure>
     </section>
+    <BrandPath />
     <a className="announcement" href={sitePath('/walk/2026/')}><span className="announcement-label">下一次相遇</span><strong>10.24 — 25</strong><span>走傱日南 2026 <small>開幕・音樂・市集・走讀</small></span><b>查看活動 <span aria-hidden="true">↗</span></b></a>
     <nav className="start-here" aria-label="快速找到想看的內容"><a href={sitePath('/about/')}><span>01 / 認識稻站</span><strong>這裡是什麼地方？</strong><b aria-hidden="true">↗</b></a><a href={sitePath('/exhibition/to-and-from/')}><span>02 / 看一場展</span><strong>往・返，閱讀日南</strong><b aria-hidden="true">↗</b></a><a href={sitePath('/visit/')}><span>03 / 準備出發</span><strong>搭火車，來日南</strong><b aria-hidden="true">↗</b></a></nav>
     <section className="editorial-section home-introduction">
