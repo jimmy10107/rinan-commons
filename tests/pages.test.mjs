@@ -32,6 +32,6 @@ test('internal links and images resolve inside the GitHub Pages base path', () =
 test('draft performer and vendor names do not leak through static HTML or browser bundles', () => {
   for (const file of walk(root).filter(f=>/\.(html|js|txt|json)$/.test(f))) {
     const text=readFileSync(file,'utf8');
-    assert.doesNotMatch(text, /拍謝少年|拾光伍參柒|東明國小家長會長推薦攤位/, file);
+    assert.doesNotMatch(text, /拍謝少年|3Ｑ米食|東明國小家長會長推薦攤位/, file);
   }
 });
