@@ -23,6 +23,11 @@ test('every state has a small real-model preview for non-WebGL and low-data visi
  }
 });
 test('static page and shared navigation expose a proper standalone plants route',()=>{
- const h=readFileSync('out/plants/index.html','utf8');assert.match(h,/<h1[^>]*>植物近觀室<\/h1>/);assert.match(h,/啟動 3D/);assert.match(h,/預览|預覽/);assert.doesNotMatch(h,/<canvas/);
+ const h=readFileSync('out/plants/index.html','utf8');assert.match(h,/<h1[^>]*>日南植物形態室<\/h1>/);assert.match(h,/正在展開這株植物/);assert.match(h,/預览|預覽/);assert.doesNotMatch(h,/<canvas/);
  for(const route of ['','about/','explore/','visit/','exhibition/to-and-from/','walk/2026/']){const html=readFileSync(`out/${route}index.html`,'utf8');assert.match(html,/href="\/rinan-commons\/plants\/"/);}
+});
+
+test('progressive assets and original vector downloads are complete',()=>{
+ for(const p of plants){for(const a of [...p.stages,p.organ]){const b=readFileSync('public/plants/'+a.lite.file);assert.equal(b.length,a.lite.bytes);assert.equal(b.toString('ascii',0,4),'glTF');assert.ok(b.length<a.bytes);}for(let i=1;i<=5;i++){const svg=readFileSync(`public/plants/svg/${p.id}_${String(i).padStart(2,'0')}.svg`,'utf8');assert.match(svg,/<svg/);assert.doesNotMatch(svg,/<script/);}}
+ const queue=JSON.parse(readFileSync('app/plants/preload.json','utf8'));assert.equal(queue.length,6);assert.ok(queue.reduce((n,p)=>n+statSync('public/plants/'+p).size,0)<1500000);
 });

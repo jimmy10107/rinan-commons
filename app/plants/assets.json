@@ -7,7 +7,11 @@
     "organ": {
       "file": "models/casuarina-macro.glb",
       "bytes": 739068,
-      "triangles": 32901
+      "triangles": 32901,
+      "lite": {
+        "file": "models/casuarina-macro-lite.glb",
+        "bytes": 195340
+      }
     },
     "detail": {
       "file": "models/casuarina-detail.glb",
@@ -20,35 +24,55 @@
         "bytes": 475472,
         "triangles": 5202,
         "label": "育苗",
-        "preview": "previews/casuarina-1.webp"
+        "preview": "previews/casuarina-1.webp",
+        "lite": {
+          "file": "models/casuarina-1-lite.glb",
+          "bytes": 74416
+        }
       },
       {
         "file": "models/casuarina-2.glb",
         "bytes": 1099872,
         "triangles": 48250,
         "label": "幼樹",
-        "preview": "previews/casuarina-2.webp"
+        "preview": "previews/casuarina-2.webp",
+        "lite": {
+          "file": "models/casuarina-2-lite.glb",
+          "bytes": 264012
+        }
       },
       {
         "file": "models/casuarina-3.glb",
         "bytes": 1496732,
         "triangles": 67390,
         "label": "成樹",
-        "preview": "previews/casuarina-3.webp"
+        "preview": "previews/casuarina-3.webp",
+        "lite": {
+          "file": "models/casuarina-3-lite.glb",
+          "bytes": 308768
+        }
       },
       {
         "file": "models/casuarina-4.glb",
         "bytes": 1628888,
         "triangles": 77836,
         "label": "結實",
-        "preview": "previews/casuarina-4.webp"
+        "preview": "previews/casuarina-4.webp",
+        "lite": {
+          "file": "models/casuarina-4-lite.glb",
+          "bytes": 513324
+        }
       },
       {
         "file": "models/casuarina-5.glb",
         "bytes": 1502036,
         "triangles": 67578,
         "label": "老枝更新",
-        "preview": "previews/casuarina-5.webp"
+        "preview": "previews/casuarina-5.webp",
+        "lite": {
+          "file": "models/casuarina-5-lite.glb",
+          "bytes": 308944
+        }
       }
     ],
     "photos": [
@@ -112,7 +136,11 @@
     "organ": {
       "file": "models/rice-macro.glb",
       "bytes": 890012,
-      "triangles": 69996
+      "triangles": 69996,
+      "lite": {
+        "file": "models/rice-macro-lite.glb",
+        "bytes": 189708
+      }
     },
     "detail": {
       "file": "models/rice-detail.glb",
@@ -125,35 +153,55 @@
         "bytes": 206132,
         "triangles": 3648,
         "label": "秧苗",
-        "preview": "previews/rice-1.webp"
+        "preview": "previews/rice-1.webp",
+        "lite": {
+          "file": "models/rice-1-lite.glb",
+          "bytes": 45400
+        }
       },
       {
         "file": "models/rice-2.glb",
         "bytes": 271656,
         "triangles": 8864,
         "label": "分蘗",
-        "preview": "previews/rice-2.webp"
+        "preview": "previews/rice-2.webp",
+        "lite": {
+          "file": "models/rice-2-lite.glb",
+          "bytes": 107736
+        }
       },
       {
         "file": "models/rice-3.glb",
         "bytes": 1098888,
         "triangles": 72458,
         "label": "抽穗開花",
-        "preview": "previews/rice-3.webp"
+        "preview": "previews/rice-3.webp",
+        "lite": {
+          "file": "models/rice-3-lite.glb",
+          "bytes": 548492
+        }
       },
       {
         "file": "models/rice-4.glb",
         "bytes": 1062300,
         "triangles": 69991,
         "label": "灌漿",
-        "preview": "previews/rice-4.webp"
+        "preview": "previews/rice-4.webp",
+        "lite": {
+          "file": "models/rice-4-lite.glb",
+          "bytes": 425292
+        }
       },
       {
         "file": "models/rice-5.glb",
         "bytes": 1080708,
         "triangles": 69995,
         "label": "黃熟",
-        "preview": "previews/rice-5.webp"
+        "preview": "previews/rice-5.webp",
+        "lite": {
+          "file": "models/rice-5-lite.glb",
+          "bytes": 431892
+        }
       }
     ],
     "photos": [
@@ -207,7 +255,11 @@
     "organ": {
       "file": "models/taro-macro.glb",
       "bytes": 757776,
-      "triangles": 69997
+      "triangles": 69997,
+      "lite": {
+        "file": "models/taro-macro-lite.glb",
+        "bytes": 143720
+      }
     },
     "detail": {
       "file": "models/taro-detail.glb",
@@ -220,35 +272,55 @@
         "bytes": 474420,
         "triangles": 17031,
         "label": "新芽",
-        "preview": "previews/taro-1.webp"
+        "preview": "previews/taro-1.webp",
+        "lite": {
+          "file": "models/taro-1-lite.glb",
+          "bytes": 142200
+        }
       },
       {
         "file": "models/taro-2.glb",
         "bytes": 603084,
         "triangles": 33833,
         "label": "展葉",
-        "preview": "previews/taro-2.webp"
+        "preview": "previews/taro-2.webp",
+        "lite": {
+          "file": "models/taro-2-lite.glb",
+          "bytes": 150308
+        }
       },
       {
         "file": "models/taro-3.glb",
         "bytes": 794260,
         "triangles": 59041,
         "label": "旺盛生長",
-        "preview": "previews/taro-3.webp"
+        "preview": "previews/taro-3.webp",
+        "lite": {
+          "file": "models/taro-3-lite.glb",
+          "bytes": 158688
+        }
       },
       {
         "file": "models/taro-4.glb",
         "bytes": 857528,
         "triangles": 67463,
         "label": "塊莖膨大期",
-        "preview": "previews/taro-4.webp"
+        "preview": "previews/taro-4.webp",
+        "lite": {
+          "file": "models/taro-4-lite.glb",
+          "bytes": 160988
+        }
       },
       {
         "file": "models/taro-5.glb",
         "bytes": 664428,
         "triangles": 42234,
         "label": "老葉退化",
-        "preview": "previews/taro-5.webp"
+        "preview": "previews/taro-5.webp",
+        "lite": {
+          "file": "models/taro-5-lite.glb",
+          "bytes": 151904
+        }
       }
     ],
     "photos": [
@@ -312,7 +384,11 @@
     "organ": {
       "file": "models/koelreuteria-macro.glb",
       "bytes": 1021536,
-      "triangles": 69987
+      "triangles": 69987,
+      "lite": {
+        "file": "models/koelreuteria-macro-lite.glb",
+        "bytes": 179912
+      }
     },
     "detail": {
       "file": "models/koelreuteria-detail.glb",
@@ -325,35 +401,55 @@
         "bytes": 1053752,
         "triangles": 58474,
         "label": "幼苗",
-        "preview": "previews/koelreuteria-1.webp"
+        "preview": "previews/koelreuteria-1.webp",
+        "lite": {
+          "file": "models/koelreuteria-1-lite.glb",
+          "bytes": 249760
+        }
       },
       {
         "file": "models/koelreuteria-2.glb",
         "bytes": 1990228,
         "triangles": 100166,
         "label": "展葉幼樹",
-        "preview": "previews/koelreuteria-2.webp"
+        "preview": "previews/koelreuteria-2.webp",
+        "lite": {
+          "file": "models/koelreuteria-2-lite.glb",
+          "bytes": 769360
+        }
       },
       {
         "file": "models/koelreuteria-3.glb",
         "bytes": 3423092,
         "triangles": 210911,
         "label": "黃花期",
-        "preview": "previews/koelreuteria-3.webp"
+        "preview": "previews/koelreuteria-3.webp",
+        "lite": {
+          "file": "models/koelreuteria-3-lite.glb",
+          "bytes": 2242512
+        }
       },
       {
         "file": "models/koelreuteria-4.glb",
         "bytes": 2606452,
         "triangles": 138552,
         "label": "紅果期",
-        "preview": "previews/koelreuteria-4.webp"
+        "preview": "previews/koelreuteria-4.webp",
+        "lite": {
+          "file": "models/koelreuteria-4-lite.glb",
+          "bytes": 1347260
+        }
       },
       {
         "file": "models/koelreuteria-5.glb",
         "bytes": 1565980,
         "triangles": 85660,
         "label": "落葉期",
-        "preview": "previews/koelreuteria-5.webp"
+        "preview": "previews/koelreuteria-5.webp",
+        "lite": {
+          "file": "models/koelreuteria-5-lite.glb",
+          "bytes": 678736
+        }
       }
     ],
     "photos": [
@@ -417,7 +513,11 @@
     "organ": {
       "file": "models/saccharum-macro.glb",
       "bytes": 911488,
-      "triangles": 69749
+      "triangles": 69749,
+      "lite": {
+        "file": "models/saccharum-macro-lite.glb",
+        "bytes": 442488
+      }
     },
     "detail": {
       "file": "models/saccharum-detail.glb",
@@ -430,35 +530,55 @@
         "bytes": 230480,
         "triangles": 6624,
         "label": "萌芽",
-        "preview": "previews/saccharum-1.webp"
+        "preview": "previews/saccharum-1.webp",
+        "lite": {
+          "file": "models/saccharum-1-lite.glb",
+          "bytes": 74680
+        }
       },
       {
         "file": "models/saccharum-2.glb",
         "bytes": 299636,
         "triangles": 11081,
         "label": "成叢",
-        "preview": "previews/saccharum-2.webp"
+        "preview": "previews/saccharum-2.webp",
+        "lite": {
+          "file": "models/saccharum-2-lite.glb",
+          "bytes": 135948
+        }
       },
       {
         "file": "models/saccharum-3.glb",
         "bytes": 541020,
         "triangles": 30661,
         "label": "抽穗",
-        "preview": "previews/saccharum-3.webp"
+        "preview": "previews/saccharum-3.webp",
+        "lite": {
+          "file": "models/saccharum-3-lite.glb",
+          "bytes": 228304
+        }
       },
       {
         "file": "models/saccharum-4.glb",
         "bytes": 1051348,
         "triangles": 69877,
         "label": "銀白花序",
-        "preview": "previews/saccharum-4.webp"
+        "preview": "previews/saccharum-4.webp",
+        "lite": {
+          "file": "models/saccharum-4-lite.glb",
+          "bytes": 266828
+        }
       },
       {
         "file": "models/saccharum-5.glb",
         "bytes": 501200,
         "triangles": 27177,
         "label": "枯穗期",
-        "preview": "previews/saccharum-5.webp"
+        "preview": "previews/saccharum-5.webp",
+        "lite": {
+          "file": "models/saccharum-5-lite.glb",
+          "bytes": 228004
+        }
       }
     ],
     "photos": [
@@ -522,7 +642,11 @@
     "organ": {
       "file": "models/broussonetia-macro.glb",
       "bytes": 1558196,
-      "triangles": 70173
+      "triangles": 70173,
+      "lite": {
+        "file": "models/broussonetia-macro-lite.glb",
+        "bytes": 528512
+      }
     },
     "detail": {
       "file": "models/broussonetia-detail.glb",
@@ -535,35 +659,55 @@
         "bytes": 858948,
         "triangles": 22935,
         "label": "幼苗",
-        "preview": "previews/broussonetia-1.webp"
+        "preview": "previews/broussonetia-1.webp",
+        "lite": {
+          "file": "models/broussonetia-1-lite.glb",
+          "bytes": 170152
+        }
       },
       {
         "file": "models/broussonetia-2.glb",
         "bytes": 1484524,
         "triangles": 75594,
         "label": "幼樹",
-        "preview": "previews/broussonetia-2.webp"
+        "preview": "previews/broussonetia-2.webp",
+        "lite": {
+          "file": "models/broussonetia-2-lite.glb",
+          "bytes": 320516
+        }
       },
       {
         "file": "models/broussonetia-3.glb",
         "bytes": 1764684,
         "triangles": 94945,
         "label": "雌花期",
-        "preview": "previews/broussonetia-3.webp"
+        "preview": "previews/broussonetia-3.webp",
+        "lite": {
+          "file": "models/broussonetia-3-lite.glb",
+          "bytes": 548416
+        }
       },
       {
         "file": "models/broussonetia-4.glb",
         "bytes": 1763876,
         "triangles": 94979,
         "label": "熟果期",
-        "preview": "previews/broussonetia-4.webp"
+        "preview": "previews/broussonetia-4.webp",
+        "lite": {
+          "file": "models/broussonetia-4-lite.glb",
+          "bytes": 548048
+        }
       },
       {
         "file": "models/broussonetia-5.glb",
         "bytes": 1076644,
         "triangles": 49256,
         "label": "落葉期",
-        "preview": "previews/broussonetia-5.webp"
+        "preview": "previews/broussonetia-5.webp",
+        "lite": {
+          "file": "models/broussonetia-5-lite.glb",
+          "bytes": 187040
+        }
       }
     ],
     "photos": [

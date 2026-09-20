@@ -1,3 +1,4 @@
+import PlantPreloader from "./plants/site-preloader";
 import type { Metadata } from "next";
 import "./globals.css";
 import "./commons.css";
@@ -18,5 +19,5 @@ export const metadata: Metadata = {
 };
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
-  return <html lang="zh-Hant"><body>{children}</body></html>;
+  return <html lang="zh-Hant"><body>{children}<PlantPreloader/></body></html>;
 }
