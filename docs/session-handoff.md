@@ -101,3 +101,11 @@ Next actions: 正式資訊補入 seed.sql；如需雲端 CMS，另取得獨立�
 
 - 應用提交 65ae8138e7cb8327540172f1969af5528db1cb7c；GitHub Actions 35509663528 建置、測試與 Pages 部署成功。
 - 2026-09-20 正式站手機選單、SVG 動畫、五階段預備及無新增下載切換、放大補細節全部通過；無瀏覽器錯誤、無水平溢出。證據 docs/qa/plants-v4/live-report.json 與 live-mobile.png。
+
+## 植物形態室 v5｜放慢與交接
+
+- Decision：依使用者新指示，五個生長姿態由 6.5 秒延長為 12 秒，每張 2.4 秒；影格淡化由 240ms 改為 700ms。
+- Task：Owner Codex／Lead Digital & Data；期限本次交付；Checkpoint 修改→瀏覽器→正式部署；DoD 完整 12 秒、結尾 800ms 交叉淡化、保留操作與低動態偏好。
+- 最後一張保留到實際模型完成渲染，再以 800ms 淡入 3D；重播重設到全株最後階段，避免動畫結尾跳回前次特寫或其他階段。略過則前往當前影格階段。
+- 基線 ba0b2ad；沒有修改模型與下載素材。工作區原有的 casuarina_03.svg 修改未納入本次發布；靜態素材測試於隔離的發布基線驗證。
+- Evidence：docs/qa/plants-v5/browser-report.json；舊版證據保留於 plants-v4。

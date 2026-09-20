@@ -1,0 +1,199 @@
+{
+  "models": [
+    {
+      "id": "casuarina",
+      "stage": 0,
+      "ms": 45
+    },
+    {
+      "id": "casuarina",
+      "stage": 1,
+      "ms": 39
+    },
+    {
+      "id": "casuarina",
+      "stage": 2,
+      "ms": 142
+    },
+    {
+      "id": "casuarina",
+      "stage": 3,
+      "ms": 43
+    },
+    {
+      "id": "casuarina",
+      "stage": 4,
+      "ms": 163
+    },
+    {
+      "id": "rice",
+      "stage": 0,
+      "ms": 45
+    },
+    {
+      "id": "rice",
+      "stage": 1,
+      "ms": 39
+    },
+    {
+      "id": "rice",
+      "stage": 2,
+      "ms": 238
+    },
+    {
+      "id": "rice",
+      "stage": 3,
+      "ms": 48
+    },
+    {
+      "id": "rice",
+      "stage": 4,
+      "ms": 112
+    },
+    {
+      "id": "taro",
+      "stage": 0,
+      "ms": 113
+    },
+    {
+      "id": "taro",
+      "stage": 1,
+      "ms": 37
+    },
+    {
+      "id": "taro",
+      "stage": 2,
+      "ms": 116
+    },
+    {
+      "id": "taro",
+      "stage": 3,
+      "ms": 136
+    },
+    {
+      "id": "taro",
+      "stage": 4,
+      "ms": 129
+    },
+    {
+      "id": "koelreuteria",
+      "stage": 0,
+      "ms": 72
+    },
+    {
+      "id": "koelreuteria",
+      "stage": 1,
+      "ms": 45
+    },
+    {
+      "id": "koelreuteria",
+      "stage": 2,
+      "ms": 387
+    },
+    {
+      "id": "koelreuteria",
+      "stage": 3,
+      "ms": 46
+    },
+    {
+      "id": "koelreuteria",
+      "stage": 4,
+      "ms": 272
+    },
+    {
+      "id": "saccharum",
+      "stage": 0,
+      "ms": 68
+    },
+    {
+      "id": "saccharum",
+      "stage": 1,
+      "ms": 35
+    },
+    {
+      "id": "saccharum",
+      "stage": 2,
+      "ms": 97
+    },
+    {
+      "id": "saccharum",
+      "stage": 3,
+      "ms": 169
+    },
+    {
+      "id": "saccharum",
+      "stage": 4,
+      "ms": 28
+    },
+    {
+      "id": "broussonetia",
+      "stage": 0,
+      "ms": 83
+    },
+    {
+      "id": "broussonetia",
+      "stage": 1,
+      "ms": 36
+    },
+    {
+      "id": "broussonetia",
+      "stage": 2,
+      "ms": 119
+    },
+    {
+      "id": "broussonetia",
+      "stage": 3,
+      "ms": 166
+    },
+    {
+      "id": "broussonetia",
+      "stage": 4,
+      "ms": 162
+    }
+  ],
+  "errors": [],
+  "warmTimes": [
+    {
+      "id": "casuarina",
+      "ms": 291
+    },
+    {
+      "id": "rice",
+      "ms": 439
+    },
+    {
+      "id": "taro",
+      "ms": 425
+    },
+    {
+      "id": "koelreuteria",
+      "ms": 421
+    },
+    {
+      "id": "saccharum",
+      "ms": 270
+    },
+    {
+      "id": "broussonetia",
+      "ms": 442
+    }
+  ],
+  "viewports": [
+    360,
+    390,
+    768,
+    1024,
+    1440
+  ],
+  "base": "http://127.0.0.1:39245/rinan-commons",
+  "noUnrequestedUpgrade": true,
+  "zoomWholeDetail": true,
+  "zoomMacroDetail": true,
+  "filmMs": 12025,
+  "smoothHandoff": true,
+  "coldMobileFirstFrameMs": 371,
+  "coldMobileAllFiveMs": 2202,
+  "mobileReady": true,
+  "reducedMotionAndSaveData": true,
+  "passed": true
+}
