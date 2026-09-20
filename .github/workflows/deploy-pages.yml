@@ -39,7 +39,7 @@ jobs:
           GITHUB_PAGES: "true"
           NEXT_PUBLIC_BASE_PATH: /rinan-commons
       - name: Verify exported routes and assets
-        run: npm run test:pages
+        run: npm run test:pages && npm run test:plants
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v4
         with:

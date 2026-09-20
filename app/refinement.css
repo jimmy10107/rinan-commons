@@ -30,3 +30,6 @@ html{scroll-behavior:smooth;scroll-padding-top:110px}body{padding-bottom:0;overf
 .map-page .map-explorer{margin-top:0}.map-page .map-explorer h1{font:500 clamp(30px,4vw,48px)/1.5 var(--serif);margin:14px 0;text-wrap:balance}
 .map-page .rinan-map-section{padding-top:24px}
 @media(max-width:760px){.visit-tabs a{flex:1;padding:10px 8px;font-size:15px}.map-page .rinan-map-section{padding-inline:12px}.map-page .map-explorer-intro{padding:22px}.map-page .source-note{padding-inline:10px}}
+
+/* Expanded primary navigation: retain a usable menu on tablets. */
+@media(min-width:761px) and (max-width:1120px){.site-navigation{display:none}.mobile-menu{display:block;margin-left:auto}.mobile-menu>summary{display:flex;align-items:center;gap:13px;font-size:15px;list-style:none;padding:14px;cursor:pointer}.mobile-menu>summary::-webkit-details-marker{display:none}.mobile-menu>summary span{font-size:20px}.mobile-menu nav{position:absolute;left:0;right:0;top:100%;background:#fffef9;border-bottom:1px solid var(--line);padding:15px 28px 25px;box-shadow:0 15px 20px #183e3510}.mobile-menu nav a{display:flex;justify-content:space-between;padding:12px 0;min-height:48px;border-bottom:1px solid var(--line);font-size:17px}.mobile-menu nav a[aria-current=page]{color:var(--clay)}}

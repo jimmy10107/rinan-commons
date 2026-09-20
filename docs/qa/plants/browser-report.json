@@ -1,0 +1,216 @@
+{
+  "base": "http://127.0.0.1:38579/rinan-commons",
+  "renderer": "Chromium software WebGL; mobile viewport emulation, not a physical phone",
+  "models": [
+    {
+      "file": "models/casuarina-macro.glb",
+      "visible": true
+    },
+    {
+      "file": "models/casuarina-detail.glb",
+      "visible": true
+    },
+    {
+      "file": "models/casuarina-1.glb",
+      "visible": true
+    },
+    {
+      "file": "models/casuarina-2.glb",
+      "visible": true
+    },
+    {
+      "file": "models/casuarina-3.glb",
+      "visible": true
+    },
+    {
+      "file": "models/casuarina-4.glb",
+      "visible": true
+    },
+    {
+      "file": "models/casuarina-5.glb",
+      "visible": true
+    },
+    {
+      "file": "models/rice-macro.glb",
+      "visible": true
+    },
+    {
+      "file": "models/rice-detail.glb",
+      "visible": true
+    },
+    {
+      "file": "models/rice-1.glb",
+      "visible": true
+    },
+    {
+      "file": "models/rice-2.glb",
+      "visible": true
+    },
+    {
+      "file": "models/rice-3.glb",
+      "visible": true
+    },
+    {
+      "file": "models/rice-4.glb",
+      "visible": true
+    },
+    {
+      "file": "models/rice-5.glb",
+      "visible": true
+    },
+    {
+      "file": "models/taro-macro.glb",
+      "visible": true
+    },
+    {
+      "file": "models/taro-detail.glb",
+      "visible": true
+    },
+    {
+      "file": "models/taro-1.glb",
+      "visible": true
+    },
+    {
+      "file": "models/taro-2.glb",
+      "visible": true
+    },
+    {
+      "file": "models/taro-3.glb",
+      "visible": true
+    },
+    {
+      "file": "models/taro-4.glb",
+      "visible": true
+    },
+    {
+      "file": "models/taro-5.glb",
+      "visible": true
+    },
+    {
+      "file": "models/koelreuteria-macro.glb",
+      "visible": true
+    },
+    {
+      "file": "models/koelreuteria-detail.glb",
+      "visible": true
+    },
+    {
+      "file": "models/koelreuteria-1.glb",
+      "visible": true
+    },
+    {
+      "file": "models/koelreuteria-2.glb",
+      "visible": true
+    },
+    {
+      "file": "models/koelreuteria-3.glb",
+      "visible": true
+    },
+    {
+      "file": "models/koelreuteria-4.glb",
+      "visible": true
+    },
+    {
+      "file": "models/koelreuteria-5.glb",
+      "visible": true
+    },
+    {
+      "file": "models/saccharum-macro.glb",
+      "visible": true
+    },
+    {
+      "file": "models/saccharum-detail.glb",
+      "visible": true
+    },
+    {
+      "file": "models/saccharum-1.glb",
+      "visible": true
+    },
+    {
+      "file": "models/saccharum-2.glb",
+      "visible": true
+    },
+    {
+      "file": "models/saccharum-3.glb",
+      "visible": true
+    },
+    {
+      "file": "models/saccharum-4.glb",
+      "visible": true
+    },
+    {
+      "file": "models/saccharum-5.glb",
+      "visible": true
+    },
+    {
+      "file": "models/broussonetia-macro.glb",
+      "visible": true
+    },
+    {
+      "file": "models/broussonetia-detail.glb",
+      "visible": true
+    },
+    {
+      "file": "models/broussonetia-1.glb",
+      "visible": true
+    },
+    {
+      "file": "models/broussonetia-2.glb",
+      "visible": true
+    },
+    {
+      "file": "models/broussonetia-3.glb",
+      "visible": true
+    },
+    {
+      "file": "models/broussonetia-4.glb",
+      "visible": true
+    },
+    {
+      "file": "models/broussonetia-5.glb",
+      "visible": true
+    }
+  ],
+  "errors": [],
+  "viewports": [
+    {
+      "width": 360,
+      "noOverflow": true
+    },
+    {
+      "width": 390,
+      "noOverflow": true
+    },
+    {
+      "width": 768,
+      "noOverflow": true
+    },
+    {
+      "width": 1024,
+      "noOverflow": true
+    },
+    {
+      "width": 1440,
+      "noOverflow": true
+    }
+  ],
+  "initialModelRequests": 0,
+  "offscreenPaused": true,
+  "idlePaused": true,
+  "pngExport": true,
+  "glbExport": true,
+  "contextReleased": true,
+  "networkRecovery": true,
+  "contextRecovery": true,
+  "rapidSwitch": true,
+  "mobileMenuAndTouch": true,
+  "reducedMotionNoAutoplay": true,
+  "slowMobile": {
+    "lcp": 924,
+    "cls": 0,
+    "transferBytes": 264836,
+    "modelRequests": 0
+  },
+  "browser": "151.0.7922.34",
+  "passed": true
+}

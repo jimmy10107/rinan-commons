@@ -1,0 +1,259 @@
+{
+  "files": 42,
+  "totalBytes": 58036568,
+  "largestBytes": 6064352,
+  "models": [
+    {
+      "file": "models/casuarina-macro.glb",
+      "bytes": 739068,
+      "triangles": 32901,
+      "originalTriangles": 32901
+    },
+    {
+      "file": "models/casuarina-detail.glb",
+      "bytes": 2144880,
+      "triangles": 32901,
+      "originalTriangles": 32901
+    },
+    {
+      "file": "models/casuarina-1.glb",
+      "bytes": 475472,
+      "triangles": 5202,
+      "originalTriangles": 5202
+    },
+    {
+      "file": "models/casuarina-2.glb",
+      "bytes": 1099872,
+      "triangles": 48250,
+      "originalTriangles": 48250
+    },
+    {
+      "file": "models/casuarina-3.glb",
+      "bytes": 1496732,
+      "triangles": 67390,
+      "originalTriangles": 134618
+    },
+    {
+      "file": "models/casuarina-4.glb",
+      "bytes": 1628888,
+      "triangles": 77836,
+      "originalTriangles": 166106
+    },
+    {
+      "file": "models/casuarina-5.glb",
+      "bytes": 1502036,
+      "triangles": 67578,
+      "originalTriangles": 123734
+    },
+    {
+      "file": "models/rice-macro.glb",
+      "bytes": 890012,
+      "triangles": 69996,
+      "originalTriangles": 79160
+    },
+    {
+      "file": "models/rice-detail.glb",
+      "bytes": 2066604,
+      "triangles": 79160,
+      "originalTriangles": 79160
+    },
+    {
+      "file": "models/rice-1.glb",
+      "bytes": 206132,
+      "triangles": 3648,
+      "originalTriangles": 3648
+    },
+    {
+      "file": "models/rice-2.glb",
+      "bytes": 271656,
+      "triangles": 8864,
+      "originalTriangles": 8864
+    },
+    {
+      "file": "models/rice-3.glb",
+      "bytes": 1098888,
+      "triangles": 72458,
+      "originalTriangles": 89284
+    },
+    {
+      "file": "models/rice-4.glb",
+      "bytes": 1062300,
+      "triangles": 69991,
+      "originalTriangles": 77922
+    },
+    {
+      "file": "models/rice-5.glb",
+      "bytes": 1080708,
+      "triangles": 69995,
+      "originalTriangles": 75763
+    },
+    {
+      "file": "models/taro-macro.glb",
+      "bytes": 757776,
+      "triangles": 69997,
+      "originalTriangles": 95760
+    },
+    {
+      "file": "models/taro-detail.glb",
+      "bytes": 1720516,
+      "triangles": 95760,
+      "originalTriangles": 95760
+    },
+    {
+      "file": "models/taro-1.glb",
+      "bytes": 474420,
+      "triangles": 17031,
+      "originalTriangles": 17031
+    },
+    {
+      "file": "models/taro-2.glb",
+      "bytes": 603084,
+      "triangles": 33833,
+      "originalTriangles": 33833
+    },
+    {
+      "file": "models/taro-3.glb",
+      "bytes": 794260,
+      "triangles": 59041,
+      "originalTriangles": 59041
+    },
+    {
+      "file": "models/taro-4.glb",
+      "bytes": 857528,
+      "triangles": 67463,
+      "originalTriangles": 67463
+    },
+    {
+      "file": "models/taro-5.glb",
+      "bytes": 664428,
+      "triangles": 42234,
+      "originalTriangles": 42234
+    },
+    {
+      "file": "models/koelreuteria-macro.glb",
+      "bytes": 1021536,
+      "triangles": 69987,
+      "originalTriangles": 248896
+    },
+    {
+      "file": "models/koelreuteria-detail.glb",
+      "bytes": 3614344,
+      "triangles": 248896,
+      "originalTriangles": 248896
+    },
+    {
+      "file": "models/koelreuteria-1.glb",
+      "bytes": 1053752,
+      "triangles": 58474,
+      "originalTriangles": 58474
+    },
+    {
+      "file": "models/koelreuteria-2.glb",
+      "bytes": 1990228,
+      "triangles": 100166,
+      "originalTriangles": 613479
+    },
+    {
+      "file": "models/koelreuteria-3.glb",
+      "bytes": 3423092,
+      "triangles": 210911,
+      "originalTriangles": 1039452
+    },
+    {
+      "file": "models/koelreuteria-4.glb",
+      "bytes": 2606452,
+      "triangles": 138552,
+      "originalTriangles": 1068030
+    },
+    {
+      "file": "models/koelreuteria-5.glb",
+      "bytes": 1565980,
+      "triangles": 85660,
+      "originalTriangles": 253354
+    },
+    {
+      "file": "models/saccharum-macro.glb",
+      "bytes": 911488,
+      "triangles": 69749,
+      "originalTriangles": 751736
+    },
+    {
+      "file": "models/saccharum-detail.glb",
+      "bytes": 3019528,
+      "triangles": 285666,
+      "originalTriangles": 751736
+    },
+    {
+      "file": "models/saccharum-1.glb",
+      "bytes": 230480,
+      "triangles": 6624,
+      "originalTriangles": 6624
+    },
+    {
+      "file": "models/saccharum-2.glb",
+      "bytes": 299636,
+      "triangles": 11081,
+      "originalTriangles": 11081
+    },
+    {
+      "file": "models/saccharum-3.glb",
+      "bytes": 541020,
+      "triangles": 30661,
+      "originalTriangles": 30661
+    },
+    {
+      "file": "models/saccharum-4.glb",
+      "bytes": 1051348,
+      "triangles": 69877,
+      "originalTriangles": 73241
+    },
+    {
+      "file": "models/saccharum-5.glb",
+      "bytes": 501200,
+      "triangles": 27177,
+      "originalTriangles": 27177
+    },
+    {
+      "file": "models/broussonetia-macro.glb",
+      "bytes": 1558196,
+      "triangles": 70173,
+      "originalTriangles": 594912
+    },
+    {
+      "file": "models/broussonetia-detail.glb",
+      "bytes": 6064352,
+      "triangles": 300714,
+      "originalTriangles": 594912
+    },
+    {
+      "file": "models/broussonetia-1.glb",
+      "bytes": 858948,
+      "triangles": 22935,
+      "originalTriangles": 22935
+    },
+    {
+      "file": "models/broussonetia-2.glb",
+      "bytes": 1484524,
+      "triangles": 75594,
+      "originalTriangles": 378114
+    },
+    {
+      "file": "models/broussonetia-3.glb",
+      "bytes": 1764684,
+      "triangles": 94945,
+      "originalTriangles": 562854
+    },
+    {
+      "file": "models/broussonetia-4.glb",
+      "bytes": 1763876,
+      "triangles": 94979,
+      "originalTriangles": 562859
+    },
+    {
+      "file": "models/broussonetia-5.glb",
+      "bytes": 1076644,
+      "triangles": 49256,
+      "originalTriangles": 49256
+    }
+  ]
+}

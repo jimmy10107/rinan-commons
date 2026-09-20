@@ -6,8 +6,8 @@ import test from 'node:test';
 const root = fileURLToPath(new URL('../out/', import.meta.url));
 function walk(dir) { return readdirSync(dir).flatMap(name => { const f=path.join(dir,name); return statSync(f).isDirectory()?walk(f):[f]; }); }
 const htmlFiles = walk(root).filter(f=>f.endsWith('.html') && !f.endsWith('404.html') && !f.includes('_not-found') && !f.includes(`${path.sep}maps${path.sep}`) && !f.includes(`${path.sep}404${path.sep}`));
-test('all nine public routes export headings, main content and indexable metadata', () => {
-  assert.equal(htmlFiles.length, 9);
+test('all ten public routes export headings, main content and indexable metadata', () => {
+  assert.equal(htmlFiles.length, 10);
   for (const file of htmlFiles) {
     const html=readFileSync(file,'utf8');
     assert.equal((html.match(/<h1[\s>]/g)||[]).length, 1, file);

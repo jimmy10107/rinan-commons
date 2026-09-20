@@ -1,0 +1,622 @@
+[
+  {
+    "id": "casuarina",
+    "name": "木麻黃",
+    "latin": "Casuarina equisetifolia",
+    "note": "節狀綠色小枝、輪生鱗片葉；老化保留常綠樹冠。",
+    "organ": {
+      "file": "models/casuarina-macro.glb",
+      "bytes": 739068,
+      "triangles": 32901
+    },
+    "detail": {
+      "file": "models/casuarina-detail.glb",
+      "bytes": 2144880,
+      "triangles": 32901
+    },
+    "stages": [
+      {
+        "file": "models/casuarina-1.glb",
+        "bytes": 475472,
+        "triangles": 5202,
+        "label": "育苗",
+        "preview": "previews/casuarina-1.webp"
+      },
+      {
+        "file": "models/casuarina-2.glb",
+        "bytes": 1099872,
+        "triangles": 48250,
+        "label": "幼樹",
+        "preview": "previews/casuarina-2.webp"
+      },
+      {
+        "file": "models/casuarina-3.glb",
+        "bytes": 1496732,
+        "triangles": 67390,
+        "label": "成樹",
+        "preview": "previews/casuarina-3.webp"
+      },
+      {
+        "file": "models/casuarina-4.glb",
+        "bytes": 1628888,
+        "triangles": 77836,
+        "label": "結實",
+        "preview": "previews/casuarina-4.webp"
+      },
+      {
+        "file": "models/casuarina-5.glb",
+        "bytes": 1502036,
+        "triangles": 67578,
+        "label": "老枝更新",
+        "preview": "previews/casuarina-5.webp"
+      }
+    ],
+    "photos": [
+      {
+        "file": "references/casuarina-653413.webp",
+        "title": "File:Casuarina equisetifolia leaves.jpg",
+        "author": "Eric Guinther",
+        "license": "CC BY-SA 3.0",
+        "licenseUrl": "http://creativecommons.org/licenses/by-sa/3.0/",
+        "source": "https://commons.wikimedia.org/wiki/File:Casuarina_equisetifolia_leaves.jpg",
+        "note": "近拍可見節狀小枝與退化葉部位。",
+        "type": "photograph"
+      },
+      {
+        "file": "references/casuarina-4989854.webp",
+        "title": "File:Casuarina equesitifolia tree.jpg",
+        "author": "Ethel Aardvark",
+        "license": "CC BY 3.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by/3.0",
+        "source": "https://commons.wikimedia.org/wiki/File:Casuarina_equesitifolia_tree.jpg",
+        "note": "成樹枝條垂拂；不是規則的松樹枝層。",
+        "type": "photograph"
+      },
+      {
+        "file": "references/casuarina-6158205.webp",
+        "title": "File:Starr 080603-5760 Casuarina equisetifolia.jpg",
+        "author": "Forest & Kim Starr",
+        "license": "CC BY 3.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by/3.0",
+        "source": "https://commons.wikimedia.org/wiki/File:Starr_080603-5760_Casuarina_equisetifolia.jpg",
+        "note": "幼小植株；拍攝環境與日南不同。",
+        "type": "photograph"
+      },
+      {
+        "file": "references/casuarina-130795596.webp",
+        "title": "File:Casuarina equisetifolia 257711524.jpg",
+        "author": "Dinesh Valke",
+        "license": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+        "source": "https://commons.wikimedia.org/wiki/File:Casuarina_equisetifolia_257711524.jpg",
+        "note": "細枝節段與灰綠枝梢。",
+        "type": "photograph"
+      },
+      {
+        "file": "references/casuarina-130795753.webp",
+        "title": "File:Casuarina equisetifolia 257711549.jpg",
+        "author": "Dinesh Valke",
+        "license": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+        "source": "https://commons.wikimedia.org/wiki/File:Casuarina_equisetifolia_257711549.jpg",
+        "note": "樹上木質果序與懸垂枝梢。",
+        "type": "photograph"
+      }
+    ]
+  },
+  {
+    "id": "rice",
+    "name": "水稻",
+    "latin": "Oryza sativa",
+    "note": "基部分蘗、狹長葉、分枝圓錐稻穗；黃熟不是病態萎凋。",
+    "organ": {
+      "file": "models/rice-macro.glb",
+      "bytes": 890012,
+      "triangles": 69996
+    },
+    "detail": {
+      "file": "models/rice-detail.glb",
+      "bytes": 2066604,
+      "triangles": 79160
+    },
+    "stages": [
+      {
+        "file": "models/rice-1.glb",
+        "bytes": 206132,
+        "triangles": 3648,
+        "label": "秧苗",
+        "preview": "previews/rice-1.webp"
+      },
+      {
+        "file": "models/rice-2.glb",
+        "bytes": 271656,
+        "triangles": 8864,
+        "label": "分蘗",
+        "preview": "previews/rice-2.webp"
+      },
+      {
+        "file": "models/rice-3.glb",
+        "bytes": 1098888,
+        "triangles": 72458,
+        "label": "抽穗開花",
+        "preview": "previews/rice-3.webp"
+      },
+      {
+        "file": "models/rice-4.glb",
+        "bytes": 1062300,
+        "triangles": 69991,
+        "label": "灌漿",
+        "preview": "previews/rice-4.webp"
+      },
+      {
+        "file": "models/rice-5.glb",
+        "bytes": 1080708,
+        "triangles": 69995,
+        "label": "黃熟",
+        "preview": "previews/rice-5.webp"
+      }
+    ],
+    "photos": [
+      {
+        "file": "references/rice-27719587.webp",
+        "title": "File:Rice (Oryza sativa).png",
+        "author": "Database Center for Life Science (DBCLS)",
+        "license": "CC BY 3.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by/3.0",
+        "source": "https://commons.wikimedia.org/wiki/File:Rice_(Oryza_sativa).png",
+        "note": "植物圖示，非實拍照片；只供分枝稻穗輪廓參考。",
+        "type": "illustration"
+      },
+      {
+        "file": "references/rice-95182660.webp",
+        "title": "File:Kanchanaburi, Thailand, Asian rice (Oryza sativa) grass.jpg",
+        "author": "Vyacheslav Argenberg",
+        "license": "CC BY 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by/4.0",
+        "source": "https://commons.wikimedia.org/wiki/File:Kanchanaburi,_Thailand,_Asian_rice_(Oryza_sativa)_grass.jpg",
+        "note": "營養生長葉叢。",
+        "type": "photograph"
+      },
+      {
+        "file": "references/rice-99493152.webp",
+        "title": "File:Oryza sativa L.jpg",
+        "author": "Syariful Msth",
+        "license": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+        "source": "https://commons.wikimedia.org/wiki/File:Oryza_sativa_L.jpg",
+        "note": "田間成熟稻穗與長葉。",
+        "type": "photograph"
+      },
+      {
+        "file": "references/rice-115567783.webp",
+        "title": "File:Bulakenyo farmer transplanting Oryza sativa palay seedling in Guiguinto rice paddy 01.jpg",
+        "author": "FBenjr123",
+        "license": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+        "source": "https://commons.wikimedia.org/wiki/File:Bulakenyo_farmer_transplanting_Oryza_sativa_palay_seedling_in_Guiguinto_rice_paddy_01.jpg",
+        "note": "插秧情境；單株特寫不足。",
+        "type": "photograph"
+      }
+    ]
+  },
+  {
+    "id": "taro",
+    "name": "芋頭",
+    "latin": "Colocasia esculenta",
+    "note": "葉柄連接葉背內側，盾形葉具放射脈；不是姑婆芋。",
+    "organ": {
+      "file": "models/taro-macro.glb",
+      "bytes": 757776,
+      "triangles": 69997
+    },
+    "detail": {
+      "file": "models/taro-detail.glb",
+      "bytes": 1720516,
+      "triangles": 95760
+    },
+    "stages": [
+      {
+        "file": "models/taro-1.glb",
+        "bytes": 474420,
+        "triangles": 17031,
+        "label": "新芽",
+        "preview": "previews/taro-1.webp"
+      },
+      {
+        "file": "models/taro-2.glb",
+        "bytes": 603084,
+        "triangles": 33833,
+        "label": "展葉",
+        "preview": "previews/taro-2.webp"
+      },
+      {
+        "file": "models/taro-3.glb",
+        "bytes": 794260,
+        "triangles": 59041,
+        "label": "旺盛生長",
+        "preview": "previews/taro-3.webp"
+      },
+      {
+        "file": "models/taro-4.glb",
+        "bytes": 857528,
+        "triangles": 67463,
+        "label": "塊莖膨大期",
+        "preview": "previews/taro-4.webp"
+      },
+      {
+        "file": "models/taro-5.glb",
+        "bytes": 664428,
+        "triangles": 42234,
+        "label": "老葉退化",
+        "preview": "previews/taro-5.webp"
+      }
+    ],
+    "photos": [
+      {
+        "file": "references/taro-9527528.webp",
+        "title": "File:Taro leaf underside, backlit by sun.jpg",
+        "author": "Avenue",
+        "license": "CC BY-SA 3.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+        "source": "https://commons.wikimedia.org/wiki/File:Taro_leaf_underside,_backlit_by_sun.jpg",
+        "note": "葉背透光與放射脈。",
+        "type": "photograph"
+      },
+      {
+        "file": "references/taro-21606687.webp",
+        "title": "File:Colocasia FR 2012.jpg",
+        "author": "JLPC",
+        "license": "CC BY-SA 3.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+        "source": "https://commons.wikimedia.org/wiki/File:Colocasia_FR_2012.jpg",
+        "note": "盾形葉、主側葉脈。",
+        "type": "photograph"
+      },
+      {
+        "file": "references/taro-151864507.webp",
+        "title": "File:Colocasia esculenta 4.jpg",
+        "author": "Nativeplants garden",
+        "license": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+        "source": "https://commons.wikimedia.org/wiki/File:Colocasia_esculenta_4.jpg",
+        "note": "整株葉柄高度與葉片姿態。",
+        "type": "photograph"
+      },
+      {
+        "file": "references/taro-158069621.webp",
+        "title": "File:Dasheen bush (Colocasia esculenta) field in Trinidad and Tobago.jpg",
+        "author": "Food and Agriculture Organization of the United Nations",
+        "license": "CC BY 3.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by/3.0",
+        "source": "https://commons.wikimedia.org/wiki/File:Dasheen_bush_(Colocasia_esculenta)_field_in_Trinidad_and_Tobago.jpg",
+        "note": "栽培田整體；不用來校準单株尺寸。",
+        "type": "photograph"
+      },
+      {
+        "file": "references/taro-159037025.webp",
+        "title": "File:(MHNT) Colocasia esculenta - Les Martels, Giroussens Tarn.jpg",
+        "author": "Didier Descouens",
+        "license": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+        "source": "https://commons.wikimedia.org/wiki/File:(MHNT)_Colocasia_esculenta_-_Les_Martels,_Giroussens_Tarn.jpg",
+        "note": "叢生習性與老葉。",
+        "type": "photograph"
+      }
+    ]
+  },
+  {
+    "id": "koelreuteria",
+    "name": "臺灣欒樹",
+    "latin": "Koelreuteria elegans subsp. formosana",
+    "note": "二回羽狀複葉，黃色小花與三瓣膨大紙質蒴果分開呈現。",
+    "organ": {
+      "file": "models/koelreuteria-macro.glb",
+      "bytes": 1021536,
+      "triangles": 69987
+    },
+    "detail": {
+      "file": "models/koelreuteria-detail.glb",
+      "bytes": 3614344,
+      "triangles": 248896
+    },
+    "stages": [
+      {
+        "file": "models/koelreuteria-1.glb",
+        "bytes": 1053752,
+        "triangles": 58474,
+        "label": "幼苗",
+        "preview": "previews/koelreuteria-1.webp"
+      },
+      {
+        "file": "models/koelreuteria-2.glb",
+        "bytes": 1990228,
+        "triangles": 100166,
+        "label": "展葉幼樹",
+        "preview": "previews/koelreuteria-2.webp"
+      },
+      {
+        "file": "models/koelreuteria-3.glb",
+        "bytes": 3423092,
+        "triangles": 210911,
+        "label": "黃花期",
+        "preview": "previews/koelreuteria-3.webp"
+      },
+      {
+        "file": "models/koelreuteria-4.glb",
+        "bytes": 2606452,
+        "triangles": 138552,
+        "label": "紅果期",
+        "preview": "previews/koelreuteria-4.webp"
+      },
+      {
+        "file": "models/koelreuteria-5.glb",
+        "bytes": 1565980,
+        "triangles": 85660,
+        "label": "落葉期",
+        "preview": "previews/koelreuteria-5.webp"
+      }
+    ],
+    "photos": [
+      {
+        "file": "references/koelreuteria-6115811.webp",
+        "title": "File:Starr 031108-0141 Koelreuteria elegans subsp. formosana.jpg",
+        "author": "Forest & Kim Starr",
+        "license": "CC BY 3.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by/3.0",
+        "source": "https://commons.wikimedia.org/wiki/File:Starr_031108-0141_Koelreuteria_elegans_subsp._formosana.jpg",
+        "note": "展開型樹冠。",
+        "type": "photograph"
+      },
+      {
+        "file": "references/koelreuteria-6148539.webp",
+        "title": "File:Starr 060814-8558 Koelreuteria elegans subsp. formosana.jpg",
+        "author": "Forest & Kim Starr",
+        "license": "CC BY 3.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by/3.0",
+        "source": "https://commons.wikimedia.org/wiki/File:Starr_060814-8558_Koelreuteria_elegans_subsp._formosana.jpg",
+        "note": "樹上複葉配置，非完整展葉平鋪圖。",
+        "type": "photograph"
+      },
+      {
+        "file": "references/koelreuteria-6150486.webp",
+        "title": "File:Starr 060912-8824 Koelreuteria elegans subsp. formosana.jpg",
+        "author": "Forest & Kim Starr",
+        "license": "CC BY 3.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by/3.0",
+        "source": "https://commons.wikimedia.org/wiki/File:Starr_060912-8824_Koelreuteria_elegans_subsp._formosana.jpg",
+        "note": "花與果的季節同框。",
+        "type": "photograph"
+      },
+      {
+        "file": "references/koelreuteria-71849684.webp",
+        "title": "File:Starr-091023-8573-Koelreuteria elegans subsp formosana-fruit and leaves-Makawao-Maui (24960588176).jpg",
+        "author": "Forest and Kim Starr",
+        "license": "CC BY 3.0 us",
+        "licenseUrl": "https://creativecommons.org/licenses/by/3.0/us/deed.en",
+        "source": "https://commons.wikimedia.org/wiki/File:Starr-091023-8573-Koelreuteria_elegans_subsp_formosana-fruit_and_leaves-Makawao-Maui_(24960588176).jpg",
+        "note": "紅褐蒴果與葉叢。",
+        "type": "photograph"
+      },
+      {
+        "file": "references/koelreuteria-71862033.webp",
+        "title": "File:Starr-100430-5599-Koelreuteria elegans subsp formosana-seedlings-Iao-Maui (24402282124).jpg",
+        "author": "Forest and Kim Starr",
+        "license": "CC BY 3.0 us",
+        "licenseUrl": "https://creativecommons.org/licenses/by/3.0/us/deed.en",
+        "source": "https://commons.wikimedia.org/wiki/File:Starr-100430-5599-Koelreuteria_elegans_subsp_formosana-seedlings-Iao-Maui_(24402282124).jpg",
+        "note": "實拍幼苗。",
+        "type": "photograph"
+      }
+    ]
+  },
+  {
+    "id": "saccharum",
+    "name": "甜根子草",
+    "latin": "Saccharum spontaneum",
+    "note": "叢生細稈與銀白柔細毛狀花序；不做成蘆葦的硬羽毛。",
+    "organ": {
+      "file": "models/saccharum-macro.glb",
+      "bytes": 911488,
+      "triangles": 69749
+    },
+    "detail": {
+      "file": "models/saccharum-detail.glb",
+      "bytes": 3019528,
+      "triangles": 285666
+    },
+    "stages": [
+      {
+        "file": "models/saccharum-1.glb",
+        "bytes": 230480,
+        "triangles": 6624,
+        "label": "萌芽",
+        "preview": "previews/saccharum-1.webp"
+      },
+      {
+        "file": "models/saccharum-2.glb",
+        "bytes": 299636,
+        "triangles": 11081,
+        "label": "成叢",
+        "preview": "previews/saccharum-2.webp"
+      },
+      {
+        "file": "models/saccharum-3.glb",
+        "bytes": 541020,
+        "triangles": 30661,
+        "label": "抽穗",
+        "preview": "previews/saccharum-3.webp"
+      },
+      {
+        "file": "models/saccharum-4.glb",
+        "bytes": 1051348,
+        "triangles": 69877,
+        "label": "銀白花序",
+        "preview": "previews/saccharum-4.webp"
+      },
+      {
+        "file": "models/saccharum-5.glb",
+        "bytes": 501200,
+        "triangles": 27177,
+        "label": "枯穗期",
+        "preview": "previews/saccharum-5.webp"
+      }
+    ],
+    "photos": [
+      {
+        "file": "references/saccharum-4265795.webp",
+        "title": "File:K5601-19.jpg",
+        "author": "Scott Bauer",
+        "license": "Public domain",
+        "licenseUrl": "https://commons.wikimedia.org/wiki/File:K5601-19.jpg",
+        "source": "https://commons.wikimedia.org/wiki/File:K5601-19.jpg",
+        "note": "開花花序與長絲狀毛。",
+        "type": "photograph"
+      },
+      {
+        "file": "references/saccharum-32665046.webp",
+        "title": "File:Saccharum spontaneum at the bank of rever Ganges 07102013 01.jpg",
+        "author": "Joydeep",
+        "license": "CC BY-SA 3.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+        "source": "https://commons.wikimedia.org/wiki/File:Saccharum_spontaneum_at_the_bank_of_rever_Ganges_07102013_01.jpg",
+        "note": "大面積成熟花穗。",
+        "type": "photograph"
+      },
+      {
+        "file": "references/saccharum-61239309.webp",
+        "title": "File:Saccharum spontaneum 5zz.jpg",
+        "author": "Photo by David J. Stang",
+        "license": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+        "source": "https://commons.wikimedia.org/wiki/File:Saccharum_spontaneum_5zz.jpg",
+        "note": "稈節與線形葉。",
+        "type": "photograph"
+      },
+      {
+        "file": "references/saccharum-96053975.webp",
+        "title": "File:Saccharum spontaneum-Plants.jpg",
+        "author": "5h4m6u",
+        "license": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+        "source": "https://commons.wikimedia.org/wiki/File:Saccharum_spontaneum-Plants.jpg",
+        "note": "穗的分枝結構。",
+        "type": "photograph"
+      },
+      {
+        "file": "references/saccharum-112024715.webp",
+        "title": "File:Saccharum spontaneum L. (31779910838).jpg",
+        "author": "Dinesh Valke  from Thane, India",
+        "license": "CC BY-SA 2.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0",
+        "source": "https://commons.wikimedia.org/wiki/File:Saccharum_spontaneum_L._(31779910838).jpg",
+        "note": "河床群落與銀白穗。",
+        "type": "photograph"
+      }
+    ]
+  },
+  {
+    "id": "broussonetia",
+    "name": "構樹",
+    "latin": "Broussonetia papyrifera",
+    "note": "同株可有不同裂葉；本套成熟花果選擇雌株，非所有構樹都結果。",
+    "organ": {
+      "file": "models/broussonetia-macro.glb",
+      "bytes": 1558196,
+      "triangles": 70173
+    },
+    "detail": {
+      "file": "models/broussonetia-detail.glb",
+      "bytes": 6064352,
+      "triangles": 300714
+    },
+    "stages": [
+      {
+        "file": "models/broussonetia-1.glb",
+        "bytes": 858948,
+        "triangles": 22935,
+        "label": "幼苗",
+        "preview": "previews/broussonetia-1.webp"
+      },
+      {
+        "file": "models/broussonetia-2.glb",
+        "bytes": 1484524,
+        "triangles": 75594,
+        "label": "幼樹",
+        "preview": "previews/broussonetia-2.webp"
+      },
+      {
+        "file": "models/broussonetia-3.glb",
+        "bytes": 1764684,
+        "triangles": 94945,
+        "label": "雌花期",
+        "preview": "previews/broussonetia-3.webp"
+      },
+      {
+        "file": "models/broussonetia-4.glb",
+        "bytes": 1763876,
+        "triangles": 94979,
+        "label": "熟果期",
+        "preview": "previews/broussonetia-4.webp"
+      },
+      {
+        "file": "models/broussonetia-5.glb",
+        "bytes": 1076644,
+        "triangles": 49256,
+        "label": "落葉期",
+        "preview": "previews/broussonetia-5.webp"
+      }
+    ],
+    "photos": [
+      {
+        "file": "references/broussonetia-212221.webp",
+        "title": "File:Broussonetia papyrifera-fruits.jpg",
+        "author": "Yug",
+        "license": "Public domain",
+        "licenseUrl": "https://commons.wikimedia.org/wiki/File:Broussonetia_papyrifera-fruits.jpg",
+        "source": "https://commons.wikimedia.org/wiki/File:Broussonetia_papyrifera-fruits.jpg",
+        "note": "果序形態參考；原上傳者曾註記物種辨識未定。",
+        "type": "photograph"
+      },
+      {
+        "file": "references/broussonetia-1191948.webp",
+        "title": "File:Broussonetia papyrifera Leaves 3008px.jpg",
+        "author": "Photo by and (c)2006 Derek Ramsey ( Ram-Man ).  Location credit to the Chanticleer Garden.",
+        "license": "CC BY-SA 3.0",
+        "licenseUrl": "http://creativecommons.org/licenses/by-sa/3.0/",
+        "source": "https://commons.wikimedia.org/wiki/File:Broussonetia_papyrifera_Leaves_3008px.jpg",
+        "note": "卵形葉與葉脈，葉面粗糙。",
+        "type": "photograph"
+      },
+      {
+        "file": "references/broussonetia-7487932.webp",
+        "title": "File:Murier.jpg",
+        "author": "Didier Descouens",
+        "license": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+        "source": "https://commons.wikimedia.org/wiki/File:Murier.jpg",
+        "note": "同一植物上的裂葉差異。",
+        "type": "photograph"
+      },
+      {
+        "file": "references/broussonetia-34936744.webp",
+        "title": "File:Broussonetia papyrifera MHNT Texture of the trunk.jpg",
+        "author": "Didier Descouens",
+        "license": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+        "source": "https://commons.wikimedia.org/wiki/File:Broussonetia_papyrifera_MHNT_Texture_of_the_trunk.jpg",
+        "note": "樹皮縱裂紋。",
+        "type": "photograph"
+      },
+      {
+        "file": "references/broussonetia-81740753.webp",
+        "title": "File:Broussonetia papyrifera fruits.jpg",
+        "author": "Didier Descouens",
+        "license": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+        "source": "https://commons.wikimedia.org/wiki/File:Broussonetia_papyrifera_fruits.jpg",
+        "note": "未熟與成熟果序的表面差異。",
+        "type": "photograph"
+      }
+    ]
+  }
+]
