@@ -8,3 +8,4 @@ WEB-06,受權限保護的雲端照片API,Codex,待服務連線,連線及角色�
 WEB-07,植物近觀室與手機效能整合,Codex,2026-09-20,素材與瀏覽器驗證,六植物30生長狀態與42模型可操作,completed,docs/plants-2026-09-20.md
 WEB-08,植物頁GitHub Pages部署,Codex,2026-09-20,Actions與正式站驗證,正式選單與植物頁公開且可操作,completed,https://github.com/jimmy10107/rinan-commons/actions/runs/35492784709
 WEB-09,日南植物形態室布局與漸進3D,Codex,本次交付,瀏覽器及正式部署,第一版布局與直接3D及跨頁快取可操作,completed,https://github.com/jimmy10107/rinan-commons/actions/runs/35508601131
+WEB-10,SVG生命週期與五階段3D預備,Codex,本次交付,冷啟動及快取驗證,先播6.5秒SVG並可快速切換已準備3D,in_progress,docs/plants-lifecycle-v4.md

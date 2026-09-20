@@ -21,7 +21,9 @@ export function createPlantViewer(host: HTMLElement, report: (state: 'loading'|'
   const pmrem=new THREE.PMREMGenerator(renderer),room=new RoomEnvironment();
   const environment=pmrem.fromScene(room,.04);scene.environment=environment.texture;scene.environmentIntensity=.32;room.dispose();pmrem.dispose();
   const loader=new GLTFLoader().setMeshoptDecoder(MeshoptDecoder);
-  let model:THREE.Group|null=null,dead=false,visible=true,frame=0,frames=0,version=0,abort:AbortController|null=null;
+  let model:THREE.Group|null=null,dead=false,visible=true,frame=0,frames=0,version=0;
+  const prepared=new Map<string,THREE.Group>(),pending=new Map<string,Promise<THREE.Group>>(),jobs=new Map<string,AbortController>();
+  let keep=new Set<string>();
   let dim=1,radius=.5,center=new THREE.Vector3(),fitDistance=2;
   let last=0,slowFrames=0,movingFrames=0,wire=false;
   function disposeModel(root:THREE.Object3D){
@@ -52,30 +54,45 @@ export function createPlantViewer(host: HTMLElement, report: (state: 'loading'|'
     fitDistance=radius/Math.sin(Math.min(vertical,horizontal))*1.08;
     const damping=controls.enableDamping;controls.enableDamping=false;controls.target.copy(center);camera.position.copy(center).add(direction.normalize().multiplyScalar(fitDistance));controls.update();controls.enableDamping=damping;invalidate();
   }
+  function trim(){
+    for(const [url,group] of prepared){if(group!==model&&(!keep.has(url)||prepared.size>6)){prepared.delete(url);disposeModel(group);}}
+  }
+  function retain(urls:string[]){keep=new Set(urls);for(const [url,job] of jobs)if(!keep.has(url))job.abort();trim();}
+  async function prepare(url:string):Promise<THREE.Group>{
+    const hit=prepared.get(url);if(hit)return hit;
+    const existing=pending.get(url);if(existing&&!jobs.get(url)?.signal.aborted)return existing;
+    const controller=new AbortController();jobs.set(url,controller);const deadline=setTimeout(()=>controller.abort(new Error('Model preparation timeout')),15000);
+    const task=(async()=>{
+      let group:THREE.Group|null=null;
+      try{
+        const bytes=await modelBytes(url,controller.signal);controller.signal.throwIfAborted();
+        const gltf=await loader.parseAsync(bytes,'');group=gltf.scene;
+        if(dead)throw new DOMException('Disposed','AbortError');controller.signal.throwIfAborted();
+        const staging=new THREE.Scene();staging.environment=scene.environment;staging.environmentIntensity=scene.environmentIntensity;
+        for(const light of [hemi,key,fill,rim])staging.add(light.clone());staging.add(group);
+        if(renderer.extensions.has('KHR_parallel_shader_compile'))await renderer.compileAsync(staging,camera);else renderer.compile(staging,camera);
+        if(dead)throw new DOMException('Disposed','AbortError');controller.signal.throwIfAborted();
+        staging.remove(group);prepared.set(url,group);return group;
+      }catch(e){if(group)disposeModel(group);throw e;}
+      finally{clearTimeout(deadline);if(jobs.get(url)===controller){jobs.delete(url);pending.delete(url);}}
+    })();pending.set(url,task);return task;
+  }
+  async function warm(url:string){try{await prepare(url);return true;}catch{return false;}}
   async function load(url:string,preserve=false){
-    const current=++version;abort?.abort();abort=new AbortController();const retained=preserve&&!!model&&canvas.dataset.ready==='true';
+    const current=++version;const retained=preserve&&!!model&&canvas.dataset.ready==='true';
     report(retained?'refining':'loading');if(!retained)canvas.dataset.ready='false';
-    let incoming:THREE.Group|null=null;
     try{
-      const bytes=await modelBytes(url,abort.signal);if(dead||current!==version)return;
-      const gltf=await loader.parseAsync(bytes,'');incoming=gltf.scene;
-      if(dead||current!==version){disposeModel(incoming);return;}
+      const incoming=await prepare(url);if(dead||current!==version)return;
       incoming.traverse(o=>{if(o instanceof THREE.Mesh)for(const m of Array.isArray(o.material)?o.material:[o.material])if(m instanceof THREE.MeshStandardMaterial)m.wireframe=wire;});
-      // Compile the replacement offscreen while the current model remains interactive.
-      const staging=new THREE.Scene();staging.environment=scene.environment;staging.environmentIntensity=scene.environmentIntensity;
-      for(const light of [hemi,key,fill,rim])staging.add(light.clone());staging.add(incoming);
-      if(renderer.extensions.has('KHR_parallel_shader_compile'))await renderer.compileAsync(staging,camera);else renderer.compile(staging,camera);
-      if(dead||current!==version){disposeModel(incoming);return;}
-      if(model){scene.remove(model);disposeModel(model);}model=incoming;scene.add(model);incoming=null;
+      if(model)scene.remove(model);model=incoming;scene.add(model);trim();
       if(!retained){const box=new THREE.Box3().setFromObject(model),sphere=box.getBoundingSphere(new THREE.Sphere());center=box.getCenter(new THREE.Vector3());radius=sphere.radius;dim=box.getSize(new THREE.Vector3()).length();camera.near=dim*.0001;camera.far=dim*80;controls.minDistance=radius*.12;controls.maxDistance=radius*30;view();}
       renderer.render(scene,camera);renderer.getContext().flush();
-      canvas.dataset.ready='true';canvas.dataset.model=url;canvas.dataset.distance=String(camera.position.distanceTo(controls.target));
-      if(!matchMedia('(prefers-reduced-motion: reduce)').matches)canvas.animate([{opacity:.72},{opacity:1}],{duration:420,easing:'linear'});
+      canvas.dataset.ready='true';canvas.dataset.model=url;canvas.dataset.distance=String(camera.position.distanceTo(controls.target));canvas.dataset.prepared=String(prepared.size);
       report('ready');invalidate();return true;
-    }catch(e){if(incoming)disposeModel(incoming);if(!dead&&current===version&&(e as Error).name!=='AbortError'){report(retained?'refine-error':'error');return false;}}
+    }catch(e){if(!dead&&current===version&&(e as Error).name!=='AbortError'){report(retained?'refine-error':'error');return false;}}
   }
   function zoom(factor:number){const offset=camera.position.clone().sub(controls.target);offset.multiplyScalar(factor).clampLength(controls.minDistance,controls.maxDistance);camera.position.copy(controls.target).add(offset);controls.update();invalidate();}
-  return {load,view,zoom,background(dark:boolean){scene.background=new THREE.Color(dark?'#17231c':'#f4f4e9');invalidate();},wireframe(on:boolean){wire=on;model?.traverse(o=>{if(o instanceof THREE.Mesh)for(const m of Array.isArray(o.material)?o.material:[o.material])if(m instanceof THREE.MeshStandardMaterial)m.wireframe=on;});invalidate();},rotate(on:boolean){controls.autoRotate=on;invalidate();},backlight(on:boolean){rim.intensity=on?4:1.6;key.intensity=on?.85:2.5;invalidate();},snapshot(){renderer.render(scene,camera);return new Promise<Blob|null>(resolve=>canvas.toBlob(resolve,'image/png'));},
-    destroy(){dead=true;++version;abort?.abort();cancelAnimationFrame(frame);resizeObserver.disconnect();intersection.disconnect();document.removeEventListener('visibilitychange',visibility);canvas.removeEventListener('webglcontextlost',contextLost);controls.dispose();if(model)disposeModel(model);environment.dispose();renderer.dispose();renderer.forceContextLoss();canvas.remove();}
+  return {load,warm,retain,isPrepared(url:string){return prepared.has(url);},view,zoom,background(dark:boolean){scene.background=new THREE.Color(dark?'#17231c':'#f4f4e9');invalidate();},wireframe(on:boolean){wire=on;model?.traverse(o=>{if(o instanceof THREE.Mesh)for(const m of Array.isArray(o.material)?o.material:[o.material])if(m instanceof THREE.MeshStandardMaterial)m.wireframe=on;});invalidate();},rotate(on:boolean){controls.autoRotate=on;invalidate();},backlight(on:boolean){rim.intensity=on?4:1.6;key.intensity=on?.85:2.5;invalidate();},snapshot(){renderer.render(scene,camera);return new Promise<Blob|null>(resolve=>canvas.toBlob(resolve,'image/png'));},
+    destroy(){dead=true;++version;for(const job of jobs.values())job.abort();cancelAnimationFrame(frame);resizeObserver.disconnect();intersection.disconnect();document.removeEventListener('visibilitychange',visibility);canvas.removeEventListener('webglcontextlost',contextLost);controls.dispose();for(const group of new Set([...prepared.values(),...(model?[model]:[])]))disposeModel(group);prepared.clear();environment.dispose();renderer.dispose();renderer.forceContextLoss();canvas.remove();}
   };
 }

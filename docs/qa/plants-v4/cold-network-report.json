@@ -1,0 +1,41 @@
+{
+  "conditions": "10 Mbps, 80ms latency, 2x CPU throttle, Chromium software WebGL; not physical mobile",
+  "plants": [
+    {
+      "id": "casuarina",
+      "firstFrameMs": 757,
+      "allFivePreparedMs": 2990,
+      "errors": []
+    },
+    {
+      "id": "rice",
+      "firstFrameMs": 668,
+      "allFivePreparedMs": 2618,
+      "errors": []
+    },
+    {
+      "id": "taro",
+      "firstFrameMs": 376,
+      "allFivePreparedMs": 2391,
+      "errors": []
+    },
+    {
+      "id": "koelreuteria",
+      "firstFrameMs": 762,
+      "allFivePreparedMs": 5931,
+      "errors": []
+    },
+    {
+      "id": "saccharum",
+      "firstFrameMs": 643,
+      "allFivePreparedMs": 2210,
+      "errors": []
+    },
+    {
+      "id": "broussonetia",
+      "firstFrameMs": 680,
+      "allFivePreparedMs": 3432,
+      "errors": []
+    }
+  ]
+}
