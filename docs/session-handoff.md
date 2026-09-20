@@ -75,5 +75,10 @@ Next actions: 正式資訊補入 seed.sql；如需雲端 CMS，另取得獨立�
 - 使用者授權整合植物資產並直接部署 GitHub 官網；新增 /plants/，桌面、手機與頁尾選單同步。
 - 六種植物、30 生長狀態、6 器官特寫及精細選項，共 42 個壓縮 GLB；29 張署名參考圖。
 - 先呈現預覽，點選才載入 3D；單一模型、可取消下載、離屏／靜止停止繪製，手機可調細節與下載 GLB。
-- 基線 08097b43e16e24692cb992caee556c2fc557c718；部署與正式驗證待本次 GitHub Actions 完成後補記。
+- 基線 08097b43e16e24692cb992caee556c2fc557c718；更新前已保留 backup/pre-plants-2026-09-20 備份。
 - 實作與限制：docs/plants-2026-09-20.md。瀏覽器模擬與截圖：docs/qa/plants。既有私人媒體檢查保留。
+
+- 應用提交：d34126d2a4864da42eabb10f24b39c87925e4b21。GitHub Actions 35492784709 建置、測試與部署全部成功。
+- 正式網址：https://jimmy10107.github.io/rinan-commons/plants/ 。2026-09-20 正式站手機選單、芋頭／水稻／臺灣欒樹模型載入通過，無瀏覽器錯誤。
+- 全部 42 模型於本機瀏覽器驗證；360–1440px 無橫向溢出。慢網路模擬 LCP 924ms、CLS 0、初始傳輸 264836 bytes、零 GLB 請求；實機速度仍依裝置與網路而異。
+- 正式驗證紀錄：docs/qa/plants/live-report.json；本機及正式站皆以 Chromium 驗證，尚無實體 iOS／Android 裝置測試。

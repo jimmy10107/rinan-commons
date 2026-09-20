@@ -6,4 +6,4 @@ WEB-04,手機閱讀與互動改版,Codex,2026-09-17,備份與建置後發布,保
 WEB-05,私人照片資料庫,Codex,2026-09-17,原始bytes與去重校驗,20來源19素材私人保存且未進公開GitHub,completed,docs/mobile-refresh-2026-09-17.md
 WEB-06,受權限保護的雲端照片API,Codex,待服務連線,連線及角色權限確認,匿名不可取得原圖且公開圖經核准,blocked,media-service/README.md
 WEB-07,植物近觀室與手機效能整合,Codex,2026-09-20,素材與瀏覽器驗證,六植物30生長狀態與42模型可操作,completed,docs/plants-2026-09-20.md
-WEB-08,植物頁GitHub Pages部署,Codex,2026-09-20,Actions與正式站驗證,正式選單與植物頁公開且可操作,in_progress,docs/session-handoff.md
+WEB-08,植物頁GitHub Pages部署,Codex,2026-09-20,Actions與正式站驗證,正式選單與植物頁公開且可操作,completed,https://github.com/jimmy10107/rinan-commons/actions/runs/35492784709

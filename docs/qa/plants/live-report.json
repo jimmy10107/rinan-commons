@@ -1,0 +1,13 @@
+{
+  "url": "https://jimmy10107.github.io/rinan-commons/plants/?plant=koelreuteria",
+  "verifiedAt": "2026-09-20T05:54:14.649Z",
+  "mobileMenu": true,
+  "initialModelRequests": 0,
+  "liveModels": [
+    "https://jimmy10107.github.io/rinan-commons/plants/models/taro-macro.glb",
+    "https://jimmy10107.github.io/rinan-commons/plants/models/rice-macro.glb",
+    "https://jimmy10107.github.io/rinan-commons/plants/models/koelreuteria-macro.glb"
+  ],
+  "errors": [],
+  "passed": true
+}
