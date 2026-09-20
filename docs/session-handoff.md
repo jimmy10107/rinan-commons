@@ -109,3 +109,4 @@ Next actions: 正式資訊補入 seed.sql；如需雲端 CMS，另取得獨立�
 - 最後一張保留到實際模型完成渲染，再以 800ms 淡入 3D；重播重設到全株最後階段，避免動畫結尾跳回前次特寫或其他階段。略過則前往當前影格階段。
 - 基線 ba0b2ad；沒有修改模型與下載素材。工作區原有的 casuarina_03.svg 修改未納入本次發布；靜態素材測試於隔離的發布基線驗證。
 - Evidence：docs/qa/plants-v5/browser-report.json；舊版證據保留於 plants-v4。
+- 發布提交 175ef188a66014599d22c84b63809ee3028414ab；Actions 35510030040 建置與部署成功。正式站實測 12026ms；交接中 SVG opacity 0.707、3D opacity 0.293，0.8s 過渡生效。手機、五階段快取切換、放大補细節通過，無瀏覽器錯誤。證據 docs/qa/plants-v5/live-report.json。

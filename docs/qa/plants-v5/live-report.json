@@ -1,0 +1,25 @@
+{
+  "url": "https://jimmy10107.github.io/rinan-commons/plants/",
+  "time": "2026-09-20T12:16:17.064Z",
+  "mobileMenu": true,
+  "svgFilm": true,
+  "filmMs": 12026,
+  "blend": {
+    "svgOpacity": 0.707226,
+    "modelOpacity": 0.292774,
+    "duration": "0.8s"
+  },
+  "allFivePrepared": true,
+  "noDownloadOnStageSwitch": true,
+  "zoomDetail": true,
+  "models": [
+    "https://jimmy10107.github.io/rinan-commons/plants/models/taro-5-lite.glb",
+    "https://jimmy10107.github.io/rinan-commons/plants/models/taro-1-lite.glb",
+    "https://jimmy10107.github.io/rinan-commons/plants/models/taro-2-lite.glb",
+    "https://jimmy10107.github.io/rinan-commons/plants/models/taro-3-lite.glb",
+    "https://jimmy10107.github.io/rinan-commons/plants/models/taro-4-lite.glb",
+    "https://jimmy10107.github.io/rinan-commons/plants/models/taro-5.glb"
+  ],
+  "errors": [],
+  "passed": true
+}
