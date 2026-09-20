@@ -115,3 +115,4 @@ Next actions: 正式資訊補入 seed.sql；如需雲端 CMS，另取得獨立�
 
 - Decision：依使用者確認文字與「部署」指示，標題改為「從稻站出發，走進日南九里。」；加入稻站與地方生活的連結、慢慢認識日南段落，同步頁面 metadata 與頁尾。
 - Owner Codex／Lead Digital & Data；Deadline 本次交付；Checkpoint 建置→手機版檢視→GitHub Pages；DoD 確認文字正式可見、手機無溢出、地圖可收合及另開。保留既有里界資料與地圖預設展開。
+- 發布提交 ec00dc15ee49ff7fc79420cd5deb4802cae132aa；Actions 35511530677 成功。正式 /explore/ 已驗證確認文案、地圖收合、360／390／1440px 無溢出。

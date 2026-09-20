@@ -10,3 +10,4 @@ WEB-08,植物頁GitHub Pages部署,Codex,2026-09-20,Actions與正式站驗證,�
 WEB-09,日南植物形態室布局與漸進3D,Codex,本次交付,瀏覽器及正式部署,第一版布局與直接3D及跨頁快取可操作,completed,https://github.com/jimmy10107/rinan-commons/actions/runs/35508601131
 WEB-10,SVG生命週期與五階段3D預備,Codex,本次交付,冷啟動及快取驗證,先播6.5秒SVG並可快速切換已準備3D,completed,docs/plants-lifecycle-v4.md
 WEB-11,植物動畫12秒與柔和3D交接,Codex,本次交付,瀏覽器及正式部署,五階段完整播放並柔和交接可操作3D,completed,docs/qa/plants-v5/browser-report.json
+WEB-12,九里地圖與稻站關聯文案,Codex,2026-09-20,建置與正式頁驗證,確認文案公開且手機地圖可收合,completed,https://github.com/jimmy10107/rinan-commons/actions/runs/35511530677
