@@ -110,3 +110,8 @@ Next actions: 正式資訊補入 seed.sql；如需雲端 CMS，另取得獨立�
 - 基線 ba0b2ad；沒有修改模型與下載素材。工作區原有的 casuarina_03.svg 修改未納入本次發布；靜態素材測試於隔離的發布基線驗證。
 - Evidence：docs/qa/plants-v5/browser-report.json；舊版證據保留於 plants-v4。
 - 發布提交 175ef188a66014599d22c84b63809ee3028414ab；Actions 35510030040 建置與部署成功。正式站實測 12026ms；交接中 SVG opacity 0.707、3D opacity 0.293，0.8s 過渡生效。手機、五階段快取切換、放大補细節通過，無瀏覽器錯誤。證據 docs/qa/plants-v5/live-report.json。
+
+## 九里地圖介紹｜2026-09-20
+
+- Decision：依使用者確認文字與「部署」指示，標題改為「從稻站出發，走進日南九里。」；加入稻站與地方生活的連結、慢慢認識日南段落，同步頁面 metadata 與頁尾。
+- Owner Codex／Lead Digital & Data；Deadline 本次交付；Checkpoint 建置→手機版檢視→GitHub Pages；DoD 確認文字正式可見、手機無溢出、地圖可收合及另開。保留既有里界資料與地圖預設展開。
