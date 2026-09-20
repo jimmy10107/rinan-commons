@@ -98,3 +98,6 @@ Next actions: 正式資訊補入 seed.sql；如需雲端 CMS，另取得獨立�
 - 解析後模型快取與延後精細下載取代先前每次切換都再解析／自動加載細緻模型。保留全部下載與特寫。
 - 任務契約、來源、測試與速度限制見 docs/plants-lifecycle-v4.md；基線 575f2055。
 - 六植物冷載入：首影格 376–762 ms；當前植物五個輕量階段 2210–5931 ms，測試條件與完整證據見 docs/qa/plants-v4/cold-network-report.json。
+
+- 應用提交 65ae8138e7cb8327540172f1969af5528db1cb7c；GitHub Actions 35509663528 建置、測試與 Pages 部署成功。
+- 2026-09-20 正式站手機選單、SVG 動畫、五階段預備及無新增下載切換、放大補細節全部通過；無瀏覽器錯誤、無水平溢出。證據 docs/qa/plants-v4/live-report.json 與 live-mobile.png。
