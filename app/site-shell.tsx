@@ -4,7 +4,7 @@ import { site } from './content';
 export type SiteSection = 'home' | 'about' | 'stories' | 'walk' | 'exhibition' | 'visit' | 'explore' | 'plants';
 const navigation = [
   ['about','關於稻站','/about/'], ['stories','地方筆記','/stories/'],
-  ['exhibition','往・返展覽','/exhibition/to-and-from/'], ['walk','走傱日南 2026','/walk/2026/'], ['explore','九里互動地圖','/explore/'], ['plants','日南植物形態室','/plants/'], ['visit','到訪交通','/visit/'],
+  ['exhibition','往・返展覽','/exhibition/to-and-from/'], ['walk','走傱日南 2026','/motion2026/'], ['explore','九里互動地圖','/explore/'], ['plants','日南植物形態室','/plants/'], ['visit','到訪交通','/visit/'],
 ] as const;
 export function SiteHeader({ active }: { active: SiteSection }) {
   const links = navigation.map(([id,label,path])=><a key={id} className={active===id?'active':''} href={sitePath(path)} aria-current={active===id?'page':undefined}>{label}</a>);

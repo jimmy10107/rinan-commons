@@ -116,3 +116,11 @@ Next actions: 正式資訊補入 seed.sql；如需雲端 CMS，另取得獨立�
 - Decision：依使用者確認文字與「部署」指示，標題改為「從稻站出發，走進日南九里。」；加入稻站與地方生活的連結、慢慢認識日南段落，同步頁面 metadata 與頁尾。
 - Owner Codex／Lead Digital & Data；Deadline 本次交付；Checkpoint 建置→手機版檢視→GitHub Pages；DoD 確認文字正式可見、手機無溢出、地圖可收合及另開。保留既有里界資料與地圖預設展開。
 - 發布提交 ec00dc15ee49ff7fc79420cd5deb4802cae132aa；Actions 35511530677 成功。正式 /explore/ 已驗證確認文案、地圖收合、360／390／1440px 無溢出。
+
+## 走傱日南 2026 正式活動網址｜2026-09-21
+
+- Decision：主站原生新增 `/motion2026/`，正式對外網址為 `https://www.rinancommons.com/motion2026`；不使用跳轉或 iframe，原 `rinan-walk.jimmy10107.chatgpt.site` 保留為備援版本。
+- 首頁公告、活動入口及主導覽統一改指向 `/motion2026/`；舊 `/walk/2026/` 暫時保留，避免既有連結失效。
+- 活動頁使用獨立活動導覽與頁尾，不顯示主站的空間、策展入口。內容採正式公告版：活動流程、市集 20 席分配、護照玩法、11 處日南周邊導航及社群連結。
+- 主站 metadata、robots 與 sitemap 的正式基準網址改為 `https://www.rinancommons.com`。
+- 驗證：Vercel 型態 Next production build、GitHub Pages 靜態匯出與頁面連結測試通過。

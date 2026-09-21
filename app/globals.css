@@ -57,6 +57,28 @@ footer { display:flex; align-items:center; justify-content:space-between; gap:25
 .site-footer strong { font-family:"Noto Serif TC",serif; }
 .site-footer span,.site-footer small { color:rgba(255,255,255,.6); font-size:11px; line-height:1.5; }
 
+/* Standalone 2026 event route */
+.motion-header .site-navigation { display:flex; }
+.motion-footer { gap:40px; }
+.motion-footer .footer-identity strong,.motion-footer .footer-identity span { display:block; }
+.motion-footer .footer-identity span { margin-top:7px; }
+.motion-footer .footer-meta { display:flex; align-items:center; gap:22px; }
+.motion-footer .footer-meta small { max-width:180px; text-align:right; }
+.motion-footer .social-links { display:flex; gap:8px; }
+.motion-footer .social-links a { display:grid; width:40px; height:40px; place-items:center; border:1px solid rgba(255,255,255,.22); border-radius:50%; color:var(--white); }
+.motion-footer .social-links svg { width:20px; height:20px; fill:none; stroke:currentColor; stroke-width:1.8; }
+.motion-footer .social-links .social-dot { fill:currentColor; stroke:none; }
+.motion-footer .social-links a:last-child svg { fill:currentColor; stroke:none; }
+.event-page .passport-copy { margin:15px 0 0; color:var(--muted); font-size:12px; line-height:1.65; }
+.event-page .market-note { display:flex; align-items:center; justify-content:space-between; gap:16px; }
+.event-page .market-note strong { color:var(--ink); font-size:13px; }
+.event-page .market-note span { text-align:right; }
+.event-page .place-groups { display:grid; gap:22px; }
+.event-page .place-groups section > h4 { margin:0 0 9px; color:var(--clay); font-size:11px; font-weight:850; letter-spacing:.12em; }
+.event-page .journey-place { display:flex; align-items:center; justify-content:space-between; gap:18px; margin-bottom:6px; }
+.event-page .journey-place p { margin:0; color:var(--clay); font-size:.875rem; font-weight:750; letter-spacing:.04em; }
+.event-page .journey-place a { display:inline-flex; min-height:34px; align-items:center; gap:7px; padding:0 11px; border:1px solid rgba(181,104,72,.36); border-radius:99px; color:var(--clay); font-size:.75rem; font-weight:800; white-space:nowrap; }
+
 /* Rinan Commons home */
 .home-page { background:#f4f0e6; }
 .home-hero { position:relative; display:grid; min-height:620px; max-width:1180px; grid-template-columns:minmax(0,1fr) 310px; align-items:center; gap:clamp(50px,8vw,120px); margin:0 auto; padding:90px 42px 110px; overflow:hidden; }
@@ -167,6 +189,12 @@ footer { display:flex; align-items:center; justify-content:space-between; gap:25
   .site-navigation a::after { bottom:8px; }
   .site-footer { display:grid; padding:28px 18px; }
   .site-footer span,.site-footer small { display:block; }
+  .motion-footer .footer-meta { justify-content:space-between; gap:18px; }
+  .motion-footer .footer-meta small { text-align:left; }
+  .event-page .market-note { display:grid; gap:3px; }
+  .event-page .market-note span { text-align:left; }
+  .event-page .journey-place { align-items:flex-start; }
+  .event-page .journey-place p { padding-top:8px; }
   .home-hero { display:block; min-height:0; padding:60px 20px 80px; }
   .home-hero::after { right:20px; bottom:35px; left:20px; }
   .home-hero h1 { font-size:55px; }

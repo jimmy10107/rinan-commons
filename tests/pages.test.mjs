@@ -6,8 +6,8 @@ import test from 'node:test';
 const root = fileURLToPath(new URL('../out/', import.meta.url));
 function walk(dir) { return readdirSync(dir).flatMap(name => { const f=path.join(dir,name); return statSync(f).isDirectory()?walk(f):[f]; }); }
 const htmlFiles = walk(root).filter(f=>f.endsWith('.html') && !f.endsWith('404.html') && !f.includes('_not-found') && !f.includes(`${path.sep}maps${path.sep}`) && !f.includes(`${path.sep}404${path.sep}`));
-test('all ten public routes export headings, main content and indexable metadata', () => {
-  assert.equal(htmlFiles.length, 10);
+test('all eleven public routes export headings, main content and indexable metadata', () => {
+  assert.equal(htmlFiles.length, 11);
   for (const file of htmlFiles) {
     const html=readFileSync(file,'utf8');
     assert.equal((html.match(/<h1[\s>]/g)||[]).length, 1, file);
@@ -29,9 +29,9 @@ test('internal links and images resolve inside the GitHub Pages base path', () =
     for (const match of html.matchAll(/href="#([^"]+)"/g)) assert.ok(html.includes(`id="${match[1]}"`), `${file}: broken anchor: ${match[1]}`);
   }
 });
-test('draft performer and vendor names do not leak through static HTML or browser bundles', () => {
+test('unpublished vendor names do not leak through static HTML or browser bundles', () => {
   for (const file of walk(root).filter(f=>/\.(html|js|txt|json)$/.test(f))) {
     const text=readFileSync(file,'utf8');
-    assert.doesNotMatch(text, /拍謝少年|3Ｑ米食|東明國小家長會長推薦攤位/, file);
+    assert.doesNotMatch(text, /3Ｑ米食|東明國小家長會長推薦攤位/, file);
   }
 });

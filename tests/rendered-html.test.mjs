@@ -2,9 +2,6 @@ import assert from "node:assert/strict";
 import { readFile } from "node:fs/promises";
 import test from "node:test";
 
-const developmentPreviewMeta =
-  /<meta(?=[^>]*\bname=["']codex-preview["'])(?=[^>]*\bcontent=["']development["'])[^>]*>/i;
-
 async function createWorker() {
   const workerUrl = new URL("../dist/server/index.js", import.meta.url);
   workerUrl.searchParams.set("test", `${process.pid}-${Date.now()}`);
@@ -36,9 +33,8 @@ test("renders the main site and both independent content routes", async () => {
   assert.equal(homeResponse.status, 200);
   assert.match(homeResponse.headers.get("content-type") ?? "", /^text\/html\b/i);
   const homeHtml = await homeResponse.text();
-  assert.match(homeHtml, developmentPreviewMeta);
   assert.match(homeHtml, /在往返之間/);
-  assert.match(homeHtml, /\/walk\/2026/);
+  assert.match(homeHtml, /\/motion2026/);
   assert.match(homeHtml, /\/exhibition\/to-and-from/);
   assert.match(homeHtml, /\/partners\/rinan-commons\.jpg/);
 
@@ -49,6 +45,16 @@ test("renders the main site and both independent content routes", async () => {
   assert.match(eventHtml, /10\/24/);
   assert.match(eventHtml, /10\/25/);
   assert.match(eventHtml, /報名連結準備中/);
+
+  const motionResponse = await fetchRoute(worker, "/motion2026");
+  assert.equal(motionResponse.status, 200);
+  const motionHtml = await motionResponse.text();
+  const motionPageSource = await readFile(new URL("../app/motion2026/page.tsx", import.meta.url), "utf8");
+  assert.match(motionHtml, /在往返之間/);
+  assert.match(motionHtml, /拍謝少年/);
+  assert.match(motionPageSource, /山城藝造X鐵道環境劇場/);
+  assert.match(motionHtml, /預計邀約\s*(?:<!-- -->)?20(?:<!-- -->)?\s*席/);
+  assert.doesNotMatch(motionPageSource, /幸福里景點|已確認|資料版本|展覽手冊/);
 
   const exhibitionResponse = await fetchRoute(worker, "/exhibition/to-and-from");
   assert.equal(exhibitionResponse.status, 200);
@@ -67,8 +73,7 @@ test("renders the main site and both independent content routes", async () => {
     "松柏港產業觀光發展協會",
     "臺鐵公司 臺中運務段",
   ];
-  const pageSource = await readFile(new URL("../app/walk/2026/page.tsx", import.meta.url), "utf8");
-  const creditsSource = pageSource.slice(pageSource.indexOf("const guidanceOrganizations"));
+  const creditsSource = motionPageSource.slice(motionPageSource.indexOf("const guidanceOrganizations"));
   let previousIndex = -1;
   for (const organization of orderedOrganizations) {
     const currentIndex = creditsSource.indexOf(organization);

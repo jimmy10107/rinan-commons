@@ -4,7 +4,7 @@ import {sitePath} from '../site-path';
 import PlantExplorer from './plant-explorer';
 import './plants.css';
 
-export const metadata:Metadata={title:'日南植物形態室',description:'從芋葉的細脈到稻穗的低垂，近看木麻黃、水稻、芋頭、臺灣欒樹、甜根子草與構樹的三維模型，探索生長與季節變化。',alternates:{canonical:'https://jimmy10107.github.io/rinan-commons/plants/'},openGraph:{title:'日南植物形態室｜日南稻站',description:'從日南的田、海風與河床，靠近一株植物。',images:[{url:'https://jimmy10107.github.io/rinan-commons/plants/previews/taro-960.webp',width:960,height:960,alt:'芋頭三維模型的葉面特寫'}]}};
+export const metadata:Metadata={title:'日南植物形態室',description:'從芋葉的細脈到稻穗的低垂，近看木麻黃、水稻、芋頭、臺灣欒樹、甜根子草與構樹的三維模型，探索生長與季節變化。',alternates:{canonical:'https://www.rinancommons.com/plants/'},openGraph:{title:'日南植物形態室｜日南稻站',description:'從日南的田、海風與河床，靠近一株植物。',images:[{url:'https://www.rinancommons.com/plants/previews/taro-960.webp',width:960,height:960,alt:'芋頭三維模型的葉面特寫'}]}};
 export default function PlantsPage(){return <div className="commons-site plants-page" id="top">
   <SiteHeader active="plants"/>
   <main id="content">
