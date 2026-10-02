@@ -8,7 +8,7 @@
   };
   try {
     if (!window.L) throw new Error('地圖程式未能載入。');
-    const response = await fetch('boundaries.json');
+    const response = await fetch(`${window.RINAN_MAP_BASE || './'}boundaries.json`);
     if (!response.ok) throw new Error('里界資料未能載入。');
     const data = await response.json();
     const reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
