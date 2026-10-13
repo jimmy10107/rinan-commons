@@ -124,3 +124,10 @@ Next actions: 正式資訊補入 seed.sql；如需雲端 CMS，另取得獨立�
 - 活動頁使用獨立活動導覽與頁尾，不顯示主站的空間、策展入口。內容採正式公告版：活動流程、市集 20 席分配、護照玩法、11 處日南周邊導航及社群連結。
 - 主站 metadata、robots 與 sitemap 的正式基準網址改為 `https://www.rinancommons.com`。
 - 驗證：Vercel 型態 Next production build、GitHub Pages 靜態匯出與頁面連結測試通過。
+
+## 2026-10-13 走傱市集介紹頁（preview 分支）
+
+- 新增 `/motion2026/market/`：市集場地配置圖、23 攤位卡片（餐飲美食／市集攤位）、10 個攤商 FB／IG 連結、交通與設施；頁首頁尾沿用走傱日南活動頁樣式。
+- 只在 `preview/motion2026-market` 分支，不合併 main 就不會部署；`deploy-pages.yml` 只在 main 觸發。請勿在此分支手動執行 Deploy GitHub Pages，否則會覆蓋正式站。
+- 本機 `npm run build:pages`、`test:pages`（路由數 11 → 12）、`test:content` 通過；未做瀏覽器與手機實機視覺驗收。
+- 內容來源：攤商報名表與攤位配置表。未填連結的攤位（御頂饌廚房、198茶苑、章魚小丸子）不放按鈕；部分攤位品項標示「待補」。
