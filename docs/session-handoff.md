@@ -131,5 +131,6 @@ Next actions: 正式資訊補入 seed.sql；如需雲端 CMS，另取得獨立�
 - 依使用者指示合併 main 以便在自有網域預覽；不加入任何選單、連結或 sitemap，robots 為 noindex, nofollow，既有頁面未改動。
 - 修改前備份 backup/pre-market-preview-2026-10-13；開發分支 `preview/motion2026-market`。
 - 正式上線：資料夾改名為 `market`、移除 robots 設定、加入 sitemap，再從活動頁加入連結；`tests/pages.test.mjs` 的預覽頁例外一併移除。
+- 場地配置圖改用使用者提供的配置圖（public/images/motion2026-market-map.png，已列入圖片允許清單；圖上「輕便車」標示已依先前指示移除）。
 - 本機 build:pages 與 test:pages／content／plants／media-service 全數通過；未做瀏覽器與手機實機視覺驗收。
 - 內容來源：攤商報名表與攤位配置表。未填連結的攤位（御頂饌廚房、198茶苑、章魚小丸子）不放按鈕；部分攤位品項標示「待補」。

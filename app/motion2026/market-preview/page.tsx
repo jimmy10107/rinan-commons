@@ -14,9 +14,8 @@ export default function MotionMarketPage() {
   return (
     <main className="market-page" id="top" style={{ background: "#F7F4EC" }}>
       <header className="site-header motion-header">
-        <a className="site-brand" href={sitePath("/motion2026/")} aria-label="走傱日南 2026 活動首頁">
-          <span className="site-brand-logo"><img src={sitePath("/partners/rinan-commons.jpg")} alt="" /></span>
-          <span><strong>日南稻站</strong><small>RINAN COMMONS</small></span>
+        <a className="site-brand site-brand-mark" href={sitePath("/motion2026/")} aria-label="走傱日南 2026 活動首頁">
+          <span className="site-brand-logo site-brand-logo-primary"><img src={sitePath("/images/rinan-commons-primary-logo.png")} alt="" width="1200" height="1200" /></span>
         </a>
         <nav className="site-navigation" aria-label="網站主要導覽">
           <a href={sitePath("/motion2026/")}>走傱日南 2026</a>
@@ -24,7 +23,7 @@ export default function MotionMarketPage() {
         </nav>
       </header>
 
-      <div dangerouslySetInnerHTML={{ __html: marketHtml }} />
+      <div dangerouslySetInnerHTML={{ __html: marketHtml.replaceAll("__BASE__", sitePath("")) }} />
 
       <footer className="site-footer motion-footer">
         <div className="footer-identity"><strong>日南稻站 Rinan Commons</strong><span>437 臺中市大甲區孟春里中山路二段 1 號對面</span></div>
