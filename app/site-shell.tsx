@@ -9,7 +9,7 @@ const navigation = [
 export function SiteHeader({ active }: { active: SiteSection }) {
   const links = navigation.map(([id,label,path])=><a key={id} className={active===id?'active':''} href={sitePath(path)} aria-current={active===id?'page':undefined}>{label}</a>);
   return <><a className="skip-link" href="#content">跳至主要內容</a><header className="site-header">
-    <a className="site-brand" href={sitePath('/')} aria-label="日南稻站首頁"><span className="site-brand-logo"><img src={sitePath('/partners/rinan-commons.jpg')} alt="" width="86" height="52" /></span><span><strong>日南稻站</strong><small>RINAN COMMONS</small></span></a>
+    <a className="site-brand site-brand-mark" href={sitePath('/')} aria-label="日南稻站首頁"><span className="site-brand-logo site-brand-logo-primary"><img src={sitePath('/images/rinan-commons-primary-logo.png')} alt="" width="1200" height="1200" /></span></a>
     <nav className="site-navigation" aria-label="網站主要導覽">{links}</nav>
     <MobileMenu items={navigation} active={active} />
   </header></>;

@@ -36,7 +36,8 @@ test("renders the main site and both independent content routes", async () => {
   assert.match(homeHtml, /在往返之間/);
   assert.match(homeHtml, /\/motion2026/);
   assert.match(homeHtml, /\/exhibition\/to-and-from/);
-  assert.match(homeHtml, /\/partners\/rinan-commons\.jpg/);
+  assert.match(homeHtml, /\/images\/rinan-commons-primary-logo\.png/);
+  assert.doesNotMatch(homeHtml, /\/partners\/rinan-commons\.jpg/);
 
   const eventResponse = await fetchRoute(worker, "/walk/2026");
   assert.equal(eventResponse.status, 200);
