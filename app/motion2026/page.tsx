@@ -172,9 +172,8 @@ function OrganizationSection({ label, english, items, organizer = false }: { lab
 
 function EventHeader() {
   return <header className="site-header motion-header">
-    <a className="site-brand" href={sitePath("/motion2026/")} aria-label="走傱日南 2026 活動首頁">
-      <span className="site-brand-logo"><img src={sitePath("/partners/rinan-commons.jpg")} alt="" /></span>
-      <span><strong>日南稻站</strong><small>RINAN COMMONS</small></span>
+    <a className="site-brand site-brand-mark" href={sitePath("/motion2026/")} aria-label="走傱日南 2026 活動首頁">
+      <span className="site-brand-logo site-brand-logo-primary"><img src={sitePath("/images/rinan-commons-primary-logo.png")} alt="" width="1200" height="1200" /></span>
     </a>
     <nav className="site-navigation" aria-label="網站主要導覽"><a className="active" href={sitePath("/motion2026/")} aria-current="page">走傱日南 2026</a></nav>
   </header>;
