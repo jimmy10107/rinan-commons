@@ -2,10 +2,12 @@ import type { Metadata } from "next";
 import { sitePath } from "../../site-path";
 import { marketHtml } from "./market-html";
 
+// 預覽用隱藏頁：不在任何選單或 sitemap 中，且不被搜尋引擎收錄。
+// 正式上線時把資料夾改名為 market、移除 robots 設定並加入 sitemap。
 export const metadata: Metadata = {
-  title: "走傱市集",
+  title: "走傱市集（預覽）",
   description: "走傱日南 2026 走傱市集｜10/24（六）17:00–21:30 日南車站旁廣場，場地配置圖與攤位介紹。",
-  alternates: { canonical: "https://www.rinancommons.com/motion2026/market" },
+  robots: { index: false, follow: false },
 };
 
 export default function MotionMarketPage() {
@@ -18,7 +20,7 @@ export default function MotionMarketPage() {
         </a>
         <nav className="site-navigation" aria-label="網站主要導覽">
           <a href={sitePath("/motion2026/")}>走傱日南 2026</a>
-          <a className="active" href={sitePath("/motion2026/market/")} aria-current="page">走傱市集</a>
+          <a className="active" href={sitePath("/motion2026/market-preview/")} aria-current="page">走傱市集</a>
         </nav>
       </header>
 

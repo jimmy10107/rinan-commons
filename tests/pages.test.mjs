@@ -12,7 +12,9 @@ test('all twelve public routes export headings, main content and indexable metad
     const html=readFileSync(file,'utf8');
     assert.equal((html.match(/<h1[\s>]/g)||[]).length, 1, file);
     assert.match(html, /id="content"/);
-    assert.match(html, /name="robots" content="index, follow"/);
+    // 預覽頁不被搜尋引擎收錄，其餘公開頁維持可收錄
+    if (file.includes(`${path.sep}market-preview${path.sep}`)) assert.match(html, /name="robots" content="noindex, nofollow"/);
+    else assert.match(html, /name="robots" content="index, follow"/);
     assert.doesNotMatch(html, /從一粒米出發/);
   }
 });

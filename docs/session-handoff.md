@@ -125,9 +125,11 @@ Next actions: 正式資訊補入 seed.sql；如需雲端 CMS，另取得獨立�
 - 主站 metadata、robots 與 sitemap 的正式基準網址改為 `https://www.rinancommons.com`。
 - 驗證：Vercel 型態 Next production build、GitHub Pages 靜態匯出與頁面連結測試通過。
 
-## 2026-10-13 走傱市集介紹頁（preview 分支）
+## 2026-10-13 走傱市集介紹頁（隱藏預覽頁）
 
-- 新增 `/motion2026/market/`：市集場地配置圖、23 攤位卡片（餐飲美食／市集攤位）、10 個攤商 FB／IG 連結、交通與設施；頁首頁尾沿用走傱日南活動頁樣式。
-- 只在 `preview/motion2026-market` 分支，不合併 main 就不會部署；`deploy-pages.yml` 只在 main 觸發。請勿在此分支手動執行 Deploy GitHub Pages，否則會覆蓋正式站。
-- 本機 `npm run build:pages`、`test:pages`（路由數 11 → 12）、`test:content` 通過；未做瀏覽器與手機實機視覺驗收。
+- 新增隱藏預覽頁 `/motion2026/market-preview/`：市集場地配置圖、23 攤位卡片（餐飲美食／市集攤位）、10 個攤商 FB／IG 連結、交通與設施；頁首頁尾沿用走傱日南活動頁樣式。
+- 依使用者指示合併 main 以便在自有網域預覽；不加入任何選單、連結或 sitemap，robots 為 noindex, nofollow，既有頁面未改動。
+- 修改前備份 backup/pre-market-preview-2026-10-13；開發分支 `preview/motion2026-market`。
+- 正式上線：資料夾改名為 `market`、移除 robots 設定、加入 sitemap，再從活動頁加入連結；`tests/pages.test.mjs` 的預覽頁例外一併移除。
+- 本機 build:pages 與 test:pages／content／plants／media-service 全數通過；未做瀏覽器與手機實機視覺驗收。
 - 內容來源：攤商報名表與攤位配置表。未填連結的攤位（御頂饌廚房、198茶苑、章魚小丸子）不放按鈕；部分攤位品項標示「待補」。
