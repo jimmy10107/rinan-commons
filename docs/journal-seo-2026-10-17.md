@@ -32,3 +32,13 @@ Baseline：2e7b8b0b0eb2472b5501ff69ee8981ef1268d72a。
 - 三篇人物故事內容 payload 與本回合基線逐字一致。
 - 手機單欄規則沿用前次已實作樣式；本環境未提供可用手機 viewport／實機，不宣稱手機視覺驗收通過。
 - 發布後回寫正式站驗證結果。
+
+## 正式發布結果
+
+- 主程式發布 commit：736c8bac987cc703e393b2d617d0425f6bc9dd89。Vercel 回報 Deployment has completed。
+- GitHub Actions completed / success：https://github.com/jimmy10107/rinan-commons/actions/runs/39029002871 。
+- 雲端 Chrome 正式站：兩個分類各顯示一篇新版文章；各篇三張圖均 complete 且 naturalWidth > 0；目錄跳轉、文章間延伸閱讀與返回分類成功。
+- 正式 DOM 確認 canonical、description、BlogPosting、BreadcrumbList；受測桌機沒有水平溢出。
+- 畫面：docs/qa/journal-seo/railway-live-2026-10-17.jpg、everyday-live-2026-10-17.jpg。
+- 正式文章：https://www.rinancommons.com/stories/a-station-in-daily-life 、https://www.rinancommons.com/stories/a-place-to-stop 。
+- Google 抓取／收錄／排名與 Search Console 送件未在本次驗證範圍，未宣稱已收錄或排名改善。
