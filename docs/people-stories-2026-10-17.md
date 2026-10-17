@@ -31,3 +31,14 @@ Baseline：27a3ca353a327d7a8249cc14a9d49d06e70ab427。
 
 - 靜態建置、TypeScript、內容 3 項、頁面 3 項、媒體隱私 2 項、媒體服務 7 項、植物回歸 6 項皆通過。
 - 本機瀏覽器受環境 socket 權限限制無法啟動；不將此列為畫面測試通過。將於發布後以雲端瀏覽器驗證。
+
+## 正式發布驗證
+
+- 主站發布 commit：`c53d7bf80f5acf7eadaab1b1b99625f027460bed`；Vercel 回報 Deployment has completed。
+- GitHub Pages Actions [39026534418](https://github.com/jimmy10107/rinan-commons/actions/runs/39026534418) completed / success。
+- 雲端 Chrome 正式站桌機驗證：人物分類顯示 3 篇；搜尋 Narin 剩 1 篇；返回分類恢復 3 篇；系列文章連結可互相導覽。
+- 正式站逐篇讀取完整段落，捲動後確認 8 / 7 / 7 張圖片 complete 且 naturalWidth > 0，無漏圖。
+- 已檢查文章首圖、內文照片、圖說、篇末系列導覽；畫面證據：`docs/qa/people-stories/live-2026-10-17.jpg`。
+- 手機單欄與響應式圖片已實作；本環境未提供可用的行動 viewport／實體裝置檢驗，故手機視覺驗收仍列為未驗證，不宣稱通過。
+- 正式入口：https://www.rinancommons.com/stories?category=people
+- 正式文章：https://www.rinancommons.com/stories/people-chen-long-an 、https://www.rinancommons.com/stories/people-cheng-hsiao-hsuan 、https://www.rinancommons.com/stories/people-narin 。

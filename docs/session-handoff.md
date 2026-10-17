@@ -141,3 +141,7 @@ Next actions: 正式資訊補入 seed.sql；如需雲端 CMS，另取得獨立�
 - Lead：Digital & Data。任務契約與來源：docs/people-stories-2026-10-17.md；Master Tracker WEB-13。
 - 文字基線採本回合直接提供的版本；22 張照片依資料夾對應人物，展示圖逐一加入媒體允許清單。
 - 網站 `www.rinancommons.com` 目前由 Vercel 隨 main 部署；GitHub Pages 工作流亦保留。
+
+- 已完成發布：c53d7bf80f5acf7eadaab1b1b99625f027460bed；Vercel 與 GitHub Pages Actions 39026534418 成功。
+- 正式站三篇全文、22 張照片、分類、搜尋與系列導覽均驗證；WEB-13 completed。入口 https://www.rinancommons.com/stories?category=people 。
+- 手機單欄已實作但受測試環境限制未進行手機 viewport／實機視覺驗收，詳見任務紀錄。
