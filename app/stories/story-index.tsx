@@ -35,6 +35,8 @@ export function StoryIndex({ articles }: { articles: StoryArticle[] }) {
       <label className="journal-search"><span>搜尋筆記</span><input type="search" value={query} onChange={e => setQuery(e.target.value)} placeholder="標題、人物、關鍵字" /></label>
     </div>
     {category === '人物故事' && <div className="people-series-intro"><p className="kicker">PEOPLE OF RINAN</p><h2>走傱的日南人</h2><p>在往返之間，認識日南的人與生活。</p></div>}
+    {category === '鐵道文史' && <div className="people-series-intro"><p className="kicker">RAILWAY / HISTORY</p><h2>從日南車站，讀懂地方的往返</h2><p>沿著木造站房與海線鐵道，認識日南的歷史和今天的生活。</p></div>}
+    {category === '空間日常' && <div className="people-series-intro"><p className="kicker">SPACE / EVERYDAY</p><h2>在日南，留一點停下來的時間</h2><p>從舊營房重新打開的門，到田野、展覽與人們的相遇。</p></div>}
     <p className="result-count" role="status">{visible.length} 篇筆記</p>
     <div className="journal-results">{visible.map((a, i) => <a key={a.id} className="journal-result" href={sitePath(`/stories/${a.slug}/`)}>
       {a.cover ? <StoryPhoto photo={a.cover} priority={i === 0} sizes="(max-width: 760px) calc(100vw - 44px), 480px" /> : a.image ? <ResponsivePhoto src={a.image} alt={a.imageAlt} width={640} height={420} /> : <div className="type-cover" aria-hidden="true"><span>COMMONS / NOTES</span><strong>坐一下，<br />休息一下。</strong></div>}

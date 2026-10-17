@@ -1,0 +1,82 @@
+[
+  {
+    "name": "station-front",
+    "sourceUrl": "https://www.tchac.taichung.gov.tw/building?pid=22&uid=33",
+    "credit": "臺中市文化資產處（資料照片）",
+    "originalSha256": "7adbf574f4054190c74c728bf665b16eedc57fd85cf4bcf99f881bb131c07f64",
+    "variants": [
+      {
+        "src": "/images/stories/station-front-640.webp",
+        "width": 640
+      },
+      {
+        "src": "/images/stories/station-front-800.webp",
+        "width": 800
+      }
+    ]
+  },
+  {
+    "name": "station-platform",
+    "sourceUrl": "https://www.tchac.taichung.gov.tw/building?pid=22&uid=33",
+    "credit": "臺中市文化資產處（資料照片）",
+    "originalSha256": "cabf0f5dd1ea3db9c1e1e89416a7e1ea157f965f3ce29c1e8398bfb25adf6ab0",
+    "variants": [
+      {
+        "src": "/images/stories/station-platform-640.webp",
+        "width": 640
+      },
+      {
+        "src": "/images/stories/station-platform-800.webp",
+        "width": 800
+      }
+    ]
+  },
+  {
+    "name": "rinan-aerial",
+    "sourceUrl": "https://www.instagram.com/p/DcjGHeWSWEY/",
+    "credit": "日南稻站官方 Instagram｜攝影：字語影像 @zifilm.tw",
+    "originalSha256": "03285fbbde006acd4dcb7baece9c519416b163693a013ec779c15ff610b0953d",
+    "variants": [
+      {
+        "src": "/images/stories/rinan-aerial-640.webp",
+        "width": 640
+      },
+      {
+        "src": "/images/stories/rinan-aerial-1350.webp",
+        "width": 1350
+      }
+    ]
+  },
+  {
+    "name": "rinan-motion",
+    "sourceUrl": "https://www.instagram.com/p/DctLYv4S7Go/",
+    "credit": "日南稻站官方 Instagram｜攝影：字語影像 @zifilm.tw",
+    "originalSha256": "222393749d64bec06c16470e7ffc1c1e0f3a04f4bf2fbe2bede6a9feec00356f",
+    "variants": [
+      {
+        "src": "/images/stories/rinan-motion-640.webp",
+        "width": 640
+      },
+      {
+        "src": "/images/stories/rinan-motion-1350.webp",
+        "width": 1350
+      }
+    ]
+  },
+  {
+    "name": "rinan-fields",
+    "sourceUrl": "https://www.instagram.com/p/DcoQGWoy9z-/",
+    "credit": "日南稻站官方 Instagram",
+    "originalSha256": "de47365629732a82ff1c7e5550883ec916de9dd9e478a1cbd59d5c2804dfee3c",
+    "variants": [
+      {
+        "src": "/images/stories/rinan-fields-640.webp",
+        "width": 640
+      },
+      {
+        "src": "/images/stories/rinan-fields-1350.webp",
+        "width": 1350
+      }
+    ]
+  }
+]

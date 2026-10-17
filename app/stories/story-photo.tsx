@@ -17,7 +17,7 @@ export function StoryGallery({ photos }: { photos: StoryPhotoData[] }) {
       <a href={sitePath(photo.src)} target="_blank" rel="noreferrer" aria-label={`放大照片（另開分頁）：${photo.alt}`}>
         <StoryPhoto photo={photo} sizes={photos.length === 1 ? undefined : '(max-width: 760px) calc(100vw - 44px), 490px'} />
       </a>
-      <figcaption>{photo.alt}</figcaption>
+      <figcaption>{photo.alt}{photo.credit && <span className="photo-credit">{photo.sourceUrl ? <a href={photo.sourceUrl} target="_blank" rel="noreferrer">{photo.credit} ↗</a> : photo.credit}</span>}</figcaption>
     </figure>)}
   </div>;
 }

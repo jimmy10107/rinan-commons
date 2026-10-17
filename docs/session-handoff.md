@@ -145,3 +145,8 @@ Next actions: 正式資訊補入 seed.sql；如需雲端 CMS，另取得獨立�
 - 已完成發布：c53d7bf80f5acf7eadaab1b1b99625f027460bed；Vercel 與 GitHub Pages Actions 39026534418 成功。
 - 正式站三篇全文、22 張照片、分類、搜尋與系列導覽均驗證；WEB-13 completed。入口 https://www.rinancommons.com/stories?category=people 。
 - 手機單欄已實作但受測試環境限制未進行手機 viewport／實機視覺驗收，詳見任務紀錄。
+
+## 2026-10-17 鐵道文史、空間日常與 SEO
+
+- 依使用者要求參考官方社群，擴充既有兩篇，每篇三張圖；保留原網址與人物內容。來源／決策／驗證見 docs/journal-seo-2026-10-17.md；WEB-14。
+- 原圖為既有公開文資影像與官方 IG 已發布圖文；無私有相簿資料。SEO 加入文章與麵包屑結構化資料、社群分享與 sitemap 更新日期。

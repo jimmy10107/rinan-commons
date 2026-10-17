@@ -4,6 +4,8 @@ export type StoryPhotoData = {
   width: number;
   height: number;
   variants: { src: string; width: number }[];
+  credit?: string;
+  sourceUrl?: string;
 };
 
 export type StoryArticle = {
@@ -22,5 +24,6 @@ export type StoryArticle = {
   cover?: StoryPhotoData;
   seriesNumber?: number;
   personName?: string;
-  sections: { heading: string; text: string; images?: StoryPhotoData[] }[];
+  sources?: { label: string; url: string }[];
+  sections: { heading: string; text: string; images?: StoryPhotoData[]; links?: { label: string; href: string }[] }[];
 };
