@@ -1,0 +1,42 @@
+/* People stories share the journal's paper, serif and green visual language. */
+.people-series-intro{margin:38px 0 12px;padding:24px 0 24px 22px;border-left:3px solid var(--clay)}
+.people-series-intro h2{font:500 clamp(26px,4vw,38px)/1.5 var(--serif);margin:8px 0}
+.people-series-intro>p:last-child{margin:0;color:var(--muted);line-height:1.8}
+.journal-result>picture{min-width:0}
+.journal-result>div{min-width:0}
+.journal-result h2{overflow-wrap:anywhere}
+.people-story>header{max-width:920px;padding-top:36px}
+.people-story>header h1{font-size:clamp(30px,4vw,52px);letter-spacing:.025em}
+.people-story .article-deck{max-width:35em}
+.people-story figure{margin:0}
+.people-story figure picture{display:block}
+.people-story figure img{display:block;width:100%;height:auto;max-height:none;object-fit:contain}
+.people-story figcaption{font-size:13px;line-height:1.8;color:var(--muted);margin-top:10px}
+.people-cover figcaption{display:flex;justify-content:space-between;flex-wrap:wrap;gap:4px 20px}
+.people-narrative{margin:52px auto 56px}
+.people-paragraph{max-width:660px;margin:0 auto 38px}
+.people-paragraph p{font-size:18px;line-height:2.05;letter-spacing:.025em;margin:0;text-wrap:pretty}
+.people-gallery{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:28px 24px;margin:0 auto 56px;align-items:center}
+.people-gallery-single{grid-template-columns:1fr}
+.people-gallery:has(>figure:last-child:nth-child(3))>figure:last-child{grid-column:1/-1;max-width:740px;justify-self:center}
+.people-gallery .portrait-photo{width:100%;max-width:440px;justify-self:center}
+.people-gallery a{display:block;cursor:zoom-in}
+.people-story a:focus-visible,.journal-index button:focus-visible{outline:3px solid var(--clay);outline-offset:5px}
+.people-narrative .article-source{max-width:660px;margin:50px auto 0}
+.people-story .article-next{max-width:840px;margin:0 auto}
+@media(max-width:760px){
+ .people-story>header{padding:28px 0}
+ .people-story>header h1{font-size:30px;line-height:1.55}
+ .people-story .article-deck{font-size:17px;line-height:1.9}
+ .people-narrative{margin:32px 0 38px}
+ .people-paragraph{margin:0 0 26px}
+ .people-paragraph p{font-size:17px;line-height:1.95}
+ .people-gallery{grid-template-columns:1fr;gap:26px;margin-bottom:36px}
+ .people-gallery:has(>figure:last-child:nth-child(3))>figure:last-child{grid-column:auto}
+ .people-gallery .portrait-photo{max-width:100%}
+ .people-story figcaption{font-size:12px}
+ .people-story .article-next>a{font-size:21px}
+ .people-series-intro{margin-top:28px;padding:18px 0 18px 16px}
+ .journal-search{flex-wrap:wrap}
+ .journal-search input{flex:1;min-width:160px}
+}

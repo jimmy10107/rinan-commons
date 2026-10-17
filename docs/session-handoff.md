@@ -134,3 +134,10 @@ Next actions: 正式資訊補入 seed.sql；如需雲端 CMS，另取得獨立�
 - 場地配置圖改用使用者提供的配置圖（public/images/motion2026-market-map.png，已列入圖片允許清單；圖上「輕便車」標示已依先前指示移除）。
 - 本機 build:pages 與 test:pages／content／plants／media-service 全數通過；未做瀏覽器與手機實機視覺驗收。
 - 內容來源：攤商報名表與攤位配置表。未填連結的攤位（御頂饌廚房、198茶苑、章魚小丸子）不放按鈕；部分攤位品項標示「待補」。
+
+## 2026-10-17 地方筆記・人物故事
+
+- 使用者要求公開三篇定稿及《人物故事集》全部照片，新增人物故事分類。
+- Lead：Digital & Data。任務契約與來源：docs/people-stories-2026-10-17.md；Master Tracker WEB-13。
+- 文字基線採本回合直接提供的版本；22 張照片依資料夾對應人物，展示圖逐一加入媒體允許清單。
+- 網站 `www.rinancommons.com` 目前由 Vercel 隨 main 部署；GitHub Pages 工作流亦保留。

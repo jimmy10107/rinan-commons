@@ -1,9 +1,10 @@
 import data from './generated/content.json';
+import type { StoryArticle } from './stories/story-types';
 
 export const site = data.settings[0];
 export const chapters = data.chapters;
 export const materials = data.materials;
-export const articles = data.articles;
+export const articles = data.articles as StoryArticle[];
 export const spaceUses = data.spaceUses;
 export const programs = data.programs;
 export const places = data.places;
