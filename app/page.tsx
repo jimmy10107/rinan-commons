@@ -23,7 +23,7 @@ export default function HomePage() {
       <div className="introduction-grid"><h2>下了火車，<br />還有好多日南。</h2><div><p>木造車站、田野與聚落，海邊的風、工業區裡的日常，還有廟口延續的信仰。每天為生活走傱的人，讓熟悉的日南，也有你還沒遇見的樣子。</p><p>這裡原本是關著的舊軍營，曾是一般人不能自由踏入的禁區。現在，我們把門慢慢打開，讓地方故事、展覽與交流走進來，也讓離開、回來、留下與初次抵達的人，有一個可以相遇的地方。</p><a className="underlined-link" href={sitePath('/about/#place')}>空間的故事與願景 ↗</a></div></div>
     </section>
     <section className="editorial-section current-section">
-      <div className="section-mast"><p className="kicker">02 / 近期活動</p><span>WHAT'S ON</span></div>
+      <div className="section-mast"><p className="kicker">02 / 近期活動</p><span>WHAT&apos;S ON</span></div>
       <div className="feature-pair">
         <a href={sitePath('/motion2026/')} className="event-feature"><div className="feature-meta"><span>年度活動</span><span>10.24（六）—10.25（日）</span></div><p className="feature-english">RINAN<br />IN MOTION</p><h2>走傱日南<span>2026</span></h2><p>10/24 從稻站開幕、人物影像與臺日策展對話開始，再到廣場聽音樂、逛市集。10/25 規劃單車走讀與鐵道環境劇場，詳細時間依活動頁公告。</p><p className="registration-status">報名已截止</p><b>查看節目與時間 ↗</b></a>
         <a href={sitePath('/exhibition/to-and-from/')} className="exhibit-feature"><div className="feature-meta"><span>日南稻站開館展</span><span>TO AND FROM</span></div><div className="exhibit-title">往<span>・</span>返</div><p className="chapter-inline">往 / 走傱 / 返 / 生根</p><p>離開之後，怎麼看見家鄉？<br />在人的往返裡，閱讀日南。</p><b>進入展覽・閱讀手冊 ↗</b></a>
