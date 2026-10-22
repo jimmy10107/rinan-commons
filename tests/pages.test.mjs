@@ -6,8 +6,8 @@ import test from 'node:test';
 const root = fileURLToPath(new URL('../out/', import.meta.url));
 function walk(dir) { return readdirSync(dir).flatMap(name => { const f=path.join(dir,name); return statSync(f).isDirectory()?walk(f):[f]; }); }
 const htmlFiles = walk(root).filter(f=>f.endsWith('.html') && !f.endsWith('404.html') && !f.includes('_not-found') && !f.includes(`${path.sep}maps${path.sep}`) && !f.includes(`${path.sep}404${path.sep}`));
-test('all fifteen public routes export headings, main content and indexable metadata', () => {
-  assert.equal(htmlFiles.length, 15);
+test('all sixteen public and preview routes export headings, main content and indexable metadata', () => {
+  assert.equal(htmlFiles.length, 16);
   for (const file of htmlFiles) {
     const html=readFileSync(file,'utf8');
     assert.equal((html.match(/<h1[\s>]/g)||[]).length, 1, file);
@@ -70,4 +70,23 @@ test('both event addresses render one shared page and exhibition has no PDF butt
   assert.match(exhibit, /植物落回土地/);
   assert.match(exhibit, /稻作與植物/);
   assert.doesNotMatch(exhibit, /開啟 PDF|rinancommons\.s\.gy\/pdf/);
+});
+
+test('published market is discoverable and retains the corrected vendor information', () => {
+  const market = readFileSync(path.join(root, 'motion2026/market/index.html'), 'utf8');
+  const preview = readFileSync(path.join(root, 'motion2026/market-preview/index.html'), 'utf8');
+  const event = readFileSync(path.join(root, 'motion2026/index.html'), 'utf8');
+  const sitemap = readFileSync(path.join(root, 'sitemap.xml'), 'utf8');
+  for (const html of [market, preview]) {
+    const renderedMain = html.slice(html.indexOf('<main class="market-page"'), html.indexOf("</main>"));
+    assert.equal((renderedMain.match(/data-vendor-number=/g) || []).length, 23);
+    for (const text of ['御鼎饌廚房', '原豆粹食 GOOD SOYFOOD', '采點雞蛋糕', '睿阿嬤-純米手作', '烤原味香腸', '檸檬冬瓜', '豆奶烏龍飲 60 元', '毛線混藺編磁貼', '爆米花 150 元／瓶']) assert.ok(html.includes(text), text);
+    assert.doesNotMatch(html, /烤花椒香腸|御頂饌廚房|原味豆腐|慈德路口雞蛋糕|范媽媽客家美食傳統|\[品項待補\]|\[內容待補\]/);
+    for (const privateValue of ['0931657945', '0972315700', 'owen657945', 'backcountry', 'BMF-1370', 'BRP-9202', '押金匯款', '現場負責人行動電話']) assert.ok(!html.includes(privateValue), privateValue);
+  }
+  assert.match(event, /href="\/rinan-commons\/motion2026\/market\/"/);
+  assert.match(sitemap, /https:\/\/www.rinancommons.com\/motion2026\/market\//);
+  assert.doesNotMatch(sitemap, /market-preview/);
+  assert.match(market, /name="robots" content="index, follow"/);
+  assert.match(preview, /name="robots" content="noindex, nofollow"/);
 });
