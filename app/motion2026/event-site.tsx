@@ -32,7 +32,7 @@ export default function EventSite() {
       <p className="eyebrow">2026 RINAN IN MOTION</p>
       <h1>在往返之間，<br />認識日南。</h1>
       <p className="event-date-large">10.24 <span>—</span> 10.25</p>
-      <div className="event-quick-actions"><a href="#event-program">查看節目 ↓</a><a href={site.mapUrl} target="_blank" rel="noreferrer">稻站導航 ↗</a></div>
+      <div className="event-quick-actions"><a href="#event-program">查看節目 ↓</a><a href={sitePath("/motion2026/market/")}>走傱市集 ↗</a><a href={site.mapUrl} target="_blank" rel="noreferrer">稻站導航 ↗</a></div>
     </section>
     <nav className="view-tabs" aria-label="主要資訊分類">
       <button className={view === "1024" ? "active" : ""} onClick={() => switchView("1024")} aria-controls="event-program" aria-pressed={view === "1024"}><span>10/24・六</span><strong>生命・文化的走傱</strong></button>
@@ -60,8 +60,9 @@ function Timeline({ day }: { day: "2026-10-24" | "2026-10-25" }) {
 
 function DayOne() {
   return <><div className="panel-heading"><span>10.24・星期六</span><h2>生命・文化的走傱</h2><p>14:00 由日南稻站開幕，17:00 起於日南車站旁廣場有音樂與走傱市集。</p></div><Timeline day="2026-10-24" />
-    <section className="market-plan" aria-labelledby="market-title"><header className="market-heading"><span className="card-icon">市</span><div><small>10/24・17:00–21:30</small><h3 id="market-title">走傱市集</h3><p>已公開 11 組攤商；實際品項與區位以現場公告為準。</p></div></header>
+    <section className="market-plan" aria-labelledby="market-title"><header className="market-heading"><span className="card-icon">市</span><div><small>10/24・17:00–21:30</small><h3 id="market-title">走傱市集</h3><p>共 {vendors.length} 個攤位，餐飲、手作、農產與交流一起逛。實際品項與區位以現場公告為準。</p></div></header>
       <div className="market-config">{vendorCategories.map((category, index) => { const group = vendors.filter(v => v.category === category); return group.length ? <div key={category}><span>0{index + 1}</span><strong>{category}</strong><small>{group.length} 組</small></div> : null; })}</div>
+      <a className="market-directory-link" href={sitePath("/motion2026/market/")}>查看攤位介紹・商品與配置圖 ↗</a>
       <details className="vendor-details"><summary><span>查看已公開攤商</span><i>＋</i></summary><div className="vendor-groups">{vendorCategories.map(category => { const group = vendors.filter(v => v.category === category); return group.length ? <section className="vendor-group" key={category}><h4>{category}<small>{group.length} 組</small></h4><div className="vendor-list">{group.map(v => <article key={v.id}><div><strong>{v.name}</strong>{v.note && <small>{v.note}</small>}</div></article>)}</div></section> : null; })}</div></details>
     </section>
   </>;
@@ -79,5 +80,5 @@ function OrganizationSection({ role, title }: { role: "guidance" | "organizer"; 
   return <section className="credit-section"><header><h4>{title}</h4></header><div className={`organization-grid${role === "organizer" ? " organizers" : ""}`}>{organizations.filter(o => o.role === role).map((o, index) => <a key={o.id} href={o.href.startsWith("/") ? sitePath(o.href) : o.href} target={o.href.startsWith("http") ? "_blank" : undefined} rel={o.href.startsWith("http") ? "noreferrer" : undefined}><span className="organization-order">{String(index + 1).padStart(2, "0")}</span><span className="organization-logo">{o.logo ? <img src={sitePath(o.logo)} alt="" loading="lazy" /> : <b className="text-logo">{o.textMark}</b>}</span><strong>{o.name}</strong><small>{o.href.includes("facebook.com") ? "Facebook 粉專 ↗" : "官方網站 ↗"}</small></a>)}</div></section>;
 }
 
-function EventHeader() { return <header className="site-header motion-header"><a className="site-brand site-brand-mark" href={sitePath("/")} aria-label="日南稻站首頁"><span className="site-brand-logo site-brand-logo-primary"><img src={sitePath("/images/rinan-commons-primary-logo.png")} alt="" width="1200" height="1200" /></span></a><nav className="site-navigation" aria-label="網站主要導覽"><a className="active" href={sitePath("/motion2026/")} aria-current="page">走傱日南 2026</a></nav></header>; }
+function EventHeader() { return <header className="site-header motion-header"><a className="site-brand site-brand-mark" href={sitePath("/")} aria-label="日南稻站首頁"><span className="site-brand-logo site-brand-logo-primary"><img src={sitePath("/images/rinan-commons-primary-logo.png")} alt="" width="1200" height="1200" /></span></a><nav className="site-navigation" aria-label="網站主要導覽"><a className="active" href={sitePath("/motion2026/")} aria-current="page">走傱日南 2026</a><a href={sitePath("/motion2026/market/")}>走傱市集</a></nav></header>; }
 function EventFooter() { return <footer className="site-footer motion-footer"><div className="footer-identity"><strong>日南稻站 Rinan Commons</strong><span>{site.address}</span></div><div className="footer-meta"><small>活動內容以最終公告為準</small><nav className="social-links" aria-label="日南稻站社群連結"><a href="https://www.instagram.com/rinan.commons/" target="_blank" rel="noreferrer">Instagram ↗</a><a href="https://www.facebook.com/rinan.commons/" target="_blank" rel="noreferrer">Facebook ↗</a></nav></div></footer>; }

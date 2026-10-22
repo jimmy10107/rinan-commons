@@ -12,6 +12,12 @@ const db = new DatabaseSync(temporary);
 try {
   db.exec(readFileSync(path.join(root, 'db/migrations/0001_content.sql'), 'utf8'));
   db.exec(readFileSync(path.join(root, 'content/seed.sql'), 'utf8'));
+  const marketVendors = JSON.parse(readFileSync(path.join(root, 'content/market-vendors.json'), 'utf8'));
+  db.prepare("UPDATE content_records SET status = 'archived' WHERE kind = 'vendors'").run();
+  const insertVendor = db.prepare('INSERT INTO content_records (id,kind,status,source,updated_at,sort_order,payload) VALUES (?,?,?,?,?,?,?)');
+  for (const v of marketVendors) {
+    insertVendor.run(`market-${v.number}`, 'vendors', 'published', v.synced ? '使用者 2026-10-23 提供市集品牌表' : '既有市集預覽頁；沿用原有公開名單', '2026-10-23', Number(v.number), JSON.stringify({ name: v.name, category: v.category, theme: v.label, status: '已確認' }));
+  }
   if (db.prepare('PRAGMA integrity_check').get().integrity_check !== 'ok') throw new Error('Content database failed integrity check');
   const output = { settings: [], chapters: [], materials: [], vendors: [], performers: [], places: [], organizations: [], programs: [], articles: [], spaceUses: [] };
   const slugs = new Set();

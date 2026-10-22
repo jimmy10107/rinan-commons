@@ -239,3 +239,25 @@ footer { display:flex; align-items:center; justify-content:space-between; gap:25
   .next-route { padding:68px 20px; }
 }
 @media (prefers-reduced-motion:reduce) { html { scroll-behavior:auto; } * { transition:none!important; } }
+
+/* Shared market directory: preview and published page use identical public content. */
+.market-directory-section { max-width:1200px; margin:0 auto; padding:48px 24px 24px; scroll-margin-top:24px; }
+.market-directory-heading { display:flex; flex-wrap:wrap; align-items:baseline; gap:8px 16px; margin-bottom:20px; }
+.market-directory-heading h2 { margin:0; font-size:32px; font-weight:900; color:#1E3B2C; }
+.market-directory-heading > span { color:#5F6159; font-size:15px; }
+.market-directory-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(min(100%,260px),1fr)); gap:16px; align-items:start; }
+.market-vendor { min-width:0; padding:20px; border:1px solid #E3DDCD; border-radius:14px; background:#fff; color:#1E3B2C; overflow-wrap:anywhere; }
+.market-vendor-top { display:flex; align-items:center; justify-content:space-between; gap:8px; margin-bottom:12px; }
+.market-vendor-number { display:flex; align-items:center; justify-content:center; width:40px; height:40px; flex-shrink:0; border-radius:8px; background:#F2B544; color:#3A2A08; font-weight:700; }
+.market-vendor-tag { padding:4px 10px; border-radius:999px; background:#DDEEDF; color:#24613F; font-size:12px; font-weight:700; }
+.market-vendor h3 { margin:0 0 12px; font-size:19px; line-height:1.4; }
+.market-vendor-intro,.market-vendor-story p { margin:0 0 12px; color:#575B52; font-size:15px; line-height:1.75; }
+.market-vendor details { margin:10px 0; }
+.market-vendor summary { min-height:44px; padding:10px 0; cursor:pointer; color:#2E6B4A; font-size:14px; font-weight:700; }
+.market-vendor-products { margin:16px 0; padding-top:12px; border-top:1px solid #E3DDCD; }
+.market-vendor-products h4 { margin:0 0 8px; color:#5F6159; font-size:13px; }
+.market-vendor-products ul { margin:0; padding-left:20px; color:#4A4F46; font-size:14px; line-height:1.85; }
+.market-vendor-social { display:inline-flex; align-items:center; min-height:44px; margin-top:8px; padding:0 16px; border:2px solid #2E6B4A; border-radius:999px; color:#1E3B2C; font-size:14px; font-weight:700; text-decoration:none; }
+.market-vendor-social-label { color:#575B52; font-size:14px; }
+.market-page a:focus-visible,.market-page summary:focus-visible { outline:3px solid #1FB07E; outline-offset:4px; }
+.market-directory-link { display:inline-flex; align-items:center; min-height:48px; margin:0 20px 20px; padding:0 18px; border-radius:999px; background:var(--sage); color:var(--white); text-decoration:none; font-weight:700; font-size:14px; }
