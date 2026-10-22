@@ -37,3 +37,18 @@ test('unpublished vendor names do not leak through static HTML or browser bundle
     assert.doesNotMatch(text, /3Ｑ米食|東明國小家長會長推薦攤位/, file);
   }
 });
+
+test('approved homepage and about review stays linked and keeps planned services distinct', () => {
+  const home = readFileSync(path.join(root, 'index.html'), 'utf8');
+  const about = readFileSync(path.join(root, 'about/index.html'), 'utf8');
+  const visit = readFileSync(path.join(root, 'visit/index.html'), 'utf8');
+  assert.match(home, /車站旁，一個可以停下來休息的地方。/);
+  assert.match(home, /href="\/rinan-commons\/about\/#place"/);
+  assert.match(home, /href="\/rinan-commons\/explore\/"/);
+  assert.match(home, /報名已截止/);
+  assert.match(home, /437臺中市大甲區孟春里中山路二段6號/);
+  assert.match(about, /id="place"/);
+  assert.match(about, /活動限定／預約合作/);
+  assert.match(about, /實際開放項目、時間及使用方式/);
+  assert.match(visit, /437臺中市大甲區孟春里中山路二段6號/);
+});
