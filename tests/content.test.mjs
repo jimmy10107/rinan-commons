@@ -16,7 +16,11 @@ test('publishing excludes every draft record, while retaining planning data in S
   assert.equal(publicRows.length, publishedIds.size);
   assert.equal(snapshot.settings[0].registrationUrl, null);
   assert.equal(snapshot.settings[0].headline, '在往返之間，認識日南。');
-  assert.equal(snapshot.programs.length, 3);
+  assert.equal(snapshot.programs.length, 14);
+  assert.deepEqual(snapshot.programs.filter(p => p.day === '2026-10-25').map(p => p.start), ['08:00','14:00','16:30','18:00']);
+  assert.equal(snapshot.settings[0].address, '437 臺中市大甲區孟春里中山路二段 6 號');
+  assert.equal(snapshot.settings[0].handbookUrl, null);
+  assert.doesNotMatch(JSON.stringify(snapshot), /中山路二段 1 號對面/);
   assert.equal(snapshot.chapters.length, 4);
   db.close();
 });

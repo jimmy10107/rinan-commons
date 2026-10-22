@@ -16,6 +16,7 @@ test('all fifteen public routes export headings, main content and indexable meta
     if (file.includes(`${path.sep}market-preview${path.sep}`)) assert.match(html, /name="robots" content="noindex, nofollow"/);
     else assert.match(html, /name="robots" content="index, follow"/);
     assert.doesNotMatch(html, /從一粒米出發/);
+    assert.doesNotMatch(html, /中山路二段\s*1\s*號對面/, file);
   }
 });
 test('internal links and images resolve inside the GitHub Pages base path', () => {
@@ -46,9 +47,27 @@ test('approved homepage and about review stays linked and keeps planned services
   assert.match(home, /href="\/rinan-commons\/about\/#place"/);
   assert.match(home, /href="\/rinan-commons\/explore\/"/);
   assert.match(home, /報名已截止/);
-  assert.match(home, /437臺中市大甲區孟春里中山路二段6號/);
+  assert.match(home, /437 臺中市大甲區孟春里中山路二段 6 號/);
   assert.match(about, /id="place"/);
   assert.match(about, /活動限定／預約合作/);
   assert.match(about, /實際開放項目、時間及使用方式/);
-  assert.match(visit, /437臺中市大甲區孟春里中山路二段6號/);
+  assert.match(visit, /437 臺中市大甲區孟春里中山路二段 6 號/);
+});
+
+test('both event addresses render one shared page and exhibition has no PDF button', () => {
+  const motion = readFileSync(path.join(root, 'motion2026/index.html'), 'utf8');
+  const legacy = readFileSync(path.join(root, 'walk/2026/index.html'), 'utf8');
+  const exhibit = readFileSync(path.join(root, 'exhibition/to-and-from/index.html'), 'utf8');
+  const content = html => html.slice(html.indexOf('<main class="event-page"'), html.indexOf('</main>') + 7);
+  assert.equal(content(motion), content(legacy));
+  for (const html of [motion, legacy]) {
+    assert.match(html, /返回日南稻站首頁/);
+    assert.match(html, /437 臺中市大甲區孟春里中山路二段 6 號/);
+    assert.match(html, /生命・文化的走傱/);
+    assert.match(html, /報名已截止/);
+    assert.doesNotMatch(html, /報名連結準備中|1 號對面/);
+  }
+  assert.match(exhibit, /植物落回土地/);
+  assert.match(exhibit, /稻作與植物/);
+  assert.doesNotMatch(exhibit, /開啟 PDF|rinancommons\.s\.gy\/pdf/);
 });

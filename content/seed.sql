@@ -55,12 +55,12 @@ COMMIT;
 
 -- 2026-10-23 WEB-049／063：使用者核定地址與米食服務口徑。
 UPDATE content_records
-SET payload = json_set(payload, '$.address', '437臺中市大甲區孟春里中山路二段6號'),
+SET payload = json_set(payload, '$.address', '437 臺中市大甲區孟春里中山路二段 6 號', '$.handbookUrl', NULL),
     source = source || '；使用者 2026-10-23 WEB-049 核定完整地址',
     updated_at = '2026-10-23'
 WHERE id = 'site';
 UPDATE content_records
-SET payload = json_set(payload, '$.query', '437臺中市大甲區孟春里中山路二段6號'),
+SET payload = json_set(payload, '$.query', '437 臺中市大甲區孟春里中山路二段 6 號'),
     source = source || '；使用者 2026-10-23 WEB-049 核定完整地址',
     updated_at = '2026-10-23'
 WHERE id = 'place-1';
@@ -70,10 +70,36 @@ SET payload = json_set(payload, '$.availability', '活動限定／預約合作')
     updated_at = '2026-10-23'
 WHERE id = 'use-1';
 UPDATE content_records
-SET payload = json_set(payload, '$.sections[4].text', replace(json_extract(payload, '$.sections[4].text'), '中山路二段 1 號對面', '中山路二段6號')),
+SET payload = json_set(payload, '$.sections[5].text', replace(json_extract(payload, '$.sections[5].text'), '臺中市大甲區孟春里中山路二段 1 號對面', '437 臺中市大甲區孟春里中山路二段 6 號')),
     source = source || '；使用者 2026-10-23 WEB-049 核定地址，更新文章交通段落',
     updated_at = '2026-10-23'
 WHERE id = 'a-place-to-stop';
+
+-- 2026-10-23 到站時刻表：兩個活動網址共用的節目資料。
+DELETE FROM content_records WHERE kind = 'programs';
+INSERT INTO content_records (id,kind,status,source,updated_at,sort_order,payload) VALUES
+('program-1024-1400','programs','published','使用者提供 走傱日南_到站時刻表_方形1x1_2160x2160 (2).png','2026-10-23',53,'{"day":"2026-10-24","start":"14:00","end":"14:20","location":"日南稻站","title":"開幕式","tags":["生命的走傱"]}'),
+('program-1024-1420','programs','published','使用者提供到站時刻表','2026-10-23',54,'{"day":"2026-10-24","start":"14:20","end":"15:00","location":"日南稻站","title":"《走傱的日南人》首映暨人物對談","tags":["生命的走傱"]}'),
+('program-1024-1500','programs','published','使用者提供到站時刻表','2026-10-23',55,'{"day":"2026-10-24","start":"15:00","end":"16:30","location":"日南稻站","title":"日本宮崎日南「飫肥 DENKEN WEEK」策展對話","tags":["生命的走傱"]}'),
+('program-1024-1630','programs','published','使用者提供到站時刻表','2026-10-23',56,'{"day":"2026-10-24","start":"16:30","end":"17:00","location":"日南稻站","title":"a-Hôa sai 磅米芳","tags":["生命的走傱"]}'),
+('program-1024-1700','programs','published','使用者提供到站時刻表','2026-10-23',57,'{"day":"2026-10-24","start":"17:00","end":"17:40","location":"日南車站旁廣場","title":"拍謝少年 ft. 孟春排舞班","tags":["文化的走傱"]}'),
+('program-1024-1755','programs','published','使用者提供到站時刻表','2026-10-23',58,'{"day":"2026-10-24","start":"17:55","end":"18:35","location":"日南車站旁廣場","title":"震樂堂 ft. 日南慈德宮哨角團","tags":["文化的走傱"]}'),
+('program-1024-1850','programs','published','使用者提供到站時刻表','2026-10-23',59,'{"day":"2026-10-24","start":"18:50","end":"19:20","location":"日南車站旁廣場","title":"黃宇寒 Han","tags":["文化的走傱"]}'),
+('program-1024-1935','programs','published','使用者提供到站時刻表','2026-10-23',60,'{"day":"2026-10-24","start":"19:35","end":"20:05","location":"日南車站旁廣場","title":"劉阿昌 & 打幫你樂團","tags":["文化的走傱"]}'),
+('program-1024-2020','programs','published','使用者提供到站時刻表','2026-10-23',61,'{"day":"2026-10-24","start":"20:20","end":"20:40","location":"日南車站旁廣場","title":"日南移工之聲","tags":["文化的走傱"]}'),
+('program-1024-2055','programs','published','使用者提供到站時刻表','2026-10-23',62,'{"day":"2026-10-24","start":"20:55","end":"21:25","location":"日南車站旁廣場","title":"沈文程 ft. 日南小馬老師","tags":["文化的走傱"]}'),
+('program-1025-0800','programs','published','使用者提供到站時刻表','2026-10-23',63,'{"day":"2026-10-25","start":"08:00","end":"10:00","location":"日南車站集合","title":"單車走讀 × 日南國中 MTB 自行車隊","tags":["報名制"]}'),
+('program-1025-1400','programs','published','使用者提供到站時刻表','2026-10-23',64,'{"day":"2026-10-25","start":"14:00","end":"16:00","location":"日南稻站","title":"《塩月桃甫》紀錄片暨導演映後座談","tags":[]}'),
+('program-1025-1630','programs','published','使用者提供到站時刻表','2026-10-23',65,'{"day":"2026-10-25","start":"16:30","end":"17:30","location":"日南稻站集合","title":"鐵道環境劇場 × 山城藝造","tags":["報名制"]}'),
+('program-1025-1800','programs','published','使用者提供到站時刻表','2026-10-23',66,'{"day":"2026-10-25","start":"18:00","end":"21:00","location":"日南稻站","title":"臺日交流晚宴","tags":["邀請制"]}');
+UPDATE content_records
+SET payload = json_set(payload, '$.text', '植物落回土地，關係在一次次相遇中，慢慢長出來。'),
+    source = source || '；使用者 2026-10-23 展覽章節修訂', updated_at = '2026-10-23'
+WHERE id = 'ground';
+UPDATE content_records
+SET payload = json_set(payload, '$.title', '稻作與植物'),
+    source = source || '；使用者 2026-10-23 展覽素材名稱修訂', updated_at = '2026-10-23'
+WHERE id = 'material-1';
 
 -- 人物故事：使用者 2026-10-17 確認全文與照片
 INSERT INTO content_records (id,kind,status,source,updated_at,sort_order,payload) VALUES ('people-chen-long-an','articles','published','使用者 2026-10-17 提供全文與人物故事集照片，明確要求公開於地方筆記','2026-10-17',58,'{"slug":"people-chen-long-an","category":"人物故事","title":"走傱的日南人 1｜陳隆安","summary":"種著田、守著家，也成為下一代安心從家鄉出發、往外走傱的依靠。","image":"/images/stories/chen-long-an-08-1440.webp","imageAlt":"陳隆安走過一片綠色稻田","readingMinutes":3,"sourceLabel":"日南稻站｜走傱的日南人","sourceUrl":"","imageCredit":"日南稻站提供｜走傱的日南人","cover":{"src":"/images/stories/chen-long-an-08-1440.webp","width":2048,"height":1366,"alt":"陳隆安走過一片綠色稻田","variants":[{"src":"/images/stories/chen-long-an-08-640.webp","width":640},{"src":"/images/stories/chen-long-an-08-1440.webp","width":1439}]},"seriesNumber":1,"personName":"陳隆安","sections":[{"heading":"","text":"日南車站在日治時期曾是日本天皇御用稻米的集散地，百年後，在這片孕育稻作的土地上，有一位順著地方的風土，種出日南絕頂好米的在地稻農——陳隆安。","images":[{"src":"/images/stories/chen-long-an-01-1440.webp","width":2048,"height":1536,"alt":"陳隆安走在聚落旁的稻田裡","variants":[{"src":"/images/stories/chen-long-an-01-640.webp","width":640},{"src":"/images/stories/chen-long-an-01-1440.webp","width":1440}]}]},{"heading":"","text":"陳隆安棄工從農，從父親手中接下種稻的技藝，耕作二十餘年，拿下日本第十二屆「米・食味分析鑑定國際大賞」特別優秀賞，更是全國十大經典好米四冠王得主。","images":[{"src":"/images/stories/chen-long-an-02-1440.webp","width":2048,"height":1366,"alt":"陳隆安戴著斗笠在田間工作","variants":[{"src":"/images/stories/chen-long-an-02-640.webp","width":640},{"src":"/images/stories/chen-long-an-02-1440.webp","width":1439}]},{"src":"/images/stories/chen-long-an-07-1440.webp","width":2048,"height":1366,"alt":"陳隆安彎身照料稻田","variants":[{"src":"/images/stories/chen-long-an-07-640.webp","width":640},{"src":"/images/stories/chen-long-an-07-1440.webp","width":1439}]}]},{"heading":"","text":"他選擇在日南成家、務農，順應自然、友善土地，發展友善耕作法：手工除草、維持田間生態；與經營東興香品行的妻子羅美玉，在這裡養育三名兒女長大。家裡的一片片稻田，始終牽繫著一家人與日南之間的家鄉情感。","images":[{"src":"/images/stories/chen-long-an-04-1440.webp","width":2048,"height":1366,"alt":"陳隆安在樹林旁整理農務","variants":[{"src":"/images/stories/chen-long-an-04-640.webp","width":640},{"src":"/images/stories/chen-long-an-04-1440.webp","width":1439}]}]},{"heading":"","text":"現在，陳隆安依然在日南，在這裡落地生根，種著田、守著家，也成為下一代安心從家鄉出發、往外走傱的依靠。","images":[{"src":"/images/stories/chen-long-an-03-1440.webp","width":2048,"height":1366,"alt":"陳隆安坐在樹蔭下","variants":[{"src":"/images/stories/chen-long-an-03-640.webp","width":640},{"src":"/images/stories/chen-long-an-03-1440.webp","width":1439}]},{"src":"/images/stories/chen-long-an-06-1440.webp","width":1366,"height":2048,"alt":"陳隆安坐在樹下的直幅紀錄照","variants":[{"src":"/images/stories/chen-long-an-06-640.webp","width":640},{"src":"/images/stories/chen-long-an-06-1440.webp","width":1366}]},{"src":"/images/stories/chen-long-an-05-1440.webp","width":2048,"height":1366,"alt":"稻葉間彎身工作的陳隆安","variants":[{"src":"/images/stories/chen-long-an-05-640.webp","width":640},{"src":"/images/stories/chen-long-an-05-1440.webp","width":1439}]}]}]}');

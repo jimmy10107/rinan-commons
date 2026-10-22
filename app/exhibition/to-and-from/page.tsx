@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { SiteFooter, SiteHeader } from "../../site-shell";
 import { sitePath } from "../../site-path";
-import { chapters, materials, site } from "../../content";
+import { chapters, materials } from "../../content";
 
 export const metadata: Metadata = {
   title: "往・返 TO AND FROM",
@@ -44,16 +44,11 @@ export default function ExhibitionPage() {
         </div>
       </section>
 
-      <section className="handbook-panel">
-        <div><span>FULL HANDBOOK</span><h2>完整展覽手冊</h2><p>閱讀展覽論述、四個章節與現場內容。</p></div>
-        <a href={site.handbookUrl} target="_blank" rel="noreferrer">開啟 PDF ↗</a>
-      </section>
-
       <section className="next-route">
         <span>NEXT STOP</span>
         <h2>走傱日南 2026</h2>
         <p>從展覽走到市集、音樂、影像與走讀，繼續在往返之間認識日南。</p>
-        <a href={sitePath("/walk/2026/")}>查看活動資訊 ↗</a>
+        <a href={sitePath("/motion2026/")}>查看活動資訊 ↗</a>
       </section>
 
       <SiteFooter note="往返 TO AND FROM・資料將隨展覽進度更新" />

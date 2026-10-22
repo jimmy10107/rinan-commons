@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { sitePath } from "../../site-path";
 import { marketHtml } from "./market-html";
+import { site } from "../../content";
 
 // 預覽用隱藏頁：不在任何選單或 sitemap 中，且不被搜尋引擎收錄。
 // 正式上線時把資料夾改名為 market、移除 robots 設定並加入 sitemap。
@@ -26,7 +27,7 @@ export default function MotionMarketPage() {
       <div dangerouslySetInnerHTML={{ __html: marketHtml.replaceAll("__BASE__", sitePath("")) }} />
 
       <footer className="site-footer motion-footer">
-        <div className="footer-identity"><strong>日南稻站 Rinan Commons</strong><span>437 臺中市大甲區孟春里中山路二段 1 號對面</span></div>
+        <div className="footer-identity"><strong>日南稻站 Rinan Commons</strong><span>{site.address}</span></div>
         <div className="footer-meta">
           <small><a href={sitePath("/motion2026/")} style={{ color: "inherit" }}>回到走傱日南 2026 活動頁</a>・攤位內容以最終公告為準</small>
           <nav className="social-links" aria-label="日南稻站社群連結">
