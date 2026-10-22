@@ -152,3 +152,10 @@ Next actions: 正式資訊補入 seed.sql；如需雲端 CMS，另取得獨立�
 - 原圖為既有公開文資影像與官方 IG 已發布圖文；無私有相簿資料。SEO 加入文章與麵包屑結構化資料、社群分享與 sitemap 更新日期。
 
 - 已發布 736c8bac987cc703e393b2d617d0425f6bc9dd89；Vercel 成功，WEB-14 completed。正式站兩篇與六張圖片展示、目錄跳轉、分類與交叉導覽均確認。Google 實際收錄與手機視覺測試未驗證。
+
+## WEB-026–068 與走傱活動同步｜2026-10-23 發布
+
+- Decision：使用者確認「先存版本，再部署新網頁」。Owner Codex／Lead Digital & Data；Deadline 本次交付；Checkpoint 基線備份→`main`→建置部署→兩個站點公開頁驗證；DoD 保留舊版且首頁、活動、展覽、交通頁可讀，地址與節目同步。
+- 基線 `f4aa28d84cf2a8e6bdd5c4f21e6c96e5a5319382` 保留在 `backup/pre-deploy-web026-068-2026-10-23`。review 版合入 `main` 後，第一次 Pages Actions `39870774772` 因植物頁導覽測試失敗；補回連結，修正提交 `74d26aa5350e90458d3dcdfaced5f7c985b8cecb`，第二次 Actions `39871021187` 成功。
+- Evidence：本機 Pages 建置、頁面／植物／內容／媒體測試全通過；`www.rinancommons.com` 與 GitHub Pages 首頁、活動新舊網址、展覽及交通頁 HTTP 200 並核對關鍵文字。詳情見 `docs/web026-068-review-2026-10-23.md`。
+- Risk／Next：尚需實體手機視覺與觸控驗收、6 號地址的 Google 導航 pin、紙本節目單專名逐項校對；照片本機 Windows 路徑沒有納入本次。根網域 LIFF、links 子網域與原 ChatGPT Site 未變動。
