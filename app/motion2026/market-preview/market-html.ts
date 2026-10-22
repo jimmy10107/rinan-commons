@@ -5,16 +5,15 @@ type MarketVendor = typeof marketVendors[number];
 const escapeHtml = (value: string) => value.replace(/[&<>"']/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" })[c]!);
 function renderVendor(v: MarketVendor) {
   const name = escapeHtml(v.name);
-  const intro = escapeHtml(v.intro);
-  const story = v.intro.length > 160
-    ? `<p class="market-vendor-intro">${escapeHtml(v.intro.split("。")[0])}。</p><details class="market-vendor-story"><summary>品牌故事</summary><p>${intro}</p></details>`
-    : intro ? `<p class="market-vendor-intro">${intro}</p>` : "";
-  const items = v.products.map(p => `<li>${escapeHtml(p)}</li>`);
-  const products = items.length ? `<div class="market-vendor-products"><h4>現場品項</h4><ul>${items.slice(0, 6).join("")}</ul>${items.length > 6 ? `<details><summary>更多品項（共 ${items.length} 項）</summary><ul>${items.slice(6).join("")}</ul></details>` : ""}</div>` : "";
+  const intro = escapeHtml(v.intro.replace(/\[?(?:品項待補|內容待補|攤商確認中|待補)\]?/g, "").trim());
+  const story = intro ? `<p class="market-vendor-intro">${intro}</p>` : '<div class="market-vendor-intro" aria-hidden="true"></div>';
+  const longStory = v.intro.length > 110;
+  const detail = longStory ? `<button type="button" class="market-vendor-more" data-market-open="vendor-story-${v.number}" aria-haspopup="dialog">品牌故事 <span aria-hidden="true">↗</span></button>` : "";
+  const dialog = longStory ? `<dialog class="market-story-dialog" id="vendor-story-${v.number}" aria-labelledby="vendor-story-title-${v.number}"><form method="dialog"><button class="market-story-close" aria-label="關閉品牌故事" autofocus>關閉 ✕</button></form><span class="market-story-eyebrow">${v.number} · ${escapeHtml(v.label)}</span><h2 id="vendor-story-title-${v.number}">${name}</h2><p>${intro}</p></dialog>` : "";
   const social = v.social && /^https:\/\/(www\.)?(facebook\.com|instagram\.com)\//.test(v.social)
     ? `<a class="market-vendor-social" href="${escapeHtml(v.social)}" target="_blank" rel="noopener noreferrer" aria-label="${name} 社群（另開新視窗）">${v.social.includes("instagram.com") ? "Instagram" : "Facebook"} ↗</a>`
-    : v.socialLabel ? `<p class="market-vendor-social-label">${escapeHtml(v.socialLabel)}</p>` : "";
-  return `<article class="market-vendor" id="vendor-${v.number}" data-vendor-number="${v.number}"><div class="market-vendor-top"><span class="market-vendor-number">${v.number}</span><span class="market-vendor-tag">${escapeHtml(v.label)}</span></div><h3>${name}</h3>${story}${products}${social}</article>`;
+    : v.socialLabel ? `<span class="market-vendor-social-label">${escapeHtml(v.socialLabel)}</span>` : "";
+  return `<article class="market-vendor" id="vendor-${v.number}" data-vendor-number="${v.number}"><div class="market-vendor-top"><span class="market-vendor-number">${v.number}</span><span class="market-vendor-tag">${escapeHtml(v.label)}</span></div><h3>${name}</h3>${story}<div class="market-vendor-footer">${detail}${social}</div>${dialog}</article>`;
 }
 function renderVendorSection(id: string, title: string, group: MarketVendor[]) {
   return `<section id="${id}" class="market-directory-section"><div class="market-directory-heading"><h2>${title}</h2><span>${group.length} 攤</span></div><div class="market-directory-grid">${group.map(renderVendor).join("")}</div></section>`;

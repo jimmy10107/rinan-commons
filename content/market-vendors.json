@@ -1,25 +1,201 @@
 [
-  {"number":"01","name":"華山基金會大甲站","category":"倡議","label":"公益義賣","intro":"華山基金會長期關懷失依、失能、失智的弱勢長輩，透過到宅訪視、物資協助及暖心陪伴，將愛與關懷送進長輩家中，串起社會的溫暖力量，讓每位長輩都能安心、有尊嚴地老化，不再孤單。","products":["爆米花 150 元／瓶"],"social":"https://www.facebook.com/cz3239.elder","synced":true},
-  {"number":"02","name":"東room藝術工作室","category":"手作藝術","label":"文創手作","intro":"2014 因台東的緣分，接觸大自然僻靜，開始創作人與土地之間的關係。2021 於都蘭成立東room藝術工作室，用創作分享這片土地和生活中的感動。","products":["2027 大地女神年曆","明信片","複製畫","山海療癒禮盒"],"social":"https://www.instagram.com/litchirealm_quand/","synced":true},
-  {"number":"03","name":"拾光伍參柒","category":"餐飲","label":"熟食・選物","intro":"用在地的人事物，做有質感的生活方式。","products":["日本日南市限定調酒","豬五花黃金泡菜拼盤","金沙杏鮑菇鮮蝦","左手香舒緩液、手工皂、浴鹽","廢棄惜物小物：菇菇燈"],"social":"https://www.facebook.com/share/19n3iAFD3y/?mibextid=wwXIfr","synced":true},
-  {"number":"04","name":"Snowfat 肥雪工作室","category":"手作藝術","label":"插畫・互動","intro":"〔創作即是生命，生命即是創作〕我是佳育，橫跨會計領域的斜槓藝術家，在理性與感性交錯的生命旅程裡，因藝術而復燃對生命的熱情。從 2018 年起，我以童趣筆觸探索世界，用似亂卻有序的墨跡，留下屬於肥雪的溫度。2023 年創立「SnowFat 肥雪工作室」個人品牌，這也是讓我在創作的過程中慢慢走出病魔並與之共存的方式，屬於肥雪的失覺之路。養病期間我來到日南這片土地，這裡是我重新站起來的地方，因而結緣。","products":["日南及個人插畫周邊 50 元起","限量走傱日南專屬似顏繪（預約制）：4×6 兩人 100 元，另加一人 100 元","即興人體彩繪（現場）：一人 100 元","日南景點猜中有獎隨機小互動"],"social":"https://www.instagram.com/snowfat.00/","synced":true},
-  {"number":"05","name":"左撇織 Jolly handmade Labo","category":"手作藝術","label":"纖維・織品","intro":"Jolly handmade Labo 左撇織手作纖維實驗室，專於織品創作｜藺草・刺繡・布作・繪畫。從毛線編織與刺繡出發，學習家鄉藺草編織成為個人創作的轉折。把針線當作筆，結合纖維與織紋，緩慢勾勒出生活的溫度與日常片段。販售編織與刺繡小物，並提供客製化訂製、教學服務。","products":["造型藺編籃","藺編腰帶","藺編獅子杯墊","藺編花朵","刺繡及印花布盤","刺繡口金包","刺繡別針","刺繡隨身鏡","刺繡核桃吊飾","針織擺飾品","針織造型吊飾","針織造型項鍊","毛線混藺編磁貼"],"social":"https://www.instagram.com/jolly_handmade_labo/","synced":true},
-  {"number":"06","name":"宮崎縣人會｜遊戲","category":"倡議","label":"臺日交流","intro":"日本宮崎交流互動遊戲。","products":[],"synced":false},
-  {"number":"07","name":"宮崎縣人會｜Lopia × 乾杯","category":"倡議","label":"臺日交流","intro":"","products":[],"synced":false},
-  {"number":"08","name":"宮崎縣人會｜觀光 PR","category":"倡議","label":"觀光交流","intro":"宮崎觀光推廣。","products":[],"synced":false},
-  {"number":"09","name":"越南攤位","category":"餐飲","label":"異國飲食","intro":"","products":[],"synced":false},
-  {"number":"10","name":"日南來心肉共生廚房x崩八食堂","category":"餐飲","label":"熟食小吃","intro":"日南來心肉共生廚房，從在地食材出發，打造一個結合飲食、健康與社區共好的共享空間。我們關注不同年齡與需求的飲食照顧，推動質地飲食，讓長者及有咀嚼、吞嚥需求的人，也能享受美味又有尊嚴的餐食。透過在地食材、營養均衡與友善烹調，實踐健康飲食理念，並於 2025 年榮獲國健署「健康餐食實踐獎」肯定。希望透過一間廚房，讓食物不只是填飽肚子，更能連結人與人，讓健康、陪伴與共好持續發生。","products":["烤蒜香香腸","烤原味香腸","烤大漠香腸"],"social":"https://www.facebook.com/share/19TKYuKc9k/?mibextid=wwXIfr","synced":true},
-  {"number":"11","name":"原豆粹食 GOOD SOYFOOD","category":"餐飲","label":"豆食・飲品","intro":"來自苗栗苑裡的「原豆粹食」，延續在地老店「勝利豆腐店」近 50 年的製豆經驗，將三代累積的手藝與對食材的用心，融入日常飲食。從傳統豆腐到香滑豆花，我們希望用簡單、實在的方式，重新分享黃豆的美好，讓熟悉的豆香有更多不同的樣貌。一顆黃豆，承載著三代人的日常，盼接下來的日子，繼續長出新的故事。","products":["豆奶烏龍飲 60 元","麻辣香豆腐 55 元","五香滷干丁 55 元","蒜香千層干 55 元","泰式豆皮酥 65 元","藺子版苑裡美食地圖（免費）"],"social":"https://www.instagram.com/good_soyfoods","synced":true},
-  {"number":"12","name":"椛檸製所","category":"餐飲","label":"甜點飲品","intro":"以療癒、限量且手工甜點為主，招牌甜點是各種口味的巴斯克乳酪蛋糕、小塔類（檸檬塔、芋泥塔等）、各種口味的可麗露，希望各國甜點都可以在這個品牌內買得到、吃得到。","products":["招牌原味巴斯克 120 元；非原味 130–140 元","招牌原味可麗露 60 元；非原味 75 元","招牌檸檬塔 130 元","精選肉桂捲 100 元","精選義式冰淇淋 100 元","招牌冰拿鐵咖啡 110 元","招牌洋甘菊柚子茶 100 元","特調冷泡茶 80 元","可使用現金；以物易物須雙方同意"],"social":"https://www.instagram.com/hua_ning_studio/","synced":true},
-  {"number":"13","name":"幸福里謝家米食","category":"餐飲","label":"米食","intro":"","products":[],"synced":false},
-  {"number":"14","name":"采點雞蛋糕","category":"餐飲","label":"甜點","intro":"原味雞蛋糕、包餡雞蛋糕，鹹甜都有。","products":["原味","牛奶卡士達","熔岩巧克力","黑糖麻糬","花生","草莓果醬","玉米起司","Double 起司","OREO"],"social":"https://www.facebook.com/share/1C2cgmhmkY/?mibextid=wwXIfr","synced":true},
-  {"number":"15","name":"山腳下飯糰","category":"餐飲","label":"熟食・飲品","intro":"致力於研究台灣經典料理、研究古法食材的保存，並微調為更健康好吃、合適身體的餐食。","products":["手作粉漿蛋餅（蛋奶素可）","自釀水果氣泡醋飲","手炒麵茶鮮奶茶"],"social":"https://www.facebook.com/share/1DBxnimdcG/?mibextid=wwXIfr","synced":true},
-  {"number":"16","name":"御鼎饌廚房","category":"餐飲","label":"熟食小吃","intro":"主要販賣福州包和炸類熟食。","products":["無骨排骨酥 100 元起","無骨雞腿酥 100 元起","黃金脆薯 50 元／100 元","爆漿地瓜球 50 元／100 元"],"synced":true},
-  {"number":"17","name":"睿阿嬤-純米手作","category":"餐飲","label":"客家米食","intro":"日南本地自種芋頭、蘿蔔，製作成客家米食。","products":["草仔粿","芋粿","高麗菜粿"],"socialLabel":"Facebook：睿阿嬤-純米手作","synced":true},
-  {"number":"18","name":"章魚小丸子","category":"餐飲","label":"熟食小吃","intro":"章魚小丸子。","products":["小盒 60 元","大盒 90 元"],"synced":true},
-  {"number":"19","name":"198茶苑","category":"餐飲","label":"茶飲","intro":"古早味茶飲，當天皆使用罐裝販售。","products":["古早味紅茶","懷舊冬瓜茶","仙草甘茶","金萱綠茶","桂花烏龍茶","檸檬冬瓜","蜂蜜檸檬"],"synced":true},
-  {"number":"20","name":"善群農莊","category":"農漁特產","label":"有機農產","intro":"我們把天地當畫布、用自然當教室，10 多年來落實有機農法，大地回饋給我們美好環境與豐碩果實，農人將生產的黑豆、小麥、玄米製成糧食茶飲，用營養滿分的米糠製成獨特的素食 x.o. 醬，還有純天然、最新鮮的有機農產品，想與您分享親手焙炒的用心與自然甘甜，期待在市集角落與您偶遇。","products":["有機蓮花香米","有機青仁黑豆","元氣糧飲：青仁黑豆茶／韃靼蕎麥茶","純植豆榖奶：糙米麩／黑豆麩／米糠粉／綜合麩","小農特調：海鹽檸檬、菊花冰茶、黑豆奶茶","黃金爆麥香","酒釀豆腐乳：辣味／原味","薑檸膏"],"social":"https://www.facebook.com/%E5%96%84%E7%BE%A4%E6%9C%89%E6%A9%9F%E8%BE%B2%E8%8E%8A-2004884403065983/","synced":true},
-  {"number":"21","name":"冰一夏雪花冰","category":"餐飲","label":"冰品","intro":"冰一下雪花冰嫩仙草，平常在日南公園、全家、日南夜市週三、週日皆有擺攤！","products":["雪花冰：九種口味","嫩仙草＋奶球 40 元","嫩仙草＋奶球＋加料 50 元","商品約 40–60 元"],"social":"https://www.facebook.com/share/19ZVPVpboB/?mibextid=wwXIfr","synced":true},
-  {"number":"22","name":"米佐狀元糕-品牌總部","category":"餐飲","label":"米食・飲品","intro":"吃得不只是個狀元糕，更是一個回憶與傳承！純香米製作，不添加防腐劑，現點現做，素食可食用。什麼樣的糕點不會過於甜膩，還彈牙十足？米佐狀元糕，絕對讓您驚艷！嚴選上等食材，以多種台灣各區域產地純蓬萊米結合，製作過程絕無添加防腐劑和糯米粉。保留米最純的原味及最高的營養價值，讓您吃起來不擔心脹氣，更能吃到米的香氣和餡料的美味，甜而不膩、Q 彈十足。秉持職人態度，遵循傳統的製作方法精髓，並把傳統文化和創新思維結合在一起，創造出獨特風味。","products":["狀元糕","國農牛乳","彈珠汽水","泡芙"],"social":"https://www.facebook.com/profile.php?id=100082845117187","synced":true},
-  {"number":"23","name":"小胖稻草芋頭","category":"餐飲","label":"芋頭炸物","intro":"台中教育大學人氣炸物，子女接棒後回家鄉經營，主打自家產芋頭製作的特色商品稻草芋頭。","products":["稻草芋頭 40 元","芋籤糕 40 元"],"social":"https://www.facebook.com/chubby.straw.taros/","synced":true}
+  {
+    "number": "01",
+    "name": "華山基金會大甲站",
+    "category": "倡議",
+    "label": "公益義賣",
+    "intro": "華山基金會長期關懷失依、失能、失智的弱勢長輩，透過到宅訪視、物資協助及暖心陪伴，將愛與關懷送進長輩家中，串起社會的溫暖力量，讓每位長輩都能安心、有尊嚴地老化，不再孤單。",
+    "social": "https://www.facebook.com/cz3239.elder",
+    "synced": true
+  },
+  {
+    "number": "02",
+    "name": "東room藝術工作室",
+    "category": "手作藝術",
+    "label": "文創手作",
+    "intro": "2014 因台東的緣分，接觸大自然僻靜，開始創作人與土地之間的關係。2021 於都蘭成立東room藝術工作室，用創作分享這片土地和生活中的感動。",
+    "social": "https://www.instagram.com/litchirealm_quand/",
+    "synced": true
+  },
+  {
+    "number": "03",
+    "name": "拾光伍參柒",
+    "category": "餐飲",
+    "label": "熟食・選物",
+    "intro": "用在地的人事物，做有質感的生活方式。",
+    "social": "https://www.facebook.com/share/19n3iAFD3y/?mibextid=wwXIfr",
+    "synced": true
+  },
+  {
+    "number": "04",
+    "name": "Snowfat 肥雪工作室",
+    "category": "手作藝術",
+    "label": "插畫・互動",
+    "intro": "〔創作即是生命，生命即是創作〕我是佳育，橫跨會計領域的斜槓藝術家，在理性與感性交錯的生命旅程裡，因藝術而復燃對生命的熱情。從 2018 年起，我以童趣筆觸探索世界，用似亂卻有序的墨跡，留下屬於肥雪的溫度。2023 年創立「SnowFat 肥雪工作室」個人品牌，這也是讓我在創作的過程中慢慢走出病魔並與之共存的方式，屬於肥雪的失覺之路。養病期間我來到日南這片土地，這裡是我重新站起來的地方，因而結緣。",
+    "social": "https://www.instagram.com/snowfat.00/",
+    "synced": true
+  },
+  {
+    "number": "05",
+    "name": "左撇織 Jolly handmade Labo",
+    "category": "手作藝術",
+    "label": "纖維・織品",
+    "intro": "Jolly handmade Labo 左撇織手作纖維實驗室，專於織品創作｜藺草・刺繡・布作・繪畫。從毛線編織與刺繡出發，學習家鄉藺草編織成為個人創作的轉折。把針線當作筆，結合纖維與織紋，緩慢勾勒出生活的溫度與日常片段。販售編織與刺繡小物，並提供客製化訂製、教學服務。",
+    "social": "https://www.instagram.com/jolly_handmade_labo/",
+    "synced": true
+  },
+  {
+    "number": "06",
+    "name": "宮崎縣人會｜遊戲",
+    "category": "倡議",
+    "label": "臺日交流",
+    "intro": "日本宮崎交流互動遊戲。",
+    "synced": false
+  },
+  {
+    "number": "07",
+    "name": "宮崎縣人會｜Lopia × 乾杯",
+    "category": "倡議",
+    "label": "臺日交流",
+    "intro": "",
+    "synced": false
+  },
+  {
+    "number": "08",
+    "name": "宮崎縣人會｜觀光 PR",
+    "category": "倡議",
+    "label": "觀光交流",
+    "intro": "宮崎觀光推廣。",
+    "synced": false
+  },
+  {
+    "number": "09",
+    "name": "越南攤位",
+    "category": "餐飲",
+    "label": "異國飲食",
+    "intro": "",
+    "synced": false
+  },
+  {
+    "number": "10",
+    "name": "日南來心肉共生廚房x崩八食堂",
+    "category": "餐飲",
+    "label": "熟食小吃",
+    "intro": "日南來心肉共生廚房，從在地食材出發，打造一個結合飲食、健康與社區共好的共享空間。我們關注不同年齡與需求的飲食照顧，推動質地飲食，讓長者及有咀嚼、吞嚥需求的人，也能享受美味又有尊嚴的餐食。透過在地食材、營養均衡與友善烹調，實踐健康飲食理念，並於 2025 年榮獲國健署「健康餐食實踐獎」肯定。希望透過一間廚房，讓食物不只是填飽肚子，更能連結人與人，讓健康、陪伴與共好持續發生。",
+    "social": "https://www.facebook.com/share/19TKYuKc9k/?mibextid=wwXIfr",
+    "synced": true
+  },
+  {
+    "number": "11",
+    "name": "原豆粹食 GOOD SOYFOOD",
+    "category": "餐飲",
+    "label": "豆食・飲品",
+    "intro": "來自苗栗苑裡的「原豆粹食」，延續在地老店「勝利豆腐店」近 50 年的製豆經驗，將三代累積的手藝與對食材的用心，融入日常飲食。從傳統豆腐到香滑豆花，我們希望用簡單、實在的方式，重新分享黃豆的美好，讓熟悉的豆香有更多不同的樣貌。一顆黃豆，承載著三代人的日常，盼接下來的日子，繼續長出新的故事。",
+    "social": "https://www.instagram.com/good_soyfoods",
+    "synced": true
+  },
+  {
+    "number": "12",
+    "name": "椛檸製所",
+    "category": "餐飲",
+    "label": "甜點飲品",
+    "intro": "以療癒、限量且手工甜點為主，招牌甜點是各種口味的巴斯克乳酪蛋糕、小塔類（檸檬塔、芋泥塔等）、各種口味的可麗露，希望各國甜點都可以在這個品牌內買得到、吃得到。",
+    "social": "https://www.instagram.com/hua_ning_studio/",
+    "synced": true
+  },
+  {
+    "number": "13",
+    "name": "幸福里謝家米食",
+    "category": "餐飲",
+    "label": "米食",
+    "intro": "",
+    "synced": false
+  },
+  {
+    "number": "14",
+    "name": "采點雞蛋糕",
+    "category": "餐飲",
+    "label": "甜點",
+    "intro": "原味雞蛋糕、包餡雞蛋糕，鹹甜都有。",
+    "social": "https://www.facebook.com/share/1C2cgmhmkY/?mibextid=wwXIfr",
+    "synced": true
+  },
+  {
+    "number": "15",
+    "name": "山腳下飯糰",
+    "category": "餐飲",
+    "label": "熟食・飲品",
+    "intro": "致力於研究台灣經典料理、研究古法食材的保存，並微調為更健康好吃、合適身體的餐食。",
+    "social": "https://www.facebook.com/share/1DBxnimdcG/?mibextid=wwXIfr",
+    "synced": true
+  },
+  {
+    "number": "16",
+    "name": "御鼎饌廚房",
+    "category": "餐飲",
+    "label": "熟食小吃",
+    "intro": "主要販賣福州包和炸類熟食。",
+    "synced": true
+  },
+  {
+    "number": "17",
+    "name": "睿阿嬤-純米手作",
+    "category": "餐飲",
+    "label": "客家米食",
+    "intro": "日南本地自種芋頭、蘿蔔，製作成客家米食。",
+    "socialLabel": "Facebook：睿阿嬤-純米手作",
+    "synced": true
+  },
+  {
+    "number": "18",
+    "name": "章魚小丸子",
+    "category": "餐飲",
+    "label": "熟食小吃",
+    "intro": "章魚小丸子。",
+    "synced": true
+  },
+  {
+    "number": "19",
+    "name": "198茶苑",
+    "category": "餐飲",
+    "label": "茶飲",
+    "intro": "古早味茶飲，當天皆使用罐裝販售。",
+    "synced": true
+  },
+  {
+    "number": "20",
+    "name": "善群農莊",
+    "category": "農漁特產",
+    "label": "有機農產",
+    "intro": "我們把天地當畫布、用自然當教室，10 多年來落實有機農法，大地回饋給我們美好環境與豐碩果實，農人將生產的黑豆、小麥、玄米製成糧食茶飲，用營養滿分的米糠製成獨特的素食 x.o. 醬，還有純天然、最新鮮的有機農產品，想與您分享親手焙炒的用心與自然甘甜，期待在市集角落與您偶遇。",
+    "social": "https://www.facebook.com/%E5%96%84%E7%BE%A4%E6%9C%89%E6%A9%9F%E8%BE%B2%E8%8E%8A-2004884403065983/",
+    "synced": true
+  },
+  {
+    "number": "21",
+    "name": "冰一夏雪花冰",
+    "category": "餐飲",
+    "label": "冰品",
+    "intro": "冰一下雪花冰嫩仙草，平常在日南公園、全家、日南夜市週三、週日皆有擺攤！",
+    "social": "https://www.facebook.com/share/19ZVPVpboB/?mibextid=wwXIfr",
+    "synced": true
+  },
+  {
+    "number": "22",
+    "name": "米佐狀元糕-品牌總部",
+    "category": "餐飲",
+    "label": "米食・飲品",
+    "intro": "吃得不只是個狀元糕，更是一個回憶與傳承！純香米製作，不添加防腐劑，現點現做，素食可食用。什麼樣的糕點不會過於甜膩，還彈牙十足？米佐狀元糕，絕對讓您驚艷！嚴選上等食材，以多種台灣各區域產地純蓬萊米結合，製作過程絕無添加防腐劑和糯米粉。保留米最純的原味及最高的營養價值，讓您吃起來不擔心脹氣，更能吃到米的香氣和餡料的美味，甜而不膩、Q 彈十足。秉持職人態度，遵循傳統的製作方法精髓，並把傳統文化和創新思維結合在一起，創造出獨特風味。",
+    "social": "https://www.facebook.com/profile.php?id=100082845117187",
+    "synced": true
+  },
+  {
+    "number": "23",
+    "name": "小胖稻草芋頭",
+    "category": "餐飲",
+    "label": "芋頭炸物",
+    "intro": "台中教育大學人氣炸物，子女接棒後回家鄉經營，主打自家產芋頭製作的特色商品稻草芋頭。",
+    "social": "https://www.facebook.com/chubby.straw.taros/",
+    "synced": true
+  }
 ]

@@ -1,6 +1,7 @@
 import { sitePath } from "../../site-path";
 import { marketHtml } from "./market-html";
 import { site } from "../../content";
+import MarketDialogs from "./market-dialogs";
 
 export default function MarketPageLayout({ preview = false }: { preview?: boolean }) {
   return (
@@ -17,6 +18,7 @@ export default function MarketPageLayout({ preview = false }: { preview?: boolea
       </header>
 
       <div dangerouslySetInnerHTML={{ __html: marketHtml.replaceAll("__BASE__", sitePath("")) }} />
+      <MarketDialogs />
 
       <footer className="site-footer motion-footer">
         <div className="footer-identity"><strong>日南稻站 Rinan Commons</strong><span>{site.address}</span></div>

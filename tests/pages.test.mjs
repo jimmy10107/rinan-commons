@@ -80,8 +80,8 @@ test('published market is discoverable and retains the corrected vendor informat
   for (const html of [market, preview]) {
     const renderedMain = html.slice(html.indexOf('<main class="market-page"'), html.indexOf("</main>"));
     assert.equal((renderedMain.match(/data-vendor-number=/g) || []).length, 23);
-    for (const text of ['御鼎饌廚房', '原豆粹食 GOOD SOYFOOD', '采點雞蛋糕', '睿阿嬤-純米手作', '烤原味香腸', '檸檬冬瓜', '豆奶烏龍飲 60 元', '毛線混藺編磁貼', '爆米花 150 元／瓶']) assert.ok(html.includes(text), text);
-    assert.doesNotMatch(html, /烤花椒香腸|御頂饌廚房|原味豆腐|慈德路口雞蛋糕|范媽媽客家美食傳統|\[品項待補\]|\[內容待補\]/);
+    for (const text of ['御鼎饌廚房', '原豆粹食 GOOD SOYFOOD', '采點雞蛋糕', '睿阿嬤-純米手作']) assert.ok(html.includes(text), text);
+    assert.doesNotMatch(html, /現場品項|更多品項|豆奶烏龍飲 60 元|爆米花 150 元|待補|攤商確認中|烤花椒香腸|御頂饌廚房|原味豆腐|慈德路口雞蛋糕|范媽媽客家美食傳統|\[品項待補\]|\[內容待補\]/);
     for (const privateValue of ['0931657945', '0972315700', 'owen657945', 'backcountry', 'BMF-1370', 'BRP-9202', '押金匯款', '現場負責人行動電話']) assert.ok(!html.includes(privateValue), privateValue);
   }
   assert.match(event, /href="\/rinan-commons\/motion2026\/market\/"/);
