@@ -43,7 +43,7 @@ export default function EventSite() {
       {view === "1024" && <DayOne />}{view === "1025" && <DayTwo />}{view === "local" && <LocalInfo />}
     </section>
     <section id="registration" className="registration-panel registration-standalone" aria-labelledby="registration-title"><span>REGISTRATION</span><div><h3 id="registration-title">走傱報名</h3><p>報名已截止。請依各節目現場公告與邀請資訊參與；活動內容以最終公告為準。</p></div><b>報名已截止</b></section>
-    <div className="event-visit-link"><a className="underlined-link" href={sitePath("/visit/")}>交通方式・安排到訪 ↗</a><br /><a className="underlined-link" href={sitePath("/explore/")}>探索日南九里地圖 ↗</a></div>
+    <div className="event-visit-link"><a className="underlined-link" href={sitePath("/visit/")}>交通方式・安排到訪 ↗</a><br /><a className="underlined-link" href={sitePath("/explore/")}>探索日南九里地圖 ↗</a><br /><a className="underlined-link" href={sitePath("/plants/")}>日南植物形態室 ↗</a></div>
     <EventFooter />
   </main>;
 }
