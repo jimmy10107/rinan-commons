@@ -1,4 +1,4 @@
-.entry-media{position:fixed;z-index:140;right:18px;top:102px;width:min(390px,calc(100vw - 24px));font-family:var(--sans,system-ui,sans-serif);color:#183e35}
+.entry-media{position:fixed;z-index:140;right:18px;bottom:18px;width:min(390px,calc(100vw - 24px));font-family:var(--sans,system-ui,sans-serif);color:#183e35}
 .entry-media-panel{background:#fffef9;border:1px solid #d7dacd;box-shadow:0 15px 45px #102d2430;border-radius:5px;overflow:hidden}
 .entry-media-head{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:12px 14px 10px}
 .entry-media-head span{display:block;color:#8f5b3c;font-size:11px;letter-spacing:.12em;line-height:1.4}
@@ -17,7 +17,7 @@
 .entry-media-launchers button{white-space:nowrap}
 .entry-media-switch button:hover,.entry-media-launchers button:hover{border-color:#183e35}
 .entry-media :is(button,a):focus-visible{outline:3px solid #d97745;outline-offset:2px}
-@media(max-width:760px){.entry-media{right:12px;top:84px}.entry-media-screen,.entry-media-screen iframe{height:clamp(200px,56vw,218px)}.entry-media-launchers{left:10px;bottom:calc(10px + env(safe-area-inset-bottom))}.entry-media-launchers button{padding-inline:10px;font-size:12px}}
+@media(max-width:760px){.entry-media{right:12px;bottom:calc(12px + env(safe-area-inset-bottom))}.entry-media-screen,.entry-media-screen iframe{height:clamp(200px,56vw,218px)}.entry-media-launchers{left:10px;bottom:calc(10px + env(safe-area-inset-bottom))}.entry-media-launchers button{padding-inline:10px;font-size:12px}}
 @media(max-width:360px){.entry-media-switch a{margin-left:0}.entry-media-head strong{font-size:16px}}
 
 /* A small framing correction, leaving the original documentary files untouched. */
