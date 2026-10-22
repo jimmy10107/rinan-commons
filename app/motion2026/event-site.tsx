@@ -7,7 +7,7 @@ import { sitePath } from "../site-path";
 type View = "1024" | "1025" | "local";
 const plazaMap = "https://maps.app.goo.gl/NoN8DrkZRdcLhcoW6";
 const stationMap = "https://maps.app.goo.gl/HNQpY3hKnP5kuRAs7";
-const vendorCategories = ["手作藝術", "餐飲", "農漁特產", "倡議"];
+const vendorCategories = ["手作藝術", "餐飲", "農漁特產", "倡議", "臺日交流", "其他攤位"];
 
 export default function EventSite() {
   const [view, setView] = useState<View>("1024");
@@ -61,9 +61,9 @@ function Timeline({ day }: { day: "2026-10-24" | "2026-10-25" }) {
 function DayOne() {
   return <><div className="panel-heading"><span>10.24・星期六</span><h2>生命・文化的走傱</h2><p>14:00 由日南稻站開幕，17:00 起於日南車站旁廣場有音樂與走傱市集。</p></div><Timeline day="2026-10-24" />
     <section className="market-plan" aria-labelledby="market-title"><header className="market-heading"><span className="card-icon">市</span><div><small>10/24・17:00–21:30</small><h3 id="market-title">走傱市集</h3><p>共 {vendors.length} 個攤位，餐飲、手作、農產與交流一起逛。實際品項與區位以現場公告為準。</p></div></header>
-      <div className="market-config">{vendorCategories.map((category, index) => { const group = vendors.filter(v => v.category === category); return group.length ? <div key={category}><span>0{index + 1}</span><strong>{category}</strong><small>{group.length} 組</small></div> : null; })}</div>
+      <div className="market-config">{vendorCategories.map((category, index) => { const group = vendors.filter(v => (v.category || "其他攤位") === category); return group.length ? <div key={category}><span>0{index + 1}</span><strong>{category}</strong><small>{group.length} 組</small></div> : null; })}</div>
       <a className="market-directory-link" href={sitePath("/motion2026/market/")}>查看品牌介紹・場地配置圖 ↗</a>
-      <details className="vendor-details"><summary><span>查看已公開攤商</span><i>＋</i></summary><div className="vendor-groups">{vendorCategories.map(category => { const group = vendors.filter(v => v.category === category); return group.length ? <section className="vendor-group" key={category}><h4>{category}<small>{group.length} 組</small></h4><div className="vendor-list">{group.map(v => <article key={v.id}><div><strong>{v.name}</strong>{v.note && <small>{v.note}</small>}</div></article>)}</div></section> : null; })}</div></details>
+      <details className="vendor-details"><summary><span>查看已公開攤商</span><i>＋</i></summary><div className="vendor-groups">{vendorCategories.map(category => { const group = vendors.filter(v => (v.category || "其他攤位") === category); return group.length ? <section className="vendor-group" key={category}><h4>{category}<small>{group.length} 組</small></h4><div className="vendor-list">{group.map(v => <article key={v.id}><div><strong>{v.name}</strong>{v.note && <small>{v.note}</small>}</div></article>)}</div></section> : null; })}</div></details>
     </section>
   </>;
 }

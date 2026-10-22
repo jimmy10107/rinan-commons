@@ -9,11 +9,11 @@ function renderVendor(v: MarketVendor) {
   const story = intro ? `<p class="market-vendor-intro">${intro}</p>` : '<div class="market-vendor-intro" aria-hidden="true"></div>';
   const longStory = v.intro.length > 60;
   const detail = longStory ? `<button type="button" class="market-vendor-more" data-market-open="vendor-story-${v.number}" aria-haspopup="dialog">品牌故事 <span aria-hidden="true">↗</span></button>` : "";
-  const dialog = longStory ? `<dialog class="market-story-dialog" id="vendor-story-${v.number}" aria-labelledby="vendor-story-title-${v.number}"><form method="dialog"><button class="market-story-close" aria-label="關閉品牌故事" autofocus>關閉 ✕</button></form><span class="market-story-eyebrow">${v.number} · ${escapeHtml(v.label)}</span><h2 id="vendor-story-title-${v.number}">${name}</h2><p>${intro}</p></dialog>` : "";
+  const dialog = longStory ? `<dialog class="market-story-dialog" id="vendor-story-${v.number}" aria-labelledby="vendor-story-title-${v.number}"><form method="dialog"><button class="market-story-close" aria-label="關閉品牌故事" autofocus>關閉 ✕</button></form><span class="market-story-eyebrow">${v.number} · ${escapeHtml(v.location)}</span><h2 id="vendor-story-title-${v.number}">${name}</h2><p>${intro}</p></dialog>` : "";
   const social = v.social && /^https:\/\/(www\.)?(facebook\.com|instagram\.com)\//.test(v.social)
     ? `<a class="market-vendor-social" href="${escapeHtml(v.social)}" target="_blank" rel="noopener noreferrer" aria-label="${name} 社群（另開新視窗）">${v.social.includes("instagram.com") ? "Instagram" : "Facebook"} ↗</a>`
     : v.socialLabel ? `<span class="market-vendor-social-label">${escapeHtml(v.socialLabel)}</span>` : "";
-  return `<article class="market-vendor" id="vendor-${v.number}" data-vendor-number="${v.number}"><div class="market-vendor-top"><span class="market-vendor-number">${v.number}</span><span class="market-vendor-tag">${escapeHtml(v.label)}</span></div><h3>${name}</h3>${story}<div class="market-vendor-footer">${detail}${social}</div>${dialog}</article>`;
+  return `<article class="market-vendor" id="vendor-${v.number}" data-vendor-number="${v.number}"><div class="market-vendor-top"><span class="market-vendor-number">${v.number}</span><span class="market-vendor-tag">${escapeHtml(v.location)}</span></div><h3>${name}</h3>${story}<div class="market-vendor-footer">${detail}${social}</div>${dialog}</article>`;
 }
 function renderVendorSection(id: string, title: string, group: MarketVendor[]) {
   return `<section id="${id}" class="market-directory-section"><div class="market-directory-heading"><h2>${title}</h2><span>${group.length} 攤</span></div><div class="market-directory-grid">${group.map(renderVendor).join("")}</div></section>`;
@@ -39,8 +39,7 @@ export const marketHtml = String.raw`<section id="content" style="background: #1
 </div>
 <div style="display: flex; flex-wrap: wrap; gap: 12px; margin-top: 6px">
 <a href="#map" style="display: inline-flex; align-items: center; min-height: 48px; padding: 0 22px; border-radius: 999px; background: #F2B544; color: #2A1E05; font-size: 16px; font-weight: 700; text-decoration: none">看場地配置圖</a>
-<a href="#food" style="display: inline-flex; align-items: center; min-height: 48px; padding: 0 22px; border-radius: 999px; border: 2px solid #F7F4EC; color: #F7F4EC; font-size: 16px; font-weight: 700; text-decoration: none; box-sizing: border-box">餐飲美食</a>
-<a href="#stalls" style="display: inline-flex; align-items: center; min-height: 48px; padding: 0 22px; border-radius: 999px; border: 2px solid #F7F4EC; color: #F7F4EC; font-size: 16px; font-weight: 700; text-decoration: none; box-sizing: border-box">手作・農產・交流</a>
+<a href="#stalls" style="display: inline-flex; align-items: center; min-height: 48px; padding: 0 22px; border-radius: 999px; border: 2px solid #F7F4EC; color: #F7F4EC; font-size: 16px; font-weight: 700; text-decoration: none; box-sizing: border-box">攤位總覽</a>
 </div>
 </div>
 </section>
@@ -52,15 +51,13 @@ export const marketHtml = String.raw`<section id="content" style="background: #1
 <span style="font-size: 14px; color: #5F6159">示意圖・非等比例｜手機可左右滑動</span>
 </div>
 <div style="overflow-x: auto; border-radius: 14px; border: 1px solid #E3DDCD; background: #FFFFFF">
-<img src="__BASE__/images/motion2026-market-map.png" alt="走傱市集活動場地配置圖：日南車站、服務台、舞台、樹林區與攤位 01 至 23 的位置" width="3200" height="820" style="display: block; width: 100%; min-width: 960px; max-width: none; height: auto">
+<img src="__BASE__/images/motion2026-market-map-20261023.png" alt="走傱市集活動場地配置圖：日南車站、服務台、舞台、樹林區與攤位 01 至 23 的位置" width="3272" height="656" style="display: block; width: 100%; min-width: 960px; max-width: none; height: auto">
 </div>
-<a href="__BASE__/images/motion2026-market-map.png" target="_blank" rel="noopener" style="align-self: flex-start; display: inline-flex; align-items: center; min-height: 44px; font-size: 15px; font-weight: 700; color: #2E6B4A">開啟原尺寸配置圖 ↗</a>
+<a href="__BASE__/images/motion2026-market-map-20261023.png" target="_blank" rel="noopener" style="align-self: flex-start; display: inline-flex; align-items: center; min-height: 44px; font-size: 15px; font-weight: 700; color: #2E6B4A">開啟原尺寸配置圖 ↗</a>
 </div>
 </section>
 
-${renderVendorSection("food", "餐飲美食", marketVendors.filter(v => v.category === "餐飲"))}
-
-${renderVendorSection("stalls", "手作・農產・交流", marketVendors.filter(v => v.category !== "餐飲"))}
+${renderVendorSection("stalls", "攤位總覽", marketVendors)}
 
 <section id="info">
 <div style="max-width: 1200px; margin: 0 auto; padding: 48px 24px 72px; display: flex; flex-direction: column; gap: 20px">
@@ -68,7 +65,7 @@ ${renderVendorSection("stalls", "手作・農產・交流", marketVendors.filter
 <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 16px">
 <div style="background: #FFFFFF; border: 1px solid #E3DDCD; border-radius: 14px; padding: 20px; display: flex; flex-direction: column; gap: 6px">
 <div style="font-size: 17px; font-weight: 700; color: #B23A26">服務設施</div>
-<div style="font-size: 15px; line-height: 1.6; color: #4A4F46">服務台、周邊品、醫護站，位於入口意象牆前（01 號攤旁）。</div>
+<div style="font-size: 15px; line-height: 1.6; color: #4A4F46">32 服務台、33 走傱日南周邊商品區 × 台灣啤酒、34 醫護站，位於入口意象牆前、01 號華山基金會旁。</div>
 </div>
 <div style="background: #FFFFFF; border: 1px solid #E3DDCD; border-radius: 14px; padding: 20px; display: flex; flex-direction: column; gap: 6px">
 <div style="font-size: 17px; font-weight: 700; color: #2457A0">流動廁所</div>
