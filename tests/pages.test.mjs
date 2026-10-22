@@ -115,3 +115,17 @@ test('entry media wires the two approved videos and keeps one visible player at 
   assert.match(styles, /\.entry-media-screen iframe\{display:block/);
   assert.match(styles, /height:clamp\(200px/);
 });
+
+test('people stories lead the home journal and the full journal, with covers', () => {
+  const home = readFileSync(path.join(root, 'index.html'), 'utf8');
+  const journal = readFileSync(path.join(root, 'stories/index.html'), 'utf8');
+  const homeStories = home.slice(home.indexOf('class="story-teasers"'), home.indexOf('class="visit-invitation"'));
+  const journalStories = journal.slice(journal.indexOf('class="journal-results"'), journal.indexOf('class="empty-results"'));
+  for (const section of [homeStories, journalStories]) {
+    assert.ok(section.indexOf('走傱的日南人 1') < section.indexOf('日南稻站：打開車站旁的舊營房'));
+    assert.ok(section.indexOf('走傱的日南人 2') < section.indexOf('日南稻站：打開車站旁的舊營房'));
+    assert.ok(section.indexOf('走傱的日南人 3') < section.indexOf('日南稻站：打開車站旁的舊營房'));
+  }
+  assert.ok(homeStories.indexOf('走傱的日南人 1') > homeStories.indexOf('<picture>'));
+  assert.ok(journal.indexOf('人物故事</button>') < journal.indexOf('鐵道文史</button>'));
+});

@@ -2,6 +2,8 @@ import { ResponsivePhoto } from './responsive-photo';
 import { SiteFooter, SiteHeader } from './site-shell';
 import { sitePath } from './site-path';
 import { articles, site } from './content';
+import { StoryPhoto } from './stories/story-photo';
+import { compareStories } from './stories/story-order';
 
 export default function HomePage() {
   return <main className="commons-page" id="top">
@@ -31,7 +33,7 @@ export default function HomePage() {
     </section>
     <section className="editorial-section journal-section">
       <div className="section-mast"><p className="kicker">03 / 慢慢讀日南</p><a href={sitePath('/stories/')} className="underlined-link">地方筆記 ↗</a></div>
-      <div className="story-teasers">{articles.map((article,index)=><a href={sitePath(`/stories/${article.slug}/`)} key={article.id} className="story-teaser">{article.image ? <ResponsivePhoto src={article.image} alt={article.imageAlt} width={640} height={420} /> : <div className="type-cover" aria-hidden="true"><span>COMMONS / NOTES</span><strong>坐一下，<br />休息一下。</strong><small>日南稻站</small></div>}<div className="teaser-copy"><p className="kicker">{article.category} <span>約 {article.readingMinutes} 分鐘・0{index+1}</span></p><h3>{article.title}</h3><p>{article.summary}</p><span className="read-story">閱讀筆記 ↗</span></div></a>)}</div>
+      <div className="story-teasers">{[...articles].sort(compareStories).map((article,index)=><a href={sitePath(`/stories/${article.slug}/`)} key={article.id} className="story-teaser">{article.cover ? <StoryPhoto photo={article.cover} sizes="(max-width: 760px) calc(100vw - 46px), 640px" /> : article.image ? <ResponsivePhoto src={article.image} alt={article.imageAlt} width={640} height={420} /> : <div className="type-cover" aria-hidden="true"><span>COMMONS / NOTES</span><strong>坐一下，<br />休息一下。</strong><small>日南稻站</small></div>}<div className="teaser-copy"><p className="kicker">{article.category} <span>約 {article.readingMinutes} 分鐘・0{index+1}</span></p><h3>{article.title}</h3><p>{article.summary}</p><span className="read-story">閱讀筆記 ↗</span></div></a>)}</div>
     </section>
     <section className="visit-invitation"><p className="kicker">下一站，日南。</p><h2>來坐一下。</h2><div><p>{site.address}<br />{site.opening}</p><a className="solid-link light" href={sitePath('/visit/')}>安排到訪 <span>↗</span></a></div></section>
     <SiteFooter note="在往返之間，認識日南。" />

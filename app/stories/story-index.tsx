@@ -3,13 +3,14 @@ import { useEffect, useState } from 'react';
 import { ResponsivePhoto } from '../responsive-photo';
 import { sitePath } from '../site-path';
 import { StoryPhoto } from './story-photo';
+import { compareStories } from './story-order';
 import type { StoryArticle } from './story-types';
 
 const categoryIds: Record<string, string> = { '全部': '', '鐵道文史': 'railway', '空間日常': 'everyday', '人物故事': 'people' };
 export function StoryIndex({ articles }: { articles: StoryArticle[] }) {
   const [category, setCategory] = useState('全部');
   const [query, setQuery] = useState('');
-  const categories = ['全部', ...new Set(articles.map(a => a.category))];
+  const categories = ['全部', '人物故事', '鐵道文史', '空間日常'].filter(c => c === '全部' || articles.some(a => a.category === c));
   useEffect(() => {
     const readCategory = () => {
       const id = new URLSearchParams(window.location.search).get('category');
@@ -27,7 +28,7 @@ export function StoryIndex({ articles }: { articles: StoryArticle[] }) {
     window.history.pushState(null, '', url);
   }
   const visible = [...articles]
-    .sort((a, b) => b.updatedAt.localeCompare(a.updatedAt) || (a.seriesNumber || 0) - (b.seriesNumber || 0))
+    .sort(compareStories)
     .filter(a => (category === '全部' || a.category === category) && `${a.title} ${a.summary} ${a.category} ${a.sections.map(s => s.text).join(' ')}`.toLocaleLowerCase().includes(query.trim().toLocaleLowerCase()));
   return <section className="editorial-section journal-index">
     <div className="journal-controls">
