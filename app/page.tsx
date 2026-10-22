@@ -1,7 +1,7 @@
 import { ResponsivePhoto } from './responsive-photo';
 import { SiteFooter, SiteHeader } from './site-shell';
 import { sitePath } from './site-path';
-import { articles, site, photoSource } from './content';
+import { articles, site } from './content';
 
 export default function HomePage() {
   return <main className="commons-page" id="top">
@@ -14,7 +14,7 @@ export default function HomePage() {
         <a className="solid-link" href={sitePath('/about/')}>走進日南稻站 <span aria-hidden="true">↗</span></a>
         <div className="hero-footnote"><span>從這裡出發，也從這裡回來。</span><span>海線・日南車站旁</span></div>
       </div>
-      <figure className="hero-photo"><ResponsivePhoto src="/images/rinan-station.jpg" alt="日南車站的木造站房、月台與鐵軌" priority /><figcaption>日南車站｜日常往返的地方 <a href={photoSource} target="_blank" rel="noreferrer">影像來源：臺中市文化資產處</a></figcaption></figure>
+      <figure className="hero-photo"><ResponsivePhoto src="/images/commons-exterior-1200.webp" alt="日南稻站外側的舊守橋營房、休息平台與植栽" width={1200} height={900} priority /><figcaption>日南稻站外側｜舊守橋營房與休息平台</figcaption></figure>
     </section>
     <a className="announcement" href={sitePath('/motion2026/')}><span className="announcement-label">近期活動</span><strong>10.24<small>（六）</small>—10.25<small>（日）</small></strong><span>走傱日南 2026 <small>開幕・音樂・市集・走讀</small></span><b>查看活動 <span aria-hidden="true">↗</span></b></a>
     <nav className="start-here" aria-label="快速找到想看的內容"><a href={sitePath('/explore/')}><span>01 / 九里地圖</span><strong>從九里，看日南</strong><b aria-hidden="true">↗</b></a><a href={sitePath('/motion2026/')}><span>02 / 活動</span><strong>走傱日南 2026</strong><b aria-hidden="true">↗</b></a><a href={sitePath('/visit/')}><span>03 / 交通</span><strong>搭火車，來日南</strong><b aria-hidden="true">↗</b></a></nav>

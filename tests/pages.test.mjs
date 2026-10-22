@@ -48,7 +48,13 @@ test('approved homepage and about review stays linked and keeps planned services
   assert.match(home, /href="\/rinan-commons\/explore\/"/);
   assert.match(home, /報名已截止/);
   assert.match(home, /437 臺中市大甲區孟春里中山路二段 6 號/);
+  assert.match(home, /commons-exterior-1200\.webp/);
+  assert.match(home, /日南稻站外側/);
+  assert.doesNotMatch(home, /日南車站｜日常往返的地方/);
   assert.match(about, /id="place"/);
+  assert.match(about, /commons-interior-1200\.webp/);
+  assert.match(about, /日南稻站室內/);
+  assert.doesNotMatch(about, /影像來源：臺中市文化資產處/);
   assert.match(about, /活動限定／預約合作/);
   assert.match(about, /實際開放項目、時間及使用方式/);
   assert.match(visit, /437 臺中市大甲區孟春里中山路二段 6 號/);
@@ -89,4 +95,18 @@ test('published market is discoverable and retains the corrected vendor informat
   assert.doesNotMatch(sitemap, /market-preview/);
   assert.match(market, /name="robots" content="index, follow"/);
   assert.match(preview, /name="robots" content="noindex, nofollow"/);
+});
+
+test('entry media wires the two approved videos and keeps one visible player at a time', () => {
+  const layout = readFileSync(fileURLToPath(new URL('../app/layout.tsx', import.meta.url)), 'utf8');
+  const media = readFileSync(fileURLToPath(new URL('../app/entry-media.tsx', import.meta.url)), 'utf8');
+  const styles = readFileSync(fileURLToPath(new URL('../app/entry-media.css', import.meta.url)), 'utf8');
+  assert.match(layout, /<EntryMedia\s*\/>/);
+  assert.match(media, /filmId = "_ydtsZWwZJk"/);
+  assert.match(media, /songId = "UjBET5cz8gE"/);
+  assert.match(media, /sessionStorage\.setItem\(seenKey/);
+  assert.match(media, /mute=\$\{view === "film" \? "1" : "0"\}/);
+  assert.equal((media.match(/<iframe\b/g) ?? []).length, 1);
+  assert.match(styles, /\.entry-media-screen iframe\{display:block/);
+  assert.match(styles, /height:clamp\(200px/);
 });

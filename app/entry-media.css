@@ -1,0 +1,26 @@
+.entry-media{position:fixed;z-index:140;right:18px;top:102px;width:min(390px,calc(100vw - 24px));font-family:var(--sans,system-ui,sans-serif);color:#183e35}
+.entry-media-panel{background:#fffef9;border:1px solid #d7dacd;box-shadow:0 15px 45px #102d2430;border-radius:5px;overflow:hidden}
+.entry-media-head{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:12px 14px 10px}
+.entry-media-head span{display:block;color:#8f5b3c;font-size:11px;letter-spacing:.12em;line-height:1.4}
+.entry-media-head strong{display:block;font:500 18px/1.45 var(--serif,serif);margin-top:2px}
+.entry-media button{font:inherit;cursor:pointer}
+.entry-media-close{display:grid;place-items:center;flex:0 0 44px;width:44px;height:44px;background:transparent;border:1px solid #d7dacd;border-radius:50%;color:inherit;font-size:25px!important;line-height:1}
+.entry-media-close:hover,.entry-media-close:focus-visible{background:#e9eee3}
+.entry-media-screen{width:100%;min-height:218px;background:#102d24}
+.entry-media-screen iframe{display:block;width:100%;height:218px;border:0}
+.entry-media-note{padding:8px 14px 0;margin:0;font-size:12px;line-height:1.6;color:#5b665f}
+.entry-media-switch{display:flex;align-items:center;gap:8px;padding:10px 14px 14px;flex-wrap:wrap}
+.entry-media-switch button,.entry-media-launchers button{min-height:44px;border:1px solid #d0d9cf;border-radius:3px;background:#fffef9;padding:8px 12px;color:#183e35;font-size:13px}
+.entry-media-switch button[aria-pressed=true]{background:#183e35;color:#fffef9;border-color:#183e35}
+.entry-media-switch a{font-size:12px;margin-left:auto;color:#183e35;text-underline-offset:4px}
+.entry-media-launchers{position:fixed;bottom:calc(16px + env(safe-area-inset-bottom));left:16px;display:flex;gap:7px;background:#fffef9e8;border:1px solid #d7dacd;padding:6px;border-radius:6px;box-shadow:0 8px 26px #102d2428}
+.entry-media-launchers button{white-space:nowrap}
+.entry-media-switch button:hover,.entry-media-launchers button:hover{border-color:#183e35}
+.entry-media :is(button,a):focus-visible{outline:3px solid #d97745;outline-offset:2px}
+@media(max-width:760px){.entry-media{right:12px;top:84px}.entry-media-screen,.entry-media-screen iframe{height:clamp(200px,56vw,218px)}.entry-media-launchers{left:10px;bottom:calc(10px + env(safe-area-inset-bottom))}.entry-media-launchers button{padding-inline:10px;font-size:12px}}
+@media(max-width:360px){.entry-media-switch a{margin-left:0}.entry-media-head strong{font-size:16px}}
+
+/* A small framing correction, leaving the original documentary files untouched. */
+.hero-photo>picture,.about-photo-story figure>picture{display:block;overflow:hidden}
+.hero-photo>picture img{transform:scale(1.025) rotate(-.5deg);transform-origin:center}
+.about-photo-story figure>picture img{aspect-ratio:4/3;transform:scale(1.02) rotate(-.2deg);transform-origin:center}

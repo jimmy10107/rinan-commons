@@ -1,8 +1,10 @@
 import PlantPreloader from "./plants/site-preloader";
+import { EntryMedia } from "./entry-media";
 import type { Metadata } from "next";
 import "./globals.css";
 import "./commons.css";
 import "./refinement.css";
+import "./entry-media.css";
 
 const basePath = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
 
@@ -19,5 +21,5 @@ export const metadata: Metadata = {
 };
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
-  return <html lang="zh-Hant"><body>{children}<PlantPreloader/></body></html>;
+  return <html lang="zh-Hant"><body>{children}<EntryMedia/><PlantPreloader/></body></html>;
 }
