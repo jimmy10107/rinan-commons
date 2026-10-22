@@ -7,7 +7,7 @@ function renderVendor(v: MarketVendor) {
   const name = escapeHtml(v.name);
   const intro = escapeHtml(v.intro.replace(/\[?(?:品項待補|內容待補|攤商確認中|待補)\]?/g, "").trim());
   const story = intro ? `<p class="market-vendor-intro">${intro}</p>` : '<div class="market-vendor-intro" aria-hidden="true"></div>';
-  const longStory = v.intro.length > 110;
+  const longStory = v.intro.length > 60;
   const detail = longStory ? `<button type="button" class="market-vendor-more" data-market-open="vendor-story-${v.number}" aria-haspopup="dialog">品牌故事 <span aria-hidden="true">↗</span></button>` : "";
   const dialog = longStory ? `<dialog class="market-story-dialog" id="vendor-story-${v.number}" aria-labelledby="vendor-story-title-${v.number}"><form method="dialog"><button class="market-story-close" aria-label="關閉品牌故事" autofocus>關閉 ✕</button></form><span class="market-story-eyebrow">${v.number} · ${escapeHtml(v.label)}</span><h2 id="vendor-story-title-${v.number}">${name}</h2><p>${intro}</p></dialog>` : "";
   const social = v.social && /^https:\/\/(www\.)?(facebook\.com|instagram\.com)\//.test(v.social)
