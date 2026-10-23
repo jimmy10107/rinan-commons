@@ -26,24 +26,25 @@ export default function EventSite() {
 
   return <main className="event-page" id="top">
     <EventHeader />
+    <section className="event-status-inline" aria-label="走傱日南活動異動公告"><span>IMPORTANT UPDATE / 2026.10.24</span><strong>10/24（六）活動確定延期</strong><p>10/25（日）是否照常舉辦仍在討論中，將視天候、交通與安全狀況評估調整。新日期、節目與報名安排以官方後續公告為準。</p></section>
     <a className="event-home-float" href={sitePath("/")} aria-label="返回日南稻站首頁">← <span>日南稻站首頁</span></a>
     <div className="passport-note"><b>提醒</b> 紙本護照才是蓋章與兌換依據，網站不提供線上集章。</div>
-    <header className="event-bar"><strong>走傱日南 2026</strong><span>10.24（六）—10.25（日）</span></header>
+    <header className="event-bar"><strong>走傱日南 2026</strong><span>10/24 已延期｜10/25 待確認</span></header>
     <section className="welcome event-welcome" id="content">
       <p className="eyebrow">2026 RINAN IN MOTION</p>
       <h1>在往返之間，<br />認識日南。</h1>
-      <p className="event-date-large">10.24 <span>—</span> 10.25</p>
+      <p className="event-date-large event-date-change">10/24 已延期 <span>／</span> 10/25 待確認</p>
       <div className="event-quick-actions"><a href="#event-program">查看節目 ↓</a><a href={sitePath("/motion2026/market/")}>走傱市集 ↗</a><a href={site.mapUrl} target="_blank" rel="noreferrer">稻站導航 ↗</a></div>
     </section>
     <nav className="view-tabs" aria-label="主要資訊分類">
-      <button className={view === "1024" ? "active" : ""} onClick={() => switchView("1024")} aria-controls="event-program" aria-pressed={view === "1024"}><span>10/24・六</span><strong>生命・文化的走傱</strong></button>
-      <button className={view === "1025" ? "active" : ""} onClick={() => switchView("1025")} aria-controls="event-program" aria-pressed={view === "1025"}><span>10/25・日</span><strong>身體的走傱</strong></button>
+      <button className={view === "1024" ? "active" : ""} onClick={() => switchView("1024")} aria-controls="event-program" aria-pressed={view === "1024"}><span>10/24・六</span><strong>原訂節目・已延期</strong></button>
+      <button className={view === "1025" ? "active" : ""} onClick={() => switchView("1025")} aria-controls="event-program" aria-pressed={view === "1025"}><span>10/25・日</span><strong>原訂節目・待確認</strong></button>
       <button className={view === "local" ? "active" : ""} onClick={() => switchView("local")} aria-controls="event-program" aria-pressed={view === "local"}><span>來到日南</span><strong>地圖・實用資訊</strong></button>
     </nav>
     <section ref={panel} id="event-program" className="content-panel" tabIndex={-1} aria-live="polite" aria-label={view === "1024" ? "10月24日節目" : view === "1025" ? "10月25日節目" : "日南在地資訊"}>
       {view === "1024" && <DayOne />}{view === "1025" && <DayTwo />}{view === "local" && <LocalInfo />}
     </section>
-    <section id="registration" className="registration-panel registration-standalone" aria-labelledby="registration-title"><span>REGISTRATION</span><div><h3 id="registration-title">走傱報名</h3><p>報名已截止。請依各節目現場公告與邀請資訊參與；活動內容以最終公告為準。</p></div><b>報名已截止</b></section>
+    <section id="registration" className="registration-panel registration-standalone" aria-labelledby="registration-title"><span>REGISTRATION</span><div><h3 id="registration-title">走傱報名</h3><p>報名已截止。因活動異動，既有報名與後續安排請以官方最新公告為準；10/25 尚未確認前，請勿依原節目表前往。</p></div><b>報名已截止</b></section>
     <div className="event-visit-link"><a className="underlined-link" href={sitePath("/visit/")}>交通方式・安排到訪 ↗</a><br /><a className="underlined-link" href={sitePath("/explore/")}>探索日南九里地圖 ↗</a><br /><a className="underlined-link" href={sitePath("/plants/")}>日南植物形態室 ↗</a></div>
     <EventFooter />
   </main>;
@@ -60,16 +61,16 @@ function Timeline({ day }: { day: "2026-10-24" | "2026-10-25" }) {
 }
 
 function DayOne() {
-  return <><div className="panel-heading"><span>10.24・星期六</span><h2>生命・文化的走傱</h2><p>14:00 由日南稻站開幕，17:00 起於日南車站旁廣場有音樂與走傱市集。</p></div><Timeline day="2026-10-24" />
+  return <><div className="panel-heading"><span>10.24・星期六</span><h2>生命・文化的走傱</h2><p>10/24 原訂活動確定延期，不依原時程舉行。</p></div><p className="event-day-alert">10/24（六）活動確定延期。以下原訂節目僅供參考，請勿依此時程前往。</p><details className="event-original-schedule"><summary>查看原訂節目表（已延期）</summary><Timeline day="2026-10-24" />
     <section className="market-plan" aria-labelledby="market-title"><header className="market-heading"><span className="card-icon">市</span><div><small>10/24・17:00–21:30</small><h3 id="market-title">走傱市集</h3><p>共 {vendors.length} 個攤位，餐飲、手作、農產與交流一起逛。實際品項與區位以現場公告為準。</p></div></header>
       <div className="market-config">{vendorCategories.map((category, index) => { const group = vendors.filter(v => (v.category || "其他攤位") === category); return group.length ? <div key={category}><span>0{index + 1}</span><strong>{category}</strong><small>{group.length} 組</small></div> : null; })}</div>
       <a className="market-directory-link" href={sitePath("/motion2026/market/")}>查看品牌介紹・場地配置圖 ↗</a>
       <details className="vendor-details"><summary><span>查看已公開攤商</span><i>＋</i></summary><div className="vendor-groups">{vendorCategories.map(category => { const group = vendors.filter(v => (v.category || "其他攤位") === category); return group.length ? <section className="vendor-group" key={category}><h4>{category}<small>{group.length} 組</small></h4><div className="vendor-list">{group.map(v => <article key={v.id}><div><strong>{v.name}</strong>{v.note && <small>{v.note}</small>}</div></article>)}</div></section> : null; })}</div></details>
-    </section>
+    </section></details>
   </>;
 }
 
-function DayTwo() { return <><div className="panel-heading"><span>10.25・星期日</span><h2>身體的走傱</h2><p>早上單車走讀，午後影像與劇場；晚間交流晚宴採邀請制。</p></div><Timeline day="2026-10-25" /></>; }
+function DayTwo() { return <><div className="panel-heading"><span>10.25・星期日</span><h2>身體的走傱</h2><p>原訂節目是否照常舉辦仍在討論，將視天候及安全狀況調整。</p></div><p className="event-day-alert">10/25（日）尚未確認，請留意後續公告，勿依原時程逕自前往。</p><details className="event-original-schedule"><summary>查看原規劃節目（尚待確認）</summary><Timeline day="2026-10-25" /></details></>; }
 
 function LocalInfo() { return <><div className="panel-heading"><span>EXPLORE RINAN</span><h2>日南在地資訊</h2><p>導航、展覽與合作單位，從這裡繼續往地方走。</p></div>
   <details className="info-card" open><summary><span className="card-icon">圖</span><div><small>LOCAL MAP</small><strong>日南觀光地圖</strong><em>開啟地點導航</em></div><i>＋</i></summary><div className="card-body place-links">{places.map(place => <a key={place.id} href={placeMapUrl(place)} target="_blank" rel="noreferrer"><strong>{place.name}</strong><span>導航 ↗</span></a>)}</div></details>

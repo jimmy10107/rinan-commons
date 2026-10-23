@@ -18,6 +18,7 @@ export default function MarketPageLayout({ preview = false }: { preview?: boolea
         </nav>
       </header>
 
+      <section className="market-status-inline" aria-label="走傱市集延期公告"><strong>10/24（六）走傱市集確定延期</strong><p>原訂市集不依 10/24 時程舉行；10/25（日）相關活動仍視天候及安全狀況評估，尚待確認。新的日期及活動安排將另行公告。</p></section>
       <div dangerouslySetInnerHTML={{ __html: marketHtml.replaceAll("__BASE__", sitePath("")) }} />
       <MarketDialogs />
 
