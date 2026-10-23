@@ -6,8 +6,8 @@ import test from 'node:test';
 const root = fileURLToPath(new URL('../out/', import.meta.url));
 function walk(dir) { return readdirSync(dir).flatMap(name => { const f=path.join(dir,name); return statSync(f).isDirectory()?walk(f):[f]; }); }
 const htmlFiles = walk(root).filter(f=>f.endsWith('.html') && !f.endsWith('404.html') && !f.includes('_not-found') && !f.includes(`${path.sep}maps${path.sep}`) && !f.includes(`${path.sep}404${path.sep}`));
-test('all sixteen public and preview routes export headings, main content and indexable metadata', () => {
-  assert.equal(htmlFiles.length, 16);
+test('all seventeen public and preview routes export headings, main content and indexable metadata', () => {
+  assert.equal(htmlFiles.length, 17);
   for (const file of htmlFiles) {
     const html=readFileSync(file,'utf8');
     assert.equal((html.match(/<h1[\s>]/g)||[]).length, 1, file);
@@ -18,6 +18,21 @@ test('all sixteen public and preview routes export headings, main content and in
     assert.doesNotMatch(html, /從一粒米出發/);
     assert.doesNotMatch(html, /中山路二段\s*1\s*號對面/, file);
   }
+});
+test('copyright notice and working footer links appear on all published pages', () => {
+  const notice = readFileSync(path.join(root, 'copyright/index.html'), 'utf8');
+  const sitemap = readFileSync(path.join(root, 'sitemap.xml'), 'utf8');
+  for (const file of htmlFiles) {
+    const html = readFileSync(file, 'utf8');
+    assert.match(html, /href="\/rinan-commons\/copyright\/"[^>]*>版權聲明<\/a>/, file);
+    assert.match(html, /href="\/rinan-commons\/"[^>]*>日南稻站 Rinan Commons<\/a>/, file);
+    assert.match(html, /保留所有權利/, file);
+  }
+  const map = readFileSync(path.join(root, 'maps/index.html'), 'utf8');
+  assert.match(map, /https:\/\/www\.rinancommons\.com\/copyright\//);
+  assert.match(sitemap, /https:\/\/www\.rinancommons\.com\/copyright\//);
+  for (const phrase of ['本網站所刊載之文字、照片、影像、插圖、地圖、版面設計與標誌', '權利歸原權利人所有', '未經書面同意', '新聞報導、教學、評論', '活動資訊以官方公告為準', '最後更新：2026 年 10 月']) assert.ok(notice.includes(phrase), phrase);
+  assert.match(notice, /href="mailto:rinancommons@gmail\.com"/);
 });
 test('internal links and images resolve inside the GitHub Pages base path', () => {
   for (const file of htmlFiles) {
@@ -102,18 +117,15 @@ test('published market is discoverable and retains the corrected vendor informat
   assert.match(preview, /name="robots" content="noindex, nofollow"/);
 });
 
-test('entry media wires the two approved videos and keeps one visible player at a time', () => {
-  const layout = readFileSync(fileURLToPath(new URL('../app/layout.tsx', import.meta.url)), 'utf8');
-  const media = readFileSync(fileURLToPath(new URL('../app/entry-media.tsx', import.meta.url)), 'utf8');
-  const styles = readFileSync(fileURLToPath(new URL('../app/entry-media.css', import.meta.url)), 'utf8');
-  assert.match(layout, /<EntryMedia\s*\/>/);
-  assert.match(media, /filmId = "_ydtsZWwZJk"/);
-  assert.match(media, /songId = "UjBET5cz8gE"/);
-  assert.match(media, /sessionStorage\.setItem\(seenKey/);
-  assert.match(media, /mute=\$\{view === "film" \? "1" : "0"\}/);
-  assert.equal((media.match(/<iframe\b/g) ?? []).length, 1);
-  assert.match(styles, /\.entry-media-screen iframe\{display:block/);
-  assert.match(styles, /height:clamp\(200px/);
+test('mobile menu leads with event, market and transport; desktop keeps them on the right', () => {
+  const home = readFileSync(path.join(root, 'index.html'), 'utf8');
+  const desktop = home.match(/<nav class="site-navigation"[^>]*>([\s\S]*?)<\/nav>/)?.[1];
+  const mobile = home.match(/<nav aria-label="手機網站導覽">([\s\S]*?)<\/nav>/)?.[1];
+  assert.ok(desktop && mobile);
+  const links = nav => [...nav.matchAll(/href="([^"]+)"/g)].map(m => m[1]);
+  assert.deepEqual(links(desktop).slice(-3), ['/rinan-commons/motion2026/', '/rinan-commons/motion2026/market/', '/rinan-commons/visit/']);
+  assert.deepEqual(links(mobile).slice(0, 3), ['/rinan-commons/motion2026/', '/rinan-commons/motion2026/market/', '/rinan-commons/visit/']);
+  assert.deepEqual(links(mobile).slice(-2), ['/rinan-commons/explore/', '/rinan-commons/plants/']);
 });
 
 test('people stories lead the home journal and the full journal, with covers', () => {
