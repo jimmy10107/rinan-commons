@@ -3,6 +3,7 @@
 import { useEffect, useRef, useState } from "react";
 import { chapters, organizations, placeMapUrl, places, programs, site, vendors } from "../content";
 import { sitePath } from "../site-path";
+import { CopyrightLine } from "../site-shell";
 
 type View = "1024" | "1025" | "local";
 const plazaMap = "https://maps.app.goo.gl/NoN8DrkZRdcLhcoW6";
@@ -81,4 +82,4 @@ function OrganizationSection({ role, title }: { role: "guidance" | "organizer"; 
 }
 
 function EventHeader() { return <header className="site-header motion-header"><a className="site-brand site-brand-mark" href={sitePath("/")} aria-label="日南稻站首頁"><span className="site-brand-logo site-brand-logo-primary"><img src={sitePath("/images/rinan-commons-primary-logo.png")} alt="" width="1200" height="1200" /></span></a><nav className="site-navigation" aria-label="網站主要導覽"><a className="active" href={sitePath("/motion2026/")} aria-current="page">走傱日南 2026</a><a href={sitePath("/motion2026/market/")}>走傱市集</a></nav></header>; }
-function EventFooter() { return <footer className="site-footer motion-footer"><div className="footer-identity"><strong>日南稻站 Rinan Commons</strong><span>{site.address}</span></div><div className="footer-meta"><small>活動內容以最終公告為準</small><nav className="social-links" aria-label="日南稻站社群連結"><a href="https://www.instagram.com/rinan.commons/" target="_blank" rel="noreferrer">Instagram ↗</a><a href="https://www.facebook.com/rinan.commons/" target="_blank" rel="noreferrer">Facebook ↗</a></nav></div></footer>; }
+function EventFooter() { return <footer className="site-footer motion-footer"><div className="footer-identity"><strong>日南稻站 Rinan Commons</strong><span>{site.address}</span></div><div className="footer-meta"><small>活動內容以最終公告為準</small><nav className="social-links" aria-label="日南稻站社群連結"><a href="https://www.instagram.com/rinan.commons/" target="_blank" rel="noreferrer">Instagram ↗</a><a href="https://www.facebook.com/rinan.commons/" target="_blank" rel="noreferrer">Facebook ↗</a></nav></div><CopyrightLine /></footer>; }

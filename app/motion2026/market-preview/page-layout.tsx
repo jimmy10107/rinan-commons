@@ -1,6 +1,7 @@
 import { sitePath } from "../../site-path";
 import { marketHtml } from "./market-html";
 import { site } from "../../content";
+import { CopyrightLine } from "../../site-shell";
 import MarketDialogs from "./market-dialogs";
 
 export default function MarketPageLayout({ preview = false }: { preview?: boolean }) {
@@ -29,6 +30,7 @@ export default function MarketPageLayout({ preview = false }: { preview?: boolea
             <a href="https://www.facebook.com/rinan.commons?locale=zh_TW" target="_blank" rel="noreferrer" aria-label="Facebook"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="M14.5 21v-8h2.8l.4-3h-3.2V8.1c0-.9.3-1.6 1.7-1.6H18V3.8c-.3 0-1.4-.1-2.5-.1-2.5 0-4.2 1.5-4.2 4.3v2H8.5v3h2.8v8h3.2Z" /></svg></a>
           </nav>
         </div>
+        <CopyrightLine />
       </footer>
     </main>
   );
