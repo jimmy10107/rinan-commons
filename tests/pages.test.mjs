@@ -61,7 +61,8 @@ test('approved homepage and about review stays linked and keeps planned services
   assert.match(home, /車站旁，一個可以停下來休息的地方。/);
   assert.match(home, /href="\/rinan-commons\/about\/#place"/);
   assert.match(home, /href="\/rinan-commons\/explore\/"/);
-  assert.match(home, /報名已截止/);
+  assert.match(home, /最新活動公告/);
+  assert.match(home, /10\.31/);
   assert.match(home, /437 臺中市大甲區孟春里中山路二段 6 號/);
   assert.match(home, /commons-exterior-1200\.webp/);
   assert.match(home, /日南稻站外側/);
@@ -84,8 +85,9 @@ test('both event addresses render one shared page and exhibition has no PDF butt
   for (const html of [motion, legacy]) {
     assert.match(html, /返回日南稻站首頁/);
     assert.match(html, /437 臺中市大甲區孟春里中山路二段 6 號/);
-    assert.match(html, /生命・文化的走傱/);
-    assert.match(html, /報名已截止/);
+    assert.match(html, /開幕系列活動/);
+    assert.match(html, /音樂演出・走傱市集/);
+    assert.match(html, /10\.31/);
     assert.doesNotMatch(html, /報名連結準備中|1 號對面/);
   }
   assert.match(exhibit, /植物落回土地/);
@@ -115,6 +117,23 @@ test('published market is discoverable and retains the corrected vendor informat
   assert.doesNotMatch(sitemap, /market-preview/);
   assert.match(market, /name="robots" content="index, follow"/);
   assert.match(preview, /name="robots" content="noindex, nofollow"/);
+});
+
+test('the film and supplied background music have usable separate controls', () => {
+  const layout = readFileSync(fileURLToPath(new URL('../app/layout.tsx', import.meta.url)), 'utf8');
+  const media = readFileSync(fileURLToPath(new URL('../app/entry-media.tsx', import.meta.url)), 'utf8');
+  const styles = readFileSync(fileURLToPath(new URL('../app/entry-media.css', import.meta.url)), 'utf8');
+  const audio = path.join(root, 'audio/tsau-tsong-jit-lam.mp3');
+  assert.match(layout, /<EntryMedia\s*\/>/);
+  assert.match(media, /filmId = "_ydtsZWwZJk"/);
+  assert.match(media, /<audio ref=\{audioRef\}/);
+  assert.match(media, /\.play\(\)\.catch\(\(\) => setMusicMessage/);
+  assert.match(media, /onClick=\{musicPlaying \? pauseMusic : startMusic\}/);
+  assert.match(media, /setShowFilm\(false\)/);
+  assert.ok(existsSync(audio) && statSync(audio).size > 1_000_000);
+  assert.equal((media.match(/<iframe\b/g) ?? []).length, 1);
+  assert.match(styles, /\.entry-media-screen iframe\{display:block/);
+  assert.match(styles, /height:clamp\(200px/);
 });
 
 test('mobile menu leads with event, market and transport; desktop keeps them on the right', () => {
