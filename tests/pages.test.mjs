@@ -119,21 +119,13 @@ test('published market is discoverable and retains the corrected vendor informat
   assert.match(preview, /name="robots" content="noindex, nofollow"/);
 });
 
-test('the film and supplied background music have usable separate controls', () => {
+test('the event notice exposes the latest schedule adjustment', () => {
   const layout = readFileSync(fileURLToPath(new URL('../app/layout.tsx', import.meta.url)), 'utf8');
   const media = readFileSync(fileURLToPath(new URL('../app/entry-media.tsx', import.meta.url)), 'utf8');
-  const styles = readFileSync(fileURLToPath(new URL('../app/entry-media.css', import.meta.url)), 'utf8');
-  const audio = path.join(root, 'audio/tsau-tsong-jit-lam.mp3');
   assert.match(layout, /<EntryMedia\s*\/>/);
-  assert.match(media, /filmId = "_ydtsZWwZJk"/);
-  assert.match(media, /<audio ref=\{audioRef\}/);
-  assert.match(media, /\.play\(\)\.catch\(\(\) => setMusicMessage/);
-  assert.match(media, /onClick=\{musicPlaying \? pauseMusic : startMusic\}/);
-  assert.match(media, /setShowFilm\(false\)/);
-  assert.ok(existsSync(audio) && statSync(audio).size > 1_000_000);
-  assert.equal((media.match(/<iframe\b/g) ?? []).length, 1);
-  assert.match(styles, /\.entry-media-screen iframe\{display:block/);
-  assert.match(styles, /height:clamp\(200px/);
+  assert.match(media, /活動異動公告/);
+  assert.match(media, /10\/24（六）/);
+  assert.match(media, /10\/25（日）/);
 });
 
 test('mobile menu leads with event, market and transport; desktop keeps them on the right', () => {
