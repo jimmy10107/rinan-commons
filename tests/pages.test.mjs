@@ -124,8 +124,8 @@ test('the event notice exposes the latest schedule adjustment', () => {
   const media = readFileSync(fileURLToPath(new URL('../app/entry-media.tsx', import.meta.url)), 'utf8');
   assert.match(layout, /<EntryMedia\s*\/>/);
   assert.match(media, /活動異動公告/);
-  assert.match(media, /10\/24（六）/);
   assert.match(media, /10\/25（日）/);
+  assert.match(media, /10\/31（六）/);
 });
 
 test('mobile menu leads with event, market and transport; desktop keeps them on the right', () => {
