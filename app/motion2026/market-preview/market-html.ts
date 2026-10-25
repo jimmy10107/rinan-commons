@@ -26,7 +26,7 @@ export const marketHtml = String.raw`<section id="content" style="background: #1
 <div style="display: flex; flex-wrap: wrap; gap: 12px">
 <div style="background: #284D3A; border-radius: 12px; padding: 14px 18px; display: flex; flex-direction: column; gap: 2px; min-width: 180px">
 <span style="font-size: 13px; color: #C9D6CC">日期</span>
-<span style="font-size: 18px; font-weight: 700">10/24（六）</span>
+<span style="font-size: 18px; font-weight: 700">10/31（六）</span>
 </div>
 <div style="background: #284D3A; border-radius: 12px; padding: 14px 18px; display: flex; flex-direction: column; gap: 2px; min-width: 180px">
 <span style="font-size: 13px; color: #C9D6CC">時間</span>

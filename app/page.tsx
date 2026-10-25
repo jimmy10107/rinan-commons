@@ -18,7 +18,7 @@ export default function HomePage() {
       </div>
       <figure className="hero-photo"><ResponsivePhoto src="/images/commons-exterior-1200.webp" alt="日南稻站外側的舊守橋營房、休息平台與植栽" width={1200} height={900} priority /><figcaption>日南稻站外側｜舊守橋營房與休息平台</figcaption></figure>
     </section>
-    <a className="announcement" href={sitePath('/motion2026/')}><span className="announcement-label">重要公告</span><strong>10/24<small>確定延期</small></strong><span>走傱日南 2026 <small>10/25 視天候及安全狀況評估，尚待確認</small></span><b>查看異動公告 <span aria-hidden="true">↗</span></b></a>
+    <a className="announcement" href={sitePath('/motion2026/')}><span className="announcement-label">最新活動公告</span><strong>10.25<small>（日）</small><br /><small>開幕系列</small></strong><span>走傱日南 2026 <small>10/31 音樂演出・走傱市集</small></span><b>查看時刻表 <span aria-hidden="true">↗</span></b></a>
     <nav className="start-here" aria-label="快速找到想看的內容"><a href={sitePath('/explore/')}><span>01 / 九里地圖</span><strong>從九里，看日南</strong><b aria-hidden="true">↗</b></a><a href={sitePath('/motion2026/')}><span>02 / 活動</span><strong>走傱日南 2026</strong><b aria-hidden="true">↗</b></a><a href={sitePath('/visit/')}><span>03 / 交通</span><strong>搭火車，來日南</strong><b aria-hidden="true">↗</b></a></nav>
     <section className="editorial-section home-introduction">
       <div className="section-mast"><p className="kicker">01 / 一個地方的入口</p><span>ABOUT THE COMMONS</span></div>
@@ -27,7 +27,7 @@ export default function HomePage() {
     <section className="editorial-section current-section">
       <div className="section-mast"><p className="kicker">02 / 近期活動</p><span>WHAT&apos;S ON</span></div>
       <div className="feature-pair">
-        <a href={sitePath('/motion2026/')} className="event-feature"><div className="feature-meta"><span>年度活動異動</span><span>10/24 延期｜10/25 待確認</span></div><p className="feature-english">RINAN<br />IN MOTION</p><h2>走傱日南<span>2026</span></h2><p>10/24（六）原訂開幕、音樂演出及市集等活動確定延期。10/25（日）活動仍在討論中，將視天候及安全狀況評估調整。新的日期與節目安排以後續官方公告為準。</p><p className="registration-status">活動異動中｜報名已截止</p><b>查看節目與時間 ↗</b></a>
+        <a href={sitePath('/motion2026/')} className="event-feature"><div className="feature-meta"><span>最新活動公告</span><span>10.25（日）・10.31（六）</span></div><p className="feature-english">RINAN<br />IN MOTION</p><h2>走傱日南<span>2026</span></h2><p>10/25 先展開開幕系列活動；原訂 10/24 的音樂演出與走傱市集延期至 10/31，詳細時刻依活動頁公告。</p><p className="registration-status">活動日期已調整</p><b>查看最新時刻表 ↗</b></a>
         <a href={sitePath('/exhibition/to-and-from/')} className="exhibit-feature"><div className="feature-meta"><span>日南稻站開館展</span><span>TO AND FROM</span></div><div className="exhibit-title">往<span>・</span>返</div><p className="chapter-inline">往 / 走傱 / 返 / 生根</p><p>離開之後，怎麼看見家鄉？<br />在人的往返裡，閱讀日南。</p><b>進入展覽・閱讀手冊 ↗</b></a>
       </div>
     </section>
