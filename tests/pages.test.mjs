@@ -143,3 +143,27 @@ test('people stories lead the home journal and the full journal, with covers', (
   assert.ok(homeStories.indexOf('走傱的日南人 1') > homeStories.indexOf('<picture>'));
   assert.ok(journal.indexOf('人物故事</button>') < journal.indexOf('鐵道文史</button>'));
 });
+
+
+test('market schedule uses October 31 17:00–21:00 across public and preview pages', () => {
+  for (const route of ['motion2026/market', 'motion2026/market-preview']) {
+    const html = readFileSync(path.join(root, route, 'index.html'), 'utf8');
+    assert.match(html, /10\/31（六）17:00–21:00/);
+    assert.doesNotMatch(html, /21:30|尚待確認|新的日期及活動安排將另行公告/);
+  }
+  for (const route of ['motion2026', 'walk/2026']) {
+    const html = readFileSync(path.join(root, route, 'index.html'), 'utf8');
+    const panel = html.slice(html.indexOf('id="event-program"'), html.indexOf('id="registration"'));
+    assert.match(panel, /aria-label="10月25日節目"/);
+    assert.doesNotMatch(panel, /market-plan|10\/24・17:00|21:30/);
+  }
+  const source = readFileSync(new URL('../app/motion2026/event-site.tsx', import.meta.url), 'utf8');
+  const dayTwo = source.slice(source.indexOf('function DayTwo()'), source.indexOf('function LocalInfo()'));
+  assert.match(dayTwo, /10\/31・17:00–21:00/);
+  assert.match(dayTwo, /vendor-details/);
+  assert.match(source, /10月31日節目/);
+  assert.doesNotMatch(source, /10月24日節目|21:30/);
+  const visit = readFileSync(path.join(root, 'visit/index.html'), 'utf8');
+  assert.match(visit, /10\/31 晚間/);
+  assert.doesNotMatch(visit, /10\/24 晚間|10\.24（六）/);
+});

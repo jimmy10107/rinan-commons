@@ -27,7 +27,7 @@ export default function HomePage() {
     <section className="editorial-section current-section">
       <div className="section-mast"><p className="kicker">02 / 近期活動</p><span>WHAT&apos;S ON</span></div>
       <div className="feature-pair">
-        <a href={sitePath('/motion2026/')} className="event-feature"><div className="feature-meta"><span>最新活動公告</span><span>10.25（日）・10.31（六）</span></div><p className="feature-english">RINAN<br />IN MOTION</p><h2>走傱日南<span>2026</span></h2><p>10/25 先展開開幕系列活動；原訂 10/24 的音樂演出與走傱市集延期至 10/31，詳細時刻依活動頁公告。</p><p className="registration-status">活動日期已調整</p><b>查看最新時刻表 ↗</b></a>
+        <a href={sitePath('/motion2026/')} className="event-feature"><div className="feature-meta"><span>最新活動公告</span><span>10.25（日）・10.31（六）</span></div><p className="feature-english">RINAN<br />IN MOTION</p><h2>走傱日南<span>2026</span></h2><p>10/25 先展開開幕系列活動；原訂 10/24 的音樂演出與走傱市集延期至 10/31（六）17:00–21:00，詳細資訊依活動頁公告。</p><p className="registration-status">活動日期已調整</p><b>查看最新時刻表 ↗</b></a>
         <a href={sitePath('/exhibition/to-and-from/')} className="exhibit-feature"><div className="feature-meta"><span>日南稻站開館展</span><span>TO AND FROM</span></div><div className="exhibit-title">往<span>・</span>返</div><p className="chapter-inline">往 / 走傱 / 返 / 生根</p><p>離開之後，怎麼看見家鄉？<br />在人的往返裡，閱讀日南。</p><b>進入展覽・閱讀手冊 ↗</b></a>
       </div>
     </section>
