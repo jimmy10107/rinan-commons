@@ -11,10 +11,10 @@ const stationMap = "https://maps.app.goo.gl/HNQpY3hKnP5kuRAs7";
 const vendorCategories = ["手作藝術", "餐飲", "農漁特產", "倡議", "臺日交流", "其他攤位"];
 
 export default function EventSite() {
-  const [view, setView] = useState<View>("1024");
+  const [view, setView] = useState<View>("1025");
   const panel = useRef<HTMLElement>(null);
   useEffect(() => {
-    const sync = () => { const hash = location.hash.slice(1); setView(hash === "1025" || hash === "local" ? hash : "1024"); };
+    const sync = () => { const hash = location.hash.slice(1); setView(hash === "1024" || hash === "local" ? hash : "1025"); };
     sync(); window.addEventListener("hashchange", sync);
     return () => window.removeEventListener("hashchange", sync);
   }, []);
@@ -65,7 +65,16 @@ function DayOne() {
   </>;
 }
 
-function DayTwo() { return <><div className="panel-heading"><span>10.31・星期六</span><h2>音樂演出・走傱市集</h2><p>原訂 10/24 的音樂演出與走傱市集延期至 10/31（六）17:00–21:00，演出資訊將陸續更新公告。</p></div><section className="market-plan" aria-labelledby="market-title"><header className="market-heading"><span className="card-icon">市</span><div><small>10/31・17:00–21:00</small><h3 id="market-title">走傱市集</h3><p>共 {vendors.length} 個攤位，餐飲、手作、農產與交流一起逛。實際品項與區位以現場公告為準。</p></div></header>
+function DayTwo() { return <><div className="panel-heading"><span>10.31・星期六</span><h2>音樂演出・走傱市集</h2><p>10/31（六）17:00–21:00，五組音樂演出與走傱市集於日南車站旁廣場登場。</p></div>
+    <section aria-label="10月31日正式演出時刻表" className="event-timeline">
+      {programs.filter(p => p.day === "2026-10-31").map(program => (
+        <article className="journey-card life-card" key={program.id}>
+          <div className="journey-time"><span>{program.start}</span><i>—</i><span>{program.end}</span></div>
+          <div className="journey-content"><div className="journey-place"><p>{program.location}</p><a href={plazaMap} target="_blank" rel="noreferrer">地點導航 ↗</a></div><h3>{program.title}</h3></div>
+        </article>
+      ))}
+    </section>
+    <section className="market-plan" aria-labelledby="market-title"><header className="market-heading"><span className="card-icon">市</span><div><small>10/31・17:00–21:00</small><h3 id="market-title">走傱市集</h3><p>共 {vendors.length} 個攤位，餐飲、手作、農產與交流一起逛。實際品項與區位以現場公告為準。</p></div></header>
       <div className="market-config">{vendorCategories.map((category, index) => { const group = vendors.filter(v => (v.category || "其他攤位") === category); return group.length ? <div key={category}><span>0{index + 1}</span><strong>{category}</strong><small>{group.length} 組</small></div> : null; })}</div>
       <a className="market-directory-link" href={sitePath("/motion2026/market/")}>查看品牌介紹・場地配置圖 ↗</a>
       <details className="vendor-details"><summary><span>查看已公開攤商</span><i>＋</i></summary><div className="vendor-groups">{vendorCategories.map(category => { const group = vendors.filter(v => (v.category || "其他攤位") === category); return group.length ? <section className="vendor-group" key={category}><h4>{category}<small>{group.length} 組</small></h4><div className="vendor-list">{group.map(v => <article key={v.id}><div><strong>{v.name}</strong>{v.note && <small>{v.note}</small>}</div></article>)}</div></section> : null; })}</div></details>
