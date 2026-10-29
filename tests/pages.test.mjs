@@ -109,6 +109,7 @@ test('published market is discoverable and retains the corrected vendor informat
     assert.deepEqual(pairs.map(p => p[0]), Array.from({length:20}, (_, i) => String(i + 1).padStart(2, '0')));
     for (const pair of [['01','華山基金會大甲站'], ['02','Snowfat 肥雪工作室'], ['04','善群農莊'], ['07','小島青鳥'], ['09','原豆粹食 GOOD SOYFOOD'], ['14','日南來心肉共生廚房 × 崩八食堂'], ['18','旺定巷1號'], ['19','水蛙刺青甘草芭樂'], ['20','台灣宮崎縣人會 いっちゃが会']]) assert.ok(pairs.some(p => p[0] === pair[0] && p[1] === pair[1]), pair.join(':'));
     assert.doesNotMatch(renderedMain, /motion2026-market-map|入口服務區|主動線南側|東側直列/);
+    for (const text of ['https://www.facebook.com/SugrMan', 'https://www.facebook.com/profile.php?id=100063936458121', '台農2號土鳳梨', '騷莎雞肉酪梨鹹派', '肉桂酪梨奶油檸檬派', 'id="vendor-story-07"', 'id="vendor-story-18"']) assert.ok(renderedMain.includes(text), text);
     for (const highlight of ['限定似顏繪', '粉漿蛋餅', '九種口味雪花冰', '姊妹站宮崎日南推廣']) assert.ok(renderedMain.includes(highlight), highlight);
     assert.doesNotMatch(renderedMain, /越南攤位|幸福里謝家米食|宮崎縣人會｜遊戲|東room藝術工作室|LOPIA X 乾杯集団|日南レモン|茶御品|米佐狀元糕|謝家米食/);
     assert.doesNotMatch(renderedMain, /09\d{2}(?:[- ]?\d{3}){2}|現場負責人行動電話|現場主要負責人姓名|押金匯款後五碼|進場卸貨車輛登記/);

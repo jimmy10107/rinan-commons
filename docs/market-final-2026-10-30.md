@@ -66,4 +66,4 @@ Owner: Codex；Deadline: 本回合；Checkpoint: 官方頁核對 → 內容建�
 - Decision：僅補充這兩組的介紹與官方 Facebook；原 20 組名單、圖上亮點與活動時間維持。兩組 synced=false 持續表示未出現在原報名表，並以 source/sourceUrls 記錄官方補充來源。
 - Source：旺定巷1號 https://www.facebook.com/profile.php?id=100063936458121 ／ https://miaoli-youths.org/goodyoung/112young 。
 - Source：小島青鳥 https://www.facebook.com/SugrMan ／ https://www.facebook.com/SugrMan/posts/pfbid028GYC8ir49nbdTXYwwjMoEHBrKVGwaq7biLTjF7ZLs7W5jPnQXHaqB4iXqPcVfCmVl 。
-- State：Review；待建置與正式發布驗證。
+- State：Done；content:build、test:content、乾淨 build:pages 與 test:pages 全部通過。提交 675887894952b75aa6b0c239f8f8619b34c1d079 的 Vercel 部署成功，正式頁兩組皆有正確 Facebook 入口、完整介紹及品牌故事按鈕。增量建置曾沿用舊資料，因此保留舊快取後執行乾淨重建，並加入兩組連結與新介紹的頁面驗證。
