@@ -77,10 +77,15 @@
     "category": "餐飲",
     "label": "甜點",
     "highlights": "寒天奶酪・柴燒桂圓仙草・限定鹹派甜派",
-    "intro": "寒天奶酪・柴燒桂圓仙草・限定鹹派甜派。",
+    "intro": "小島青鳥由從台南返鄉的老青年經營，在台中大甲延續擅長的仙草與奶酪甜點，邀請大家在日常裡一起感受幸福。這次走傱日南帶來寒天奶酪與柴燒桂圓仙草，並推出活動限定的騷莎雞肉酪梨鹹派、肉桂酪梨奶油檸檬派。",
     "synced": false,
-    "source": "使用者提供的走傱市集最後版品牌圖",
-    "updatedAt": "2026-10-30"
+    "source": "小島青鳥官方 Facebook 公開簡介與走傱日南出攤貼文；使用者提供的最後版品牌圖",
+    "updatedAt": "2026-10-30",
+    "social": "https://www.facebook.com/SugrMan",
+    "sourceUrls": [
+      "https://www.facebook.com/SugrMan",
+      "https://www.facebook.com/SugrMan/posts/pfbid028GYC8ir49nbdTXYwwjMoEHBrKVGwaq7biLTjF7ZLs7W5jPnQXHaqB4iXqPcVfCmVl"
+    ]
   },
   {
     "number": "08",
@@ -205,10 +210,15 @@
     "category": "餐飲",
     "label": "冰品",
     "highlights": "鳳梨冰",
-    "intro": "鳳梨冰。",
+    "intro": "來自苗栗苑裡的旺定巷1號，選用南投八卦山的台農2號土鳳梨，慢火熬煮成果醬後製成鳳梨冰沙。品牌從小時候熟悉的家常甜點出發，延續傳統冰品的製作精神，將鳳梨的滋味帶到市集。",
     "synced": false,
-    "source": "使用者提供的走傱市集最後版品牌圖",
-    "updatedAt": "2026-10-30"
+    "source": "旺定巷1號官方 Facebook 公開簡介；苗栗縣青年創業服務讚 112年度苗栗好青年；使用者提供的最後版品牌圖",
+    "updatedAt": "2026-10-30",
+    "social": "https://www.facebook.com/profile.php?id=100063936458121",
+    "sourceUrls": [
+      "https://www.facebook.com/people/%E6%97%BA%E5%AE%9A%E5%B7%B71%E8%99%9F/100063936458121/",
+      "https://miaoli-youths.org/goodyoung/112young"
+    ]
   },
   {
     "number": "19",

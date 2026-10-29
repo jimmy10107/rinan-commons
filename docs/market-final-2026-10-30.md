@@ -56,3 +56,14 @@ Definition of Done: 最後版 20 組逐一呈現，16 組使用表單品牌簡�
 - 若需對外公布實際攤位位置，仍需一份新的最終位置圖或攤號表；本次附件是品牌名單。
 - 4 組沒有表單品牌介紹，以圖片短句呈現，無額外延伸。
 - Next: 如要恢復場地配置圖，取得使用者確認的最新攤號與位置圖後再更新；本次品牌內容已完成。
+
+## Follow-up｜旺定巷1號與小島青鳥官方介紹
+
+Owner: Codex；Deadline: 本回合；Checkpoint: 官方頁核對 → 內容建置 → 正式頁回讀；DoD: 兩家官方 Facebook 入口與可展開完整介紹正式可見。
+
+- Fact：已直接讀取旺定巷1號官方 Facebook 的簡介，確認南投八卦山、台農2號土鳳梨與熬煮製成鳳梨冰沙。慢火熬煮成果醬、家常甜點的品牌背景，另核對苗栗縣青年創業服務讚的品牌介紹。
+- Fact：已直接讀取小島青鳥官方 Facebook 的公開簡介，確認從台南返鄉、在台中大甲經營仙草與奶酪。此次出攤官方貼文確認兩款限定派的完整名稱。
+- Decision：僅補充這兩組的介紹與官方 Facebook；原 20 組名單、圖上亮點與活動時間維持。兩組 synced=false 持續表示未出現在原報名表，並以 source/sourceUrls 記錄官方補充來源。
+- Source：旺定巷1號 https://www.facebook.com/profile.php?id=100063936458121 ／ https://miaoli-youths.org/goodyoung/112young 。
+- Source：小島青鳥 https://www.facebook.com/SugrMan ／ https://www.facebook.com/SugrMan/posts/pfbid028GYC8ir49nbdTXYwwjMoEHBrKVGwaq7biLTjF7ZLs7W5jPnQXHaqB4iXqPcVfCmVl 。
+- State：Review；待建置與正式發布驗證。
