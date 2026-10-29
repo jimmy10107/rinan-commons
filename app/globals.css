@@ -251,18 +251,19 @@ footer { display:flex; align-items:center; justify-content:space-between; gap:25
 .market-directory-heading h2 { margin:0; font-size:32px; font-weight:900; color:#1E3B2C; }
 .market-directory-heading > span { color:#5F6159; font-size:15px; }
 .market-directory-grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:24px; align-items:stretch; grid-auto-rows:1fr; }
-.market-vendor { display:grid; grid-template-rows:28px 54px 112px 44px; gap:16px; min-width:0; height:100%; padding:24px; box-sizing:border-box; border:1px solid #DDDCCE; border-radius:16px; background:#fff; color:#1E3B2C; overflow-wrap:anywhere; box-shadow:0 3px 16px #1e3b2c04; }
+.market-vendor { display:grid; grid-template-rows:28px 81px 52px 112px 44px; gap:16px; min-width:0; height:100%; padding:24px; box-sizing:border-box; border:1px solid #DDDCCE; border-radius:16px; background:#fff; color:#1E3B2C; overflow-wrap:anywhere; box-shadow:0 3px 16px #1e3b2c04; }
 .market-vendor-top { display:flex; align-items:center; justify-content:space-between; gap:8px; }
 .market-vendor-number { color:#9B7834; font:600 20px/1.2 system-ui,sans-serif; font-variant-numeric:tabular-nums; letter-spacing:.04em; }
 .market-vendor-tag { padding:5px 10px; border-radius:6px; background:#EDF2EB; color:#4C6653; font-size:11px; font-weight:600; }
-.market-vendor h3 { display:-webkit-box; -webkit-box-orient:vertical; -webkit-line-clamp:2; overflow:hidden; margin:0; font-size:19px; font-weight:700; line-height:27px; letter-spacing:.01em; }
+.market-vendor h3 { display:-webkit-box; -webkit-box-orient:vertical; -webkit-line-clamp:3; overflow:hidden; margin:0; font-size:19px; font-weight:700; line-height:27px; letter-spacing:.01em; }
+.market-vendor-highlights { margin:0; font-size:14px; line-height:26px; color:#345741; }
 .market-vendor-intro { display:-webkit-box; -webkit-box-orient:vertical; -webkit-line-clamp:4; overflow:hidden; margin:0; color:#666A61; font-size:15px; line-height:28px; }
 .market-vendor-footer { display:flex; align-items:center; justify-content:space-between; gap:10px; border-top:1px solid #ECEBE3; padding-top:8px; }
 .market-vendor-more { display:inline-flex; align-items:center; justify-content:space-between; gap:10px; min-height:36px; padding:0; border:0; background:transparent; color:#2E6B4A; font-family:inherit; font-size:13px; font-weight:600; line-height:1.4; cursor:pointer; }
 .market-vendor-social { display:inline-flex; align-items:center; min-height:36px; margin-left:auto; padding:0 12px; border:1px solid #C5D1C6; border-radius:999px; color:#345741; font-size:12px; font-weight:600; text-decoration:none; white-space:nowrap; }
 .market-vendor-social:hover { border-color:#2E6B4A; background:#F1F5EF; }
 .market-vendor-social-label { color:#666A61; font-size:12px; line-height:1.5; }
-.market-story-dialog { width:min(620px,calc(100vw - 32px)); max-height:80dvh; padding:32px; box-sizing:border-box; border:1px solid #DDE3D8; border-radius:20px; background:#FCFBF7; color:#1E3B2C; box-shadow:0 24px 100px #10281b33; }
+.market-story-dialog { margin:auto; width:min(620px,calc(100vw - 32px)); max-height:80dvh; padding:32px; box-sizing:border-box; border:1px solid #DDE3D8; border-radius:20px; background:#FCFBF7; color:#1E3B2C; box-shadow:0 24px 100px #10281b33; }
 .market-story-dialog::backdrop { background:#142a20a6; backdrop-filter:blur(4px); }
 .market-story-dialog form { display:flex; justify-content:flex-end; margin:0 0 20px; }
 .market-story-close { min-height:44px; padding:0 14px; border:1px solid #CCD7CB; border-radius:999px; background:transparent; color:#345741; font:inherit; cursor:pointer; }
