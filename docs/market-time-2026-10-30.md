@@ -22,8 +22,14 @@ Definition of Done: 官網所有市集正式資訊統一為 10/31（六）16:30�
 
 ## Verification / State
 
-State: Review；建置與正式頁回讀進行中。
+State: Done。
+
+- content:build、test:content、乾淨 build:pages、test:pages 全部通過。
+- 發布提交：9fb4ba85ce351d685f733435f995a46cb8aa70f1；Vercel success。
+- 正式首頁公告與活動卡片、活動頁市集區與搜尋摘要、市集頁置頂公告與時間卡、浮動公告展開／收合皆已逐項確認 16:30–21:00。
+- 音樂演出仍為 17:00–21:00，五組時刻不變。
+- 正式入口：https://www.rinancommons.com/motion2026/market 。
 
 ## Handoff
 
-Next: 確認正式首頁、活動頁、市集頁與浮動公告皆呈現新時間後完成 WEB-16。
+Next: 後續一律沿用本時間基線；WEB-16 已完成。
