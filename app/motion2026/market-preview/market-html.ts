@@ -30,7 +30,7 @@ export const marketHtml = String.raw`<section id="content" style="background: #1
 </div>
 <div style="background: #284D3A; border-radius: 12px; padding: 14px 18px; display: flex; flex-direction: column; gap: 2px; min-width: 180px">
 <span style="font-size: 13px; color: #C9D6CC">時間</span>
-<span style="font-size: 18px; font-weight: 700">17:00–21:00</span>
+<span style="font-size: 18px; font-weight: 700">16:30–21:00</span>
 </div>
 <div style="background: #284D3A; border-radius: 12px; padding: 14px 18px; display: flex; flex-direction: column; gap: 2px; min-width: 180px">
 <span style="font-size: 13px; color: #C9D6CC">地點</span>
