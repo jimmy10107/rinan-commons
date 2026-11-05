@@ -1,1 +1,24 @@
-aW1wb3J0IFBsYW50UHJlbG9hZGVyIGZyb20gIi4vcGxhbnRzL3NpdGUtcHJlbG9hZGVyIjsKaW1wb3J0IHR5cGUgeyBNZXRhZGF0YSB9IGZyb20gIm5leHQiOwppbXBvcnQgIi4vZ2xvYmFscy5jc3MiOwppbXBvcnQgIi4vY29tbW9ucy5jc3MiOwppbXBvcnQgIi4vcmVmaW5lbWVudC5jc3MiOwppbXBvcnQgIi4vZW50cnktbWVkaWEuY3NzIjsKCmNvbnN0IGJhc2VQYXRoID0gcHJvY2Vzcy5lbnYuTkVYVF9QVUJMSUNfQkFTRV9QQVRIID8/ICIiOwoKZXhwb3J0IGNvbnN0IG1ldGFkYXRhOiBNZXRhZGF0YSA9IHsKICB0aXRsZTogewogICAgZGVmYXVsdDogIuaXpeWNl+eou+ermSBSaW5hbiBDb21tb25zIiwKICAgIHRlbXBsYXRlOiAiJXPvvZzml6XljZfnqLvnq5kiLAogIH0sCiAgZGVzY3JpcHRpb246ICLml6XljZfou4rnq5nml4HnmoTlnLDmlrnmlofljJbmk5rpu57jgILlnKjlvoDov5TkuYvplpPvvIzoqo3orZjml6XljZfnmoTkurrjgIHlnJ/lnLDoiIfnlJ/mtLvjgIIiLAogIG1ldGFkYXRhQmFzZTogbmV3IFVSTCgiaHR0cHM6Ly93d3cucmluYW5jb21tb25zLmNvbS8iKSwKICBvcGVuR3JhcGg6IHsgdHlwZTogIndlYnNpdGUiLCBsb2NhbGU6ICJ6aF9UVyIsIHNpdGVOYW1lOiAi5pel5Y2X56i756uZIFJpbmFuIENvbW1vbnMiLCB0aXRsZTogIuaXpeWNl+eou+erme+9nOWcqOW+gOi/lOS5i+mWk++8jOiqjeitmOaXpeWNl+OAgiIsIGRlc2NyaXB0aW9uOiAi5pel5Y2X6LuK56uZ5peB55qE5Zyw5pa55paH5YyW5pOa6bue44CC55yL55yL5bGV44CB5Z2Q5LiA5LiL77yM5YaN5b6A5Zyw5pa56KOh6LWw44CCIiB9LAogIHJvYm90czogeyBpbmRleDogdHJ1ZSwgZm9sbG93OiB0cnVlIH0sCiAgaWNvbnM6IHsgaWNvbjogYCR7YmFzZVBhdGh9L2Zhdmljb24uc3ZnYCwgc2hvcnRjdXQ6IGAke2Jhc2VQYXRofS9mYXZpY29uLnN2Z2AgfSwKfTsKCmV4cG9ydCBkZWZhdWx0IGZ1bmN0aW9uIFJvb3RMYXlvdXQoeyBjaGlsZHJlbiB9OiBSZWFkb25seTx7IGNoaWxkcmVuOiBSZWFjdC5SZWFjdE5vZGUgfT4pIHsKICByZXR1cm4gPGh0bWwgbGFuZz0iemgtSGFudCI+PGJvZHk+e2NoaWxkcmVufTxQbGFudFByZWxvYWRlci8+PC9ib2R5PjwvaHRtbD47Cn0K
+import PlantPreloader from "./plants/site-preloader";
+import type { Metadata } from "next";
+import "./globals.css";
+import "./commons.css";
+import "./refinement.css";
+import "./entry-media.css";
+
+const basePath = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
+
+export const metadata: Metadata = {
+  title: {
+    default: "日南稻站 Rinan Commons",
+    template: "%s｜日南稻站",
+  },
+  description: "日南車站旁的地方文化據點。在往返之間，認識日南的人、土地與生活。",
+  metadataBase: new URL("https://www.rinancommons.com/"),
+  openGraph: { type: "website", locale: "zh_TW", siteName: "日南稻站 Rinan Commons", title: "日南稻站｜在往返之間，認識日南。", description: "日南車站旁的地方文化據點。看看展、坐一下，再往地方裡走。" },
+  robots: { index: true, follow: true },
+  icons: { icon: `${basePath}/favicon.svg`, shortcut: `${basePath}/favicon.svg` },
+};
+
+export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
+  return <html lang="zh-Hant"><body>{children}<PlantPreloader/></body></html>;
+}

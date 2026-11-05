@@ -1,1 +1,180 @@
-aW1wb3J0IHsgcmVhZGRpclN5bmMsIHJlYWRGaWxlU3luYywgZXhpc3RzU3luYywgc3RhdFN5bmMgfSBmcm9tICdub2RlOmZzJzsKaW1wb3J0IHBhdGggZnJvbSAnbm9kZTpwYXRoJzsKaW1wb3J0IHsgZmlsZVVSTFRvUGF0aCB9IGZyb20gJ25vZGU6dXJsJzsKaW1wb3J0IGFzc2VydCBmcm9tICdub2RlOmFzc2VydC9zdHJpY3QnOwppbXBvcnQgdGVzdCBmcm9tICdub2RlOnRlc3QnOwpjb25zdCByb290ID0gZmlsZVVSTFRvUGF0aChuZXcgVVJMKCcuLi9vdXQvJywgaW1wb3J0Lm1ldGEudXJsKSk7CmZ1bmN0aW9uIHdhbGsoZGlyKSB7IHJldHVybiByZWFkZGlyU3luYyhkaXIpLmZsYXRNYXAobmFtZSA9PiB7IGNvbnN0IGY9cGF0aC5qb2luKGRpcixuYW1lKTsgcmV0dXJuIHN0YXRTeW5jKGYpLmlzRGlyZWN0b3J5KCk/d2FsayhmKTpbZl07IH0pOyB9CmNvbnN0IGh0bWxGaWxlcyA9IHdhbGsocm9vdCkuZmlsdGVyKGY9PmYuZW5kc1dpdGgoJy5odG1sJykgJiYgIWYuZW5kc1dpdGgoJzQwNC5odG1sJykgJiYgIWYuaW5jbHVkZXMoJ19ub3QtZm91bmQnKSAmJiAhZi5pbmNsdWRlcyhgJHtwYXRoLnNlcH1tYXBzJHtwYXRoLnNlcH1gKSAmJiAhZi5pbmNsdWRlcyhgJHtwYXRoLnNlcH00MDQke3BhdGguc2VwfWApKTsKdGVzdCgnYWxsIHNldmVudGVlbiBwdWJsaWMgYW5kIHByZXZpZXcgcm91dGVzIGV4cG9ydCBoZWFkaW5ncywgbWFpbiBjb250ZW50IGFuZCBpbmRleGFibGUgbWV0YWRhdGEnLCAoKSA9PiB7CiAgYXNzZXJ0LmVxdWFsKGh0bWxGaWxlcy5sZW5ndGgsIDE3KTsKICBmb3IgKGNvbnN0IGZpbGUgb2YgaHRtbEZpbGVzKSB7CiAgICBjb25zdCBodG1sPXJlYWRGaWxlU3luYyhmaWxlLCd1dGY4Jyk7CiAgICBhc3NlcnQuZXF1YWwoKGh0bWwubWF0Y2goLzxoMVtccz5dL2cpfHxbXSkubGVuZ3RoLCAxLCBmaWxlKTsKICAgIGFzc2VydC5tYXRjaChodG1sLCAvaWQ9ImNvbnRlbnQiLyk7CiAgICAvLyDpoJDopr3poIHkuI3ooqvmkJzlsIvlvJXmk47mlLbpjITvvIzlhbbppJjlhazplovpoIHntq3mjIHlj6/mlLbpjIQKICAgIGlmIChmaWxlLmluY2x1ZGVzKGAke3BhdGguc2VwfW1hcmtldC1wcmV2aWV3JHtwYXRoLnNlcH1gKSkgYXNzZXJ0Lm1hdGNoKGh0bWwsIC9uYW1lPSJyb2JvdHMiIGNvbnRlbnQ9Im5vaW5kZXgsIG5vZm9sbG93Ii8pOwogICAgZWxzZSBhc3NlcnQubWF0Y2goaHRtbCwgL25hbWU9InJvYm90cyIgY29udGVudD0iaW5kZXgsIGZvbGxvdyIvKTsKICAgIGFzc2VydC5kb2VzTm90TWF0Y2goaHRtbCwgL+W+nuS4gOeykuexs+WHuueZvC8pOwogICAgYXNzZXJ0LmRvZXNOb3RNYXRjaChodG1sLCAv5Lit5bGx6Lev5LqM5q61XHMqMVxzKuiZn+Wwjemdoi8sIGZpbGUpOwogIH0KfSk7CnRlc3QoJ2NvcHlyaWdodCBub3RpY2UgYW5kIHdvcmtpbmcgZm9vdGVyIGxpbmtzIGFwcGVhciBvbiBhbGwgcHVibGlzaGVkIHBhZ2VzJywgKCkgPT4gewogIGNvbnN0IG5vdGljZSA9IHJlYWRGaWxlU3luYyhwYXRoLmpvaW4ocm9vdCwgJ2NvcHlyaWdodC9pbmRleC5odG1sJyksICd1dGY4Jyk7CiAgY29uc3Qgc2l0ZW1hcCA9IHJlYWRGaWxlU3luYyhwYXRoLmpvaW4ocm9vdCwgJ3NpdGVtYXAueG1sJyksICd1dGY4Jyk7CiAgZm9yIChjb25zdCBmaWxlIG9mIGh0bWxGaWxlcykgewogICAgY29uc3QgaHRtbCA9IHJlYWRGaWxlU3luYyhmaWxlLCAndXRmOCcpOwogICAgYXNzZXJ0Lm1hdGNoKGh0bWwsIC9ocmVmPSJcL3JpbmFuLWNvbW1vbnNcL2NvcHlyaWdodFwvIltePl0qPueJiOasiuiBsuaYjjxcL2E+LywgZmlsZSk7CiAgICBhc3NlcnQubWF0Y2goaHRtbCwgL2hyZWY9IlwvcmluYW4tY29tbW9uc1wvIltePl0qPuaXpeWNl+eou+ermSBSaW5hbiBDb21tb25zPFwvYT4vLCBmaWxlKTsKICAgIGFzc2VydC5tYXRjaChodG1sLCAv5L+d55WZ5omA5pyJ5qyK5YipLywgZmlsZSk7CiAgfQogIGNvbnN0IG1hcCA9IHJlYWRGaWxlU3luYyhwYXRoLmpvaW4ocm9vdCwgJ21hcHMvaW5kZXguaHRtbCcpLCAndXRmOCcpOwogIGFzc2VydC5tYXRjaChtYXAsIC9odHRwczpcL1wvd3d3XC5yaW5hbmNvbW1vbnNcLmNvbVwvY29weXJpZ2h0XC8vKTsKICBhc3NlcnQubWF0Y2goc2l0ZW1hcCwgL2h0dHBzOlwvXC93d3dcLnJpbmFuY29tbW9uc1wuY29tXC9jb3B5cmlnaHRcLy8pOwogIGZvciAoY29uc3QgcGhyYXNlIG9mIFsn5pys57ay56uZ5omA5YiK6LyJ5LmL5paH5a2X44CB54Wn54mH44CB5b2x5YOP44CB5o+S5ZyW44CB5Zyw5ZyW44CB54mI6Z2i6Kit6KiI6IiH5qiZ6KqMJywgJ+asiuWIqeatuOWOn+asiuWIqeS6uuaJgOaciScsICfmnKrntpPmm7jpnaLlkIzmhI8nLCAn5paw6IGe5aCx5bCO44CB5pWZ5a2444CB6KmV6KuWJywgJ+a0u+WLleizh+ioiuS7peWumOaWueWFrOWRiueCuua6licsICfmnIDlvozmm7TmlrDvvJoyMDI2IOW5tCAxMCDmnIgnXSkgYXNzZXJ0Lm9rKG5vdGljZS5pbmNsdWRlcyhwaHJhc2UpLCBwaHJhc2UpOwogIGFzc2VydC5tYXRjaChub3RpY2UsIC9ocmVmPSJtYWlsdG86cmluYW5jb21tb25zQGdtYWlsXC5jb20iLyk7Cn0pOwp0ZXN0KCdpbnRlcm5hbCBsaW5rcyBhbmQgaW1hZ2VzIHJlc29sdmUgaW5zaWRlIHRoZSBHaXRIdWIgUGFnZXMgYmFzZSBwYXRoJywgKCkgPT4gewogIGZvciAoY29uc3QgZmlsZSBvZiBodG1sRmlsZXMpIHsKICAgIGNvbnN0IGh0bWw9cmVhZEZpbGVTeW5jKGZpbGUsJ3V0ZjgnKTsKICAgIGZvciAoY29uc3QgbWF0Y2ggb2YgaHRtbC5tYXRjaEFsbCgvKD86aHJlZnxzcmMpPSIoXC9bXiIjP10qKS9nKSkgewogICAgICBjb25zdCB1cmwgPSBtYXRjaFsxXTsKICAgICAgYXNzZXJ0Lm9rKHVybC5zdGFydHNXaXRoKCcvcmluYW4tY29tbW9ucy8nKSwgYCR7ZmlsZX06IG1pc3NpbmcgYmFzZVBhdGg6ICR7dXJsfWApOwogICAgICBjb25zdCByZWxhdGl2ZSA9IGRlY29kZVVSSUNvbXBvbmVudCh1cmwuc2xpY2UoJy9yaW5hbi1jb21tb25zLycubGVuZ3RoKSk7CiAgICAgIGNvbnN0IHRhcmdldD1wYXRoLmpvaW4ocm9vdCxyZWxhdGl2ZSk7CiAgICAgIGFzc2VydC5vayhleGlzdHNTeW5jKHRhcmdldCkgfHwgZXhpc3RzU3luYyhwYXRoLmpvaW4odGFyZ2V0LCdpbmRleC5odG1sJykpLCBgJHtmaWxlfTogbWlzc2luZyBhc3NldCBvciByb3V0ZTogJHt1cmx9YCk7CiAgICB9CiAgICBmb3IgKGNvbnN0IG1hdGNoIG9mIGh0bWwubWF0Y2hBbGwoL2hyZWY9IiMoW14iXSspIi9nKSkgYXNzZXJ0Lm9rKGh0bWwuaW5jbHVkZXMoYGlkPSIke21hdGNoWzFdfSJgKSwgYCR7ZmlsZX06IGJyb2tlbiBhbmNob3I6ICR7bWF0Y2hbMV19YCk7CiAgfQp9KTsKdGVzdCgndW5wdWJsaXNoZWQgdmVuZG9yIG5hbWVzIGRvIG5vdCBsZWFrIHRocm91Z2ggc3RhdGljIEhUTUwgb3IgYnJvd3NlciBidW5kbGVzJywgKCkgPT4gewogIGZvciAoY29uc3QgZmlsZSBvZiB3YWxrKHJvb3QpLmZpbHRlcihmPT4vXC4oaHRtbHxqc3x0eHR8anNvbikkLy50ZXN0KGYpKSkgewogICAgY29uc3QgdGV4dD1yZWFkRmlsZVN5bmMoZmlsZSwndXRmOCcpOwogICAgYXNzZXJ0LmRvZXNOb3RNYXRjaCh0ZXh0LCAvM++8seexs+mjn3zmnbHmmI7lnIvlsI/lrrbplbfmnIPplbfmjqjolqbmlKTkvY0vLCBmaWxlKTsKICB9Cn0pOwoKdGVzdCgnYXBwcm92ZWQgaG9tZXBhZ2UgYW5kIGFib3V0IHJldmlldyBzdGF5cyBsaW5rZWQgYW5kIGtlZXBzIHBsYW5uZWQgc2VydmljZXMgZGlzdGluY3QnLCAoKSA9PiB7CiAgY29uc3QgaG9tZSA9IHJlYWRGaWxlU3luYyhwYXRoLmpvaW4ocm9vdCwgJ2luZGV4Lmh0bWwnKSwgJ3V0ZjgnKTsKICBjb25zdCBhYm91dCA9IHJlYWRGaWxlU3luYyhwYXRoLmpvaW4ocm9vdCwgJ2Fib3V0L2luZGV4Lmh0bWwnKSwgJ3V0ZjgnKTsKICBjb25zdCB2aXNpdCA9IHJlYWRGaWxlU3luYyhwYXRoLmpvaW4ocm9vdCwgJ3Zpc2l0L2luZGV4Lmh0bWwnKSwgJ3V0ZjgnKTsKICBhc3NlcnQubWF0Y2goaG9tZSwgL+i7iuermeaXge+8jOS4gOWAi+WPr+S7peWBnOS4i+S+huS8keaBr+eahOWcsOaWueOAgi8pOwogIGFzc2VydC5tYXRjaChob21lLCAvaHJlZj0iXC9yaW5hbi1jb21tb25zXC9hYm91dFwvI3BsYWNlIi8pOwogIGFzc2VydC5tYXRjaChob21lLCAvaHJlZj0iXC9yaW5hbi1jb21tb25zXC9leHBsb3JlXC8iLyk7CiAgYXNzZXJ0Lm1hdGNoKGhvbWUsIC/mnIDmlrDmtLvli5XlhazlkYovKTsKICBhc3NlcnQubWF0Y2goaG9tZSwgLzEwXC4zMS8pOwogIGFzc2VydC5tYXRjaChob21lLCAvNDM3IOiHuuS4reW4guWkp+eUsuWNgOWtn+aYpemHjOS4reWxsei3r+S6jOautSA2IOiZny8pOwogIGFzc2VydC5tYXRjaChob21lLCAvY29tbW9ucy1leHRlcmlvci0xMjAwXC53ZWJwLyk7CiAgYXNzZXJ0Lm1hdGNoKGhvbWUsIC/ml6XljZfnqLvnq5nlpJblgbQvKTsKICBhc3NlcnQuZG9lc05vdE1hdGNoKGhvbWUsIC/ml6XljZfou4rnq5nvvZzml6XluLjlvoDov5TnmoTlnLDmlrkvKTsKICBhc3NlcnQubWF0Y2goYWJvdXQsIC9pZD0icGxhY2UiLyk7CiAgYXNzZXJ0Lm1hdGNoKGFib3V0LCAvY29tbW9ucy1pbnRlcmlvci0xMjAwXC53ZWJwLyk7CiAgYXNzZXJ0Lm1hdGNoKGFib3V0LCAv5pel5Y2X56i756uZ772c5Zyw5pa55paH5YyW56m66ZaTLyk7CiAgYXNzZXJ0Lm1hdGNoKGFib3V0LCAv6ZaL5ZWf5YmN772c5bCB6ZaJ5bey5LmF55qE6IiK56m66ZaTLyk7CiAgYXNzZXJ0LmRvZXNOb3RNYXRjaChhYm91dCwgL+W9seWDj+S+hua6kO+8muiHuuS4reW4guaWh+WMluizh+eUouiZlS8pOwogIGFzc2VydC5tYXRjaChhYm91dCwgL+a0u+WLlemZkOWumu+8j+mgkOe0hOWQiOS9nC8pOwogIGFzc2VydC5tYXRjaChhYm91dCwgL+Wvpumam+mWi+aUvumgheebruOAgeaZgumWk+WPiuS9v+eUqOaWueW8jy8pOwogIGFzc2VydC5tYXRjaCh2aXNpdCwgLzQzNyDoh7rkuK3luILlpKfnlLLljYDlrZ/mmKXph4zkuK3lsbHot6/kuozmrrUgNiDomZ8vKTsKfSk7Cgp0ZXN0KCdib3RoIGV2ZW50IGFkZHJlc3NlcyByZW5kZXIgb25lIHNoYXJlZCBwYWdlIGFuZCBleGhpYml0aW9uIGhhcyBubyBQREYgYnV0dG9uJywgKCkgPT4gewogIGNvbnN0IG1vdGlvbiA9IHJlYWRGaWxlU3luYyhwYXRoLmpvaW4ocm9vdCwgJ21vdGlvbjIwMjYvaW5kZXguaHRtbCcpLCAndXRmOCcpOwogIGNvbnN0IGxlZ2FjeSA9IHJlYWRGaWxlU3luYyhwYXRoLmpvaW4ocm9vdCwgJ3dhbGsvMjAyNi9pbmRleC5odG1sJyksICd1dGY4Jyk7CiAgY29uc3QgZXhoaWJpdCA9IHJlYWRGaWxlU3luYyhwYXRoLmpvaW4ocm9vdCwgJ2V4aGliaXRpb24vdG8tYW5kLWZyb20vaW5kZXguaHRtbCcpLCAndXRmOCcpOwogIGNvbnN0IGNvbnRlbnQgPSBodG1sID0+IGh0bWwuc2xpY2UoaHRtbC5pbmRleE9mKCc8bWFpbiBjbGFzcz0iZXZlbnQtcGFnZSInKSwgaHRtbC5pbmRleE9mKCc8L21haW4+JykgKyA3KTsKICBhc3NlcnQuZXF1YWwoY29udGVudChtb3Rpb24pLCBjb250ZW50KGxlZ2FjeSkpOwogIGZvciAoY29uc3QgaHRtbCBvZiBbbW90aW9uLCBsZWdhY3ldKSB7CiAgICBhc3NlcnQubWF0Y2goaHRtbCwgL+i/lOWbnuaXpeWNl+eou+ermemmlumggS8pOwogICAgYXNzZXJ0Lm1hdGNoKGh0bWwsIC80Mzcg6Ie65Lit5biC5aSn55Sy5Y2A5a2f5pil6YeM5Lit5bGx6Lev5LqM5q61IDYg6JmfLyk7CiAgICBhc3NlcnQubWF0Y2goaHRtbCwgL+mWi+W5leezu+WIl+a0u+WLlS8pOwogICAgYXNzZXJ0Lm1hdGNoKGh0bWwsIC/pn7PmqILmvJTlh7rjg7votbDlgrHluILpm4YvKTsKICAgIGFzc2VydC5tYXRjaChodG1sLCAvMTBcLjMxLyk7CiAgICBhc3NlcnQuZG9lc05vdE1hdGNoKGh0bWwsIC/loLHlkI3pgKPntZDmupblgpnkuK18MSDomZ/lsI3pnaIvKTsKICB9CiAgYXNzZXJ0Lm1hdGNoKGV4aGliaXQsIC/mpI3nianokL3lm57lnJ/lnLAvKTsKICBhc3NlcnQubWF0Y2goZXhoaWJpdCwgL+eou+S9nOiIh+akjeeJqS8pOwogIGFzc2VydC5kb2VzTm90TWF0Y2goZXhoaWJpdCwgL+mWi+WVnyBQREZ8cmluYW5jb21tb25zXC5zXC5neVwvcGRmLyk7Cn0pOwoKdGVzdCgncHVibGlzaGVkIG1hcmtldCBpcyBkaXNjb3ZlcmFibGUgYW5kIHJldGFpbnMgdGhlIGNvcnJlY3RlZCB2ZW5kb3IgaW5mb3JtYXRpb24nLCAoKSA9PiB7CiAgY29uc3QgbWFya2V0ID0gcmVhZEZpbGVTeW5jKHBhdGguam9pbihyb290LCAnbW90aW9uMjAyNi9tYXJrZXQvaW5kZXguaHRtbCcpLCAndXRmOCcpOwogIGNvbnN0IHByZXZpZXcgPSByZWFkRmlsZVN5bmMocGF0aC5qb2luKHJvb3QsICdtb3Rpb24yMDI2L21hcmtldC1wcmV2aWV3L2luZGV4Lmh0bWwnKSwgJ3V0ZjgnKTsKICBjb25zdCBldmVudCA9IHJlYWRGaWxlU3luYyhwYXRoLmpvaW4ocm9vdCwgJ21vdGlvbjIwMjYvaW5kZXguaHRtbCcpLCAndXRmOCcpOwogIGNvbnN0IHNpdGVtYXAgPSByZWFkRmlsZVN5bmMocGF0aC5qb2luKHJvb3QsICdzaXRlbWFwLnhtbCcpLCAndXRmOCcpOwogIGZvciAoY29uc3QgaHRtbCBvZiBbbWFya2V0LCBwcmV2aWV3XSkgewogICAgY29uc3QgcmVuZGVyZWRNYWluID0gaHRtbC5zbGljZShodG1sLmluZGV4T2YoJzxtYWluIGNsYXNzPSJtYXJrZXQtcGFnZSInKSwgaHRtbC5pbmRleE9mKCI8L21haW4+IikpOwogICAgYXNzZXJ0LmVxdWFsKChyZW5kZXJlZE1haW4ubWF0Y2goL2RhdGEtdmVuZG9yLW51bWJlcj0vZykgfHwgW10pLmxlbmd0aCwgMjApOwogICAgZm9yIChjb25zdCB0ZXh0IG9mIFsn5b6h6byO6aWM5bua5oi/JywgJ+WOn+ixhueyuemjnyBHT09EIFNPWUZPT0QnLCAn6YeH6bue6Zue6JuL57OVJywgJ+edv+mYv+WspC3ntJTnsbPmiYvkvZwnXSkgYXNzZXJ0Lm9rKGh0bWwuaW5jbHVkZXModGV4dCksIHRleHQpOwogICAgYXNzZXJ0LmRvZXNOb3RNYXRjaChodG1sLCAv54++5aC05ZOB6aCFfOabtOWkmuWTgemghXzosYblpbbng4/pvo3po7IgNjAg5YWDfOeIhuexs+iKsSAxNTAg5YWDfOW+heijnHzmlKTllYbnorroqo3kuK1854Ok6Iqx5qSS6aaZ6IW4fOW+oemggumljOW7muaIv3zljp/lkbPosYbohZB85oWI5b636Lev5Y+j6Zue6JuL57OVfOiMg+WqveWqveWuouWutue+jumjn+WCs+e1sXxcW+WTgemgheW+heijnFxdfFxb5YWn5a655b6F6KOcXF0vKTsKICAgIGNvbnN0IHBhaXJzID0gWy4uLnJlbmRlcmVkTWFpbi5tYXRjaEFsbCgvZGF0YS12ZW5kb3ItbnVtYmVyPSIoXGR7Mn0pIltcc1xTXSo/PGgzPihbXjxdKyk8XC9oMz4vZyldLm1hcChtID0+IFttWzFdLCBtWzJdXSk7CiAgICBhc3NlcnQuZGVlcEVxdWFsKHBhaXJzLm1hcChwID0+IHBbMF0pLCBBcnJheS5mcm9tKHtsZW5ndGg6MjB9LCAoXywgaSkgPT4gU3RyaW5nKGkgKyAxKS5wYWRTdGFydCgyLCAnMCcpKSk7CiAgICBmb3IgKGNvbnN0IHBhaXIgb2YgW1snMDEnLCfoj6/lsbHln7rph5HmnIPlpKfnlLLnq5knXSwgWycwMicsJ1Nub3dmYXQg6IKl6Zuq5bel5L2c5a6kJ10sIFsnMDQnLCflloTnvqTovrLojoonXSwgWycwNycsJ+Wwj+WztumdkumzpSddLCBbJzA5Jywn5Y6f6LGG57K56aOfIEdPT0QgU09ZRk9PRCddLCBbJzE0Jywn5pel5Y2X5L6G5b+D6IKJ5YWx55Sf5bua5oi/IMOXIOW0qeWFq+mjn+WggiddLCBbJzE4Jywn5pe65a6a5be3MeiZnyddLCBbJzE5Jywn5rC06JuZ5Yi66Z2S55SY6I2J6Iqt5qiCJ10sIFsnMjAnLCflj7DngaPlrq7ltI7nuKPkurrmnIMg44GE44Gj44Gh44KD44GM5LyaJ11dKSBhc3NlcnQub2socGFpcnMuc29tZShwID0+IHBbMF0gPT09IHBhaXJbMF0gJiYgcFsxXSA9PT0gcGFpclsxXSksIHBhaXIuam9pbignOicpKTsKICAgIGFzc2VydC5kb2VzTm90TWF0Y2gocmVuZGVyZWRNYWluLCAvbW90aW9uMjAyNi1tYXJrZXQtbWFwfOWFpeWPo+acjeWLmeWNgHzkuLvli5Xnt5rljZflgbR85p2x5YG055u05YiXLyk7CiAgICBmb3IgKGNvbnN0IHRleHQgb2YgWydodHRwczovL3d3dy5mYWNlYm9vay5jb20vU3Vnck1hbicsICdodHRwczovL3d3dy5mYWNlYm9vay5jb20vcHJvZmlsZS5waHA/aWQ9MTAwMDYzOTM2NDU4MTIxJywgJ+WPsOi+sjLomZ/lnJ/ps7PmoqgnLCAn6ai36I6O6Zue6IKJ6YWq5qKo6bm55rS+JywgJ+iCieahgumFquaiqOWltuayueaquOaqrOa0vicsICdpZD0idmVuZG9yLXN0b3J5LTA3IicsICdpZD0idmVuZG9yLXN0b3J5LTE4IiddKSBhc3NlcnQub2socmVuZGVyZWRNYWluLmluY2x1ZGVzKHRleHQpLCB0ZXh0KTsKICAgIGZvciAoY29uc3QgaGlnaGxpZ2h0IG9mIFsn6ZmQ5a6a5Ly86aGP57mqJywgJ+eyiea8v+ibi+mkhScsICfkuZ3nqK7lj6PlkbPpm6roirHlhrAnLCAn5aeK5aa556uZ5a6u5bSO5pel5Y2X5o6o5bujJ10pIGFzc2VydC5vayhyZW5kZXJlZE1haW4uaW5jbHVkZXMoaGlnaGxpZ2h0KSwgaGlnaGxpZ2h0KTsKICAgIGFzc2VydC5kb2VzTm90TWF0Y2gocmVuZGVyZWRNYWluLCAv6LaK5Y2X5pSk5L2NfOW5uOemj+mHjOisneWutuexs+mjn3zlrq7ltI7nuKPkurrmnIPvvZzpgYrmiLJ85p2xcm9vbeiXneihk+W3peS9nOWupHxMT1BJQSBYIOS5vuadr+mbhuWbo3zml6XljZfjg6zjg6Ljg7N86Iy25b6h5ZOBfOexs+S9kOeLgOWFg+ezlXzorJ3lrrbnsbPpo58vKTsKICAgIGFzc2VydC5kb2VzTm90TWF0Y2gocmVuZGVyZWRNYWluLCAvMDlcZHsyfSg/OlstIF0/XGR7M30pezJ9fOePvuWgtOiyoOiyrOS6uuihjOWLlembu+ipsXznj77loLTkuLvopoHosqDosqzkurrlp5PlkI185oq86YeR5Yyv5qy+5b6M5LqU56K8fOmAsuWgtOWNuOiyqOi7iui8m+eZu+iomC8pOwogIH0KICBhc3NlcnQubWF0Y2goZXZlbnQsIC9ocmVmPSIjbWFya2V0Ii8pOwogIGFzc2VydC5tYXRjaChzaXRlbWFwLCAvaHR0cHM6XC9cL3d3dy5yaW5hbmNvbW1vbnMuY29tXC9tb3Rpb24yMDI2XC9tYXJrZXRcLy8pOwogIGFzc2VydC5kb2VzTm90TWF0Y2goc2l0ZW1hcCwgL21hcmtldC1wcmV2aWV3Lyk7CiAgYXNzZXJ0Lm1hdGNoKG1hcmtldCwgL25hbWU9InJvYm90cyIgY29udGVudD0iaW5kZXgsIGZvbGxvdyIvKTsKICBhc3NlcnQubWF0Y2gocHJldmlldywgL25hbWU9InJvYm90cyIgY29udGVudD0ibm9pbmRleCwgbm9mb2xsb3ciLyk7Cn0pOwoKdGVzdCgnbW9iaWxlIG1lbnUgbGVhZHMgd2l0aCBldmVudCwgbWFya2V0IGFuZCB0cmFuc3BvcnQ7IGRlc2t0b3Aga2VlcHMgdGhlbSBvbiB0aGUgcmlnaHQnLCAoKSA9PiB7CiAgY29uc3QgaG9tZSA9IHJlYWRGaWxlU3luYyhwYXRoLmpvaW4ocm9vdCwgJ2luZGV4Lmh0bWwnKSwgJ3V0ZjgnKTsKICBjb25zdCBkZXNrdG9wID0gaG9tZS5tYXRjaCgvPG5hdiBjbGFzcz0ic2l0ZS1uYXZpZ2F0aW9uIltePl0qPihbXHNcU10qPyk8XC9uYXY+Lyk/LlsxXTsKICBjb25zdCBtb2JpbGUgPSBob21lLm1hdGNoKC88bmF2IGFyaWEtbGFiZWw9IuaJi+apn+e2suermeWwjuimvSI+KFtcc1xTXSo/KTxcL25hdj4vKT8uWzFdOwogIGFzc2VydC5vayhkZXNrdG9wICYmIG1vYmlsZSk7CiAgY29uc3QgbGlua3MgPSBuYXYgPT4gWy4uLm5hdi5tYXRjaEFsbCgvaHJlZj0iKFteIl0rKSIvZyldLm1hcChtID0+IG1bMV0pOwogIGFzc2VydC5kZWVwRXF1YWwobGlua3MoZGVza3RvcCkuc2xpY2UoLTIpLCBbJy9yaW5hbi1jb21tb25zL21vdGlvbjIwMjYvJywgJy9yaW5hbi1jb21tb25zL3Zpc2l0LyddKTsKICBhc3NlcnQuZGVlcEVxdWFsKGxpbmtzKG1vYmlsZSkuc2xpY2UoMCwgMiksIFsnL3JpbmFuLWNvbW1vbnMvbW90aW9uMjAyNi8nLCAnL3JpbmFuLWNvbW1vbnMvdmlzaXQvJ10pOwogIGFzc2VydC5kZWVwRXF1YWwobGlua3MobW9iaWxlKS5zbGljZSgtMiksIFsnL3JpbmFuLWNvbW1vbnMvZXhwbG9yZS8nLCAnL3JpbmFuLWNvbW1vbnMvcGxhbnRzLyddKTsKfSk7Cgp0ZXN0KCdwZW9wbGUgc3RvcmllcyBsZWFkIHRoZSBob21lIGpvdXJuYWwgYW5kIHRoZSBmdWxsIGpvdXJuYWwsIHdpdGggY292ZXJzJywgKCkgPT4gewogIGNvbnN0IGhvbWUgPSByZWFkRmlsZVN5bmMocGF0aC5qb2luKHJvb3QsICdpbmRleC5odG1sJyksICd1dGY4Jyk7CiAgY29uc3Qgam91cm5hbCA9IHJlYWRGaWxlU3luYyhwYXRoLmpvaW4ocm9vdCwgJ3N0b3JpZXMvaW5kZXguaHRtbCcpLCAndXRmOCcpOwogIGNvbnN0IGhvbWVTdG9yaWVzID0gaG9tZS5zbGljZShob21lLmluZGV4T2YoJ2NsYXNzPSJzdG9yeS10ZWFzZXJzIicpLCBob21lLmluZGV4T2YoJ2NsYXNzPSJ2aXNpdC1pbnZpdGF0aW9uIicpKTsKICBjb25zdCBqb3VybmFsU3RvcmllcyA9IGpvdXJuYWwuc2xpY2Uoam91cm5hbC5pbmRleE9mKCdjbGFzcz0iam91cm5hbC1yZXN1bHRzIicpLCBqb3VybmFsLmluZGV4T2YoJ2NsYXNzPSJlbXB0eS1yZXN1bHRzIicpKTsKICBmb3IgKGNvbnN0IHNlY3Rpb24gb2YgW2hvbWVTdG9yaWVzLCBqb3VybmFsU3Rvcmllc10pIHsKICAgIGFzc2VydC5vayhzZWN0aW9uLmluZGV4T2YoJ+i1sOWCseeahOaXpeWNl+S6uiAxJykgPCBzZWN0aW9uLmluZGV4T2YoJ+aXpeWNl+eou+erme+8muaJk+mWi+i7iuermeaXgeeahOiIiueHn+aIvycpKTsKICAgIGFzc2VydC5vayhzZWN0aW9uLmluZGV4T2YoJ+i1sOWCseeahOaXpeWNl+S6uiAyJykgPCBzZWN0aW9uLmluZGV4T2YoJ+aXpeWNl+eou+erme+8muaJk+mWi+i7iuermeaXgeeahOiIiueHn+aIvycpKTsKICAgIGFzc2VydC5vayhzZWN0aW9uLmluZGV4T2YoJ+i1sOWCseeahOaXpeWNl+S6uiAzJykgPCBzZWN0aW9uLmluZGV4T2YoJ+aXpeWNl+eou+erme+8muaJk+mWi+i7iuermeaXgeeahOiIiueHn+aIvycpKTsKICB9CiAgYXNzZXJ0Lm9rKGhvbWVTdG9yaWVzLmluZGV4T2YoJ+i1sOWCseeahOaXpeWNl+S6uiAxJykgPiBob21lU3Rvcmllcy5pbmRleE9mKCc8cGljdHVyZT4nKSk7CiAgYXNzZXJ0Lm9rKGpvdXJuYWwuaW5kZXhPZign5Lq654mp5pWF5LqLPC9idXR0b24+JykgPCBqb3VybmFsLmluZGV4T2YoJ+mQtemBk+aWh+WPsjwvYnV0dG9uPicpKTsKfSk7CgoKdGVzdCgnbWFya2V0IHN0YXJ0cyBhdCAxNjozMCBhbmQgY29uY2VydCBzdGFydHMgYXQgMTc6MDAgYWNyb3NzIG9mZmljaWFsIHBhZ2VzJywgKCkgPT4gewogIGZvciAoY29uc3Qgcm91dGUgb2YgWydtb3Rpb24yMDI2L21hcmtldCcsICdtb3Rpb24yMDI2L21hcmtldC1wcmV2aWV3J10pIHsKICAgIGNvbnN0IGh0bWwgPSByZWFkRmlsZVN5bmMocGF0aC5qb2luKHJvb3QsIHJvdXRlLCAnaW5kZXguaHRtbCcpLCAndXRmOCcpOwogICAgYXNzZXJ0Lm1hdGNoKGh0bWwsIC8xMFwvMzHvvIjlha3vvIkxNjozMOKAkzIxOjAwLyk7CiAgICBhc3NlcnQuZG9lc05vdE1hdGNoKGh0bWwsIC8xMFwvMzHvvIjlha3vvIkxNzowMOKAkzIxOjAwLyk7CiAgICBhc3NlcnQuZG9lc05vdE1hdGNoKGh0bWwsIC8yMTozMHzlsJrlvoXnorroqo185paw55qE5pel5pyf5Y+K5rS75YuV5a6J5o6S5bCH5Y+m6KGM5YWs5ZGKLyk7CiAgfQogIGZvciAoY29uc3Qgcm91dGUgb2YgWydtb3Rpb24yMDI2JywgJ3dhbGsvMjAyNiddKSB7CiAgICBjb25zdCBodG1sID0gcmVhZEZpbGVTeW5jKHBhdGguam9pbihyb290LCByb3V0ZSwgJ2luZGV4Lmh0bWwnKSwgJ3V0ZjgnKTsKICAgIGNvbnN0IHBhbmVsID0gaHRtbC5zbGljZShodG1sLmluZGV4T2YoJ2lkPSJldmVudC1wcm9ncmFtIicpLCBodG1sLmluZGV4T2YoJ2lkPSJyZWdpc3RyYXRpb24iJykpOwogICAgYXNzZXJ0Lm1hdGNoKHBhbmVsLCAvYXJpYS1sYWJlbD0iMTDmnIgzMeaXpeevgOebriIvKTsKICAgIGFzc2VydC5tYXRjaChwYW5lbCwgL21hcmtldC1wbGFuLyk7CiAgICBhc3NlcnQuZG9lc05vdE1hdGNoKHBhbmVsLCAvMTBcLzI044O7MTc6MDB8MjE6MzAvKTsKICB9CiAgY29uc3Qgc291cmNlID0gcmVhZEZpbGVTeW5jKG5ldyBVUkwoJy4uL2FwcC9tb3Rpb24yMDI2L2V2ZW50LXNpdGUudHN4JywgaW1wb3J0Lm1ldGEudXJsKSwgJ3V0ZjgnKTsKICBjb25zdCBkYXlUd28gPSBzb3VyY2Uuc2xpY2Uoc291cmNlLmluZGV4T2YoJ2Z1bmN0aW9uIERheVR3bygpJyksIHNvdXJjZS5pbmRleE9mKCdmdW5jdGlvbiBMb2NhbEluZm8oKScpKTsKICBhc3NlcnQubWF0Y2goZGF5VHdvLCAvMTBcLzMx44O7MTY6MzDigJMyMTowMC8pOwogIGFzc2VydC5tYXRjaChkYXlUd28sIC/pn7PmqILmvJTlh7ogMTc6MDDigJMyMTowMC8pOwogIGFzc2VydC5tYXRjaChkYXlUd28sIC92ZW5kb3ItZGV0YWlscy8pOwogIGFzc2VydC5tYXRjaChzb3VyY2UsIC8xMOaciDMx5pel56+A55uuLyk7CiAgYXNzZXJ0LmRvZXNOb3RNYXRjaChzb3VyY2UsIC8xMOaciDI05pel56+A55uufDIxOjMwLyk7CiAgZm9yIChjb25zdCByb3V0ZSBvZiBbJ2luZGV4Lmh0bWwnLCAnbW90aW9uMjAyNi9pbmRleC5odG1sJywgJ3dhbGsvMjAyNi9pbmRleC5odG1sJ10pIHsKICAgIGNvbnN0IGh0bWwgPSByZWFkRmlsZVN5bmMocGF0aC5qb2luKHJvb3QsIHJvdXRlKSwgJ3V0ZjgnKTsKICAgIGFzc2VydC5tYXRjaChodG1sLCAv6LWw5YKx5biC6ZuGKD86772cMTBcLzMx77yI5YWt77yJfCApMTY6MzDigJMyMTowMC8pOwogICAgYXNzZXJ0LmRvZXNOb3RNYXRjaChodG1sLCAvMTBcLzMx77yI5YWt77yJMTc6MDDigJMyMTowMHwxNzowMOKAkzIxOjAw772c5LqU57WE5ryU5Ye644O76LWw5YKx5biC6ZuGLyk7CiAgfQogIGNvbnN0IHZpc2l0ID0gcmVhZEZpbGVTeW5jKHBhdGguam9pbihyb290LCAndmlzaXQvaW5kZXguaHRtbCcpLCAndXRmOCcpOwogIGFzc2VydC5tYXRjaCh2aXNpdCwgLzEwXC8zMSDmmZrplpMvKTsKICBhc3NlcnQuZG9lc05vdE1hdGNoKHZpc2l0LCAvMTBcLzI0IOaZmumWk3wxMFwuMjTvvIjlha3vvIkvKTsKfSk7Cg==
+import { readdirSync, readFileSync, existsSync, statSync } from 'node:fs';
+import path from 'node:path';
+import { fileURLToPath } from 'node:url';
+import assert from 'node:assert/strict';
+import test from 'node:test';
+const root = fileURLToPath(new URL('../out/', import.meta.url));
+function walk(dir) { return readdirSync(dir).flatMap(name => { const f=path.join(dir,name); return statSync(f).isDirectory()?walk(f):[f]; }); }
+const htmlFiles = walk(root).filter(f=>f.endsWith('.html') && !f.endsWith('404.html') && !f.includes('_not-found') && !f.includes(`${path.sep}maps${path.sep}`) && !f.includes(`${path.sep}404${path.sep}`));
+test('all seventeen public and preview routes export headings, main content and indexable metadata', () => {
+  assert.equal(htmlFiles.length, 17);
+  for (const file of htmlFiles) {
+    const html=readFileSync(file,'utf8');
+    assert.equal((html.match(/<h1[\s>]/g)||[]).length, 1, file);
+    assert.match(html, /id="content"/);
+    // 預覽頁不被搜尋引擎收錄，其餘公開頁維持可收錄
+    if (file.includes(`${path.sep}market-preview${path.sep}`)) assert.match(html, /name="robots" content="noindex, nofollow"/);
+    else assert.match(html, /name="robots" content="index, follow"/);
+    assert.doesNotMatch(html, /從一粒米出發/);
+    assert.doesNotMatch(html, /中山路二段\s*1\s*號對面/, file);
+  }
+});
+test('copyright notice and working footer links appear on all published pages', () => {
+  const notice = readFileSync(path.join(root, 'copyright/index.html'), 'utf8');
+  const sitemap = readFileSync(path.join(root, 'sitemap.xml'), 'utf8');
+  for (const file of htmlFiles) {
+    const html = readFileSync(file, 'utf8');
+    assert.match(html, /href="\/rinan-commons\/copyright\/"[^>]*>版權聲明<\/a>/, file);
+    assert.match(html, /href="\/rinan-commons\/"[^>]*>日南稻站 Rinan Commons<\/a>/, file);
+    assert.match(html, /保留所有權利/, file);
+  }
+  const map = readFileSync(path.join(root, 'maps/index.html'), 'utf8');
+  assert.match(map, /https:\/\/www\.rinancommons\.com\/copyright\//);
+  assert.match(sitemap, /https:\/\/www\.rinancommons\.com\/copyright\//);
+  for (const phrase of ['本網站所刊載之文字、照片、影像、插圖、地圖、版面設計與標誌', '權利歸原權利人所有', '未經書面同意', '新聞報導、教學、評論', '活動資訊以官方公告為準', '最後更新：2026 年 10 月']) assert.ok(notice.includes(phrase), phrase);
+  assert.match(notice, /href="mailto:rinancommons@gmail\.com"/);
+});
+test('internal links and images resolve inside the GitHub Pages base path', () => {
+  for (const file of htmlFiles) {
+    const html=readFileSync(file,'utf8');
+    for (const match of html.matchAll(/(?:href|src)="(\/[^"#?]*)/g)) {
+      const url = match[1];
+      assert.ok(url.startsWith('/rinan-commons/'), `${file}: missing basePath: ${url}`);
+      const relative = decodeURIComponent(url.slice('/rinan-commons/'.length));
+      const target=path.join(root,relative);
+      assert.ok(existsSync(target) || existsSync(path.join(target,'index.html')), `${file}: missing asset or route: ${url}`);
+    }
+    for (const match of html.matchAll(/href="#([^"]+)"/g)) assert.ok(html.includes(`id="${match[1]}"`), `${file}: broken anchor: ${match[1]}`);
+  }
+});
+test('unpublished vendor names do not leak through static HTML or browser bundles', () => {
+  for (const file of walk(root).filter(f=>/\.(html|js|txt|json)$/.test(f))) {
+    const text=readFileSync(file,'utf8');
+    assert.doesNotMatch(text, /3Ｑ米食|東明國小家長會長推薦攤位/, file);
+  }
+});
+
+test('approved homepage and about review stays linked and keeps planned services distinct', () => {
+  const home = readFileSync(path.join(root, 'index.html'), 'utf8');
+  const about = readFileSync(path.join(root, 'about/index.html'), 'utf8');
+  const visit = readFileSync(path.join(root, 'visit/index.html'), 'utf8');
+  assert.match(home, /車站旁，一個可以停下來休息的地方。/);
+  assert.match(home, /href="\/rinan-commons\/about\/#place"/);
+  assert.match(home, /href="\/rinan-commons\/explore\/"/);
+  assert.match(home, /最新活動公告/);
+  assert.match(home, /10\.31/);
+  assert.match(home, /437 臺中市大甲區孟春里中山路二段 6 號/);
+  assert.match(home, /commons-exterior-1200\.webp/);
+  assert.match(home, /日南稻站外側/);
+  assert.doesNotMatch(home, /日南車站｜日常往返的地方/);
+  assert.match(about, /id="place"/);
+  assert.match(about, /commons-interior-1200\.webp/);
+  assert.match(about, /日南稻站｜地方文化空間/);
+  assert.match(about, /開啟前｜封閉已久的舊空間/);
+  assert.doesNotMatch(about, /影像來源：臺中市文化資產處/);
+  assert.match(about, /活動限定／預約合作/);
+  assert.match(about, /實際開放項目、時間及使用方式/);
+  assert.match(visit, /437 臺中市大甲區孟春里中山路二段 6 號/);
+});
+
+test('both event addresses render one shared page and exhibition has no PDF button', () => {
+  const motion = readFileSync(path.join(root, 'motion2026/index.html'), 'utf8');
+  const legacy = readFileSync(path.join(root, 'walk/2026/index.html'), 'utf8');
+  const exhibit = readFileSync(path.join(root, 'exhibition/to-and-from/index.html'), 'utf8');
+  const content = html => html.slice(html.indexOf('<main class="event-page"'), html.indexOf('</main>') + 7);
+  assert.equal(content(motion), content(legacy));
+  for (const html of [motion, legacy]) {
+    assert.match(html, /返回日南稻站首頁/);
+    assert.match(html, /437 臺中市大甲區孟春里中山路二段 6 號/);
+    assert.match(html, /開幕系列活動/);
+    assert.match(html, /音樂演出・走傱市集/);
+    assert.match(html, /10\.31/);
+    assert.doesNotMatch(html, /報名連結準備中|1 號對面/);
+  }
+  assert.match(exhibit, /植物落回土地/);
+  assert.match(exhibit, /稻作與植物/);
+  assert.doesNotMatch(exhibit, /開啟 PDF|rinancommons\.s\.gy\/pdf/);
+});
+
+test('published market is discoverable and retains the corrected vendor information', () => {
+  const market = readFileSync(path.join(root, 'motion2026/market/index.html'), 'utf8');
+  const preview = readFileSync(path.join(root, 'motion2026/market-preview/index.html'), 'utf8');
+  const event = readFileSync(path.join(root, 'motion2026/index.html'), 'utf8');
+  const sitemap = readFileSync(path.join(root, 'sitemap.xml'), 'utf8');
+  for (const html of [market, preview]) {
+    const renderedMain = html.slice(html.indexOf('<main class="market-page"'), html.indexOf("</main>"));
+    assert.equal((renderedMain.match(/data-vendor-number=/g) || []).length, 20);
+    for (const text of ['御鼎饌廚房', '原豆粹食 GOOD SOYFOOD', '采點雞蛋糕', '睿阿嬤-純米手作']) assert.ok(html.includes(text), text);
+    assert.doesNotMatch(html, /現場品項|更多品項|豆奶烏龍飲 60 元|爆米花 150 元|待補|攤商確認中|烤花椒香腸|御頂饌廚房|原味豆腐|慈德路口雞蛋糕|范媽媽客家美食傳統|\[品項待補\]|\[內容待補\]/);
+    const pairs = [...renderedMain.matchAll(/data-vendor-number="(\d{2})"[\s\S]*?<h3>([^<]+)<\/h3>/g)].map(m => [m[1], m[2]]);
+    assert.deepEqual(pairs.map(p => p[0]), Array.from({length:20}, (_, i) => String(i + 1).padStart(2, '0')));
+    for (const pair of [['01','華山基金會大甲站'], ['02','Snowfat 肥雪工作室'], ['04','善群農莊'], ['07','小島青鳥'], ['09','原豆粹食 GOOD SOYFOOD'], ['14','日南來心肉共生廚房 × 崩八食堂'], ['18','旺定巷1號'], ['19','水蛙刺青甘草芭樂'], ['20','台灣宮崎縣人會 いっちゃが会']]) assert.ok(pairs.some(p => p[0] === pair[0] && p[1] === pair[1]), pair.join(':'));
+    assert.doesNotMatch(renderedMain, /motion2026-market-map|入口服務區|主動線南側|東側直列/);
+    for (const text of ['https://www.facebook.com/SugrMan', 'https://www.facebook.com/profile.php?id=100063936458121', '台農2號土鳳梨', '騷莎雞肉酪梨鹹派', '肉桂酪梨奶油檸檬派', 'id="vendor-story-07"', 'id="vendor-story-18"']) assert.ok(renderedMain.includes(text), text);
+    for (const highlight of ['限定似顏繪', '粉漿蛋餅', '九種口味雪花冰', '姊妹站宮崎日南推廣']) assert.ok(renderedMain.includes(highlight), highlight);
+    assert.doesNotMatch(renderedMain, /越南攤位|幸福里謝家米食|宮崎縣人會｜遊戲|東room藝術工作室|LOPIA X 乾杯集団|日南レモン|茶御品|米佐狀元糕|謝家米食/);
+    assert.doesNotMatch(renderedMain, /09\d{2}(?:[- ]?\d{3}){2}|現場負責人行動電話|現場主要負責人姓名|押金匯款後五碼|進場卸貨車輛登記/);
+  }
+  assert.match(event, /href="#market"/);
+  assert.match(sitemap, /https:\/\/www.rinancommons.com\/motion2026\/market\//);
+  assert.doesNotMatch(sitemap, /market-preview/);
+  assert.match(market, /name="robots" content="index, follow"/);
+  assert.match(preview, /name="robots" content="noindex, nofollow"/);
+});
+
+test('mobile menu leads with event, market and transport; desktop keeps them on the right', () => {
+  const home = readFileSync(path.join(root, 'index.html'), 'utf8');
+  const desktop = home.match(/<nav class="site-navigation"[^>]*>([\s\S]*?)<\/nav>/)?.[1];
+  const mobile = home.match(/<nav aria-label="手機網站導覽">([\s\S]*?)<\/nav>/)?.[1];
+  assert.ok(desktop && mobile);
+  const links = nav => [...nav.matchAll(/href="([^"]+)"/g)].map(m => m[1]);
+  assert.deepEqual(links(desktop).slice(-2), ['/rinan-commons/motion2026/', '/rinan-commons/visit/']);
+  assert.deepEqual(links(mobile).slice(0, 2), ['/rinan-commons/motion2026/', '/rinan-commons/visit/']);
+  assert.deepEqual(links(mobile).slice(-2), ['/rinan-commons/explore/', '/rinan-commons/plants/']);
+});
+
+test('people stories lead the home journal and the full journal, with covers', () => {
+  const home = readFileSync(path.join(root, 'index.html'), 'utf8');
+  const journal = readFileSync(path.join(root, 'stories/index.html'), 'utf8');
+  const homeStories = home.slice(home.indexOf('class="story-teasers"'), home.indexOf('class="visit-invitation"'));
+  const journalStories = journal.slice(journal.indexOf('class="journal-results"'), journal.indexOf('class="empty-results"'));
+  for (const section of [homeStories, journalStories]) {
+    assert.ok(section.indexOf('走傱的日南人 1') < section.indexOf('日南稻站：打開車站旁的舊營房'));
+    assert.ok(section.indexOf('走傱的日南人 2') < section.indexOf('日南稻站：打開車站旁的舊營房'));
+    assert.ok(section.indexOf('走傱的日南人 3') < section.indexOf('日南稻站：打開車站旁的舊營房'));
+  }
+  assert.ok(homeStories.indexOf('走傱的日南人 1') > homeStories.indexOf('<picture>'));
+  assert.ok(journal.indexOf('人物故事</button>') < journal.indexOf('鐵道文史</button>'));
+});
+
+
+test('market starts at 16:30 and concert starts at 17:00 across official pages', () => {
+  for (const route of ['motion2026/market', 'motion2026/market-preview']) {
+    const html = readFileSync(path.join(root, route, 'index.html'), 'utf8');
+    assert.match(html, /10\/31（六）16:30–21:00/);
+    assert.doesNotMatch(html, /10\/31（六）17:00–21:00/);
+    assert.doesNotMatch(html, /21:30|尚待確認|新的日期及活動安排將另行公告/);
+  }
+  for (const route of ['motion2026', 'walk/2026']) {
+    const html = readFileSync(path.join(root, route, 'index.html'), 'utf8');
+    const panel = html.slice(html.indexOf('id="event-program"'), html.indexOf('id="registration"'));
+    assert.match(panel, /aria-label="10月31日節目"/);
+    assert.match(panel, /market-plan/);
+    assert.doesNotMatch(panel, /10\/24・17:00|21:30/);
+  }
+  const source = readFileSync(new URL('../app/motion2026/event-site.tsx', import.meta.url), 'utf8');
+  const dayTwo = source.slice(source.indexOf('function DayTwo()'), source.indexOf('function LocalInfo()'));
+  assert.match(dayTwo, /10\/31・16:30–21:00/);
+  assert.match(dayTwo, /音樂演出 17:00–21:00/);
+  assert.match(dayTwo, /vendor-details/);
+  assert.match(source, /10月31日節目/);
+  assert.doesNotMatch(source, /10月24日節目|21:30/);
+  for (const route of ['index.html', 'motion2026/index.html', 'walk/2026/index.html']) {
+    const html = readFileSync(path.join(root, route), 'utf8');
+    assert.match(html, /走傱市集(?:｜10\/31（六）| )16:30–21:00/);
+    assert.doesNotMatch(html, /10\/31（六）17:00–21:00|17:00–21:00｜五組演出・走傱市集/);
+  }
+  const visit = readFileSync(path.join(root, 'visit/index.html'), 'utf8');
+  assert.match(visit, /10\/31 晚間/);
+  assert.doesNotMatch(visit, /10\/24 晚間|10\.24（六）/);
+});
