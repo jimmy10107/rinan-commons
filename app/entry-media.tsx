@@ -1,32 +1,59 @@
 "use client";
-import { useState } from "react";
-import { sitePath } from "./site-path";
 
-const lineup = [
-  ["17:00–17:40", "震樂堂 ft. 日南慈德宮哨角團"],
-  ["18:00–18:30", "劉阿昌與打幫你樂團"],
-  ["18:45–19:15", "萬芳 One-Fang"],
-  ["19:35–20:05", "黃宇寒 Han"],
-  ["20:20–21:00", "拍謝少年 ft. 孟春排舞班"],
-] as const;
+import { useEffect, useState } from "react";
 
-/** Latest confirmed concert timetable shown as a dismissible floating notice. */
+type MediaView = "film" | "song" | null;
+
+const filmId = "_ydtsZWwZJk";
+const songId = "UjBET5cz8gE";
+const seenKey = "rinan-entry-film-seen-v1";
+
+/** A dismissible floating media player for the Rinan Commons film and theme song. */
 export function EntryMedia() {
-  const [expanded, setExpanded] = useState(true);
-  return <aside className="event-notice-float" aria-label="走傱日南 2026 10月31日演出公告">
-    {expanded ? <section className="event-notice-card" aria-labelledby="event-notice-title">
-      <header className="event-notice-head">
-        <div><span>LINE UP / 2026.10.31 SAT.</span><h2 id="event-notice-title">走傱日南 2026<br />最新節目表</h2></div>
-        <button type="button" aria-label="收合活動公告" className="event-notice-close" onClick={() => setExpanded(false)}>×</button>
-      </header>
-      <p>走傱市集｜10/31（六）16:30–21:00<br />音樂演出｜17:00–21:00<br />日南車站旁廣場</p>
-      <div className="event-lineup-list">
-        {lineup.map(([time, performer]) => <div className="event-lineup-row" key={time}><time>{time}</time><strong>{performer}</strong></div>)}
+  const [view, setView] = useState<MediaView>(null);
+  const [ready, setReady] = useState(false);
+  const [filmAutoplay, setFilmAutoplay] = useState(false);
+
+  useEffect(() => {
+    const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    const saveData = (navigator as Navigator & { connection?: { saveData?: boolean } }).connection?.saveData === true;
+    setFilmAutoplay(!reduceMotion && !saveData);
+    try {
+      if (!window.sessionStorage.getItem(seenKey)) {
+        window.sessionStorage.setItem(seenKey, "1");
+        setView("film");
+      }
+    } catch {
+      // The launcher remains available when private browsing blocks session storage.
+    }
+    setReady(true);
+  }, []);
+
+  if (!ready) return null;
+
+  const id = view === "song" ? songId : filmId;
+  const title = view === "song" ? "〈走傱日南 2026 主題曲〉" : "《走傱日南2026》日南形象影片";
+  const autoplay = view === "song" || filmAutoplay;
+  const videoUrl = `https://www.youtube-nocookie.com/embed/${id}?playsinline=1&rel=0&autoplay=${autoplay ? "1" : "0"}&mute=${view === "film" ? "1" : "0"}`;
+
+  return <aside className="entry-media" aria-label="日南稻站影音">
+    {view ? <div className="entry-media-panel">
+      <div className="entry-media-head">
+        <div><span>RINAN / 聽見日南</span><strong>{view === "film" ? "先看一眼日南" : "讓主題曲陪你走傱"}</strong></div>
+        <button type="button" className="entry-media-close" aria-label="關閉影音視窗" onClick={() => setView(null)}>×</button>
       </div>
-      <p>在往返之間，認識日南。邀請你一起來走傱！</p>
-      <a className="event-notice-action" href={sitePath("/motion2026/#1025")}>查看完整活動資訊 ↗</a>
-    </section> : <button className="event-notice-reopen" type="button" aria-label="展開最新節目表" onClick={() => setExpanded(true)}>
-      <strong>走傱市集｜10/31（六）16:30–21:00</strong><span>音樂演出 17:00–21:00｜五組音樂演出</span>
-    </button>}
+      <div className="entry-media-screen">
+        <iframe key={view} title={title} src={videoUrl} allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture; web-share" allowFullScreen referrerPolicy="strict-origin-when-cross-origin" />
+      </div>
+      <p className="entry-media-note">{view === "film" ? "形象影片預設靜音；點播放器可調整聲音。" : "主題曲會在播放器載入後播放；若瀏覽器阻擋自動播放，請再按一次播放。"}</p>
+      <div className="entry-media-switch" aria-label="切換影音">
+        <button type="button" aria-pressed={view === "film"} onClick={() => setView("film")}>形象影片</button>
+        <button type="button" aria-pressed={view === "song"} onClick={() => setView("song")}>主題曲</button>
+        <a href={`https://www.youtube.com/watch?v=${id}`} target="_blank" rel="noreferrer">另開 YouTube ↗</a>
+      </div>
+    </div> : <div className="entry-media-launchers">
+      <button type="button" onClick={() => setView("song")}>♫ 聽主題曲</button>
+      <button type="button" onClick={() => setView("film")}>▶ 看形象影片</button>
+    </div>}
   </aside>;
 }
