@@ -9,9 +9,9 @@ const desktopNavigation = [
   ['walk','走傱日南 2026','/motion2026/'], ['visit','交通資訊','/visit/'],
 ] as const;
 const mobileNavigation = [
-  ['walk','走傱日南 2026','/motion2026/'], ['visit','交通資訊','/visit/'],
-  ['home','首頁','/'], ['about','關於稻站','/about/'], ['stories','地方筆記','/stories/'],
+  ['about','關於稻站','/about/'], ['visit','交通資訊','/visit/'], ['stories','地方筆記','/stories/'],
   ['exhibition','往・返展覽','/exhibition/to-and-from/'], ['explore','九里互動地圖','/explore/'], ['plants','日南植物形態室','/plants/'],
+  ['home','首頁','/'],
 ] as const;
 export function SiteHeader({ active }: { active: SiteSection }) {
   const links = desktopNavigation.map(([id,label,path])=><Link key={id} className={active===id?'active':''} href={path} aria-current={active===id?'page':undefined}>{label}</Link>);

@@ -129,8 +129,7 @@ test('mobile menu leads with event, market and transport; desktop keeps them on 
   assert.ok(desktop && mobile);
   const links = nav => [...nav.matchAll(/href="([^"]+)"/g)].map(m => m[1]);
   assert.deepEqual(links(desktop).slice(-2), ['/rinan-commons/motion2026/', '/rinan-commons/visit/']);
-  assert.deepEqual(links(mobile).slice(0, 2), ['/rinan-commons/motion2026/', '/rinan-commons/visit/']);
-  assert.deepEqual(links(mobile).slice(-2), ['/rinan-commons/explore/', '/rinan-commons/plants/']);
+  assert.deepEqual(links(mobile), ['/rinan-commons/about/', '/rinan-commons/visit/', '/rinan-commons/stories/', '/rinan-commons/exhibition/to-and-from/', '/rinan-commons/explore/', '/rinan-commons/plants/', '/rinan-commons/']);
 });
 
 test('people stories lead the home journal and the full journal, with covers', () => {
