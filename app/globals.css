@@ -274,3 +274,27 @@ footer { display:flex; align-items:center; justify-content:space-between; gap:25
 @media (max-width:640px) { .market-directory-grid { grid-template-columns:minmax(0,1fr); gap:16px; } .market-directory-section { padding:36px 20px 16px; } .market-story-dialog { padding:24px; } }
 .market-page a:focus-visible,.market-page button:focus-visible { outline:3px solid #1FB07E; outline-offset:4px; }
 .market-directory-link { display:inline-flex; align-items:center; min-height:48px; margin:0 20px 20px; padding:0 18px; border-radius:999px; background:var(--sage); color:var(--white); text-decoration:none; font-weight:700; font-size:14px; }
+
+/* 2026 annual action integrated into the TO AND FROM curatorial route */
+.exhibition-motion { display:grid; grid-template-columns:minmax(0,.82fr) minmax(0,1.18fr); gap:clamp(56px,8vw,120px); }
+.exhibition-motion .motion-intro > span { color:var(--gold); font:850 10px/1 system-ui; letter-spacing:.16em; }
+.motion-year { margin:34px 0 0; color:rgba(255,255,255,.28) !important; font:400 clamp(74px,10vw,132px)/.78 Georgia,serif !important; letter-spacing:-.06em; }
+.exhibition-motion .motion-intro h2 { margin:18px 0 24px; }
+.exhibition-motion .motion-intro > p:last-child { max-width:520px; margin-bottom:0; }
+.motion-programs { border-top:1px solid rgba(255,255,255,.28); }
+.motion-programs article { display:grid; grid-template-columns:112px 1fr; gap:24px; padding:27px 0; border-bottom:1px solid rgba(255,255,255,.18); }
+.motion-programs time { color:var(--gold); font:700 16px/1.4 "Noto Serif TC",serif; }
+.motion-programs h3 { margin:0 0 10px; color:var(--white); font-family:"Noto Serif TC",serif; font-size:24px; font-weight:550; }
+.motion-programs p { margin:0; color:rgba(255,255,255,.62); font-size:14px; line-height:1.75; }
+.motion-actions { display:flex; flex-wrap:wrap; gap:14px 30px; margin-top:18px; }
+.motion-actions a { margin-top:0; }
+
+@media (max-width:760px) {
+  .exhibition-motion { display:block; padding-top:68px; padding-bottom:72px; }
+  .motion-year { margin-top:26px; }
+  .exhibition-motion .motion-intro > p:last-child { margin-bottom:42px; }
+  .motion-programs article { grid-template-columns:1fr; gap:9px; padding:23px 0; }
+  .motion-programs h3 { font-size:21px; }
+  .motion-actions { display:grid; gap:4px; margin-top:22px; }
+  .motion-actions a { width:max-content; }
+}

@@ -6,20 +6,28 @@ import test from 'node:test';
 const root = fileURLToPath(new URL('../out/', import.meta.url));
 function walk(dir) { return readdirSync(dir).flatMap(name => { const f=path.join(dir,name); return statSync(f).isDirectory()?walk(f):[f]; }); }
 const htmlFiles = walk(root).filter(f=>f.endsWith('.html') && !f.endsWith('404.html') && !f.includes('_not-found') && !f.includes(`${path.sep}maps${path.sep}`) && !f.includes(`${path.sep}passport-preview${path.sep}`) && !f.includes(`${path.sep}404${path.sep}`));
-test('standalone passport preview stays unlinked, non-indexed and uses verified references', () => {
+test('passport preview stays private while the production passport is indexable and verified', () => {
   const preview = readFileSync(path.join(root, 'passport-preview/index.html'), 'utf8');
+  const passport = readFileSync(path.join(root, 'passport/index.html'), 'utf8');
   const styles = readFileSync(path.join(root, 'passport-preview/styles.css'), 'utf8');
   const home = readFileSync(path.join(root, 'index.html'), 'utf8');
+  const sitemap = readFileSync(path.join(root, 'sitemap.xml'), 'utf8');
   assert.match(preview, /name="robots" content="noindex, nofollow"/);
-  assert.match(preview, /facebook\.com\/huaningdessert\//);
-  assert.match(preview, /maps\.app\.goo\.gl\/qYGsVgte1gPwcu3L9/);
-  assert.match(preview, /實際集章認定仍需要以紙本為主/);
+  assert.match(passport, /name="robots" content="index, follow"/);
+  assert.match(passport, /https:\/\/www\.rinancommons\.com\/passport\//);
+  for (const html of [preview, passport]) {
+    assert.match(html, /facebook\.com\/huaningdessert\//);
+    assert.match(html, /maps\.app\.goo\.gl\/qYGsVgte1gPwcu3L9/);
+    assert.match(html, /實際集章認定仍需要以紙本為主/);
+  }
   assert.match(styles, /\.overview-frame img \{ aspect-ratio: 4 \/ 5; \}/);
   assert.doesNotMatch(home, /passport-preview/);
+  assert.match(home, /href="\/rinan-commons\/passport\/"[^>]*>走傱護照<\/a>/);
+  assert.match(sitemap, /https:\/\/www\.rinancommons\.com\/passport\//);
 });
 
 test('all seventeen public and preview routes export headings, main content and indexable metadata', () => {
-  assert.equal(htmlFiles.length, 17);
+  assert.equal(htmlFiles.length, 18);
   for (const file of htmlFiles) {
     const html=readFileSync(file,'utf8');
     assert.equal((html.match(/<h1[\s>]/g)||[]).length, 1, file);
@@ -36,8 +44,13 @@ test('copyright notice and working footer links appear on all published pages', 
   const sitemap = readFileSync(path.join(root, 'sitemap.xml'), 'utf8');
   for (const file of htmlFiles) {
     const html = readFileSync(file, 'utf8');
-    assert.match(html, /href="\/rinan-commons\/copyright\/"[^>]*>版權聲明<\/a>/, file);
-    assert.match(html, /href="\/rinan-commons\/"[^>]*>日南稻站 Rinan Commons<\/a>/, file);
+    if (file.endsWith(`${path.sep}passport${path.sep}index.html`)) {
+      assert.match(html, /href="\.\.\/copyright\/"[^>]*>版權聲明<\/a>/, file);
+      assert.match(html, /href="\.\.\/"[^>]*>日南稻站 Rinan Commons<\/a>/, file);
+    } else {
+      assert.match(html, /href="\/rinan-commons\/copyright\/"[^>]*>版權聲明<\/a>/, file);
+      assert.match(html, /href="\/rinan-commons\/"[^>]*>日南稻站 Rinan Commons<\/a>/, file);
+    }
     assert.match(html, /保留所有權利/, file);
   }
   const map = readFileSync(path.join(root, 'maps/index.html'), 'utf8');
@@ -105,6 +118,10 @@ test('both event addresses render one shared page and exhibition has no PDF butt
   }
   assert.match(exhibit, /植物落回土地/);
   assert.match(exhibit, /稻作與植物/);
+  assert.match(exhibit, /id="motion-2026"/);
+  assert.match(exhibit, /走傱日南/);
+  assert.match(exhibit, /10\.25（日）/);
+  assert.match(exhibit, /10\.31（六）/);
   assert.doesNotMatch(exhibit, /開啟 PDF|rinancommons\.s\.gy\/pdf/);
 });
 
@@ -134,14 +151,21 @@ test('published market is discoverable and retains the corrected vendor informat
   assert.match(preview, /name="robots" content="noindex, nofollow"/);
 });
 
-test('mobile menu leads with event, market and transport; desktop keeps them on the right', () => {
+test('passport leads both navigation systems and the annual event lives under the exhibition route', () => {
   const home = readFileSync(path.join(root, 'index.html'), 'utf8');
   const desktop = home.match(/<nav class="site-navigation"[^>]*>([\s\S]*?)<\/nav>/)?.[1];
   const mobile = home.match(/<nav aria-label="手機網站導覽">([\s\S]*?)<\/nav>/)?.[1];
   assert.ok(desktop && mobile);
   const links = nav => [...nav.matchAll(/href="([^"]+)"/g)].map(m => m[1]);
-  assert.deepEqual(links(desktop).slice(-2), ['/rinan-commons/motion2026/', '/rinan-commons/visit/']);
-  assert.deepEqual(links(mobile), ['/rinan-commons/about/', '/rinan-commons/visit/', '/rinan-commons/stories/', '/rinan-commons/exhibition/to-and-from/', '/rinan-commons/explore/', '/rinan-commons/plants/', '/rinan-commons/']);
+  assert.equal(links(desktop)[0], '/rinan-commons/passport/');
+  assert.deepEqual(links(desktop).slice(-2), ['/rinan-commons/plants/', '/rinan-commons/visit/']);
+  assert.deepEqual(links(mobile), ['/rinan-commons/passport/', '/rinan-commons/about/', '/rinan-commons/visit/', '/rinan-commons/stories/', '/rinan-commons/exhibition/to-and-from/', '/rinan-commons/explore/', '/rinan-commons/plants/', '/rinan-commons/']);
+  assert.doesNotMatch(desktop, /href="\/rinan-commons\/motion2026\/"/);
+  for (const label of ['最新活動公告', '02 / 活動', 'class="event-feature"']) {
+    const start = home.indexOf(label);
+    assert.ok(start > -1, label);
+    assert.match(home.slice(Math.max(0, start - 240), start + 240), /\/rinan-commons\/exhibition\/to-and-from\/#motion-2026/);
+  }
 });
 
 test('people stories lead the home journal and the full journal, with covers', () => {

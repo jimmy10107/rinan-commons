@@ -1,0 +1,15 @@
+@import url("../passport-preview/styles.css");
+
+.site-footer .copyright-line {
+  grid-column: 1 / -1;
+  display: block;
+  padding-top: 18px;
+  border-top: 1px solid rgba(255, 255, 255, 0.14);
+  color: #aaa296;
+  font-size: 10px;
+  line-height: 1.8;
+  letter-spacing: 0.03em;
+}
+.site-footer .copyright-line a { color: inherit; text-decoration: underline; text-underline-offset: 3px; }
+.site-footer .copyright-line a:hover,
+.site-footer .copyright-line a:focus-visible { color: var(--gold); }

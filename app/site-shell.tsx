@@ -2,15 +2,15 @@ import { MobileMenu } from './mobile-menu';
 import Link from 'next/link';
 import { sitePath } from './site-path';
 import { site } from './content';
-export type SiteSection = 'home' | 'about' | 'stories' | 'walk' | 'market' | 'exhibition' | 'visit' | 'explore' | 'plants' | 'copyright';
+export type SiteSection = 'home' | 'passport' | 'about' | 'stories' | 'walk' | 'market' | 'exhibition' | 'visit' | 'explore' | 'plants' | 'copyright';
 const desktopNavigation = [
-  ['about','關於稻站','/about/'], ['stories','地方筆記','/stories/'],
-  ['exhibition','往・返展覽','/exhibition/to-and-from/'], ['explore','九里互動地圖','/explore/'], ['plants','日南植物形態室','/plants/'],
-  ['walk','走傱日南 2026','/motion2026/'], ['visit','交通資訊','/visit/'],
+  ['passport','走傱護照','/passport/'], ['about','關於稻站','/about/'], ['stories','地方筆記','/stories/'],
+  ['exhibition','往返策展','/exhibition/to-and-from/'], ['explore','九里互動地圖','/explore/'], ['plants','日南植物形態室','/plants/'],
+  ['visit','交通資訊','/visit/'],
 ] as const;
 const mobileNavigation = [
-  ['about','關於稻站','/about/'], ['visit','交通資訊','/visit/'], ['stories','地方筆記','/stories/'],
-  ['exhibition','往・返展覽','/exhibition/to-and-from/'], ['explore','九里互動地圖','/explore/'], ['plants','日南植物形態室','/plants/'],
+  ['passport','走傱護照','/passport/'], ['about','關於稻站','/about/'], ['visit','交通資訊','/visit/'], ['stories','地方筆記','/stories/'],
+  ['exhibition','往返策展','/exhibition/to-and-from/'], ['explore','九里互動地圖','/explore/'], ['plants','日南植物形態室','/plants/'],
   ['home','首頁','/'],
 ] as const;
 export function SiteHeader({ active }: { active: SiteSection }) {
@@ -22,7 +22,7 @@ export function SiteHeader({ active }: { active: SiteSection }) {
   </header></>;
 }
 export function SiteFooter({ note }: { note: string }) {
-  return <footer className="commons-footer"><div className="footer-top"><a href={sitePath('/')}><strong>日南稻站</strong><span>RINAN COMMONS</span></a><p>{note}</p><a href="#top" className="to-top">回到頁首 ↑</a></div><div className="footer-bottom"><p>{site.address}<br />{site.opening}</p><nav aria-label="頁尾導覽"><a href={sitePath('/about/')}>關於稻站</a><a href={sitePath('/explore/')}>九里互動地圖</a><a href={sitePath('/plants/')}>日南植物形態室</a><a href={sitePath('/visit/')}>到訪交通</a><a href={sitePath('/exhibition/to-and-from/')}>展覽手冊</a></nav></div><CopyrightLine /></footer>;
+  return <footer className="commons-footer"><div className="footer-top"><a href={sitePath('/')}><strong>日南稻站</strong><span>RINAN COMMONS</span></a><p>{note}</p><a href="#top" className="to-top">回到頁首 ↑</a></div><div className="footer-bottom"><p>{site.address}<br />{site.opening}</p><nav aria-label="頁尾導覽"><a href={sitePath('/passport/')}>走傱護照</a><a href={sitePath('/about/')}>關於稻站</a><a href={sitePath('/explore/')}>九里互動地圖</a><a href={sitePath('/plants/')}>日南植物形態室</a><a href={sitePath('/visit/')}>到訪交通</a><a href={sitePath('/exhibition/to-and-from/')}>往返策展</a></nav></div><CopyrightLine /></footer>;
 }
 export function CopyrightLine() {
   return <small className="copyright-line">© 2026 <Link href="/">日南稻站 Rinan Commons</Link><span aria-hidden="true">｜</span><Link href="/copyright/">版權聲明</Link><span aria-hidden="true">｜</span>保留所有權利</small>;
