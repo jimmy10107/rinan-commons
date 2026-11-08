@@ -5,7 +5,19 @@ import assert from 'node:assert/strict';
 import test from 'node:test';
 const root = fileURLToPath(new URL('../out/', import.meta.url));
 function walk(dir) { return readdirSync(dir).flatMap(name => { const f=path.join(dir,name); return statSync(f).isDirectory()?walk(f):[f]; }); }
-const htmlFiles = walk(root).filter(f=>f.endsWith('.html') && !f.endsWith('404.html') && !f.includes('_not-found') && !f.includes(`${path.sep}maps${path.sep}`) && !f.includes(`${path.sep}404${path.sep}`));
+const htmlFiles = walk(root).filter(f=>f.endsWith('.html') && !f.endsWith('404.html') && !f.includes('_not-found') && !f.includes(`${path.sep}maps${path.sep}`) && !f.includes(`${path.sep}passport-preview${path.sep}`) && !f.includes(`${path.sep}404${path.sep}`));
+test('standalone passport preview stays unlinked, non-indexed and uses verified references', () => {
+  const preview = readFileSync(path.join(root, 'passport-preview/index.html'), 'utf8');
+  const styles = readFileSync(path.join(root, 'passport-preview/styles.css'), 'utf8');
+  const home = readFileSync(path.join(root, 'index.html'), 'utf8');
+  assert.match(preview, /name="robots" content="noindex, nofollow"/);
+  assert.match(preview, /facebook\.com\/huaningdessert\//);
+  assert.match(preview, /maps\.app\.goo\.gl\/qYGsVgte1gPwcu3L9/);
+  assert.match(preview, /實際集章認定仍需要以紙本為主/);
+  assert.match(styles, /\.overview-frame img \{ aspect-ratio: 4 \/ 5; \}/);
+  assert.doesNotMatch(home, /passport-preview/);
+});
+
 test('all seventeen public and preview routes export headings, main content and indexable metadata', () => {
   assert.equal(htmlFiles.length, 17);
   for (const file of htmlFiles) {
