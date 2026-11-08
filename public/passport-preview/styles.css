@@ -69,20 +69,16 @@ img { max-width: 100%; height: auto; display: block; }
 }
 .brand { display: inline-flex; align-items: center; width: max-content; line-height: 1.05; }
 .brand-logo {
-  position: relative;
-  width: 106px;
-  height: 58px;
-  display: block;
+  width: 47px;
+  height: 59px;
+  display: grid;
+  place-items: center;
   flex: 0 0 auto;
-  overflow: hidden;
 }
 .brand-logo img {
-  position: absolute;
-  top: -28px;
-  left: -8px;
-  width: 122px;
-  max-width: none;
+  width: 100%;
   height: auto;
+  object-fit: contain;
   mix-blend-mode: multiply;
 }
 .header-title { margin: 0; font-family: var(--serif); font-size: 15px; font-weight: 800; letter-spacing: 0.12em; }
@@ -327,6 +323,23 @@ img { max-width: 100%; height: auto; display: block; }
 .hand-note { margin: 12px 0 0; color: #968875; font-family: cursive; font-size: 12px; transform: rotate(-1deg); }
 
 .stamp-page { background-color: var(--paper-yellow); }
+.stamp-template-page {
+  display: grid;
+  place-items: center;
+  padding: clamp(18px, 2.4vw, 32px);
+}
+.stamp-template-frame {
+  width: min(100%, 448px);
+  display: block;
+  line-height: 0;
+  filter: drop-shadow(0 10px 20px rgba(83, 65, 32, 0.12));
+}
+.stamp-template-frame img {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 1443 / 2048;
+  object-fit: contain;
+}
 .page-heading { display: flex; align-items: end; justify-content: space-between; gap: 20px; margin-bottom: 14px; }
 .page-heading p { margin: 0; font-family: var(--serif); font-size: 24px; font-weight: 800; }
 .page-heading h2 { font-size: 24px; }
@@ -488,6 +501,9 @@ details p { margin: -4px 0 18px; color: #655c52; font-size: 12px; }
 }
 .footer-brand strong { color: var(--paper-light); }
 .footer-brand small { color: #aaa296; }
+.footer-brand { gap: 13px; }
+.footer-brand-logo { width: 44px; flex: 0 0 44px; }
+.footer-brand-logo img { width: 100%; height: auto; object-fit: contain; border-radius: 50%; }
 .footer-brand strong { display: block; font-family: var(--serif); font-size: 15px; letter-spacing: 0.16em; }
 .footer-brand small { display: block; margin-top: 6px; font-size: 8px; font-weight: 800; letter-spacing: 0.24em; }
 .site-footer > p { margin: 0; color: #aaa296; font-size: 11px; }
@@ -497,8 +513,7 @@ details p { margin: -4px 0 18px; color: #655c52; font-size: 12px; }
 @media (max-width: 980px) {
   .cover-stage { grid-template-columns: minmax(250px, 0.7fr) minmax(360px, 1fr); gap: 45px; padding-inline: 7vw; }
   .passport-page { padding: 36px 32px; }
-  .stamp-row { grid-template-columns: 100px 1fr; gap: 10px; padding: 13px; }
-  .stamp-row strong { font-size: 18px; }
+  .stamp-template-frame { width: min(100%, 420px); }
   .passport-entry { grid-template-columns: 42px minmax(0, 1fr); gap: 10px; }
   .passport-entry h3 { font-size: 16px; }
   .page-heading { display: block; }
@@ -509,8 +524,7 @@ details p { margin: -4px 0 18px; color: #655c52; font-size: 12px; }
   html { scroll-padding-top: 116px; }
   .site-header { height: 62px; grid-template-columns: 1fr auto; padding: 0 14px; }
   .header-title { display: none; }
-  .brand-logo { width: 94px; height: 54px; }
-  .brand-logo img { top: -25px; left: -7px; width: 109px; }
+  .brand-logo { width: 42px; height: 54px; }
   .header-action { padding: 8px 12px; font-size: 10px; }
 
   .cover-stage {
@@ -563,14 +577,8 @@ details p { margin: -4px 0 18px; color: #655c52; font-size: 12px; }
   .passport-page h2 { font-size: 37px; }
   .intro-page blockquote { min-height: 90px; }
 
-  .page-heading { display: flex; }
-  .page-heading h2 { font-size: 20px; }
-  .stamp-row { grid-template-columns: 92px 1fr; }
-  .stamp-row > div { grid-template-columns: auto 1fr; gap: 4px 7px; }
-  .stamp-symbol { width: 25px; height: 25px; }
-  .stamp-row strong { font-size: 16px; }
-  .stamp-row li { font-size: 15px; }
-  .passport-rule { display: grid; gap: 4px; }
+  .stamp-template-page { padding: 12px; }
+  .stamp-template-frame { width: min(100%, 390px); filter: none; }
   .chapter-heading h2 { font-size: 34px; }
   .chapter-orb { width: 30px; height: 30px; }
   .passport-entry { padding: 14px 0; }
@@ -595,18 +603,12 @@ details p { margin: -4px 0 18px; color: #655c52; font-size: 12px; }
 
 @media (max-width: 410px) {
   .site-header { padding-inline: 12px; }
-  .brand-logo { width: 86px; height: 50px; }
-  .brand-logo img { top: -23px; left: -6px; width: 100px; }
+  .brand-logo { width: 39px; height: 50px; }
   .header-action { padding-inline: 10px; letter-spacing: 0.03em; }
   .cover-stage { grid-template-columns: 96px minmax(0, 1fr); gap: 15px; padding-inline: 16px; }
   .cover-book { max-width: 96px; margin-top: 20px; }
   .cover-copy h1 { font-size: clamp(28px, 8vw, 33px); }
   .cover-copy > p:not(.eyebrow) { font-size: 11.5px; }
-  .page-heading { display: block; }
-  .stamp-row { grid-template-columns: 1fr; }
-  .stamp-row > div { grid-template-columns: auto 1fr auto; }
-  .stamp-row small { justify-self: end; }
-  .stamp-row ol { max-width: 230px; }
   .passport-entry h3 { font-size: 15px; }
   .activity-ticket { grid-template-columns: 40px minmax(0, 1fr); }
   .activity-ticket h3 { font-size: 17px; }
