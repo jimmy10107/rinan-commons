@@ -227,8 +227,11 @@ test('standalone reading room ships all 71 books without adding a main-site entr
   assert.equal((shelf.match(/class="book"/g) || []).length, 71);
   assert.equal((shelf.match(/class="pending"/g) || []).length, 15);
   assert.match(shelf, /name="robots" content="noindex, nofollow"/);
+  assert.equal((shelf.match(/class="book-cover /g) || []).length, 71);
+  assert.doesNotMatch(shelf, /第一面|第二面|第三面|第四面|書架面向|全部層位/);
+  for (let n = 1; n <= 71; n++) assert.ok(existsSync(path.join(root, 'books/assets/covers', String(n).padStart(3, '0') + '.webp')));
   assert.doesNotMatch(readFileSync(path.join(root, 'index.html'), 'utf8'), /href="[^"]*\/books\//);
-  for (const asset of ['app.js', 'data.js', 'styles.css', 'assets/face-a.webp', 'assets/face-b.webp', 'assets/face-c.webp', 'assets/face-d.webp']) {
+  for (const asset of ['app.js', 'data.js', 'styles.css', 'covers.js', 'assets/covers/001.webp', 'assets/covers/071.webp']) {
     assert.ok(existsSync(path.join(root, 'books', asset)), asset);
   }
 });

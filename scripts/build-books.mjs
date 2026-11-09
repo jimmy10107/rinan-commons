@@ -1,0 +1,14 @@
+import fs from 'node:fs';
+import vm from 'node:vm';
+const root = new URL('../public/books/', import.meta.url);
+const read = name => fs.readFileSync(new URL(name, root), 'utf8');
+const app = read('app.js');
+const helpers = app.slice(app.indexOf('const COLORS='), app.indexOf('let topic='));
+const cards = app.slice(app.indexOf('function coverImage'), app.indexOf('function topicButtons'));
+const markup = vm.runInNewContext(read('data.js') + '\n' + read('covers.js') + '\n' + helpers + '\n' + cards + '; BASE.map(bookCard).join("")');
+const html = read('index.html');
+const start = html.indexOf('<div id="books" class="books">') + '<div id="books" class="books">'.length;
+const end = html.indexOf('</div><div id="empty"', start);
+if (start < 0 || end < 0) throw new Error('Book grid anchor missing');
+fs.writeFileSync(new URL('index.html', root), html.slice(0,start) + markup + html.slice(end));
+console.log('71 book cards synchronized with cover metadata.');
