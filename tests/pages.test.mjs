@@ -225,7 +225,9 @@ test('market starts at 16:30 and concert starts at 17:00 across official pages',
 test('standalone reading room ships all 71 books without adding a main-site entry', () => {
   const shelf = readFileSync(path.join(root, 'books/index.html'), 'utf8');
   assert.equal((shelf.match(/class="book"/g) || []).length, 71);
-  assert.equal((shelf.match(/class="pending"/g) || []).length, 15);
+  assert.equal((shelf.match(/class="pending"/g) || []).length, 0);
+  assert.doesNotMatch(shelf, /資料待確認|作者待補|出版社待補|待補作者與簡介/);
+  for (const text of ['楊智凱、溫佑君', '胡毓豪', '齊藤勇', '蒼璧出版', '三悅文化', '奇幻深遠']) assert.ok(shelf.includes(text), text);
   assert.match(shelf, /name="robots" content="noindex, nofollow"/);
   assert.equal((shelf.match(/class="book-cover /g) || []).length, 71);
   assert.doesNotMatch(shelf, /第一面|第二面|第三面|第四面|書架面向|全部層位/);

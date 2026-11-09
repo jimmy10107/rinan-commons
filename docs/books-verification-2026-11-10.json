@@ -1,0 +1,467 @@
+[
+  {
+    "bookNumber": 3,
+    "status": "verified",
+    "checkedAt": "2026-11-10",
+    "fields": [
+      "title",
+      "author",
+      "publisher",
+      "summary"
+    ],
+    "before": {
+      "title": "主人思維",
+      "sub": "用職涯心理學打造以你為中心的未來藍圖",
+      "author": "陳韋丞",
+      "pub": "時報出版",
+      "cat": "心理成長",
+      "sum": "從職涯心理學出發，引導讀者釐清自己要什麼，把職涯規劃的主導權拿回手上。"
+    },
+    "after": {
+      "title": "主人思維",
+      "sub": "自我覺醒世代必讀，用職涯心理學打造以你為中心的未來藍圖",
+      "author": "陳韋丞",
+      "pub": "時報出版",
+      "cat": "心理成長",
+      "sum": "從興趣、能力與價值觀出發，結合職業環境與現實條件，練習覺察自己、規劃職涯方向。"
+    },
+    "sources": [
+      "https://www.sanmin.com.tw/product/index/010418955"
+    ],
+    "note": "核對公開書目與介紹；封面再版設計可能與現場藏書不同。"
+  },
+  {
+    "bookNumber": 4,
+    "status": "verified",
+    "checkedAt": "2026-11-10",
+    "fields": [
+      "title",
+      "author",
+      "publisher",
+      "summary"
+    ],
+    "before": {
+      "title": "從1%的選擇開始，去做你真正渴望的事",
+      "sub": "",
+      "author": "艾莉森．路易斯",
+      "pub": "天下雜誌",
+      "cat": "心理成長",
+      "sum": "作者主張每天只用百分之一的時間做出不同選擇，累積成通往真正渴望生活的改變。"
+    },
+    "after": {
+      "title": "從1%的選擇開始，去做你真正渴望的事",
+      "sub": "每天7分鐘微行動，在追求中釐清優先順序，每個選擇都為人生加分",
+      "author": "艾莉森．路易斯",
+      "pub": "天下雜誌",
+      "cat": "心理成長",
+      "sum": "透過每天七分鐘的自我提問與微行動，釐清真正重視的事，在日常選擇中調整人生方向。"
+    },
+    "sources": [
+      "https://www.sanmin.com.tw/product/index/009594072"
+    ],
+    "note": "核對公開書目與介紹；封面再版設計可能與現場藏書不同。"
+  },
+  {
+    "bookNumber": 13,
+    "status": "verified",
+    "checkedAt": "2026-11-10",
+    "fields": [
+      "title",
+      "author",
+      "publisher",
+      "summary"
+    ],
+    "before": {
+      "title": "鋼琴貓的偉大事業",
+      "sub": "",
+      "author": "小野",
+      "pub": "麥田",
+      "cat": "文學小說",
+      "sum": "小野作品集中的一冊，以貓為主角的故事，帶著作者一貫的溫暖與幽默。"
+    },
+    "after": {
+      "title": "鋼琴貓的偉大事業",
+      "sub": "",
+      "author": "小野",
+      "pub": "麥田",
+      "cat": "詩與散文",
+      "sum": "以小野家中的波斯貓皮亞諾．尤達為視角，集結三十篇生活短篇記事，搭配照片與插畫，記錄貓咪的成長趣事。"
+    },
+    "sources": [
+      "https://www.sanmin.com.tw/product/index/001453117"
+    ],
+    "note": "核對公開書目與介紹；封面再版設計可能與現場藏書不同。"
+  },
+  {
+    "bookNumber": 14,
+    "status": "verified",
+    "checkedAt": "2026-11-10",
+    "fields": [
+      "title",
+      "author",
+      "publisher",
+      "summary"
+    ],
+    "before": {
+      "title": "療癒之島",
+      "sub": "在60種森林香氣裡，聞見台灣的力量",
+      "author": "溫佑君、肯園",
+      "pub": "商周出版",
+      "cat": "旅行地方",
+      "sum": "從台灣原生植物與森林氣味出發，介紹六十種香氣及其背後的土地、生態與療癒力量。"
+    },
+    "after": {
+      "title": "療癒之島",
+      "sub": "在60種森林香氣裡，聞見台灣的力量",
+      "author": "楊智凱、溫佑君；種籽設計 繪",
+      "pub": "商周出版",
+      "cat": "旅行地方",
+      "sum": "從六十種植物的氣味與人文故事，閱讀臺灣山林及原住民族文化，搭配手繪插畫認識土地。"
+    },
+    "sources": [
+      "https://www.sanmin.com.tw/product/index/010166068"
+    ],
+    "note": "核對公開書目與介紹；封面再版設計可能與現場藏書不同。"
+  },
+  {
+    "bookNumber": 15,
+    "status": "verified",
+    "checkedAt": "2026-11-10",
+    "fields": [
+      "title",
+      "author",
+      "publisher",
+      "summary"
+    ],
+    "before": {
+      "title": "台灣街角小旅行",
+      "sub": "emico的散步地圖",
+      "author": "emico",
+      "pub": "創意市集",
+      "cat": "旅行地方",
+      "sum": "插畫家 emico 以手繪地圖與圖文，記錄在台灣各地街角散步的小旅行。"
+    },
+    "after": {
+      "title": "台灣街角小旅行",
+      "sub": "emico的散步地圖",
+      "author": "emico",
+      "pub": "創意市集",
+      "cat": "旅行地方",
+      "sum": "以手繪地圖與散步筆記，串起臺灣各地適合漫遊的街角景點，發現熟悉城市裡容易錯過的生活風景。"
+    },
+    "sources": [
+      "https://www.tenlong.com.tw/products/4717702084813"
+    ],
+    "note": "核對公開書目與介紹；封面再版設計可能與現場藏書不同。"
+  },
+  {
+    "bookNumber": 18,
+    "status": "verified",
+    "checkedAt": "2026-11-10",
+    "fields": [
+      "title",
+      "author",
+      "publisher",
+      "summary"
+    ],
+    "before": {
+      "title": "台灣秘境鐵道旅",
+      "sub": "原來有這站",
+      "author": "許傑",
+      "pub": "創意市集",
+      "cat": "旅行地方",
+      "sum": "帶讀者走訪台鐵沿線的秘境小站，介紹站場特色與周邊風景。"
+    },
+    "after": {
+      "title": "原來有這站",
+      "sub": "台灣秘境鐵道旅，探訪山城聚落、海岸風景、特色景點的火車深度漫遊提案",
+      "author": "許傑",
+      "pub": "創意市集",
+      "cat": "旅行地方",
+      "sum": "沿著臺灣鐵路走訪特色車站與周邊景點，從山城聚落到海岸風景，安排下車慢遊的小旅行。"
+    },
+    "sources": [
+      "https://www.sanmin.com.tw/product/index/015158854"
+    ],
+    "note": "核對公開書目與介紹；封面再版設計可能與現場藏書不同。"
+  },
+  {
+    "bookNumber": 19,
+    "status": "verified",
+    "checkedAt": "2026-11-10",
+    "fields": [
+      "title",
+      "author",
+      "publisher",
+      "summary"
+    ],
+    "before": {
+      "title": "史上最有梗的東方魔法書",
+      "sub": "奇幻深邃的道門咒語",
+      "author": "A某",
+      "pub": "時報出版",
+      "cat": "歷史社會",
+      "sum": "以輕鬆的筆調介紹道教咒語與其背後的文化脈絡。"
+    },
+    "after": {
+      "title": "史上最有梗的東方魔法書",
+      "sub": "奇幻深遠的道門咒語",
+      "author": "A某",
+      "pub": "時報出版",
+      "cat": "歷史社會",
+      "sum": "作者從自身道門修習經驗出發，介紹咒語、術式與相關傳說，以生活情境帶讀者接觸道教信仰文化。"
+    },
+    "sources": [
+      "https://www.sanmin.com.tw/product/index/013342664"
+    ],
+    "note": "核對公開書目與介紹；封面再版設計可能與現場藏書不同。"
+  },
+  {
+    "bookNumber": 23,
+    "status": "verified",
+    "checkedAt": "2026-11-10",
+    "fields": [
+      "title",
+      "author",
+      "publisher",
+      "summary"
+    ],
+    "before": {
+      "title": "小心機「換句話說」事典",
+      "sub": "拒絕不敢說、擔心說錯話？",
+      "author": "",
+      "pub": "楓葉社",
+      "cat": "溝通表達",
+      "sum": "整理各種場合的替換說法，教你把難開口的話換個方式說。"
+    },
+    "after": {
+      "title": "拒絕不敢說、擔心說錯話？",
+      "sub": "小心機「換句話說」事典",
+      "author": "齊藤勇",
+      "pub": "楓葉社文化",
+      "cat": "溝通表達",
+      "sum": "透過日常與職場對話情境，整理拒絕、提問與回應的替換說法，練習兼顧表達目的與人際關係。"
+    },
+    "sources": [
+      "https://www.sanmin.com.tw/product/index/012945997"
+    ],
+    "note": "核對公開書目與介紹；封面再版設計可能與現場藏書不同。"
+  },
+  {
+    "bookNumber": 29,
+    "status": "verified",
+    "checkedAt": "2026-11-10",
+    "fields": [
+      "title",
+      "author",
+      "publisher",
+      "summary"
+    ],
+    "before": {
+      "title": "羅淑郁 浪漫畫趣",
+      "sub": "Dear, how are you today?",
+      "author": "羅淑郁",
+      "pub": "",
+      "cat": "藝術影像",
+      "sum": "畫家羅淑郁的圖文作品集。"
+    },
+    "after": {
+      "title": "親愛的，你今天過得好嗎？",
+      "sub": "羅淑郁浪漫畫趣",
+      "author": "羅淑郁",
+      "pub": "蒼璧出版",
+      "cat": "藝術影像",
+      "sum": "以線條與生活畫作記錄夫妻、家庭及工作日常，在平凡細節裡描繪相處的幽默與情感。"
+    },
+    "sources": [
+      "https://www.sanmin.com.tw/product/index/010650803"
+    ],
+    "note": "核對公開書目與介紹；封面再版設計可能與現場藏書不同。"
+  },
+  {
+    "bookNumber": 31,
+    "status": "verified",
+    "checkedAt": "2026-11-10",
+    "fields": [
+      "title",
+      "author",
+      "publisher",
+      "summary"
+    ],
+    "before": {
+      "title": "在光影中看見美",
+      "sub": "",
+      "author": "",
+      "pub": "時報出版",
+      "cat": "藝術影像",
+      "sum": "書背資訊在照片中不完整，待補作者與簡介。"
+    },
+    "after": {
+      "title": "在光影中看見美",
+      "sub": "資深攝影師胡毓豪帶你捕捉瞬間永恆",
+      "author": "胡毓豪",
+      "pub": "時報出版",
+      "cat": "藝術影像",
+      "sum": "從攝影中的明暗、比例與取景出發，分享觀察光影的方法，培養在日常景物裡發現畫面的敏感度。"
+    },
+    "sources": [
+      "https://www.sanmin.com.tw/product/index/004998086"
+    ],
+    "note": "核對公開書目與介紹；封面再版設計可能與現場藏書不同。"
+  },
+  {
+    "bookNumber": 33,
+    "status": "verified",
+    "checkedAt": "2026-11-10",
+    "fields": [
+      "title",
+      "author",
+      "publisher",
+      "summary"
+    ],
+    "before": {
+      "title": "只要會拿筆，就能學會畫畫",
+      "sub": "",
+      "author": "傑克．史派瑟",
+      "pub": "遠流",
+      "cat": "藝術影像",
+      "sum": "以循序漸進的練習帶初學者動手畫，從線條、形狀到完成一幅素描。"
+    },
+    "after": {
+      "title": "只要會拿筆，就能學會畫畫",
+      "sub": "19種練習、25個技法說明，從零開始，一次為你打好畫畫的基礎",
+      "author": "傑克．史派瑟",
+      "pub": "遠流",
+      "cat": "藝術影像",
+      "sum": "以循序漸進的練習認識線條、形狀、明暗與負空間，再延伸到速寫、質感與透視，建立繪畫基礎。"
+    },
+    "sources": [
+      "https://www.sanmin.com.tw/product/index/010498488"
+    ],
+    "note": "核對公開書目與介紹；封面再版設計可能與現場藏書不同。"
+  },
+  {
+    "bookNumber": 34,
+    "status": "verified",
+    "checkedAt": "2026-11-10",
+    "fields": [
+      "title",
+      "author",
+      "publisher",
+      "summary"
+    ],
+    "before": {
+      "title": "透視圖技法",
+      "sub": "基礎9堂課＋動筆練習49",
+      "author": "宮後浩",
+      "pub": "",
+      "cat": "藝術影像",
+      "sum": "日本設計教育者宮後浩的透視圖入門，以九堂課和四十九個練習教會基本畫法。"
+    },
+    "after": {
+      "title": "透視圖技法",
+      "sub": "基礎9堂課＋動筆練習49",
+      "author": "宮後浩",
+      "pub": "三悅文化",
+      "cat": "藝術影像",
+      "sum": "以九堂基礎課與四十九個動筆練習，說明視點、遠近與立體空間的表現方法，帶初學者練習透視畫法。"
+    },
+    "sources": [
+      "https://www.sanmin.com.tw/product/index/001396202"
+    ],
+    "note": "核對公開書目與介紹；封面再版設計可能與現場藏書不同。"
+  },
+  {
+    "bookNumber": 40,
+    "status": "verified",
+    "checkedAt": "2026-11-10",
+    "fields": [
+      "title",
+      "author",
+      "publisher",
+      "summary"
+    ],
+    "before": {
+      "title": "解決問題的三大思考法",
+      "sub": "",
+      "author": "吉澤準特",
+      "pub": "日出出版",
+      "cat": "商業思考",
+      "sum": "介紹邏輯思考、批判性思考、水平思考三種方法，並示範如何搭配運用。"
+    },
+    "after": {
+      "title": "解決問題的三大思考法",
+      "sub": "交叉使用邏輯思考、水平思考和批判性思考，快速破解各種職場難題",
+      "author": "吉澤準特",
+      "pub": "日出出版",
+      "cat": "商業思考",
+      "sum": "透過商務情境，練習交替運用批判性思考、水平思考與邏輯思考，分析問題、提出方案並拆解執行。"
+    },
+    "sources": [
+      "https://www.sanmin.com.tw/product/index/007803802"
+    ],
+    "note": "核對公開書目與介紹；封面再版設計可能與現場藏書不同。"
+  },
+  {
+    "bookNumber": 44,
+    "status": "verified",
+    "checkedAt": "2026-11-10",
+    "fields": [
+      "title",
+      "author",
+      "publisher",
+      "summary"
+    ],
+    "before": {
+      "title": "洛卡",
+      "sub": "其實我們一直都在路上",
+      "author": "LOCA 林煌彬",
+      "pub": "時報出版",
+      "cat": "旅行地方",
+      "sum": "LOCA 林煌彬寫下旅途中的經歷與體悟。"
+    },
+    "after": {
+      "title": "洛卡",
+      "sub": "其實我們，一直都在路上",
+      "author": "LOCA（林煌彬）",
+      "pub": "時報出版",
+      "cat": "旅行地方",
+      "sum": "記錄作者三年海外旅行的見聞與挑戰，從打工度假到跨洲流浪，在陌生環境裡重新理解生活。"
+    },
+    "sources": [
+      "https://www.sanmin.com.tw/product/index/007399522"
+    ],
+    "note": "核對公開書目與介紹；封面再版設計可能與現場藏書不同。"
+  },
+  {
+    "bookNumber": 61,
+    "status": "verified",
+    "checkedAt": "2026-11-10",
+    "fields": [
+      "title",
+      "author",
+      "publisher",
+      "summary"
+    ],
+    "before": {
+      "title": "麥肯錫時間分配好習慣",
+      "sub": "",
+      "author": "李志洪",
+      "pub": "大樂文化",
+      "cat": "學習方法",
+      "sum": "以圖表與原則介紹時間分配的方法，幫助提升工作效率。"
+    },
+    "after": {
+      "title": "麥肯錫時間分配好習慣",
+      "sub": "20張圖、8個原則，讓你每一分鐘都比別人有效率！",
+      "author": "李志洪",
+      "pub": "大樂文化",
+      "cat": "學習方法",
+      "sum": "以二十張圖表與八個時間管理原則，介紹工作拆解、優先排序與決策方法，改善忙碌卻失焦的工作狀態。"
+    },
+    "sources": [
+      "https://www.sanmin.com.tw/product/index/013364717"
+    ],
+    "note": "核對公開書目與介紹；封面再版設計可能與現場藏書不同。"
+  }
+]
