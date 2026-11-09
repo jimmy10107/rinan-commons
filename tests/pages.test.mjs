@@ -19,6 +19,14 @@ test('passport preview stays private while the production passport is indexable 
     assert.match(html, /facebook\.com\/huaningdessert\//);
     assert.match(html, /maps\.app\.goo\.gl\/qYGsVgte1gPwcu3L9/);
     assert.match(html, /實際集章認定仍需要以紙本為主/);
+    assert.match(html, /善群有機農莊｜Yüanli/);
+    assert.match(html, /苗栗縣苑裡鎮上舘里10鄰上館198號/);
+    assert.match(html, /100063544105817/);
+    assert.match(html, /預約制｜到訪前務必預約/);
+    assert.match(html, /避免撲空；請關注粉絲專頁公布的活動/);
+    assert.match(html, /SELECT STAMPS · 4 PARTNERS/);
+    assert.match(html, /選物章合作索引 4 處/);
+    assert.match(html, /<dt>合作索引<\/dt><dd>25 筆<\/dd>/);
   }
   assert.match(styles, /\.overview-frame img \{ aspect-ratio: 4 \/ 5; \}/);
   assert.doesNotMatch(home, /passport-preview/);
@@ -26,7 +34,7 @@ test('passport preview stays private while the production passport is indexable 
   assert.match(sitemap, /https:\/\/www\.rinancommons\.com\/passport\//);
 });
 
-test('all seventeen public and preview routes export headings, main content and indexable metadata', () => {
+test('all public and preview routes export headings, main content and indexable metadata', () => {
   assert.equal(htmlFiles.length, 18);
   for (const file of htmlFiles) {
     const html=readFileSync(file,'utf8');
