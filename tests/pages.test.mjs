@@ -5,7 +5,7 @@ import assert from 'node:assert/strict';
 import test from 'node:test';
 const root = fileURLToPath(new URL('../out/', import.meta.url));
 function walk(dir) { return readdirSync(dir).flatMap(name => { const f=path.join(dir,name); return statSync(f).isDirectory()?walk(f):[f]; }); }
-const htmlFiles = walk(root).filter(f=>f.endsWith('.html') && !f.endsWith('404.html') && !f.includes('_not-found') && !f.includes(`${path.sep}maps${path.sep}`) && !f.includes(`${path.sep}passport-preview${path.sep}`) && !f.includes(`${path.sep}404${path.sep}`));
+const htmlFiles = walk(root).filter(f=>f.endsWith('.html') && !f.endsWith('404.html') && !f.includes('_not-found') && !f.includes(`${path.sep}maps${path.sep}`) && !f.includes(`${path.sep}books${path.sep}`) && !f.includes(`${path.sep}passport-preview${path.sep}`) && !f.includes(`${path.sep}404${path.sep}`));
 test('passport preview stays private while the production passport is indexable and verified', () => {
   const preview = readFileSync(path.join(root, 'passport-preview/index.html'), 'utf8');
   const passport = readFileSync(path.join(root, 'passport/index.html'), 'utf8');
@@ -220,4 +220,15 @@ test('market starts at 16:30 and concert starts at 17:00 across official pages',
   const visit = readFileSync(path.join(root, 'visit/index.html'), 'utf8');
   assert.match(visit, /10\/31 晚間/);
   assert.doesNotMatch(visit, /10\/24 晚間|10\.24（六）/);
+});
+
+test('standalone reading room ships all 71 books without adding a main-site entry', () => {
+  const shelf = readFileSync(path.join(root, 'books/index.html'), 'utf8');
+  assert.equal((shelf.match(/class="book"/g) || []).length, 71);
+  assert.equal((shelf.match(/class="pending"/g) || []).length, 15);
+  assert.match(shelf, /name="robots" content="noindex, nofollow"/);
+  assert.doesNotMatch(readFileSync(path.join(root, 'index.html'), 'utf8'), /href="[^"]*\/books\//);
+  for (const asset of ['app.js', 'data.js', 'styles.css', 'assets/face-a.webp', 'assets/face-b.webp', 'assets/face-c.webp', 'assets/face-d.webp']) {
+    assert.ok(existsSync(path.join(root, 'books', asset)), asset);
+  }
 });

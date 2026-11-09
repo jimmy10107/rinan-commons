@@ -151,5 +151,9 @@
   "passport-preview/assets/passport-stamp-template.png": "04a05df135f06d74b1f969f30817a345178902d8f4777ef7e6685861609052bb",
   "passport-preview/assets/rinan-commons-logo-oval.png": "affbb877622668e93570552efb8bd6561f453683c850d4c1865504d6cd0feea9",
   "passport-preview/assets/resident-badge-fullbleed.png": "ff048a2ed281957722d7685de1ac62af6c4a0e96ef4395e6741b29f3d26b29b1",
-  "passport-preview/assets/rinan-commons-logo-transparent.png": "7fcbd1efd5acb36d42771c524c432992f92a38a21bb83662e0ea9fda44ef55d4"
+  "passport-preview/assets/rinan-commons-logo-transparent.png": "7fcbd1efd5acb36d42771c524c432992f92a38a21bb83662e0ea9fda44ef55d4",
+  "books/assets/face-a.webp": "735a2c088dce714d33abf0603266a2e0d29f3e13c4202af02afcf3a440eefa7f",
+  "books/assets/face-b.webp": "e30d694cf79b0d3faf8719e560d61f7b53743f266acd198bca918bd740acf5e2",
+  "books/assets/face-c.webp": "2f0c0bf51fcc42fc4c69ff7bb74bbf17cf149c9355eea7ec369df0870f5b0e82",
+  "books/assets/face-d.webp": "af8052a4b89dcb9683525b1e66ade7802ee3cda9f31bf19f5445fb8ca27ef99d"
 }
