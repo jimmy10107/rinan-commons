@@ -20,4 +20,4 @@
 - 版面：封面陰影小書圖、桌機四欄與手機兩欄，首頁改為封面組合，點封面可開啟介紹。
 - 維護：更新data.js／covers.js後，執行 `node scripts/build-books.mjs` 同步靜態初始書卡。
 - 驗證：本機桌機與375px內容寬度無橫向溢出；71書卡71封面；點封面開啟介紹；挪威的森林搜尋2本及上下冊封面顯示通過。
-- State：發布驗證中。
+- State：completed。正式網址 https://www.rinancommons.com/books/index.html 已顯示71封面且面向選單數為0；點上下冊封面可開啟正確書籍介紹，Vercel部署success。靜態建置、12項頁面測試、2項媒體測試通過。
