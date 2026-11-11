@@ -17,6 +17,13 @@ test('passport preview stays private while the production passport is indexable 
   assert.match(passport, /https:\/\/www\.rinancommons\.com\/passport\//);
   for (const html of [preview, passport]) {
     assert.match(html, /facebook\.com\/huaningdessert\//);
+    assert.match(html, /instagram\.com\/hua_ning_studio\//);
+    assert.match(html, /facebook\.com\/p\/.*61566287243170/);
+    assert.match(html, /無固定據點，流動出攤，地點與時間依粉專公告/);
+    assert.match(html, /437臺中市大甲區孟春里121縣道198號/);
+    assert.match(html, /隆安米（東興香品行）/);
+    assert.match(html, /御豆坊（美華數位影像中心）/);
+    assert.match(html, /facebook\.com\/yusoy88\//);
     assert.match(html, /maps\.app\.goo\.gl\/qYGsVgte1gPwcu3L9/);
     assert.match(html, /實際集章認定仍需要以紙本為主/);
     assert.match(html, /善群有機農莊｜Yüanli/);
@@ -24,9 +31,9 @@ test('passport preview stays private while the production passport is indexable 
     assert.match(html, /100063544105817/);
     assert.match(html, /預約制｜到訪前務必預約/);
     assert.match(html, /避免撲空；請關注粉絲專頁公布的活動/);
-    assert.match(html, /SELECT STAMPS · 4 PARTNERS/);
-    assert.match(html, /選物章合作索引 4 處/);
-    assert.match(html, /<dt>合作索引<\/dt><dd>25 筆<\/dd>/);
+    assert.match(html, /SELECT STAMPS · 6 PARTNERS/);
+    assert.match(html, /選物章合作索引 6 處/);
+    assert.match(html, /<dt>合作索引<\/dt><dd>27 筆<\/dd>/);
   }
   assert.match(styles, /\.overview-frame img \{ aspect-ratio: 4 \/ 5; \}/);
   assert.doesNotMatch(home, /passport-preview/);
