@@ -34,6 +34,10 @@ test('passport preview stays private while the production passport is indexable 
     assert.match(html, /SELECT STAMPS · 6 PARTNERS/);
     assert.match(html, /選物章合作索引 6 處/);
     assert.match(html, /<dt>合作索引<\/dt><dd>27 筆<\/dd>/);
+    assert.match(html, /<h3>走傱的日南人<\/h3>/);
+    assert.doesNotMatch(html, /《走傱的日南人》紀錄片交流會/);
+    assert.match(html, /partner-overview-updated\.svg/);
+    assert.match(html, /november-events-updated\.svg/);
   }
   assert.match(styles, /\.overview-frame img \{ aspect-ratio: 4 \/ 5; \}/);
   assert.doesNotMatch(home, /passport-preview/);
