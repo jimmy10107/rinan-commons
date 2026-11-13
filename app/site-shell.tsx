@@ -2,16 +2,16 @@ import { MobileMenu } from './mobile-menu';
 import Link from 'next/link';
 import { sitePath } from './site-path';
 import { site } from './content';
-export type SiteSection = 'home' | 'passport' | 'about' | 'stories' | 'walk' | 'market' | 'exhibition' | 'visit' | 'explore' | 'plants' | 'copyright';
+export type SiteSection = 'home' | 'passport' | 'about' | 'stories' | 'walk' | 'market' | 'exhibition' | 'visit' | 'explore' | 'plants' | 'books' | 'copyright';
 const desktopNavigation = [
   ['passport','走傱護照','/passport/'], ['about','關於稻站','/about/'], ['stories','地方筆記','/stories/'],
   ['exhibition','往返策展','/exhibition/to-and-from/'], ['explore','九里互動地圖','/explore/'], ['plants','日南植物形態室','/plants/'],
-  ['visit','交通資訊','/visit/'],
+  ['visit','交通資訊','/visit/'], ['books','到站書架','/books/index.html'],
 ] as const;
 const mobileNavigation = [
   ['passport','走傱護照','/passport/'], ['about','關於稻站','/about/'], ['visit','交通資訊','/visit/'], ['stories','地方筆記','/stories/'],
   ['exhibition','往返策展','/exhibition/to-and-from/'], ['explore','九里互動地圖','/explore/'], ['plants','日南植物形態室','/plants/'],
-  ['home','首頁','/'],
+  ['home','首頁','/'], ['books','到站書架','/books/index.html'],
 ] as const;
 export function SiteHeader({ active }: { active: SiteSection }) {
   const links = desktopNavigation.map(([id,label,path])=><Link key={id} className={active===id?'active':''} href={path} aria-current={active===id?'page':undefined}>{label}</Link>);

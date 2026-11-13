@@ -37,4 +37,11 @@
 - 封面：新增 `072.webp` 至 `116.webp`；可取得者使用公開書目頁封面，未找到公開封面的7本地方出版品以標示清楚的館藏小冊插畫呈現。來源與模式記錄於 `book-cover-sources-2026-11-13.json`。
 - 互動：搜尋涵蓋書名、作者與出版社；新增「地方文史」主題；卡片與詳細介紹皆顯示 `種下 11/10` 或 `種下 11/12`。
 - Evidence：靜態建置與12項頁面測試、公開圖片白名單驗證通過；116書卡、116封面、116日期標示、0個待補／待確認。
-- State：completed。維持獨立網址 `https://www.rinancommons.com/books/index.html`，不加入官網主導覽與sitemap。
+- State：completed。維持獨立網址 `https://www.rinancommons.com/books/index.html`；當時尚未加入官網主導覽與 sitemap，後續依下方新決策整合。
+
+## 主網站選單整合
+
+- Decision：使用者於 2026-11-13 指定入口名稱為「到站書架」，並要求排在主網站選單最後。
+- Completed：桌機與手機主選單皆新增 `到站書架`，連至 `/books/index.html`；書單頁標題、頁首與社群標題同步改名，並加入 sitemap。
+- Evidence：正式建置與12項頁面測試通過；瀏覽器實測主選單最後一項可開啟116本書單。
+- State：completed。

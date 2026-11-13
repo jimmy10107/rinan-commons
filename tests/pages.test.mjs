@@ -178,8 +178,10 @@ test('passport leads both navigation systems and the annual event lives under th
   assert.ok(desktop && mobile);
   const links = nav => [...nav.matchAll(/href="([^"]+)"/g)].map(m => m[1]);
   assert.equal(links(desktop)[0], '/rinan-commons/passport/');
-  assert.deepEqual(links(desktop).slice(-2), ['/rinan-commons/plants/', '/rinan-commons/visit/']);
-  assert.deepEqual(links(mobile), ['/rinan-commons/passport/', '/rinan-commons/about/', '/rinan-commons/visit/', '/rinan-commons/stories/', '/rinan-commons/exhibition/to-and-from/', '/rinan-commons/explore/', '/rinan-commons/plants/', '/rinan-commons/']);
+  assert.deepEqual(links(desktop).slice(-2), ['/rinan-commons/visit/', '/rinan-commons/books/index.html']);
+  assert.deepEqual(links(mobile), ['/rinan-commons/passport/', '/rinan-commons/about/', '/rinan-commons/visit/', '/rinan-commons/stories/', '/rinan-commons/exhibition/to-and-from/', '/rinan-commons/explore/', '/rinan-commons/plants/', '/rinan-commons/', '/rinan-commons/books/index.html']);
+  assert.match(desktop, /href="\/rinan-commons\/books\/index\.html">到站書架<\/a>\s*$/);
+  assert.match(mobile, /href="\/rinan-commons\/books\/index\.html">到站書架<span[^>]*>↗<\/span><\/a>\s*$/);
   assert.doesNotMatch(desktop, /href="\/rinan-commons\/motion2026\/"/);
   for (const label of ['最新活動公告', '02 / 活動', 'class="event-feature"']) {
     const start = home.indexOf(label);
@@ -234,19 +236,22 @@ test('market starts at 16:30 and concert starts at 17:00 across official pages',
   assert.doesNotMatch(visit, /10\/24 晚間|10\.24（六）/);
 });
 
-test('standalone reading room ships all 116 books without adding a main-site entry', () => {
+test('standalone reading room ships all 116 books and appears last in the main navigation', () => {
   const shelf = readFileSync(path.join(root, 'books/index.html'), 'utf8');
   assert.equal((shelf.match(/class="book"/g) || []).length, 116);
   assert.equal((shelf.match(/class="pending"/g) || []).length, 0);
   assert.doesNotMatch(shelf, /資料待確認|作者待補|出版社待補|待補作者與簡介/);
   for (const text of ['楊智凱、溫佑君', '胡毓豪', '齊藤勇', '蒼璧出版', '三悅文化', '奇幻深遠']) assert.ok(shelf.includes(text), text);
-  assert.match(shelf, /name="robots" content="noindex, nofollow"/);
+  assert.match(shelf, /<title>到站書架｜/);
+  assert.match(shelf, /name="robots" content="index, follow"/);
   assert.equal((shelf.match(/class="book-cover /g) || []).length, 116);
   assert.doesNotMatch(shelf, /第一面|第二面|第三面|第四面|書架面向|全部層位/);
   assert.match(shelf, /種下 11\/10/);
   assert.match(shelf, /種下 11\/12/);
   for (let n = 1; n <= 116; n++) assert.ok(existsSync(path.join(root, 'books/assets/covers', String(n).padStart(3, '0') + '.webp')));
-  assert.doesNotMatch(readFileSync(path.join(root, 'index.html'), 'utf8'), /href="[^"]*\/books\//);
+  const home = readFileSync(path.join(root, 'index.html'), 'utf8');
+  assert.match(home, /href="\/rinan-commons\/books\/index\.html">到站書架<\/a><\/nav>/);
+  assert.match(readFileSync(path.join(root, 'sitemap.xml'), 'utf8'), /https:\/\/www\.rinancommons\.com\/books\/index\.html/);
   for (const asset of ['app.js', 'data.js', 'styles.css', 'planted.css', 'covers.js', 'covers-20261112.js', 'assets/covers/001.webp', 'assets/covers/116.webp']) {
     assert.ok(existsSync(path.join(root, 'books', asset)), asset);
   }
