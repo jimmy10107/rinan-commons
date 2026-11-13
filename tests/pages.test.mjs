@@ -242,7 +242,7 @@ test('standalone reading room ships all 116 books and appears immediately before
   assert.equal((shelf.match(/class="pending"/g) || []).length, 0);
   assert.doesNotMatch(shelf, /資料待確認|作者待補|出版社待補|待補作者與簡介/);
   for (const text of ['楊智凱、溫佑君', '胡毓豪', '齊藤勇', '蒼璧出版', '三悅文化', '奇幻深遠']) assert.ok(shelf.includes(text), text);
-  assert.match(shelf, /<title>到站書架｜/);
+  assert.match(shelf, /<title>稻站書架｜/);
   assert.match(shelf, /name="robots" content="index, follow"/);
   assert.equal((shelf.match(/class="book-cover /g) || []).length, 116);
   assert.doesNotMatch(shelf, /第一面|第二面|第三面|第四面|書架面向|全部層位/);
@@ -250,7 +250,7 @@ test('standalone reading room ships all 116 books and appears immediately before
   assert.match(shelf, /種下 11\/12/);
   for (let n = 1; n <= 116; n++) assert.ok(existsSync(path.join(root, 'books/assets/covers', String(n).padStart(3, '0') + '.webp')));
   const home = readFileSync(path.join(root, 'index.html'), 'utf8');
-  assert.match(home, /href="\/rinan-commons\/books\/index\.html">到站書架<\/a><a[^>]*href="\/rinan-commons\/">首頁<\/a><\/nav>/);
+  assert.match(home, /href="\/rinan-commons\/books\/index\.html">稻站書架<\/a><a[^>]*href="\/rinan-commons\/">首頁<\/a><\/nav>/);
   assert.match(readFileSync(path.join(root, 'sitemap.xml'), 'utf8'), /https:\/\/www\.rinancommons\.com\/books\/index\.html/);
   for (const asset of ['app.js', 'data.js', 'styles.css', 'planted.css', 'covers.js', 'covers-20261112.js', 'assets/covers/001.webp', 'assets/covers/116.webp']) {
     assert.ok(existsSync(path.join(root, 'books', asset)), asset);
