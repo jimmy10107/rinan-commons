@@ -18,3 +18,4 @@ WEB-16,官網市集時間統一為1630至2100,Codex,2026-10-30,全域文字與�
 WEB-BOOKS-01,獨立稻站書架71本藏書頁,Codex,2026-11-10,桌機手機預覽及GitHub Pages部署,71本書與11主題及面層篩選並保留15筆待確認且官網選單不加入,completed,https://www.rinancommons.com/books/index.html
 WEB-BOOKS-02,71本封面小書圖取代面向位置,Codex,2026-11-10,封面來源核對及桌機手機驗收,全部書卡顯示各自封面且移除面與層位並維持獨立網址,completed,docs/book-cover-sources-2026-11-10.json
 WEB-BOOKS-03,待確認15筆逐一查核及補正,Codex,2026-11-10,公開書目與簡介核對及發布回讀,15筆均有來源且補正完整並移除待確認資訊,completed,docs/books-verification-2026-11-10.json
+WEB-BOOKS-04,11月12日新增45本選書,Codex,2026-11-13,書目封面互動與正式站驗收,116本皆有封面與種下日期且無面層或待確認標示,completed,docs/book-cover-sources-2026-11-13.json

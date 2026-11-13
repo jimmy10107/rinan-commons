@@ -1,0 +1,17 @@
+.book-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.planted {
+  color: var(--muted);
+  font-size: 9px;
+  letter-spacing: .08em;
+  white-space: nowrap;
+}
+
+.detail-text .eyebrow {
+  line-height: 1.7;
+}

@@ -234,18 +234,20 @@ test('market starts at 16:30 and concert starts at 17:00 across official pages',
   assert.doesNotMatch(visit, /10\/24 晚間|10\.24（六）/);
 });
 
-test('standalone reading room ships all 71 books without adding a main-site entry', () => {
+test('standalone reading room ships all 116 books without adding a main-site entry', () => {
   const shelf = readFileSync(path.join(root, 'books/index.html'), 'utf8');
-  assert.equal((shelf.match(/class="book"/g) || []).length, 71);
+  assert.equal((shelf.match(/class="book"/g) || []).length, 116);
   assert.equal((shelf.match(/class="pending"/g) || []).length, 0);
   assert.doesNotMatch(shelf, /資料待確認|作者待補|出版社待補|待補作者與簡介/);
   for (const text of ['楊智凱、溫佑君', '胡毓豪', '齊藤勇', '蒼璧出版', '三悅文化', '奇幻深遠']) assert.ok(shelf.includes(text), text);
   assert.match(shelf, /name="robots" content="noindex, nofollow"/);
-  assert.equal((shelf.match(/class="book-cover /g) || []).length, 71);
+  assert.equal((shelf.match(/class="book-cover /g) || []).length, 116);
   assert.doesNotMatch(shelf, /第一面|第二面|第三面|第四面|書架面向|全部層位/);
-  for (let n = 1; n <= 71; n++) assert.ok(existsSync(path.join(root, 'books/assets/covers', String(n).padStart(3, '0') + '.webp')));
+  assert.match(shelf, /種下 11\/10/);
+  assert.match(shelf, /種下 11\/12/);
+  for (let n = 1; n <= 116; n++) assert.ok(existsSync(path.join(root, 'books/assets/covers', String(n).padStart(3, '0') + '.webp')));
   assert.doesNotMatch(readFileSync(path.join(root, 'index.html'), 'utf8'), /href="[^"]*\/books\//);
-  for (const asset of ['app.js', 'data.js', 'styles.css', 'covers.js', 'assets/covers/001.webp', 'assets/covers/071.webp']) {
+  for (const asset of ['app.js', 'data.js', 'styles.css', 'planted.css', 'covers.js', 'covers-20261112.js', 'assets/covers/001.webp', 'assets/covers/116.webp']) {
     assert.ok(existsSync(path.join(root, 'books', asset)), asset);
   }
 });
