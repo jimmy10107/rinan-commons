@@ -107,7 +107,10 @@ test('approved homepage and about review stays linked and keeps planned services
   assert.match(home, /href="\/rinan-commons\/about\/#place"/);
   assert.match(home, /href="\/rinan-commons\/explore\/"/);
   assert.match(home, /最新活動公告/);
-  assert.match(home, /10\.31/);
+  assert.match(home, /11\.16（一）19:00/);
+  assert.match(home, /11\.21（六）19:00/);
+  assert.match(home, /快閃活動｜日南印相製作/);
+  assert.match(home, /《走傱的日南人》紀錄片交流會/);
   assert.match(home, /437 臺中市大甲區孟春里中山路二段 6 號/);
   assert.match(home, /commons-exterior-1200\.webp/);
   assert.match(home, /日南稻站外側/);
@@ -183,10 +186,10 @@ test('passport leads both navigation systems and the annual event lives under th
   assert.match(desktop, /href="\/rinan-commons\/">首頁<\/a>\s*$/);
   assert.match(mobile, /href="\/rinan-commons\/">首頁<span[^>]*>↗<\/span><\/a>\s*$/);
   assert.doesNotMatch(desktop, /href="\/rinan-commons\/motion2026\/"/);
-  for (const label of ['最新活動公告', '02 / 活動', 'class="event-feature"']) {
+  for (const label of ['最新活動公告', '02 / 活動', 'class="event-feature home-events-feature"']) {
     const start = home.indexOf(label);
     assert.ok(start > -1, label);
-    assert.match(home.slice(Math.max(0, start - 240), start + 240), /\/rinan-commons\/exhibition\/to-and-from\/#motion-2026/);
+    assert.match(home.slice(Math.max(0, start - 240), start + 240), /\/rinan-commons\/passport\/#events/);
   }
 });
 
@@ -226,7 +229,7 @@ test('market starts at 16:30 and concert starts at 17:00 across official pages',
   assert.match(dayTwo, /vendor-details/);
   assert.match(source, /10月31日節目/);
   assert.doesNotMatch(source, /10月24日節目|21:30/);
-  for (const route of ['index.html', 'motion2026/index.html', 'walk/2026/index.html']) {
+  for (const route of ['motion2026/index.html', 'walk/2026/index.html']) {
     const html = readFileSync(path.join(root, route), 'utf8');
     assert.match(html, /走傱市集(?:｜10\/31（六）| )16:30–21:00/);
     assert.doesNotMatch(html, /10\/31（六）17:00–21:00|17:00–21:00｜五組演出・走傱市集/);
