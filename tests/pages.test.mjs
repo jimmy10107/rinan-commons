@@ -110,7 +110,9 @@ test('approved homepage and about review stays linked and keeps planned services
   assert.match(home, /11\.16<small>一・19:00<\/small>/);
   assert.match(home, /11\.21<small>六・19:00<\/small>/);
   assert.match(home, /快閃活動｜日南印相製作/);
+  assert.match(home, /把手機裡最日南的照片，留在一張印相裡。/);
   assert.match(home, /《走傱的日南人》紀錄片交流會/);
+  assert.match(home, /從人物與地方故事出發，聊聊每個人記憶中的日南。/);
   assert.match(home, /437 臺中市大甲區孟春里中山路二段 6 號/);
   assert.match(home, /commons-exterior-1200\.webp/);
   assert.match(home, /日南稻站外側/);
