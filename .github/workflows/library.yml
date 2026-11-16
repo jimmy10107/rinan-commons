@@ -1,0 +1,62 @@
+name: Library（借書系統）
+
+# 只在 library 分支、且 library/ 資料夾有變動時執行，不影響官網的部署流程
+on:
+  push:
+    branches: [library]
+    paths: ["library/**", ".github/workflows/library.yml"]
+  pull_request:
+    branches: [library]
+    paths: ["library/**"]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: library-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  test:
+    name: 權限測試與建置
+    runs-on: ubuntu-latest
+    defaults: { run: { working-directory: library } }
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 22, cache: npm, cache-dependency-path: library/package-lock.json }
+      - run: npm ci
+      - name: 權限測試（六種身分）
+        run: npm test
+      - name: 建置檢查
+        run: npm run build
+        env:
+          NEXT_PUBLIC_SUPABASE_URL: https://example.supabase.co
+          NEXT_PUBLIC_SUPABASE_ANON_KEY: build-check
+
+  migrate:
+    name: 套用資料庫變更到 Supabase
+    needs: test
+    if: github.event_name != 'pull_request'
+    runs-on: ubuntu-latest
+    defaults: { run: { working-directory: library } }
+    env:
+      SUPABASE_ACCESS_TOKEN: ${{ secrets.SUPABASE_ACCESS_TOKEN }}
+      SUPABASE_DB_PASSWORD: ${{ secrets.SUPABASE_DB_PASSWORD }}
+      PROJECT_REF: htfbmddeofcotggklbfa
+    steps:
+      - uses: actions/checkout@v4
+      - name: 檢查金鑰是否已設定
+        id: guard
+        run: |
+          if [ -n "$SUPABASE_ACCESS_TOKEN" ] && [ -n "$SUPABASE_DB_PASSWORD" ]; then echo "ok=true" >> "$GITHUB_OUTPUT";
+          else echo "::notice::尚未設定 SUPABASE_ACCESS_TOKEN / SUPABASE_DB_PASSWORD，略過自動套用。"; echo "ok=false" >> "$GITHUB_OUTPUT"; fi
+      - uses: supabase/setup-cli@v1
+        if: steps.guard.outputs.ok == 'true'
+        with: { version: 2.122.0 }
+      - name: 套用尚未執行的 migration
+        if: steps.guard.outputs.ok == 'true'
+        run: |
+          supabase link --project-ref "$PROJECT_REF" --password "$SUPABASE_DB_PASSWORD"
+          supabase db push --password "$SUPABASE_DB_PASSWORD"

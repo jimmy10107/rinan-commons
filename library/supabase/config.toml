@@ -1,0 +1,2 @@
+# Supabase CLI 設定（只用於 GitHub Actions 自動套用 migration）
+project_id = "rinan-library"
