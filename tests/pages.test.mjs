@@ -253,7 +253,7 @@ test('standalone reading room ships all 125 books and appears immediately before
   assert.doesNotMatch(shelf, /第一面|第二面|第三面|第四面|書架面向|全部層位/);
   assert.match(shelf, /種下 11\/10/);
   assert.match(shelf, /種下 11\/12/);
-  assert.equal((shelf.match(/11\/16・孫佩琦種下/g) || []).length, 9);
+  assert.equal((shelf.match(/11\/16・孫珮綺種下/g) || []).length, 9);
   for (const title of ['受傷的孩子和壞掉的大人', '廢墟少年', '被討厭的勇氣 二部曲完結篇', '判決的艱難', '心的強大，才是真正的強大', '都是溫柔的孩子', '暗夜倖存者', '你不伸手，他會在這裡躺多久？', '遍體鱗傷長大的孩子，會自己恢復正常嗎？']) assert.ok(shelf.includes(title), title);
   for (let n = 1; n <= 125; n++) assert.ok(existsSync(path.join(root, 'books/assets/covers', String(n).padStart(3, '0') + '.webp')));
   const home = readFileSync(path.join(root, 'index.html'), 'utf8');
