@@ -1,10 +1,6 @@
 import type { NextConfig } from "next";
-import path from "node:path";
 
 const nextConfig: NextConfig = {
-  // 這個資料夾是獨立的網站，不沿用上層官網的設定
-  turbopack: { root: path.resolve(__dirname) },
-  outputFileTracingRoot: path.resolve(__dirname),
   // 不讓搜尋引擎收錄借書系統
   async headers() {
     return [{ source: "/:path*", headers: [
