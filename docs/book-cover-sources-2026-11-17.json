@@ -1,0 +1,17 @@
+{
+  "updatedAt": "2026-11-17",
+  "plantedAt": "11/16",
+  "planter": "孫佩琦",
+  "note": "封面僅供館藏辨識；推薦語音已轉寫為重新撰寫的短介紹，不公開音檔或逐字稿。",
+  "books": [
+    {"number": 117, "title": "受傷的孩子和壞掉的大人", "page": "https://www.books.com.tw/products/0010770814", "image": "https://im2.book.com.tw/image/getImage?i=https://www.books.com.tw/img/001/077/08/0010770814.jpg&v=5a1fa7aa&w=600&h=800"},
+    {"number": 118, "title": "廢墟少年", "page": "https://twreporter.waca.ec/product/detail/2123846", "image": "https://webcdn2.ebook.hyread.com.tw/bookcover/213832978986990724820204013030711.jpg"},
+    {"number": 119, "title": "被討厭的勇氣 二部曲完結篇", "page": "https://www.booklife.com.tw/product-detail/T0200031", "image": "https://www.cite.com.my/images/p_download/532417.jpg"},
+    {"number": 120, "title": "判決的艱難", "page": "https://twinnocenceproject.org/《判決的艱難：兒童性侵的爭議與正義》/", "image": "https://twinnocenceproject.org/wp-content/uploads/判決的艱難封面.jpg"},
+    {"number": 121, "title": "心的強大，才是真正的強大", "page": "https://www.booklife.com.tw/product-detail/03900115", "image": "https://cdn.kobo.com/book-images/8bf87eaa-1daf-4d47-ac6e-265e394f615e/1200/1200/False/zwARmjPgxzq_O8AkewFZvQ.jpg"},
+    {"number": 122, "title": "都是溫柔的孩子", "page": "https://www.bookrep.com.tw/?at=bookcontent&cl=book&id=14350&md=gwindex", "image": "https://webcdn2.ebook.hyread.com.tw/bookcover/206970978986384416720200108030402.jpg"},
+    {"number": 123, "title": "暗夜倖存者", "page": "https://www.eslite.com/product/1001129461383163", "image": "https://s2.eslite.com/unsafe/fit-in/x900/s.eslite.com/upload/product/o/2611176509006/ec79356.jpg"},
+    {"number": 124, "title": "你不伸手，他會在這裡躺多久？", "page": "https://www.cna.com.tw/proj_goodbook/social-science/2651", "image": "https://imgcdn.cna.com.tw/Www/WebPhotos/BookItem/2019/20190723100837.jpg"},
+    {"number": 125, "title": "遍體鱗傷長大的孩子，會自己恢復正常嗎？", "page": "https://www.eslite.com/product/1001137862727549", "image": "https://s.eslite.com/upload/product/o/2681685948009/20210819053736824078.jpg"}
+  ]
+}

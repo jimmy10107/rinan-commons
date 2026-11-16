@@ -11,4 +11,4 @@ const start = html.indexOf('<div id="books" class="books">') + '<div id="books" 
 const end = html.indexOf('</div><div id="empty"', start);
 if (start < 0 || end < 0) throw new Error('Book grid anchor missing');
 fs.writeFileSync(new URL('index.html', root), html.slice(0,start) + markup + html.slice(end));
-console.log('116 book cards synchronized with cover metadata.');
+console.log('125 book cards synchronized with cover metadata.');
