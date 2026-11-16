@@ -24,7 +24,7 @@
 - 資料表、權限規則、116 本館藏都已套用，並已在正式資料庫上驗證權限。
 - 之後修改資料庫：在 `supabase/migrations/` 新增 SQL 檔並推送到 `library` 分支，GitHub Actions 會自動套用（需先設定下方「自動化」的兩個金鑰）。
 
-### 3. 設定登入
+### 3. 設定登入（設好 `SUPABASE_ACCESS_TOKEN` 後會自動完成，以下為手動做法）
 1. **Authentication → URL Configuration**
    - Site URL：`https://library.rinancommons.com`
    - Redirect URLs 加入：`https://library.rinancommons.com/auth/callback`
@@ -37,14 +37,14 @@
    ```
 3. **寄信服務（正式上線前必做）**：Supabase 內建寄信每小時只能寄很少封，只適合測試。到 **Project Settings → Authentication → SMTP Settings** 接上自己的寄信服務（例如 Resend、Gmail Workspace 的 SMTP），寄件人可設為 `library@rinancommons.com`。
 
-### 4. 部署到 Vercel
+### 4. 部署到 Vercel（已完成：專案 `rinan-library`，以下為重建時的做法）
 1. Vercel → Add New → Project → 匯入 `jimmy10107/rinan-commons`。
 2. **Root Directory** 選 `library`。Framework 會自動辨識為 Next.js。
 3. **Environment Variables** 加兩個：
    - `NEXT_PUBLIC_SUPABASE_URL` = `https://htfbmddeofcotggklbfa.supabase.co`
    - `NEXT_PUBLIC_SUPABASE_ANON_KEY` = Supabase 專案 Settings → API Keys 頁面的 **Publishable key**（`sb_publishable_` 開頭；本來就設計成可以公開，權限由資料庫規則把關；**不要**填 secret / service_role key）
 4. Deploy。完成後到這個新專案的 **Settings → Git → Production Branch**，改成 `library`，再 Redeploy 一次。
-5. **Settings → Domains** 加入 `library.rinancommons.com`。若 `rinancommons.com` 的 DNS 已在 Vercel 管理會自動生效；否則照 Vercel 顯示的 CNAME 值到網域商新增一筆紀錄。
+5. **Settings → Domains** 加入 `library.rinancommons.com`（已完成）。DNS 在 Cloudflare，由自動設定流程新增 CNAME（DNS only）。
 
 > 官網的 Vercel 專案也會替 `library` 分支建一個預覽版本，這不影響正式官網。若不想看到它，可在官網專案的 Settings → Git → Ignored Build Step 填 `[ "$VERCEL_GIT_COMMIT_REF" = "library" ] && exit 0 || exit 1`。
 
@@ -60,14 +60,25 @@
 
 ## 自動化流程
 
-推送到 `library` 分支後：
-1. **GitHub Actions**（`.github/workflows/library.yml`）跑權限測試與建置檢查。
-2. 測試通過後，自動把 `supabase/migrations/` 裡尚未執行的 SQL 套用到 Supabase。
-3. **Vercel** 偵測到 `library` 分支更新，自動部署到 `library.rinancommons.com`。
+| 什麼時候 | 自動做什麼 | 設定在哪 |
+|---|---|---|
+| 推送 `library` 分支 | 跑權限測試與建置檢查 | `.github/workflows/library.yml` |
+| 測試通過後 | 把 `supabase/migrations/` 裡新的 SQL 套用到 Supabase | 同上 |
+| 推送 `library` 分支 | Vercel 自動部署到 `library.rinancommons.com` | Vercel 專案 `rinan-library` |
+| `library/infra/` 有變動，或手動執行 | Cloudflare 網址紀錄、Supabase 登入網址與登入信範本套用成設定檔的樣子；有人改壞了會被修回來 | `.github/workflows/library-infra.yml`、`library/infra/*.json` |
+| 每次套用設定之後 | 從外部檢查網站打得開、未登入的人讀不到任何資料 | 同上 |
 
-第 2 步需要在 GitHub repo 的 Settings → Secrets and variables → Actions 新增兩個 secret（沒設定時會自動略過這一步，不會失敗）：
-- `SUPABASE_ACCESS_TOKEN`：Supabase 右上角頭像 → Account preferences → Access Tokens → Generate new token
-- `SUPABASE_DB_PASSWORD`：Supabase 專案 Settings → Database → Reset database password 產生的密碼
+要手動修復：GitHub → Actions →「Library 自動設定與健康檢查」→ Run workflow。
+
+### 需要你放進 GitHub 的金鑰
+
+GitHub repo → Settings → Secrets and variables → Actions → New repository secret。金鑰只存在 GitHub，不會出現在程式碼或對話裡。沒設定的項目會自動略過。
+
+| 名稱 | 用途 | 怎麼取得 |
+|---|---|---|
+| `CLOUDFLARE_API_TOKEN` | 設定 library 子網域 | Cloudflare → My Profile → API Tokens → Create Token → 範本「Edit zone DNS」→ Zone Resources 選 `rinancommons.com` |
+| `SUPABASE_ACCESS_TOKEN` | 登入設定、自動套用資料庫變更 | Supabase 右上角頭像 → Account preferences → Access Tokens → Generate new token |
+| `SUPABASE_DB_PASSWORD` | 自動套用資料庫變更 | Supabase 專案 rinan-library → Settings → Database → Reset database password |
 
 ## 日常操作
 

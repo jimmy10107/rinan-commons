@@ -1,0 +1,95 @@
+name: Library 自動設定與健康檢查
+
+# 把 Cloudflare 網址紀錄、Supabase 登入設定套用成 library/infra/ 裡寫的樣子，
+# 並從外部檢查網站與權限。設定是「覆寫成指定值」，所以重複執行也安全：
+# 有人手動改壞了，到 Actions 頁按 Run workflow 或下一次推送就會修回來。
+on:
+  push:
+    branches: [library]
+    paths: ["library/infra/**", ".github/workflows/library-infra.yml"]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: library-infra
+  cancel-in-progress: false
+
+env:
+  SUPABASE_REF: htfbmddeofcotggklbfa
+  SITE: https://library.rinancommons.com
+  # publishable key 本來就公開在網頁上，用來從外部確認「未登入讀不到會員資料」
+  SUPABASE_PUBLISHABLE_KEY: sb_publishable_50RKZmbKvjpuCXVRMPt20g_V8mCVVs-
+
+jobs:
+  configure:
+    name: 套用設定
+    runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/library'
+    steps:
+      - uses: actions/checkout@v4
+        with: { ref: library }
+
+      - name: Cloudflare：library 子網域指向 Vercel
+        env: { CF_TOKEN: "${{ secrets.CLOUDFLARE_API_TOKEN }}" }
+        run: |
+          if [ -z "$CF_TOKEN" ]; then echo "::warning::尚未設定 CLOUDFLARE_API_TOKEN，略過 DNS 設定"; exit 0; fi
+          cfg=library/infra/cloudflare-dns.json
+          api() { curl -sS -H "Authorization: Bearer $CF_TOKEN" -H "Content-Type: application/json" "$@"; }
+          zone=$(jq -r .zone $cfg); name=$(jq -r .name $cfg)
+          zid=$(api "https://api.cloudflare.com/client/v4/zones?name=$zone" | jq -r '.result[0].id // empty')
+          [ -n "$zid" ] || { echo "::error::找不到 Cloudflare 網域 $zone，請確認金鑰有這個網域的權限"; exit 1; }
+          body=$(jq -c '{type,name,content,proxied,ttl,comment}' $cfg)
+          existing=$(api "https://api.cloudflare.com/client/v4/zones/$zid/dns_records?name=$name" | jq -r '.result[0] // empty')
+          if [ -z "$existing" ]; then
+            r=$(api -X POST "https://api.cloudflare.com/client/v4/zones/$zid/dns_records" -d "$body"); act=新增
+          else
+            rid=$(echo "$existing" | jq -r .id)
+            if echo "$existing" | jq -e --argjson want "$body" '.type==$want.type and .content==$want.content and .proxied==$want.proxied' >/dev/null; then
+              echo "DNS 紀錄已正確，無需變更"; exit 0; fi
+            r=$(api -X PUT "https://api.cloudflare.com/client/v4/zones/$zid/dns_records/$rid" -d "$body"); act=修正
+          fi
+          echo "$r" | jq -e .success >/dev/null || { echo "::error::Cloudflare 回應失敗"; echo "$r" | jq '.errors'; exit 1; }
+          echo "::notice::已${act} $name → $(jq -r .content $cfg)（DNS only）"
+
+      - name: Supabase：登入網址與登入信範本
+        env: { SB_TOKEN: "${{ secrets.SUPABASE_ACCESS_TOKEN }}" }
+        run: |
+          if [ -z "$SB_TOKEN" ]; then echo "::warning::尚未設定 SUPABASE_ACCESS_TOKEN，略過登入設定"; exit 0; fi
+          url="https://api.supabase.com/v1/projects/$SUPABASE_REF/config/auth"
+          want=library/infra/supabase-auth.json
+          cur=$(curl -sS -H "Authorization: Bearer $SB_TOKEN" "$url")
+          if jq -e -n --argjson cur "$cur" --slurpfile w "$want" '[$w[0] | to_entries[] | .value == $cur[.key]] | all' >/dev/null 2>&1; then
+            echo "登入設定已正確，無需變更"; exit 0; fi
+          code=$(curl -sS -o /tmp/r.json -w '%{http_code}' -X PATCH -H "Authorization: Bearer $SB_TOKEN" -H "Content-Type: application/json" --data @$want "$url")
+          [ "$code" = 200 ] || { echo "::error::Supabase 回應 $code"; cat /tmp/r.json; exit 1; }
+          echo "::notice::已套用 Supabase 登入設定（網址、登入信範本）"
+
+  health:
+    name: 健康與權限檢查
+    needs: configure
+    if: always()
+    runs-on: ubuntu-latest
+    steps:
+      - name: 網站可以打開
+        run: |
+          for i in $(seq 1 10); do
+            code=$(curl -s -o /dev/null -w '%{http_code}' "$SITE/login" || true)
+            [ "$code" = 200 ] && { echo "網站正常（HTTP 200）"; break; }
+            echo "第 $i 次：HTTP $code，60 秒後再試（剛改 DNS 時需要幾分鐘生效）"; sleep 60
+          done
+          [ "$code" = 200 ] || { echo "::error::$SITE 打不開（HTTP $code）"; exit 1; }
+          curl -sI "$SITE/login" | grep -qi '^x-robots-tag: noindex' || { echo "::error::缺少不收錄設定"; exit 1; }
+
+      - name: 未登入讀不到任何資料
+        run: |
+          base="https://$SUPABASE_REF.supabase.co/rest/v1"
+          for t in members loans audit_log staff books; do
+            code=$(curl -s -o /tmp/b -w '%{http_code}' -H "apikey: $SUPABASE_PUBLISHABLE_KEY" "$base/$t?select=*&limit=1")
+            if [ "$code" = 200 ] && [ "$(cat /tmp/b)" != "[]" ]; then echo "::error::未登入竟然讀得到 $t！"; cat /tmp/b; exit 1; fi
+            echo "$t：未登入被擋下（HTTP $code）"
+          done
+          code=$(curl -s -o /tmp/b -w '%{http_code}' -X POST -H "apikey: $SUPABASE_PUBLISHABLE_KEY" -H "Content-Type: application/json" -d '{"p_name":"x"}' "$base/rpc/create_member")
+          [ "$code" != 200 ] || { echo "::error::未登入竟然能發證！"; exit 1; }
+          echo "create_member：未登入被擋下（HTTP $code）"

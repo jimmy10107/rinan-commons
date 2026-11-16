@@ -1,0 +1,9 @@
+{
+  "zone": "rinancommons.com",
+  "name": "library.rinancommons.com",
+  "type": "CNAME",
+  "content": "566db8224918ac7a.vercel-dns-017.com",
+  "proxied": false,
+  "ttl": 1,
+  "comment": "日南書架借書系統（Vercel）"
+}
