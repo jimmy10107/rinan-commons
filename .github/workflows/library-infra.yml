@@ -72,16 +72,6 @@ jobs:
     if: always()
     runs-on: ubuntu-latest
     steps:
-      - name: 網站可以打開
-        run: |
-          for i in $(seq 1 10); do
-            code=$(curl -s -o /dev/null -w '%{http_code}' "$SITE/login" || true)
-            [ "$code" = 200 ] && { echo "網站正常（HTTP 200）"; break; }
-            echo "第 $i 次：HTTP $code，60 秒後再試（剛改 DNS 時需要幾分鐘生效）"; sleep 60
-          done
-          [ "$code" = 200 ] || { echo "::error::$SITE 打不開（HTTP $code）"; exit 1; }
-          curl -sI "$SITE/login" | grep -qi '^x-robots-tag: noindex' || { echo "::error::缺少不收錄設定"; exit 1; }
-
       - name: 未登入讀不到任何資料
         run: |
           base="https://$SUPABASE_REF.supabase.co/rest/v1"
@@ -93,3 +83,13 @@ jobs:
           code=$(curl -s -o /tmp/b -w '%{http_code}' -X POST -H "apikey: $SUPABASE_PUBLISHABLE_KEY" -H "Content-Type: application/json" -d '{"p_name":"x"}' "$base/rpc/create_member")
           [ "$code" != 200 ] || { echo "::error::未登入竟然能發證！"; exit 1; }
           echo "create_member：未登入被擋下（HTTP $code）"
+
+      - name: 網站可以打開
+        run: |
+          for i in $(seq 1 10); do
+            code=$(curl -s -o /dev/null -w '%{http_code}' "$SITE/login" || true)
+            [ "$code" = 200 ] && { echo "網站正常（HTTP 200）"; break; }
+            echo "第 $i 次：HTTP $code，60 秒後再試（剛改 DNS 時需要幾分鐘生效）"; sleep 60
+          done
+          [ "$code" = 200 ] || { echo "::error::$SITE 打不開（HTTP $code）"; exit 1; }
+          curl -sI "$SITE/login" | grep -qi '^x-robots-tag: noindex' || { echo "::error::缺少不收錄設定"; exit 1; }
