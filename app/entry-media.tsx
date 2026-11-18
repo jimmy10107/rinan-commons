@@ -13,6 +13,7 @@ export function EntryMedia() {
   const [view, setView] = useState<MediaView>(null);
   const [ready, setReady] = useState(false);
   const [filmAutoplay, setFilmAutoplay] = useState(false);
+  const [hidden, setHidden] = useState(false);
 
   useEffect(() => {
     const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
@@ -29,7 +30,7 @@ export function EntryMedia() {
     setReady(true);
   }, []);
 
-  if (!ready) return null;
+  if (!ready || hidden) return null;
 
   const id = view === "song" ? songId : filmId;
   const title = view === "song" ? "〈走傱日南 2026 主題曲〉" : "《走傱日南2026》日南形象影片";
@@ -54,6 +55,7 @@ export function EntryMedia() {
     </div> : <div className="entry-media-launchers">
       <button type="button" onClick={() => setView("song")}>♫ 聽主題曲</button>
       <button type="button" onClick={() => setView("film")}>▶ 看形象影片</button>
+      <button type="button" className="entry-media-dismiss" aria-label="關閉影音工具" title="關閉影音工具" onClick={() => setHidden(true)}>×</button>
     </div>}
   </aside>;
 }
