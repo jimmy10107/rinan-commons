@@ -13,11 +13,12 @@
 .entry-media-switch button,.entry-media-launchers button{min-height:44px;border:1px solid #d0d9cf;border-radius:3px;background:#fffef9;padding:8px 12px;color:#183e35;font-size:13px}
 .entry-media-switch button[aria-pressed=true]{background:#183e35;color:#fffef9;border-color:#183e35}
 .entry-media-switch a{font-size:12px;margin-left:auto;color:#183e35;text-underline-offset:4px}
-.entry-media-launchers{position:fixed;bottom:calc(16px + env(safe-area-inset-bottom));left:16px;display:flex;gap:7px;background:#fffef9e8;border:1px solid #d7dacd;padding:6px;border-radius:6px;box-shadow:0 8px 26px #102d2428}
-.entry-media-launchers button{white-space:nowrap}
+.entry-media-launchers{position:fixed;right:18px;bottom:calc(16px + env(safe-area-inset-bottom));left:auto;display:flex;align-items:center;gap:4px;background:#fffef9e8;border:1px solid #d7dacd;padding:4px;border-radius:6px;box-shadow:0 8px 26px #102d2428}
+.entry-media-launchers button{min-height:34px;padding:5px 9px;font-size:12px;white-space:nowrap}
+.entry-media-launchers .entry-media-dismiss{display:grid;place-items:center;width:30px;min-width:30px;height:30px;min-height:30px;padding:0;border-radius:50%;font-size:18px;line-height:1}
 .entry-media-switch button:hover,.entry-media-launchers button:hover{border-color:#183e35}
 .entry-media :is(button,a):focus-visible{outline:3px solid #d97745;outline-offset:2px}
-@media(max-width:760px){.entry-media{right:12px;bottom:calc(12px + env(safe-area-inset-bottom))}.entry-media-screen,.entry-media-screen iframe{height:clamp(200px,56vw,218px)}.entry-media-launchers{left:10px;bottom:calc(10px + env(safe-area-inset-bottom))}.entry-media-launchers button{padding-inline:10px;font-size:12px}}
+@media(max-width:760px){.entry-media{right:12px;bottom:calc(12px + env(safe-area-inset-bottom))}.entry-media-screen,.entry-media-screen iframe{height:clamp(200px,56vw,218px)}.entry-media-launchers{right:auto;left:10px;bottom:calc(10px + env(safe-area-inset-bottom));gap:7px;padding:6px}.entry-media-launchers button{min-height:44px;padding-inline:10px;font-size:12px}.entry-media-launchers .entry-media-dismiss{width:38px;min-width:38px;height:38px;min-height:38px;padding:0}}
 @media(max-width:360px){.entry-media-switch a{margin-left:0}.entry-media-head strong{font-size:16px}}
 
 /* A small framing correction, leaving the original documentary files untouched. */
