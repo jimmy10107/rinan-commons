@@ -111,3 +111,7 @@ figcaption a { text-decoration:underline; text-underline-offset:3px; }
 }
 .copyright-content a:focus-visible{outline:3px solid var(--clay);outline-offset:3px}
 @media(max-width:760px){.copyright-content{padding-top:38px;padding-bottom:58px}.copyright-content p{font-size:16px;line-height:1.85}.copyright-line{line-height:2.1}}
+
+/* Ensure footer copyright text and links remain legible on the light site footer. */
+.commons-footer:not(.motion-footer) .copyright-line,
+.commons-footer:not(.motion-footer) .copyright-line * { color:#000 !important; }
