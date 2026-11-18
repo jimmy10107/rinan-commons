@@ -151,13 +151,15 @@ test('both event addresses render one shared page and exhibition has no PDF butt
   assert.doesNotMatch(exhibit, /開啟 PDF|rinancommons\.s\.gy\/pdf/);
 });
 
-test('curatorial route exposes three accessible stops, readable banners and the confirmed garden links', () => {
+test('curatorial route follows the physical exhibition, with credited banners linking to the documentary', () => {
   const html = readFileSync(path.join(root, 'exhibition/to-and-from/index.html'), 'utf8').split('</main>')[0];
   assert.equal((html.match(/<h1\b/g) || []).length, 1);
-  const anchors = ['people','online-gallery','living-wall','chapter-to','chapter-motion','chapter-return','chapter-ground','motion-2026','credits'];
+  const anchors = ['underpass','outdoor-maps','people','history-panels','online-gallery','living-wall','chapter-to','chapter-motion','chapter-return','chapter-ground','motion-2026','credits'];
   const offsets = anchors.map(id => html.indexOf('id="' + id + '"'));
   assert.ok(offsets.every((n,i) => n >= 0 && (!i || n > offsets[i-1])));
-  for (const id of anchors.slice(0,3)) assert.ok(html.includes('href="#'+id+'"'));
+  for (const id of ['underpass','outdoor-maps','people','history-panels','living-wall']) assert.ok(html.includes('href="#'+id+'"'));
+  assert.equal((html.match(/href="https:\/\/youtu\.be\/L3TBSGZnrys"/g)||[]).length,4);
+  assert.ok(html.includes('輸出製作｜大作創意、鈺采文化'));
   assert.equal((html.match(/<summary>閱讀掛幅文字<\/summary>/g) || []).length, 3);
   for (const slug of ['people-chen-long-an','people-cheng-hsiao-hsuan','people-narin']) {
     assert.ok(html.includes('/stories/'+slug+'/'));

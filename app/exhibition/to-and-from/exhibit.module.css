@@ -51,3 +51,10 @@
  .wrap {width:calc(100% - 32px)}.person {display:block}.person img {width:min(200px,100%);margin:0 auto 16px}
  .waypoints {gap:0 12px}.waypoints a {gap:3px}.waypoints small {display:none}
 }
+.routePhoto {margin:1.25rem 0;max-width:760px}
+.routePhoto a,.routePhoto img {display:block}
+.routePhoto img {width:100%;height:auto}
+.routePhoto figcaption {padding:.55rem 0;color:var(--brown);font-size:.9375rem;line-height:1.65}
+.mapSpread {display:grid;grid-template-columns:4fr 6fr;gap:clamp(16px,3vw,36px);align-items:start}
+.archive {padding-block:1rem}
+@media(max-width:799px) {.mapSpread {grid-template-columns:1fr;gap:0}.mapSpread .routePhoto {margin:.65rem 0}}
