@@ -61,3 +61,19 @@ html{scroll-behavior:smooth;scroll-padding-top:110px}body{padding-bottom:0;overf
 @media(max-width:760px){.event-home-float{right:12px;bottom:calc(12px + env(safe-area-inset-bottom));padding:9px 13px;font-size:13px}.event-timeline .journey-time{font-size:21px}.event-page .event-visit-link{padding-bottom:85px}}
 .place-before-after{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px;margin-bottom:42px}.place-before-after figure{margin:0}.place-before-after img{display:block;width:100%;height:auto;aspect-ratio:4/3;object-fit:cover}.place-before-after figcaption{padding-top:10px;color:var(--muted);font-size:13px;line-height:1.7}.place-story-copy{max-width:42rem}.place-story-copy h2{font-size:clamp(32px,4vw,52px);line-height:1.45}
 @media(max-width:760px){.place-before-after{grid-template-columns:1fr;gap:24px;margin-bottom:32px}.place-before-after img{aspect-ratio:4/3}.place-before-after figcaption{font-size:12px}.place-story-copy h2{font-size:31px}}
+
+
+/* Three-event exchange series: readable across desktop, tablet, and mobile. */
+@media(min-width:1101px){
+  .home-latest{grid-template-columns:minmax(190px,.65fr) minmax(0,2.2fr) auto}
+  .announcement-events{grid-template-columns:repeat(3,minmax(0,1fr))}
+  .announcement-event{grid-template-columns:62px minmax(0,1fr);gap:10px;min-height:126px;padding:10px 14px}
+  .announcement-event time{font-size:22px}
+  .announcement-event-copy>b{font-size:14px}
+}
+@media(min-width:761px) and (max-width:1100px){
+  .home-latest{grid-template-columns:1fr;gap:20px}
+  .announcement-events{grid-template-columns:repeat(3,minmax(0,1fr));border-left:0;border-top:1px solid rgba(255,255,255,.38)}
+  .announcement-event{grid-template-columns:62px minmax(0,1fr);gap:10px;padding-inline:12px}
+  .announcement-cta{justify-self:start}
+}
