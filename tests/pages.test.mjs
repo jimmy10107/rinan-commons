@@ -37,7 +37,7 @@ test('passport preview stays private while the production passport is indexable 
     assert.match(html, /<h3>《走傱的日南人》紀錄片交流會<\/h3>/);
     assert.doesNotMatch(html, /<h3>走傱的日南人<\/h3>/);
     assert.match(html, /partner-overview\.webp/);
-    assert.match(html, /november-events\.webp/);
+    assert.match(html, /rinan-exchange-series-2026-11\.jpg/);
     assert.doesNotMatch(html, /(?:partner-overview|november-events)-updated\.svg/);
   }
   assert.match(styles, /\.overview-frame img \{ aspect-ratio: 4 \/ 5; \}/);
@@ -107,12 +107,13 @@ test('approved homepage and about review stays linked and keeps planned services
   assert.match(home, /href="\/rinan-commons\/about\/#place"/);
   assert.match(home, /href="\/rinan-commons\/explore\/"/);
   assert.match(home, /最新活動公告/);
-  assert.match(home, /11\.16<small>一・19:00<\/small>/);
-  assert.match(home, /11\.21<small>六・19:00<\/small>/);
-  assert.match(home, /快閃活動｜日南印相製作/);
-  assert.match(home, /把手機裡最日南的照片，留在一張印相裡。/);
+  assert.match(home, /11\.21<small>六・19:00–21:00<\/small>/);
+  assert.match(home, /11\.22<small>日・14:00–16:00<\/small>/);
+  assert.match(home, /11\.23<small>一・18:30–20:30<\/small>/);
   assert.match(home, /《走傱的日南人》紀錄片交流會/);
-  assert.match(home, /從人物與地方故事出發，聊聊每個人記憶中的日南。/);
+  assert.match(home, /紀錄片放映、映後交流與地方故事交換。/);
+  assert.match(home, /從台東到日南：人生走傱的行動演繹/);
+  assert.match(home, /從 AI 應用到走傱日南：地方活動實戰/);
   assert.match(home, /437 臺中市大甲區孟春里中山路二段 6 號/);
   assert.match(home, /commons-exterior-1200\.webp/);
   assert.match(home, /日南稻站外側/);
