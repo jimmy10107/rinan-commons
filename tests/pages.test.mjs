@@ -151,6 +151,23 @@ test('both event addresses render one shared page and exhibition has no PDF butt
   assert.doesNotMatch(exhibit, /開啟 PDF|rinancommons\.s\.gy\/pdf/);
 });
 
+test('curatorial route exposes three accessible stops, readable banners and the confirmed garden links', () => {
+  const html = readFileSync(path.join(root, 'exhibition/to-and-from/index.html'), 'utf8').split('</main>')[0];
+  assert.equal((html.match(/<h1\b/g) || []).length, 1);
+  const anchors = ['people','online-gallery','living-wall','chapter-to','chapter-motion','chapter-return','chapter-ground','motion-2026','credits'];
+  const offsets = anchors.map(id => html.indexOf('id="' + id + '"'));
+  assert.ok(offsets.every((n,i) => n >= 0 && (!i || n > offsets[i-1])));
+  for (const id of anchors.slice(0,3)) assert.ok(html.includes('href="#'+id+'"'));
+  assert.equal((html.match(/<summary>閱讀掛幅文字<\/summary>/g) || []).length, 3);
+  for (const slug of ['people-chen-long-an','people-cheng-hsiao-hsuan','people-narin']) {
+    assert.ok(html.includes('/stories/'+slug+'/'));
+  }
+  assert.match(html, /href="https:\/\/datzuo\.com\/work\/rinan\/exhibition\/\?enter=1"[^>]*><img/);
+  assert.ok(html.includes('href="https://liff.line.me/2011673526-qXbEyZzn"'));
+  assert.ok(html.includes('href="https://my-app-eight-kappa-72.vercel.app/#/wall"'));
+  assert.doesNotMatch(html, /<iframe|#\/play|youtube-nocookie|開啟 PDF/);
+});
+
 test('published market is discoverable and retains the corrected vendor information', () => {
   const market = readFileSync(path.join(root, 'motion2026/market/index.html'), 'utf8');
   const preview = readFileSync(path.join(root, 'motion2026/market-preview/index.html'), 'utf8');
