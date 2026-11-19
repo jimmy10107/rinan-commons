@@ -16,7 +16,7 @@ const mobileNavigation = [
 export function SiteHeader({ active }: { active: SiteSection }) {
   const links = desktopNavigation.map(([id,label,path])=><Link key={id} className={active===id?'active':''} href={path} aria-current={active===id?'page':undefined}>{label}</Link>);
   return <><a className="skip-link" href="#content">跳至主要內容</a><header className="site-header">
-    <Link className="site-brand site-brand-mark" href="/" aria-label="日南稻站首頁"><span className="site-brand-logo site-brand-logo-primary"><img src={sitePath('/images/rinan-commons-primary-logo.png')} alt="" width="1200" height="1200" /></span></Link>
+    <a className="site-brand site-brand-mark" href="https://www.rinancommons.com/" aria-label="返回日南稻站首頁"><span className="site-brand-logo site-brand-logo-primary"><img src={sitePath('/images/rinan-commons-primary-logo.png')} alt="" width="1200" height="1200" /></span></a>
     <nav className="site-navigation" aria-label="網站主要導覽">{links}</nav>
     <MobileMenu items={mobileNavigation} active={active} />
   </header></>;
