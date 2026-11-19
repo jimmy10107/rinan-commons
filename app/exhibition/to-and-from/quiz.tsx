@@ -18,14 +18,15 @@ function downloadSample(){
  const c=document.createElement('canvas');c.width=800;c.height=900;const g=c.getContext('2d');if(!g)return;
  g.fillStyle='#f6f2e5';g.fillRect(0,0,800,900);g.strokeStyle='#1c4338';g.lineWidth=6;g.strokeRect(32,32,736,836);
  g.textAlign='center';g.fillStyle='#1c4338';g.font='bold 64px serif';g.fillText('日南到站紀念章',400,270);g.font='32px sans-serif';g.fillText('在往返之間，認識日南。',400,370);g.fillText('走完八題・抵達日南',400,490);
- g.font='24px sans-serif';for(const y of [110,650,800]) g.fillText('RINAN COMMONS ｜ 樣章・不可兌換 ｜ DEMO-0000',400,y);
- const a=document.createElement('a');a.href=c.toDataURL('image/png');a.download='日南到站紀念章-樣章.png';a.click();
+ g.font='24px sans-serif';for(const y of [110,650,800]) g.fillText('RINAN COMMONS ｜ 紀念用，非兌換憑證',400,y);
+ const a=document.createElement('a');a.href=c.toDataURL('image/png');a.download='日南到站紀念章.png';a.click();
 }
 export function Quiz({floating=false}:{floating?:boolean}){
  const [answers,set]=useState<number[]>([]),answered=answers.length,complete=answered===questions.length;
  const q=questions[Math.min(answered,7)],last=questions[Math.max(0,answered-1)];
+ const endpoint=process.env.NEXT_PUBLIC_STAMP_ORIGIN;
  return <section id={floating?'floating-quiz':'quiz'} className={floating?undefined:s.band} style={floating?{padding:16}:undefined} aria-label="日南八題小測驗"><h2>小測驗：你搭上車了嗎？</h2><p>從守橋營房出發，沿途認人、看稻穗，最後到書架坐坐。八題，不限時。</p>
  <div aria-live="polite">{answered>0&&<p><strong>{answers[answered-1]===last[2]?'答對了！':'上一題答案：'+last[1][last[2]]+'。'}</strong> {last[3]} <a href={last[4]==='#people'?sitePath('/exhibition/to-and-from/')+'#people':last[4]} target="_blank" rel="noreferrer">{last[5]}</a></p>}
  {complete?<p>到站了！答對 {answers.filter((a,i)=>a===questions[i][2]).length}／8 題。</p>:<h3>第 {answered+1}／8 題｜{q[0]}</h3>}</div>
- {complete?<div><p>這是版面測試用樣章，不能兌換實體章。</p><button type="button" onClick={downloadSample}>下載紀念章樣圖（PNG）</button>　<button type="button" onClick={()=>set([])}>再搭一次車</button></div>:<div key={answered} style={{display:'grid',gap:8,maxWidth:'38rem'}}>{q[1].map((option,i)=><button type="button" key={option} style={{textAlign:'left',padding:12,minHeight:46,border:'1px solid #87998f'}} onClick={()=>set([...answers,i])}>{'ABCD'[i]}．{option}</button>)}</div>}</section>
+ {complete?<div><p>紀念章可以收藏、分享，圖片不能兌換實體章。</p><button type="button" onClick={downloadSample}>免登入下載紀念章（PNG）</button><p>{endpoint?<a href={new URL('/?a='+answers.join(''),endpoint).href}>用 LINE 領取實體章兌換資格</a>:'實體章兌換尚未開放。'}</p><button type="button" onClick={()=>set([])}>再搭一次車</button></div>:<div key={answered} style={{display:'grid',gap:8,maxWidth:'38rem'}}>{q[1].map((option,i)=><button type="button" key={option} style={{textAlign:'left',padding:12,minHeight:46,border:'1px solid #87998f'}} onClick={()=>set([...answers,i])}>{'ABCD'[i]}．{option}</button>)}</div>}</section>
 }
