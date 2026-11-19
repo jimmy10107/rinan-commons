@@ -1,4 +1,5 @@
 import { sitePath } from '../../site-path';
+import { mapPlaceHref, mapPlacesForStory } from '../../map-links';
 import { galleryUrl, makerUrl, people, plantUrl, wallUrl } from './exhibit-data';
 import { WallView } from './wall-view';
 import s from './exhibit.module.css';
@@ -16,6 +17,7 @@ export function People() {
       <a href={filmUrl} {...ext} aria-label={p.theme+'・'+p.name+'掛幅：另開 YouTube 觀看完整紀錄片'}><img src={asset(p.id,360)} srcSet={srcset(p.id,[360,600,900])} sizes="(min-width: 800px) 270px, (max-width: 365px) 200px, 132px" width={360} height={720} alt={p.theme + '・' + p.name + '人物掛幅'} loading="lazy" decoding="async" /></a>
       <div><p className={s.kicker}>{p.theme} / {p.en}</p><h3>{p.name}</h3><p className={s.role}>{p.role}</p><p>{p.summary}</p>
         <a className={s.textLink} aria-label={'閱讀' + p.name + '的人物專訪'} href={sitePath('/stories/' + p.slug + '/')}>閱讀人物專訪 →</a>
+        {mapPlacesForStory(p.slug).slice(0, 1).map(place => <a key={place.id} className={s.textLink} href={mapPlaceHref(place.id)}>在地圖認識{place.name} →</a>)}
         <details><summary>閱讀掛幅文字</summary><p>{p.en}｜{p.role}・{p.name}</p><strong>{p.title}</strong><p>{p.subtitle}</p><a href={p.url} {...ext}>{p.resource} ↗</a></details>
       </div></article>)}</div>
     <p className={s.credit}>三幅人物布條版面設計｜宮田寅成 Miyada Toranari<br/>輸出製作｜大作創意、鈺采文化</p>

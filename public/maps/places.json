@@ -1,0 +1,1535 @@
+{
+  "updatedAt": "2026-11-20",
+  "places": [
+    {
+      "id": "rinan-commons",
+      "name": "日南稻站 Rinan Commons",
+      "category": "place",
+      "lat": 24.3749504,
+      "lng": 120.6516875,
+      "address": "437 臺中市大甲區孟春里中山路二段 6 號",
+      "summary": "在車站旁看展、讀人物故事，再從稻站出發走進日南；也提供走傱護照與地方選物資訊。",
+      "area": "rinan",
+      "passportNumbers": [
+        19,
+        33
+      ],
+      "aliases": [
+        "日南稻站",
+        "走傱日南周邊與選物"
+      ],
+      "sourceUrls": [
+        "https://maps.app.goo.gl/VD6aVDVXgYVA7n9S6",
+        "https://maps.app.goo.gl/ZkkY3JdqTLjPKb3NA"
+      ],
+      "links": [
+        {
+          "label": "讀稻站的空間故事",
+          "href": "/stories/a-place-to-stop/",
+          "kind": "story"
+        },
+        {
+          "label": "走進往返策展",
+          "href": "/exhibition/to-and-from/",
+          "kind": "story"
+        },
+        {
+          "label": "查看走傱護照據點",
+          "href": "/passport/#passport-33",
+          "kind": "passport"
+        },
+        {
+          "label": "查看稻站近期交流活動",
+          "href": "/passport/#events",
+          "kind": "event"
+        },
+        {
+          "label": "開啟原地圖導航",
+          "href": "https://maps.app.goo.gl/VD6aVDVXgYVA7n9S6",
+          "kind": "visit"
+        }
+      ],
+      "sourcePaths": [
+        "public/passport/index.html:165",
+        "public/passport/index.html:201",
+        "content/seed.sql (place-1, public_content after updates)"
+      ],
+      "coordinateSource": {
+        "url": "https://maps.app.goo.gl/VD6aVDVXgYVA7n9S6",
+        "checkedAt": "2026-11-20",
+        "method": "google_maps_place_url_3d4d",
+        "matchedTitle": "日南稻站 Rinan Commons",
+        "matchedAddress": "437臺中市大甲區孟春里中山路二段6號",
+        "placeId": "0x34690feb6b17f38f:0x776de41b567e6965",
+        "precision": "place",
+        "recordPath": "redirect URL !3d / !4d",
+        "finalUrl": "https://www.google.com/maps/place/%E6%97%A5%E5%8D%97%E7%A8%BB%E7%AB%99+Rinan+Commons/@24.3749504,120.6491179,17z/data=!3m1!4b1!4m6!3m5!1s0x34690feb6b17f38f:0x776de41b567e6965!8m2!3d24.3749504!4d120.6516875!16s%2Fg%2F11zymfb4kv",
+        "alternateCurrentRecord": {
+          "name": "日南稻站",
+          "address": "437臺中市大甲區孟春里中山路二段6號",
+          "lat": 24.3748681,
+          "lng": 120.6516826,
+          "placeId": "0x34690f0005520131:0xde296f3aa17fff6c"
+        }
+      },
+      "boundaryVillage": "孟春里"
+    },
+    {
+      "id": "rinan-station",
+      "name": "日南車站",
+      "category": "place",
+      "lat": 24.378065,
+      "lng": 120.654118,
+      "address": "437臺中市大甲區",
+      "summary": "從海線木造車站認識往返日常，走進地下道觀看攝影策展。",
+      "area": "rinan",
+      "passportNumbers": [
+        32
+      ],
+      "aliases": [],
+      "sourceUrls": [
+        "https://maps.app.goo.gl/HNQpY3hKnP5kuRAs7",
+        "https://www.google.com/maps/search/?api=1&query=%E6%97%A5%E5%8D%97%E8%BB%8A%E7%AB%99%20%E5%8F%B0%E4%B8%AD%E5%A4%A7%E7%94%B2"
+      ],
+      "links": [
+        {
+          "label": "讀日南車站的故事",
+          "href": "/stories/a-station-in-daily-life/",
+          "kind": "story"
+        },
+        {
+          "label": "看看地下道攝影策展",
+          "href": "/exhibition/to-and-from/#underpass",
+          "kind": "story"
+        },
+        {
+          "label": "查看走傱護照內容",
+          "href": "/passport/#passport-32",
+          "kind": "passport"
+        },
+        {
+          "label": "開啟原地圖導航",
+          "href": "https://maps.app.goo.gl/HNQpY3hKnP5kuRAs7",
+          "kind": "visit"
+        }
+      ],
+      "sourcePaths": [
+        "public/passport/index.html:200",
+        "content/seed.sql (place-0, public_content after updates)"
+      ],
+      "coordinateSource": {
+        "url": "https://maps.app.goo.gl/HNQpY3hKnP5kuRAs7",
+        "checkedAt": "2026-11-20",
+        "method": "google_maps_place_record",
+        "matchedTitle": "日南車站",
+        "matchedAddress": "437臺中市大甲區",
+        "placeId": "0x34690e59fc7868b5:0xae337321106affdb",
+        "precision": "place",
+        "recordPath": "/6",
+        "finalUrl": "https://www.google.com/maps/place/%E6%97%A5%E5%8D%97%E8%BB%8A%E7%AB%99/@24.3783335,120.6538663,17z/data=!4m7!3m6!1s0x34690e59fc7868b5:0xae337321106affdb!8m2!3d24.378065!4d120.654118!15sChnml6XljZfou4rnq5kg5Y-w5Lit5aSn55SykgENdHJhaW5fc3RhdGlvbuABAA!16s%2Fg%2F1thr4xrd"
+      },
+      "boundaryVillage": "孟春里"
+    },
+    {
+      "id": "narin",
+      "name": "娜翎の窩 Thai Narin",
+      "category": "food",
+      "lat": 24.4048045,
+      "lng": 120.6412677,
+      "address": "437臺中市大甲區西岐里順帆路13號",
+      "summary": "從泰國到日南，娜翎在這裡成家、創業，讓泰式料理與生活服務成為人們相聚的地方。",
+      "area": "rinan",
+      "passportNumbers": [],
+      "aliases": [
+        "娜翎的窩",
+        "娜翎の窩",
+        "Thai Narin"
+      ],
+      "sourceUrls": [
+        "https://maps.app.goo.gl/JKiB8jF9BRfP2Lwf7?g_st=ic"
+      ],
+      "links": [
+        {
+          "label": "讀娜翎的故事",
+          "href": "/stories/people-narin/",
+          "kind": "story"
+        },
+        {
+          "label": "查看往返策展人物故事",
+          "href": "/exhibition/to-and-from/#people",
+          "kind": "story"
+        },
+        {
+          "label": "開啟原地圖導航",
+          "href": "https://maps.app.goo.gl/JKiB8jF9BRfP2Lwf7?g_st=ic",
+          "kind": "visit"
+        }
+      ],
+      "sourcePaths": [
+        "app/exhibition/to-and-from/exhibit-data.ts:14-17",
+        "content/seed.sql (people-narin)"
+      ],
+      "coordinateSource": {
+        "url": "https://maps.app.goo.gl/JKiB8jF9BRfP2Lwf7?g_st=ic",
+        "checkedAt": "2026-11-20",
+        "method": "google_maps_place_record",
+        "matchedTitle": "娜翎的窩",
+        "matchedAddress": "437臺中市大甲區西岐里順帆路13號",
+        "placeId": "0x34690f00613738d5:0xc8675cc68b2ea7f3",
+        "precision": "place",
+        "recordPath": "/6",
+        "finalUrl": "https://www.google.com/maps"
+      },
+      "boundaryVillage": "龍泉里"
+    },
+    {
+      "id": "longan-rice",
+      "name": "隆安米（東興香品行）",
+      "category": "select",
+      "lat": 24.3957038,
+      "lng": 120.6484128,
+      "address": "437臺中市大甲區經國路2740-5號",
+      "summary": "從陳隆安的稻作故事，走到護照收錄的隆安米選物據點；此處為東興香品行。",
+      "area": "rinan",
+      "passportNumbers": [
+        26
+      ],
+      "aliases": [
+        "隆安米",
+        "東興香品行"
+      ],
+      "sourceUrls": [
+        "https://www.google.com/maps/search/?api=1&query=437%E8%87%BA%E4%B8%AD%E5%B8%82%E5%A4%A7%E7%94%B2%E5%8D%80%E7%B6%93%E5%9C%8B%E8%B7%AF2740-5%E8%99%9F"
+      ],
+      "links": [
+        {
+          "label": "讀陳隆安與日南稻田的故事",
+          "href": "/stories/people-chen-long-an/",
+          "kind": "story"
+        },
+        {
+          "label": "查看走傱護照內容",
+          "href": "/passport/#passport-26",
+          "kind": "passport"
+        },
+        {
+          "label": "開啟原地圖導航",
+          "href": "https://www.google.com/maps/search/?api=1&query=437%E8%87%BA%E4%B8%AD%E5%B8%82%E5%A4%A7%E7%94%B2%E5%8D%80%E7%B6%93%E5%9C%8B%E8%B7%AF2740-5%E8%99%9F",
+          "kind": "visit"
+        }
+      ],
+      "sourcePaths": [
+        "public/passport/index.html:169"
+      ],
+      "coordinateSource": {
+        "url": "https://www.google.com/maps/search/?api=1&query=%E6%9D%B1%E8%88%88%E9%A6%99%E5%93%81%E8%A1%8C%20%E5%A4%A7%E7%94%B2%20%E7%B6%93%E5%9C%8B%E8%B7%AF2740-5%E8%99%9F",
+        "checkedAt": "2026-11-20",
+        "method": "google_maps_place_record",
+        "matchedTitle": "東興香品行",
+        "matchedAddress": "437臺中市大甲區經國路2740-5號",
+        "placeId": "0x34690eede3614bb5:0x9659061e8944774b",
+        "precision": "place",
+        "recordPath": "/0/1/0/14"
+      },
+      "boundaryVillage": "日南里"
+    },
+    {
+      "id": "cide-temple",
+      "name": "日南慈德宮",
+      "category": "place",
+      "lat": 24.3809002,
+      "lng": 120.6564162,
+      "address": "437臺中市大甲區孟春里通天路152號",
+      "summary": "讀鄭筱萱的返鄉故事，也認識家人年年到慈德宮點燈祈福的地方連結。",
+      "area": "rinan",
+      "passportNumbers": [
+        35
+      ],
+      "aliases": [
+        "慈德宮"
+      ],
+      "sourceUrls": [
+        "https://www.google.com/maps/search/?api=1&query=%E6%97%A5%E5%8D%97%E6%85%88%E5%BE%B7%E5%AE%AE",
+        "https://www.google.com/maps/search/?api=1&query=%E6%85%88%E5%BE%B7%E5%AE%AE%20%E6%97%A5%E5%8D%97%20%E5%A4%A7%E7%94%B2"
+      ],
+      "links": [
+        {
+          "label": "讀鄭筱萱與日南的故事",
+          "href": "/stories/people-cheng-hsiao-hsuan/",
+          "kind": "story"
+        },
+        {
+          "label": "查看走傱護照內容",
+          "href": "/passport/#passport-35",
+          "kind": "passport"
+        },
+        {
+          "label": "開啟原地圖導航",
+          "href": "https://www.google.com/maps/search/?api=1&query=%E6%97%A5%E5%8D%97%E6%85%88%E5%BE%B7%E5%AE%AE",
+          "kind": "visit"
+        }
+      ],
+      "sourcePaths": [
+        "public/passport/index.html:203",
+        "content/seed.sql (place-6, public_content after updates)"
+      ],
+      "coordinateSource": {
+        "url": "https://www.google.com/maps/search/?api=1&query=%E6%97%A5%E5%8D%97%E6%85%88%E5%BE%B7%E5%AE%AE",
+        "checkedAt": "2026-11-20",
+        "method": "google_maps_place_record",
+        "matchedTitle": "日南慈德宮 三庄媽",
+        "matchedAddress": "437臺中市大甲區孟春里通天路152號",
+        "placeId": "0x34690e51131423cb:0x644826a4279b39ee",
+        "precision": "place",
+        "recordPath": "/0/1/0/14"
+      },
+      "boundaryVillage": "孟春里"
+    },
+    {
+      "id": "rinan-plaza",
+      "name": "日南車站旁廣場",
+      "category": "place",
+      "lat": 24.378065,
+      "lng": 120.654118,
+      "address": "437臺中市大甲區",
+      "summary": "走傱日南 2026 音樂演出與市集使用的車站旁廣場。",
+      "area": "rinan",
+      "passportNumbers": [],
+      "aliases": [],
+      "sourceUrls": [
+        "https://maps.app.goo.gl/NoN8DrkZRdcLhcoW6"
+      ],
+      "links": [
+        {
+          "label": "查看走傱日南活動紀錄",
+          "href": "/motion2026/",
+          "kind": "event"
+        },
+        {
+          "label": "開啟原地圖導航",
+          "href": "https://maps.app.goo.gl/NoN8DrkZRdcLhcoW6",
+          "kind": "visit"
+        }
+      ],
+      "sourcePaths": [
+        "app/motion2026/event-site.tsx:9"
+      ],
+      "coordinateSource": {
+        "url": "https://maps.app.goo.gl/NoN8DrkZRdcLhcoW6",
+        "checkedAt": "2026-11-20",
+        "method": "google_maps_place_record",
+        "matchedTitle": "日南車站",
+        "matchedAddress": "437臺中市大甲區",
+        "placeId": "0x34690e59fc7868b5:0xae337321106affdb",
+        "precision": "station_reference",
+        "recordPath": "/6",
+        "finalUrl": "https://www.google.com/maps/place/%E6%97%A5%E5%8D%97%E8%BB%8A%E7%AB%99/@24.3783335,120.6512968,17z/data=!4m7!3m6!1s0x34690e59fc7868b5:0xae337321106affdb!8m2!3d24.378065!4d120.654118!15sCgzml6XljZfou4rnq5mSAQ10cmFpbl9zdGF0aW9u4AEA!16s%2Fg%2F1thr4xrd"
+      },
+      "notice": "原活動導航連到日南車站；地圖以車站作為參考點，廣場入口請依現場指引確認。",
+      "boundaryVillage": "孟春里"
+    },
+    {
+      "id": "rinan-kitchen",
+      "name": "日南來心肉共生廚房 × 崩八食堂",
+      "category": "food",
+      "lat": 24.380259,
+      "lng": 120.6549291,
+      "address": "臺中市大甲區中山路二段206號",
+      "summary": "走傱護照美食合作店家。",
+      "area": "rinan",
+      "passportNumbers": [
+        2
+      ],
+      "aliases": [],
+      "sourceUrls": [
+        "https://www.google.com/maps/search/?api=1&query=%E6%97%A5%E5%8D%97%E4%BE%86%E5%BF%83%E8%82%89%20%E8%87%BA%E4%B8%AD%E5%B8%82%E5%A4%A7%E7%94%B2%E5%8D%80%E4%B8%AD%E5%B1%B1%E8%B7%AF%E4%BA%8C%E6%AE%B5206%E8%99%9F"
+      ],
+      "links": [
+        {
+          "label": "查看走傱護照內容",
+          "href": "/passport/#passport-2",
+          "kind": "passport"
+        },
+        {
+          "label": "開啟原地圖導航",
+          "href": "https://www.google.com/maps/search/?api=1&query=%E6%97%A5%E5%8D%97%E4%BE%86%E5%BF%83%E8%82%89%20%E8%87%BA%E4%B8%AD%E5%B8%82%E5%A4%A7%E7%94%B2%E5%8D%80%E4%B8%AD%E5%B1%B1%E8%B7%AF%E4%BA%8C%E6%AE%B5206%E8%99%9F",
+          "kind": "visit"
+        },
+        {
+          "label": "Facebook",
+          "href": "https://www.facebook.com/rinanodmar/",
+          "kind": "website"
+        }
+      ],
+      "sourcePaths": [
+        "public/passport/index.html:102"
+      ],
+      "coordinateSource": {
+        "url": "https://www.google.com/maps/search/?api=1&query=%E6%97%A5%E5%8D%97%E4%BE%86%E5%BF%83%E8%82%89%20%E8%87%BA%E4%B8%AD%E5%B8%82%E5%A4%A7%E7%94%B2%E5%8D%80%E4%B8%AD%E5%B1%B1%E8%B7%AF%E4%BA%8C%E6%AE%B5206%E8%99%9F",
+        "checkedAt": "2026-11-20",
+        "method": "google_maps_place_record",
+        "matchedTitle": "日南來心肉共生廚房（可大量訂餐、會議便當、外燴）",
+        "matchedAddress": "437臺中市大甲區孟春里中山路二段206號",
+        "placeId": "0x34690f1b12503037:0x62c84f3b6178d032",
+        "precision": "place",
+        "recordPath": "/0/1/0/14"
+      },
+      "boundaryVillage": "孟春里"
+    },
+    {
+      "id": "good-soyfoods",
+      "name": "原豆粹食 GOOD SOYFOODS",
+      "category": "food",
+      "lat": 24.4401149,
+      "lng": 120.6543131,
+      "address": "苗栗縣苑裡鎮苑南里新興路86-1號",
+      "summary": "走傱護照美食合作店家。",
+      "area": "nearby",
+      "passportNumbers": [
+        3
+      ],
+      "aliases": [],
+      "sourceUrls": [
+        "https://www.google.com/maps/search/?api=1&query=%E5%8E%9F%E8%B1%86%E7%B2%B9%E9%A3%9F%20%E8%8B%97%E6%A0%97%E7%B8%A3%E8%8B%91%E8%A3%A1%E9%8E%AE%E6%96%B0%E8%88%88%E8%B7%AF86-1%E8%99%9F"
+      ],
+      "links": [
+        {
+          "label": "查看走傱護照內容",
+          "href": "/passport/#passport-3",
+          "kind": "passport"
+        },
+        {
+          "label": "開啟原地圖導航",
+          "href": "https://www.google.com/maps/search/?api=1&query=%E5%8E%9F%E8%B1%86%E7%B2%B9%E9%A3%9F%20%E8%8B%97%E6%A0%97%E7%B8%A3%E8%8B%91%E8%A3%A1%E9%8E%AE%E6%96%B0%E8%88%88%E8%B7%AF86-1%E8%99%9F",
+          "kind": "visit"
+        },
+        {
+          "label": "Facebook",
+          "href": "https://www.facebook.com/goodsoyfoods/",
+          "kind": "website"
+        }
+      ],
+      "sourcePaths": [
+        "public/passport/index.html:108"
+      ],
+      "coordinateSource": {
+        "url": "https://www.google.com/search?tbm=map&hl=zh-TW&q=%E5%8E%9F%E8%B1%86%E7%B2%B9%E9%A3%9F%20GOOD%20SOYFOODS%20%E8%8B%91%E8%A3%A1",
+        "checkedAt": "2026-11-20",
+        "method": "google_maps_place_record",
+        "matchedTitle": "原豆粹食 GOOD SOYFOODS",
+        "matchedAddress": "358苗栗縣苑裡鎮苑南里新興路86-1號",
+        "placeId": "0x34690afe2427b6f9:0x38f4a95623f69a48",
+        "precision": "place",
+        "recordPath": "/0/1/0/14"
+      }
+    },
+    {
+      "id": "huaning-studio",
+      "name": "椛檸製所",
+      "category": "food",
+      "lat": 24.3810993,
+      "lng": 120.6547757,
+      "address": "臺中市大甲區孟春里通天路172號1樓",
+      "summary": "走傱護照美食合作店家。",
+      "area": "rinan",
+      "passportNumbers": [
+        4
+      ],
+      "aliases": [],
+      "sourceUrls": [
+        "https://www.google.com/maps/search/?api=1&query=%E6%A4%9B%E6%AA%B8%E8%A3%BD%E6%89%80%20%E5%A4%A7%E7%94%B2"
+      ],
+      "links": [
+        {
+          "label": "查看走傱護照內容",
+          "href": "/passport/#passport-4",
+          "kind": "passport"
+        },
+        {
+          "label": "開啟原地圖導航",
+          "href": "https://www.google.com/maps/search/?api=1&query=%E6%A4%9B%E6%AA%B8%E8%A3%BD%E6%89%80%20%E5%A4%A7%E7%94%B2",
+          "kind": "visit"
+        },
+        {
+          "label": "Facebook",
+          "href": "https://www.facebook.com/huaningdessert/",
+          "kind": "website"
+        },
+        {
+          "label": "Instagram",
+          "href": "https://www.instagram.com/hua_ning_studio/",
+          "kind": "website"
+        }
+      ],
+      "sourcePaths": [
+        "public/passport/index.html:114"
+      ],
+      "coordinateSource": {
+        "url": "https://www.google.com/maps/search/?api=1&query=%E6%A4%9B%E6%AA%B8%E8%A3%BD%E6%89%80%20%E5%A4%A7%E7%94%B2",
+        "checkedAt": "2026-11-20",
+        "method": "google_maps_place_record",
+        "matchedTitle": "椛檸製所",
+        "matchedAddress": "437臺中市大甲區孟春里通天路172號",
+        "placeId": "0x34690f007d0656e7:0xd0cf22ef90b89605",
+        "precision": "place",
+        "recordPath": "/0/1/0/14"
+      },
+      "boundaryVillage": "孟春里"
+    },
+    {
+      "id": "mountain-riceball",
+      "name": "山腳下飯糰",
+      "category": "food",
+      "lat": 24.4380507,
+      "lng": 120.6497695,
+      "address": "苗栗縣苑裡鎮房裡里博愛路6號",
+      "summary": "走傱護照美食合作店家。",
+      "area": "nearby",
+      "passportNumbers": [
+        6
+      ],
+      "aliases": [],
+      "sourceUrls": [
+        "https://www.google.com/maps/search/?api=1&query=%E5%B1%B1%E8%85%B3%E4%B8%8B%E9%A3%AF%E7%B3%B0%20%E8%8B%91%E8%A3%A1"
+      ],
+      "links": [
+        {
+          "label": "查看走傱護照內容",
+          "href": "/passport/#passport-6",
+          "kind": "passport"
+        },
+        {
+          "label": "開啟原地圖導航",
+          "href": "https://www.google.com/maps/search/?api=1&query=%E5%B1%B1%E8%85%B3%E4%B8%8B%E9%A3%AF%E7%B3%B0%20%E8%8B%91%E8%A3%A1",
+          "kind": "visit"
+        },
+        {
+          "label": "FB",
+          "href": "https://www.facebook.com/profile.php?id=100064097766555",
+          "kind": "website"
+        },
+        {
+          "label": "IG",
+          "href": "https://www.instagram.com/atownbesidethemountain/",
+          "kind": "website"
+        }
+      ],
+      "sourcePaths": [
+        "public/passport/index.html:120"
+      ],
+      "coordinateSource": {
+        "url": "https://www.google.com/maps/search/?api=1&query=%E5%B1%B1%E8%85%B3%E4%B8%8B%E9%A3%AF%E7%B3%B0%20%E8%8B%91%E8%A3%A1",
+        "checkedAt": "2026-11-20",
+        "method": "google_maps_place_record",
+        "matchedTitle": "山腳下飯糰",
+        "matchedAddress": "358苗栗縣苑裡鎮房裡里博愛路6號",
+        "placeId": "0x34690f4b8e160411:0xf437604fe0428657",
+        "precision": "place",
+        "recordPath": "/0/1/0/14"
+      }
+    },
+    {
+      "id": "frog-guava",
+      "name": "水蛙刺青甘草芭樂",
+      "category": "food",
+      "lat": 24.380792,
+      "lng": 120.6547904,
+      "address": "臺中市大甲區中山路二段231號",
+      "summary": "走傱護照美食合作店家。",
+      "notice": "依護照地址標示參考位置；甘草芭樂販售與集章位置請先向店家確認。",
+      "area": "rinan",
+      "passportNumbers": [
+        8
+      ],
+      "aliases": [
+        "水蛙刺青"
+      ],
+      "sourceUrls": [
+        "https://www.google.com/maps/search/?api=1&query=%E6%B0%B4%E8%9B%99%E5%88%BA%E9%9D%92%E7%94%98%E8%8D%89%E8%8A%AD%E6%A8%82%20%E5%A4%A7%E7%94%B2",
+        "https://www.google.com/maps/search/?api=1&query=%E8%87%BA%E4%B8%AD%E5%B8%82%E5%A4%A7%E7%94%B2%E5%8D%80%E4%B8%AD%E5%B1%B1%E8%B7%AF%E4%BA%8C%E6%AE%B5231%E8%99%9F"
+      ],
+      "links": [
+        {
+          "label": "查看走傱護照內容",
+          "href": "/passport/#passport-8",
+          "kind": "passport"
+        },
+        {
+          "label": "前往護照地址",
+          "href": "https://www.google.com/maps/search/?api=1&query=%E8%87%BA%E4%B8%AD%E5%B8%82%E5%A4%A7%E7%94%B2%E5%8D%80%E4%B8%AD%E5%B1%B1%E8%B7%AF%E4%BA%8C%E6%AE%B5231%E8%99%9F",
+          "kind": "visit"
+        },
+        {
+          "label": "Facebook",
+          "href": "https://www.facebook.com/p/%E6%B0%B4%E8%9B%99%E5%88%BA%E9%9D%92-61566287243170/",
+          "kind": "website"
+        }
+      ],
+      "sourcePaths": [
+        "public/passport/index.html:133"
+      ],
+      "coordinateSource": {
+        "url": "https://www.google.com/maps/search/?api=1&query=%E8%87%BA%E4%B8%AD%E5%B8%82%E5%A4%A7%E7%94%B2%E5%8D%80%E4%B8%AD%E5%B1%B1%E8%B7%AF%E4%BA%8C%E6%AE%B5231%E8%99%9F",
+        "checkedAt": "2026-11-20",
+        "method": "google_maps_address_reference",
+        "matchedTitle": "437台中市大甲区孟春里中山路二段231號",
+        "matchedAddress": "437台中市大甲区孟春里中山路二段231號",
+        "placeId": "0x34690e5788b8f129:0xf32e9cf75bba377e",
+        "precision": "address",
+        "recordPath": "/0/1/0/14",
+        "verifiedBusinessAtAddress": {
+          "name": "水蛙刺青",
+          "address": "437臺中市大甲區孟春里中山路二段231號；2樓",
+          "lat": 24.3807694,
+          "lng": 120.6548783,
+          "url": "https://www.google.com/search?tbm=map&hl=zh-TW&q=%E6%B0%B4%E8%9B%99%E5%88%BA%E9%9D%92%20%E5%A4%A7%E7%94%B2%20%E4%B8%AD%E5%B1%B1%E8%B7%AF%E4%BA%8C%E6%AE%B5231%E8%99%9F"
+        }
+      },
+      "boundaryVillage": "孟春里"
+    },
+    {
+      "id": "wangding-lane",
+      "name": "旺定巷1號",
+      "category": "food",
+      "lat": null,
+      "lng": null,
+      "address": "",
+      "summary": "走傱護照美食合作店家。",
+      "notice": "無固定據點，流動出攤，地點與時間依粉專公告",
+      "area": "nearby",
+      "passportNumbers": [
+        10
+      ],
+      "aliases": [],
+      "sourceUrls": [],
+      "links": [
+        {
+          "label": "查看走傱護照內容",
+          "href": "/passport/#passport-10",
+          "kind": "passport"
+        },
+        {
+          "label": "Facebook",
+          "href": "https://www.facebook.com/profile.php?id=100063936458121",
+          "kind": "website"
+        }
+      ],
+      "sourcePaths": [
+        "public/passport/index.html:139"
+      ],
+      "coordinateSource": {
+        "url": "https://www.facebook.com/profile.php?id=100063936458121",
+        "checkedAt": "2026-11-20",
+        "method": "no_fixed_location"
+      }
+    },
+    {
+      "id": "tea-198",
+      "name": "198茶苑",
+      "category": "food",
+      "lat": 24.381457,
+      "lng": 120.6542214,
+      "address": "437臺中市大甲區孟春里121縣道198號",
+      "summary": "走傱護照美食合作店家。",
+      "area": "rinan",
+      "passportNumbers": [
+        13
+      ],
+      "aliases": [],
+      "sourceUrls": [
+        "https://www.google.com/maps/search/?api=1&query=437%E8%87%BA%E4%B8%AD%E5%B8%82%E5%A4%A7%E7%94%B2%E5%8D%80%E5%AD%9F%E6%98%A5%E9%87%8C121%E7%B8%A3%E9%81%93198%E8%99%9F"
+      ],
+      "links": [
+        {
+          "label": "查看走傱護照內容",
+          "href": "/passport/#passport-13",
+          "kind": "passport"
+        },
+        {
+          "label": "前往護照地址",
+          "href": "https://www.google.com/maps/search/?api=1&query=437%E8%87%BA%E4%B8%AD%E5%B8%82%E5%A4%A7%E7%94%B2%E5%8D%80%E5%AD%9F%E6%98%A5%E9%87%8C121%E7%B8%A3%E9%81%93198%E8%99%9F",
+          "kind": "visit"
+        },
+        {
+          "label": "LINE 社群",
+          "href": "https://openchat.line.me/tw/cover/4_SHbt260eJ2BECL4Fr_nlZ0PfaYjkmLCSlxYsAIsXNKKSTNSgyjbFi2vbo",
+          "kind": "website"
+        }
+      ],
+      "sourcePaths": [
+        "public/passport/index.html:145"
+      ],
+      "coordinateSource": {
+        "url": "https://www.google.com/maps/search/?api=1&query=437%E8%87%BA%E4%B8%AD%E5%B8%82%E5%A4%A7%E7%94%B2%E5%8D%80%E5%AD%9F%E6%98%A5%E9%87%8C121%E7%B8%A3%E9%81%93198%E8%99%9F",
+        "checkedAt": "2026-11-20",
+        "method": "google_maps_address_reference",
+        "matchedTitle": "437臺中市大甲區孟春里121縣道198號",
+        "matchedAddress": "437臺中市大甲區孟春里121縣道198號",
+        "placeId": "0x34690e58219f6df9:0x60f78b8e673db04d",
+        "precision": "address",
+        "recordPath": "/0/1/0/14"
+      },
+      "notice": "依護照地址標示參考位置；店家入口請向店家確認。",
+      "boundaryVillage": "孟春里"
+    },
+    {
+      "id": "shiguang-537",
+      "name": "拾光伍參柒",
+      "category": "select",
+      "lat": 24.3881985,
+      "lng": 120.654947,
+      "address": "臺中市大甲區幸福里中山路二段537巷5號",
+      "summary": "走傱護照選物合作據點。",
+      "area": "rinan",
+      "passportNumbers": [
+        22
+      ],
+      "aliases": [],
+      "sourceUrls": [
+        "https://www.google.com/maps/search/?api=1&query=%E6%8B%BE%E5%85%89%E4%BC%8D%E5%8F%83%E6%9F%92%20%E5%A4%A7%E7%94%B2"
+      ],
+      "links": [
+        {
+          "label": "查看走傱護照內容",
+          "href": "/passport/#passport-22",
+          "kind": "passport"
+        },
+        {
+          "label": "開啟原地圖導航",
+          "href": "https://www.google.com/maps/search/?api=1&query=%E6%8B%BE%E5%85%89%E4%BC%8D%E5%8F%83%E6%9F%92%20%E5%A4%A7%E7%94%B2",
+          "kind": "visit"
+        },
+        {
+          "label": "Facebook",
+          "href": "https://www.facebook.com/318885292143330/",
+          "kind": "website"
+        }
+      ],
+      "sourcePaths": [
+        "public/passport/index.html:166"
+      ],
+      "coordinateSource": {
+        "url": "https://www.google.com/search?tbm=map&hl=zh-TW&q=%E6%8B%BE%E5%85%89%E4%BC%8D%E5%8F%83%E6%9F%92%20%E5%A4%A7%E7%94%B2",
+        "checkedAt": "2026-11-20",
+        "method": "google_maps_place_record",
+        "matchedTitle": "拾光伍參柒",
+        "matchedAddress": "437臺中市大甲區幸福里中山路二段537巷5號",
+        "placeId": "0x34690f189465d085:0x8c76f667eb7dec83",
+        "precision": "place",
+        "recordPath": "/0/1/0/14"
+      },
+      "boundaryVillage": "幸福里"
+    },
+    {
+      "id": "snowfat",
+      "name": "Snowfat 肥雪工作室",
+      "category": "select",
+      "lat": null,
+      "lng": null,
+      "address": "",
+      "summary": "走傱護照選物合作據點。",
+      "notice": "創作品牌・依合作場次與社群公告",
+      "area": "nearby",
+      "passportNumbers": [
+        23
+      ],
+      "aliases": [],
+      "sourceUrls": [],
+      "links": [
+        {
+          "label": "查看走傱護照內容",
+          "href": "/passport/#passport-23",
+          "kind": "passport"
+        },
+        {
+          "label": "Facebook 社團",
+          "href": "https://www.facebook.com/groups/447512692753212",
+          "kind": "website"
+        }
+      ],
+      "sourcePaths": [
+        "public/passport/index.html:167"
+      ],
+      "coordinateSource": {
+        "url": "https://www.facebook.com/groups/447512692753212",
+        "checkedAt": "2026-11-20",
+        "method": "no_fixed_location"
+      }
+    },
+    {
+      "id": "shanqun-farm",
+      "name": "善群有機農莊｜Yüanli",
+      "category": "select",
+      "lat": 24.3693499,
+      "lng": 120.6934304,
+      "address": "苗栗縣苑裡鎮上舘里10鄰上館198號",
+      "summary": "走傱護照選物合作據點。",
+      "notice": "預約制，到訪前務必預約；請依粉絲專頁公布的活動方式參與集章。",
+      "area": "nearby",
+      "passportNumbers": [
+        25
+      ],
+      "aliases": [
+        "善群農莊",
+        "善群有機農莊"
+      ],
+      "sourceUrls": [
+        "https://www.google.com/maps/search/?api=1&query=%E5%96%84%E7%BE%A4%E6%9C%89%E6%A9%9F%E8%BE%B2%E8%8E%8A%20%E8%8B%97%E6%A0%97%E7%B8%A3%E8%8B%91%E8%A3%A1%E9%8E%AE%E4%B8%8A%E8%88%98%E9%87%8C10%E9%84%B0%E4%B8%8A%E9%A4%A8198%E8%99%9F"
+      ],
+      "links": [
+        {
+          "label": "查看走傱護照內容",
+          "href": "/passport/#passport-25",
+          "kind": "passport"
+        },
+        {
+          "label": "開啟原地圖導航",
+          "href": "https://www.google.com/maps/search/?api=1&query=%E5%96%84%E7%BE%A4%E6%9C%89%E6%A9%9F%E8%BE%B2%E8%8E%8A%20%E8%8B%97%E6%A0%97%E7%B8%A3%E8%8B%91%E8%A3%A1%E9%8E%AE%E4%B8%8A%E8%88%98%E9%87%8C10%E9%84%B0%E4%B8%8A%E9%A4%A8198%E8%99%9F",
+          "kind": "visit"
+        },
+        {
+          "label": "Facebook",
+          "href": "https://www.facebook.com/p/%E5%96%84%E7%BE%A4%E6%9C%89%E6%A9%9F%E8%BE%B2%E8%8E%8A-100063544105817/?locale=zh_TW",
+          "kind": "website"
+        }
+      ],
+      "sourcePaths": [
+        "public/passport/index.html:168"
+      ],
+      "coordinateSource": {
+        "url": "https://www.google.com/search?tbm=map&hl=zh-TW&q=%E5%96%84%E7%BE%A4%E6%9C%89%E6%A9%9F%E8%BE%B2%E8%8E%8A",
+        "checkedAt": "2026-11-20",
+        "method": "google_maps_place_record",
+        "matchedTitle": "善群農莊",
+        "matchedAddress": "358苗栗縣苑裡鎮上舘里；上舘 里 10 鄰 198 號",
+        "placeId": "0x34690f9eb64c77b9:0xcc43d93092204df2",
+        "precision": "place",
+        "recordPath": "/0/1/0/14"
+      }
+    },
+    {
+      "id": "yusoy",
+      "name": "御豆坊（美華數位影像中心）",
+      "category": "select",
+      "lat": 24.37957,
+      "lng": 120.654402,
+      "address": "437臺中市大甲區孟春里中山路二段196號",
+      "summary": "走傱護照選物合作據點。",
+      "area": "rinan",
+      "passportNumbers": [
+        27
+      ],
+      "aliases": [
+        "御豆坊",
+        "美華數位影像中心"
+      ],
+      "sourceUrls": [
+        "https://www.google.com/maps/search/?api=1&query=437%E8%87%BA%E4%B8%AD%E5%B8%82%E5%A4%A7%E7%94%B2%E5%8D%80%E5%AD%9F%E6%98%A5%E9%87%8C%E4%B8%AD%E5%B1%B1%E8%B7%AF%E4%BA%8C%E6%AE%B5196%E8%99%9F"
+      ],
+      "links": [
+        {
+          "label": "查看走傱護照內容",
+          "href": "/passport/#passport-27",
+          "kind": "passport"
+        },
+        {
+          "label": "開啟原地圖導航",
+          "href": "https://www.google.com/maps/search/?api=1&query=437%E8%87%BA%E4%B8%AD%E5%B8%82%E5%A4%A7%E7%94%B2%E5%8D%80%E5%AD%9F%E6%98%A5%E9%87%8C%E4%B8%AD%E5%B1%B1%E8%B7%AF%E4%BA%8C%E6%AE%B5196%E8%99%9F",
+          "kind": "visit"
+        },
+        {
+          "label": "Facebook",
+          "href": "https://www.facebook.com/yusoy88/",
+          "kind": "website"
+        }
+      ],
+      "sourcePaths": [
+        "public/passport/index.html:170"
+      ],
+      "coordinateSource": {
+        "url": "https://www.google.com/maps/search/?api=1&query=%E7%BE%8E%E8%8F%AF%E6%95%B8%E4%BD%8D%E5%BD%B1%E5%83%8F%E4%B8%AD%E5%BF%83%20%E5%A4%A7%E7%94%B2%20%E4%B8%AD%E5%B1%B1%E8%B7%AF%E4%BA%8C%E6%AE%B5196%E8%99%9F",
+        "checkedAt": "2026-11-20",
+        "method": "google_maps_place_record",
+        "matchedTitle": "美華數位影像中心",
+        "matchedAddress": "437臺中市大甲區孟春里中山路二段196號",
+        "placeId": "0x34690e59d78a812f:0xad4c8c765f7a9c7f",
+        "precision": "place",
+        "recordPath": "/0/1/0/14"
+      },
+      "boundaryVillage": "孟春里"
+    },
+    {
+      "id": "sunlight-train",
+      "name": "日頭伙俥站",
+      "category": "place",
+      "lat": 24.3802022,
+      "lng": 120.6548392,
+      "address": "臺中市大甲區孟春里中山路二段206號（日南來心肉場域）",
+      "summary": "以日南火車站意象打造的文化交流場域，位於日南來心肉場域內。",
+      "notice": "位於日南來心肉場域；地圖標示共同場域，入口與樓層請依現場指引確認。",
+      "area": "rinan",
+      "passportNumbers": [
+        34
+      ],
+      "aliases": [],
+      "sourceUrls": [
+        "https://maps.app.goo.gl/qYGsVgte1gPwcu3L9"
+      ],
+      "links": [
+        {
+          "label": "查看走傱護照內容",
+          "href": "/passport/#passport-34",
+          "kind": "passport"
+        },
+        {
+          "label": "開啟原地圖導航",
+          "href": "https://maps.app.goo.gl/qYGsVgte1gPwcu3L9",
+          "kind": "visit"
+        }
+      ],
+      "sourcePaths": [
+        "public/passport/index.html:202"
+      ],
+      "coordinateSource": {
+        "url": "https://maps.app.goo.gl/qYGsVgte1gPwcu3L9",
+        "checkedAt": "2026-11-20",
+        "method": "google_maps_shared_venue_record",
+        "matchedTitle": "崩八食堂x日南來心肉",
+        "matchedAddress": "437臺中市大甲區孟春里中山路二段204號",
+        "placeId": "0x34690f2b00d7a7b3:0x5c10fac11d38aa60",
+        "precision": "shared_venue",
+        "verificationUrls": [
+          "https://www.taichung.gov.tw/8868/8872/9962/3174681",
+          "https://www.taiwantt.org.tw/tw/index.php?id=21145&option=com_content&task=view"
+        ]
+      },
+      "parentPlaceId": "rinan-kitchen",
+      "boundaryVillage": "孟春里"
+    },
+    {
+      "id": "shallow-green-books",
+      "name": "淺山綠 獨立書店",
+      "category": "place",
+      "lat": 24.3921731,
+      "lng": 120.7092352,
+      "address": "358苗栗縣苑裡鎮南勢里南勢七鄰93號",
+      "summary": "走傱護照地方據點。",
+      "area": "nearby",
+      "passportNumbers": [
+        36
+      ],
+      "aliases": [],
+      "sourceUrls": [
+        "https://www.google.com/maps/search/?api=1&query=%E6%B7%BA%E5%B1%B1%E7%B6%A0%20%E7%8D%A8%E7%AB%8B%E6%9B%B8%E5%BA%97"
+      ],
+      "links": [
+        {
+          "label": "查看走傱護照內容",
+          "href": "/passport/#passport-36",
+          "kind": "passport"
+        },
+        {
+          "label": "開啟原地圖導航",
+          "href": "https://www.google.com/maps/search/?api=1&query=%E6%B7%BA%E5%B1%B1%E7%B6%A0%20%E7%8D%A8%E7%AB%8B%E6%9B%B8%E5%BA%97",
+          "kind": "visit"
+        }
+      ],
+      "sourcePaths": [
+        "public/passport/index.html:204"
+      ],
+      "coordinateSource": {
+        "url": "https://www.google.com/maps/search/?api=1&query=%E6%B7%BA%E5%B1%B1%E7%B6%A0%20%E7%8D%A8%E7%AB%8B%E6%9B%B8%E5%BA%97",
+        "checkedAt": "2026-11-20",
+        "method": "google_maps_place_record",
+        "matchedTitle": "淺山綠 獨立書店",
+        "matchedAddress": "358苗栗縣苑裡鎮南勢里南勢七鄰93號",
+        "placeId": "0x34690fbc43a955cb:0xe1150133ef674485",
+        "precision": "place",
+        "recordPath": "/0/1/0/14"
+      }
+    },
+    {
+      "id": "little-courtyard",
+      "name": "小院子的日常",
+      "category": "place",
+      "lat": 24.367557,
+      "lng": 120.7095243,
+      "address": "358苗栗縣苑裡鎮上舘里上舘49號",
+      "summary": "走傱護照地方據點。",
+      "area": "nearby",
+      "passportNumbers": [
+        37
+      ],
+      "aliases": [],
+      "sourceUrls": [
+        "https://www.google.com/maps/search/?api=1&query=%E5%B0%8F%E9%99%A2%E5%AD%90%E7%9A%84%E6%97%A5%E5%B8%B8"
+      ],
+      "links": [
+        {
+          "label": "查看走傱護照內容",
+          "href": "/passport/#passport-37",
+          "kind": "passport"
+        },
+        {
+          "label": "開啟原地圖導航",
+          "href": "https://www.google.com/maps/search/?api=1&query=%E5%B0%8F%E9%99%A2%E5%AD%90%E7%9A%84%E6%97%A5%E5%B8%B8",
+          "kind": "visit"
+        }
+      ],
+      "sourcePaths": [
+        "public/passport/index.html:205"
+      ],
+      "coordinateSource": {
+        "url": "https://www.google.com/maps/search/?api=1&query=%E5%B0%8F%E9%99%A2%E5%AD%90%E7%9A%84%E6%97%A5%E5%B8%B8",
+        "checkedAt": "2026-11-20",
+        "method": "google_maps_place_record",
+        "matchedTitle": "小院子的日常",
+        "matchedAddress": "358苗栗縣苑裡鎮上舘里上舘49號",
+        "placeId": "0x34693d75e5f96207:0x946e823962a65ab2",
+        "precision": "place",
+        "recordPath": "/0/1/0/14"
+      }
+    },
+    {
+      "id": "wild-books",
+      "name": "野人讀冊店",
+      "category": "place",
+      "lat": 24.3556865,
+      "lng": 120.6318143,
+      "address": "437臺中市大甲區頂店里大智街10號",
+      "summary": "走傱護照地方據點。",
+      "area": "nearby",
+      "passportNumbers": [
+        38
+      ],
+      "aliases": [],
+      "sourceUrls": [
+        "https://www.google.com/maps/search/?api=1&query=%E9%87%8E%E4%BA%BA%E8%AE%80%E5%86%8A%E5%BA%97"
+      ],
+      "links": [
+        {
+          "label": "查看走傱護照內容",
+          "href": "/passport/#passport-38",
+          "kind": "passport"
+        },
+        {
+          "label": "開啟原地圖導航",
+          "href": "https://www.google.com/maps/search/?api=1&query=%E9%87%8E%E4%BA%BA%E8%AE%80%E5%86%8A%E5%BA%97",
+          "kind": "visit"
+        }
+      ],
+      "sourcePaths": [
+        "public/passport/index.html:211"
+      ],
+      "coordinateSource": {
+        "url": "https://www.google.com/maps/search/?api=1&query=%E9%87%8E%E4%BA%BA%E8%AE%80%E5%86%8A%E5%BA%97",
+        "checkedAt": "2026-11-20",
+        "method": "google_maps_place_record",
+        "matchedTitle": "野人讀冊店",
+        "matchedAddress": "437臺中市大甲區頂店里大智街10號",
+        "placeId": "0x34690f961fa4c921:0x19fc384b22323b4d",
+        "precision": "place",
+        "recordPath": "/0/1/0/14"
+      }
+    },
+    {
+      "id": "arima-horse",
+      "name": "有馬家休閒馬場",
+      "category": "place",
+      "lat": 24.4208894,
+      "lng": 120.6205511,
+      "address": "437臺中市大甲區西岐里如意路37巷13號",
+      "summary": "走傱護照地方據點。",
+      "area": "rinan",
+      "passportNumbers": [
+        39
+      ],
+      "aliases": [],
+      "sourceUrls": [
+        "https://www.google.com/maps/search/?api=1&query=%E6%9C%89%E9%A6%AC%E5%AE%B6%E4%BC%91%E9%96%92%E9%A6%AC%E5%A0%B4"
+      ],
+      "links": [
+        {
+          "label": "查看走傱護照內容",
+          "href": "/passport/#passport-39",
+          "kind": "passport"
+        },
+        {
+          "label": "開啟原地圖導航",
+          "href": "https://www.google.com/maps/search/?api=1&query=%E6%9C%89%E9%A6%AC%E5%AE%B6%E4%BC%91%E9%96%92%E9%A6%AC%E5%A0%B4",
+          "kind": "visit"
+        }
+      ],
+      "sourcePaths": [
+        "public/passport/index.html:212"
+      ],
+      "coordinateSource": {
+        "url": "https://www.google.com/maps/search/?api=1&query=%E6%9C%89%E9%A6%AC%E5%AE%B6%E4%BC%91%E9%96%92%E9%A6%AC%E5%A0%B4",
+        "checkedAt": "2026-11-20",
+        "method": "google_maps_place_record",
+        "matchedTitle": "有馬家休閒馬場",
+        "matchedAddress": "437臺中市大甲區西岐里如意路37巷13號",
+        "placeId": "0x34690f001ceeb85f:0x466e1ed776462726",
+        "precision": "place",
+        "recordPath": "/0/1/0/14"
+      },
+      "boundaryVillage": "西岐里"
+    },
+    {
+      "id": "songbai-market",
+      "name": "松柏漁港生鱻市集",
+      "category": "place",
+      "lat": 24.4292278,
+      "lng": 120.6164014,
+      "address": "437臺中市大甲區福德里順帆路233-6號",
+      "summary": "走傱護照地方據點。",
+      "notice": "市集開放與集章方式請依現場或最新公告確認。",
+      "area": "rinan",
+      "passportNumbers": [
+        40
+      ],
+      "aliases": [],
+      "sourceUrls": [
+        "https://www.google.com/maps/search/?api=1&query=%E6%9D%BE%E6%9F%8F%E6%BC%81%E6%B8%AF%E7%94%9F%E9%B1%BB%E5%B8%82%E9%9B%86"
+      ],
+      "links": [
+        {
+          "label": "查看走傱護照內容",
+          "href": "/passport/#passport-40",
+          "kind": "passport"
+        },
+        {
+          "label": "開啟原地圖導航",
+          "href": "https://www.google.com/maps/search/?api=1&query=%E6%9D%BE%E6%9F%8F%E6%BC%81%E6%B8%AF%E7%94%9F%E9%B1%BB%E5%B8%82%E9%9B%86",
+          "kind": "visit"
+        }
+      ],
+      "sourcePaths": [
+        "public/passport/index.html:213"
+      ],
+      "coordinateSource": {
+        "url": "https://www.google.com/maps/search/?api=1&query=%E6%9D%BE%E6%9F%8F%E6%BC%81%E6%B8%AF%E7%94%9F%E9%B1%BB%E5%B8%82%E9%9B%86",
+        "checkedAt": "2026-11-20",
+        "method": "google_maps_place_record",
+        "matchedTitle": "松柏漁港生鱻市集",
+        "matchedAddress": "437臺中市大甲區福德里順帆路233-6號",
+        "placeId": "0x34690f003c92b19f:0xd452b7f4831e2fb6",
+        "precision": "place",
+        "recordPath": "/0/1/0/14"
+      },
+      "boundaryVillage": "福德里"
+    },
+    {
+      "id": "sunflower-farm",
+      "name": "李安妮向日葵農場",
+      "category": "place",
+      "lat": 24.418831,
+      "lng": 120.617373,
+      "address": "437臺中市大甲區西岐里如意路27巷1之1號",
+      "summary": "走傱護照地方據點。",
+      "area": "rinan",
+      "passportNumbers": [
+        41
+      ],
+      "aliases": [],
+      "sourceUrls": [
+        "https://www.google.com/maps/search/?api=1&query=%E6%9D%8E%E5%AE%89%E5%A6%AE%E5%90%91%E6%97%A5%E8%91%B5%E8%BE%B2%E5%A0%B4"
+      ],
+      "links": [
+        {
+          "label": "查看走傱護照內容",
+          "href": "/passport/#passport-41",
+          "kind": "passport"
+        },
+        {
+          "label": "開啟原地圖導航",
+          "href": "https://www.google.com/maps/search/?api=1&query=%E6%9D%8E%E5%AE%89%E5%A6%AE%E5%90%91%E6%97%A5%E8%91%B5%E8%BE%B2%E5%A0%B4",
+          "kind": "visit"
+        }
+      ],
+      "sourcePaths": [
+        "public/passport/index.html:214"
+      ],
+      "coordinateSource": {
+        "url": "https://www.google.com/search?tbm=map&hl=zh-TW&q=%E6%9D%8E%E5%AE%89%E5%A6%AE%E5%90%91%E6%97%A5%E8%91%B5%E8%BE%B2%E5%A0%B4",
+        "checkedAt": "2026-11-20",
+        "method": "google_maps_place_record",
+        "matchedTitle": "李安妮向日葵農場",
+        "matchedAddress": "437臺中市大甲區西岐里如意路27巷1之1號",
+        "placeId": "0x34690c1dcc35f8b9:0xf92d34a5e679b57e",
+        "precision": "place",
+        "recordPath": "/0/1/0/14"
+      },
+      "boundaryVillage": "西岐里"
+    },
+    {
+      "id": "huangmiao-shrine",
+      "name": "黃苗祠",
+      "category": "place",
+      "lat": 24.3810969,
+      "lng": 120.6525949,
+      "address": "437臺中市大甲區孟春里臨江路54巷2號",
+      "summary": "走傱護照地方據點。",
+      "area": "rinan",
+      "passportNumbers": [
+        43
+      ],
+      "aliases": [],
+      "sourceUrls": [
+        "https://www.google.com/maps/search/?api=1&query=%E9%BB%83%E8%8B%97%E7%A5%A0%20%E5%A4%A7%E7%94%B2"
+      ],
+      "links": [
+        {
+          "label": "查看走傱護照內容",
+          "href": "/passport/#passport-43",
+          "kind": "passport"
+        },
+        {
+          "label": "開啟原地圖導航",
+          "href": "https://www.google.com/maps/search/?api=1&query=%E9%BB%83%E8%8B%97%E7%A5%A0%20%E5%A4%A7%E7%94%B2",
+          "kind": "visit"
+        }
+      ],
+      "sourcePaths": [
+        "public/passport/index.html:215"
+      ],
+      "coordinateSource": {
+        "url": "https://www.google.com/maps/search/?api=1&query=%E9%BB%83%E8%8B%97%E7%A5%A0%20%E5%A4%A7%E7%94%B2",
+        "checkedAt": "2026-11-20",
+        "method": "google_maps_place_record",
+        "matchedTitle": "台中大甲~孟春黃苗祠(義俠~黃苗公)",
+        "matchedAddress": "437臺中市大甲區孟春里臨江路54巷2號",
+        "placeId": "0x34690e584cfd2d13:0x35183e36e599e00f",
+        "precision": "place",
+        "recordPath": "/0/1/0/14"
+      },
+      "boundaryVillage": "孟春里"
+    },
+    {
+      "id": "jianxing-temple",
+      "name": "大甲建興宮",
+      "category": "place",
+      "lat": 24.4131979,
+      "lng": 120.6142788,
+      "address": "437臺中市大甲區建興里如意路21巷1號",
+      "summary": "走傱護照地方據點。",
+      "area": "rinan",
+      "passportNumbers": [
+        44
+      ],
+      "aliases": [],
+      "sourceUrls": [
+        "https://maps.app.goo.gl/sAawGo8cPvHSgXPDA"
+      ],
+      "links": [
+        {
+          "label": "查看走傱護照內容",
+          "href": "/passport/#passport-44",
+          "kind": "passport"
+        },
+        {
+          "label": "開啟原地圖導航",
+          "href": "https://maps.app.goo.gl/sAawGo8cPvHSgXPDA",
+          "kind": "visit"
+        }
+      ],
+      "sourcePaths": [
+        "public/passport/index.html:216"
+      ],
+      "coordinateSource": {
+        "url": "https://maps.app.goo.gl/sAawGo8cPvHSgXPDA",
+        "checkedAt": "2026-11-20",
+        "method": "google_maps_place_record",
+        "matchedTitle": "大甲建興宮",
+        "matchedAddress": "437臺中市大甲區建興里如意路21巷1號",
+        "placeId": "0x34690c21ffffbe6f:0xc0008d7f0af0707c",
+        "precision": "place",
+        "recordPath": "/6",
+        "finalUrl": "https://www.google.com/maps/place/%E5%A4%A7%E7%94%B2%E5%BB%BA%E8%88%88%E5%AE%AE/@24.412696,120.6139093,17z/data=!4m7!3m6!1s0x34690c21ffffbe6f:0xc0008d7f0af0707c!8m2!3d24.4131979!4d120.6142788!15sChrlu7roiIjlrq4g5bm456aP6YeMIOWkp-eUspIBEHBsYWNlX29mX3dvcnNoaXDgAQA!16s%2Fg%2F1tp2501n"
+      },
+      "boundaryVillage": "建興里"
+    },
+    {
+      "id": "jiuzhangli",
+      "name": "九張犁聚落",
+      "category": "place",
+      "lat": 24.372084,
+      "lng": 120.654418,
+      "address": "437臺中市大甲區太白里",
+      "summary": "網站到訪交通頁列出的地方探索據點。",
+      "notice": "此為聚落／園區範圍的參考位置，不代表可通行入口；請依實際目的地與現場指引前往。",
+      "area": "rinan",
+      "passportNumbers": [],
+      "aliases": [],
+      "sourceUrls": [
+        "https://www.google.com/maps/search/?api=1&query=%E4%B9%9D%E5%BC%B5%E7%8A%81%20%E5%A4%A7%E7%94%B2"
+      ],
+      "links": [
+        {
+          "label": "查看到訪交通與周邊資訊",
+          "href": "/visit/",
+          "kind": "visit"
+        },
+        {
+          "label": "開啟原地圖導航",
+          "href": "https://www.google.com/maps/search/?api=1&query=%E4%B9%9D%E5%BC%B5%E7%8A%81%20%E5%A4%A7%E7%94%B2",
+          "kind": "visit"
+        }
+      ],
+      "sourcePaths": [
+        "content/seed.sql (place-2, public_content after updates)",
+        "app/visit/page.tsx"
+      ],
+      "coordinateSource": {
+        "url": "https://www.google.com/maps/search/?api=1&query=%E4%B9%9D%E5%BC%B5%E7%8A%81%20%E5%A4%A7%E7%94%B2",
+        "checkedAt": "2026-11-20",
+        "method": "google_maps_place_record",
+        "matchedTitle": "九張犁",
+        "matchedAddress": "437臺中市大甲區太白里",
+        "placeId": "0x34690e455572ea81:0xa6799a64f330083d",
+        "precision": "area_reference",
+        "recordPath": "/0/1/0/14"
+      },
+      "boundaryVillage": "太白里"
+    },
+    {
+      "id": "rinan-spring",
+      "name": "日南冷泉",
+      "category": "place",
+      "lat": 24.3672431,
+      "lng": 120.6829956,
+      "address": "437臺中市大甲區太白里",
+      "summary": "網站到訪交通頁列出的地方探索據點。",
+      "area": "rinan",
+      "passportNumbers": [],
+      "aliases": [],
+      "sourceUrls": [
+        "https://www.google.com/maps/search/?api=1&query=%E6%97%A5%E5%8D%97%E5%86%B7%E6%B3%89%20%E5%A4%A7%E7%94%B2"
+      ],
+      "links": [
+        {
+          "label": "查看到訪交通與周邊資訊",
+          "href": "/visit/",
+          "kind": "visit"
+        },
+        {
+          "label": "開啟原地圖導航",
+          "href": "https://www.google.com/maps/search/?api=1&query=%E6%97%A5%E5%8D%97%E5%86%B7%E6%B3%89%20%E5%A4%A7%E7%94%B2",
+          "kind": "visit"
+        }
+      ],
+      "sourcePaths": [
+        "content/seed.sql (place-3, public_content after updates)",
+        "app/visit/page.tsx"
+      ],
+      "coordinateSource": {
+        "url": "https://www.google.com/maps/search/?api=1&query=%E6%97%A5%E5%8D%97%E5%86%B7%E6%B3%89%20%E5%A4%A7%E7%94%B2",
+        "checkedAt": "2026-11-20",
+        "method": "google_maps_place_record",
+        "matchedTitle": "日南冷泉|太白里湧泉",
+        "matchedAddress": "437臺中市大甲區太白里",
+        "placeId": "0x34690fa49f7f64ef:0xe584b2650c4a81a0",
+        "precision": "place",
+        "recordPath": "/0/1/0/14"
+      },
+      "boundaryVillage": "太白里"
+    },
+    {
+      "id": "youshi-industrial",
+      "name": "大甲幼獅工業區",
+      "category": "place",
+      "lat": 24.403144,
+      "lng": 120.650311,
+      "address": "437臺中市大甲區日南里",
+      "summary": "從娜翎的人物故事認識日南產業聚落、跨國工作者與地方生活的關係。",
+      "area": "rinan",
+      "passportNumbers": [],
+      "aliases": [],
+      "sourceUrls": [
+        "https://www.google.com/maps/search/?api=1&query=%E5%A4%A7%E7%94%B2%E5%B9%BC%E7%8D%85%E5%B7%A5%E6%A5%AD%E5%8D%80"
+      ],
+      "links": [
+        {
+          "label": "從娜翎的故事認識日南工作與生活",
+          "href": "/stories/people-narin/",
+          "kind": "story"
+        },
+        {
+          "label": "查看到訪交通與周邊資訊",
+          "href": "/visit/",
+          "kind": "visit"
+        },
+        {
+          "label": "開啟原地圖導航",
+          "href": "https://www.google.com/maps/search/?api=1&query=%E5%A4%A7%E7%94%B2%E5%B9%BC%E7%8D%85%E5%B7%A5%E6%A5%AD%E5%8D%80",
+          "kind": "visit"
+        }
+      ],
+      "sourcePaths": [
+        "content/seed.sql (place-4, public_content after updates)",
+        "app/visit/page.tsx"
+      ],
+      "coordinateSource": {
+        "url": "https://www.google.com/maps/search/?api=1&query=%E5%A4%A7%E7%94%B2%E5%B9%BC%E7%8D%85%E5%B7%A5%E6%A5%AD%E5%8D%80",
+        "checkedAt": "2026-11-20",
+        "method": "google_maps_place_record",
+        "matchedTitle": "台中幼獅工業區",
+        "matchedAddress": "437臺中市大甲區日南里",
+        "placeId": "0x34690ee9a2c459f3:0x32e24ad6a90bb87d",
+        "precision": "area_reference",
+        "recordPath": "/0/1/0/14"
+      },
+      "notice": "此為聚落／園區範圍的參考位置，不代表可通行入口；請依實際目的地與現場指引前往。",
+      "boundaryVillage": "日南里"
+    },
+    {
+      "id": "songbai-harbor",
+      "name": "松柏漁港",
+      "category": "place",
+      "lat": 24.4274103,
+      "lng": 120.6173585,
+      "address": "臺中市大甲區",
+      "summary": "網站到訪交通頁列出的地方探索據點。",
+      "area": "rinan",
+      "passportNumbers": [],
+      "aliases": [],
+      "sourceUrls": [
+        "https://www.google.com/maps/search/?api=1&query=%E6%9D%BE%E6%9F%8F%E6%BC%81%E6%B8%AF%20%E5%A4%A7%E7%94%B2"
+      ],
+      "links": [
+        {
+          "label": "查看到訪交通與周邊資訊",
+          "href": "/visit/",
+          "kind": "visit"
+        },
+        {
+          "label": "開啟原地圖導航",
+          "href": "https://www.google.com/maps/search/?api=1&query=%E6%9D%BE%E6%9F%8F%E6%BC%81%E6%B8%AF%20%E5%A4%A7%E7%94%B2",
+          "kind": "visit"
+        }
+      ],
+      "sourcePaths": [
+        "content/seed.sql (place-5, public_content after updates)",
+        "app/visit/page.tsx"
+      ],
+      "coordinateSource": {
+        "url": "https://www.google.com/maps/search/?api=1&query=%E6%9D%BE%E6%9F%8F%E6%BC%81%E6%B8%AF%20%E5%A4%A7%E7%94%B2",
+        "checkedAt": "2026-11-20",
+        "method": "google_maps_place_record",
+        "matchedTitle": "松柏漁港",
+        "matchedAddress": "臺中市大甲區",
+        "placeId": "0x34690c015082b885:0x37cd26c89451f5f7",
+        "precision": "area_reference",
+        "recordPath": "/0/1/0/14"
+      },
+      "notice": "標記為漁港參考位置；前往生鱻市集可另選市集據點。",
+      "boundaryVillage": "福德里"
+    },
+    {
+      "id": "jiuzhangli-park",
+      "name": "九張犁公園",
+      "category": "place",
+      "lat": 24.3737366,
+      "lng": 120.6644844,
+      "address": "437臺中市大甲區太白里通天路47號",
+      "summary": "網站到訪交通頁列出的地方探索據點。",
+      "area": "rinan",
+      "passportNumbers": [],
+      "aliases": [
+        "臺中市大甲區太白里九張犂休憩公園"
+      ],
+      "sourceUrls": [
+        "https://www.google.com/maps/search/?api=1&query=%E4%B9%9D%E5%BC%B5%E7%8A%81%E5%85%AC%E5%9C%92%20%E5%A4%A7%E7%94%B2"
+      ],
+      "links": [
+        {
+          "label": "查看到訪交通與周邊資訊",
+          "href": "/visit/",
+          "kind": "visit"
+        },
+        {
+          "label": "開啟原地圖導航",
+          "href": "https://www.google.com/maps/search/?api=1&query=%E4%B9%9D%E5%BC%B5%E7%8A%81%E5%85%AC%E5%9C%92%20%E5%A4%A7%E7%94%B2",
+          "kind": "visit"
+        }
+      ],
+      "sourcePaths": [
+        "content/seed.sql (place-7, public_content after updates)",
+        "app/visit/page.tsx"
+      ],
+      "coordinateSource": {
+        "url": "https://www.google.com/maps/search/?api=1&query=%E4%B9%9D%E5%BC%B5%E7%8A%81%E5%85%AC%E5%9C%92%20%E5%A4%A7%E7%94%B2",
+        "checkedAt": "2026-11-20",
+        "method": "google_maps_place_record",
+        "matchedTitle": "臺中市大甲區太白里九張犂休憩公園",
+        "matchedAddress": "437臺中市大甲區太白里通天路47號",
+        "placeId": "0x34690e5316817fd1:0x8d1d41dec8f401a7",
+        "precision": "place",
+        "recordPath": "/64/0/1"
+      },
+      "notice": "此處為大甲區太白里的九張犂休憩公園；請勿與烏日同名公園混淆。",
+      "boundaryVillage": "太白里"
+    }
+  ],
+  "routes": [
+    {
+      "id": "station-exhibition",
+      "title": "從車站看展，走進稻站",
+      "description": "在地下道停下來看一張照片，再到稻站看外牆地圖、人物故事與數位植生牆。",
+      "mode": "站前步行",
+      "placeIds": [
+        "rinan-station",
+        "rinan-commons"
+      ],
+      "note": "依網站現有看展順序串聯兩處場域；展件開放與現場動線請依場域說明。",
+      "links": [
+        {
+          "label": "閱讀這段看展路線",
+          "href": "/exhibition/to-and-from/#underpass",
+          "kind": "story"
+        }
+      ]
+    },
+    {
+      "id": "people-and-daily-life",
+      "title": "跟著三個人物，認識日南",
+      "description": "從稻站的三幅人物掛幅出發，認識隆安米、慈德宮與娜翎的窩，繼續讀留守、遠行與落腳的故事。",
+      "mode": "主題探索",
+      "placeIds": [
+        "rinan-commons",
+        "longan-rice",
+        "cide-temple",
+        "narin"
+      ],
+      "note": "這是人物故事的地點串聯，可分次探索；請由各地點開啟導航，依開放與營業資訊安排。",
+      "links": [
+        {
+          "label": "看人物故事與紀錄片",
+          "href": "/exhibition/to-and-from/#people",
+          "kind": "story"
+        }
+      ]
+    },
+    {
+      "id": "station-passport",
+      "title": "帶著護照，認識站前日常",
+      "description": "從日南車站與稻站開始，在同一張圖找到御豆坊、來心肉共生廚房與椛檸製所，再選想停留的地方。",
+      "mode": "自行安排停留",
+      "placeIds": [
+        "rinan-station",
+        "rinan-commons",
+        "yusoy",
+        "rinan-kitchen",
+        "huaning-studio"
+      ],
+      "note": "依本期護照索引整理停留點，請使用各地點導航安排移動；集章依紙本護照與店家說明。",
+      "links": [
+        {
+          "label": "查看走傱護照",
+          "href": "/passport/",
+          "kind": "passport"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,4 @@
+.nearby-list .nearby-place { min-width: 0; }
+.nearby-list .nearby-place > a:first-child { border-bottom: 0; padding-bottom: 8px; }
+.nearby-list .map-place-link { justify-content: flex-end; min-height: 44px; padding: 8px 0 18px; font-size: 14px; color: var(--ink); text-decoration: underline; text-underline-offset: 4px; }
+.nearby-list .map-place-link:focus-visible { outline: 2px solid var(--ink); outline-offset: 3px; }

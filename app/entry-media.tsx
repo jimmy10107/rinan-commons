@@ -9,7 +9,7 @@ const songId = "UjBET5cz8gE";
 const seenKey = "rinan-entry-film-seen-v1";
 
 /** A dismissible floating media player for the Rinan Commons film and theme song. */
-export function EntryMedia() {
+export function EntryMedia({ autoOpen = true }: { autoOpen?: boolean }) {
   const [view, setView] = useState<MediaView>(null);
   const [ready, setReady] = useState(false);
   const [filmAutoplay, setFilmAutoplay] = useState(false);
@@ -19,6 +19,13 @@ export function EntryMedia() {
     const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     const saveData = (navigator as Navigator & { connection?: { saveData?: boolean } }).connection?.saveData === true;
     setFilmAutoplay(!reduceMotion && !saveData);
+    if (!autoOpen) {
+      // Keep the map clear while leaving both media launchers available.
+      // Suppressing this preview must not consume the existing seen marker.
+      setView(null);
+      setReady(true);
+      return;
+    }
     try {
       if (!window.sessionStorage.getItem(seenKey)) {
         window.sessionStorage.setItem(seenKey, "1");
@@ -28,7 +35,7 @@ export function EntryMedia() {
       // The launcher remains available when private browsing blocks session storage.
     }
     setReady(true);
-  }, []);
+  }, [autoOpen]);
 
   if (!ready || hidden) return null;
 
