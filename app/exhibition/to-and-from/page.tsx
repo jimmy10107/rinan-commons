@@ -5,6 +5,7 @@ import { chapters, materials } from "../../content";
 import { Credits, Gallery, Garden, People } from "./sections";
 import s from "./exhibit.module.css";
 import { Passage, OutdoorMaps, HistoryPanels } from "./route-stops";
+import { Quiz } from "./quiz";
 
 const synopsis = "從日南車站地下道的照片出發，沿戶外地圖、人物紀錄片與地方文史展板走進日南，最後在數位植生牆種下自己的植物。";
 
@@ -34,6 +35,7 @@ export default function ExhibitionPage() {
       </nav>
       <Passage/><OutdoorMaps/><People/><HistoryPanels/>
       <Garden/>
+      <Quiz/>
       <details className={s.archive}><summary>延伸閱讀｜策展四章與展覽材料</summary>
       <section className={s.band} aria-labelledby="chapters-title">
         <p className={s.kicker}>CONTEXT / 策展脈絡</p><h2 id="chapters-title">讀懂往返的四個章節</h2>
