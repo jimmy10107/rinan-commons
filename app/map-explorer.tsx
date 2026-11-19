@@ -93,6 +93,30 @@ export function MapExplorer({ primary = false }: { primary?: boolean }) {
         const nextSelection = normalizeSelection(data);
         rememberSelection(nextSelection);
         syncPageLocation(nextSelection);
+      } else if (data.type === 'rinan-map:reveal'
+        && typeof data.top === 'number' && Number.isFinite(data.top) && Math.abs(data.top) <= 14000
+        && typeof data.height === 'number' && Number.isFinite(data.height) && data.height > 0 && data.height <= 14000) {
+        // The frame grows with its content, so its own scrollIntoView cannot
+        // reliably reveal a target in the outer page. Move this window instead.
+        requestAnimationFrame(() => {
+          const currentFrame = frame.current;
+          if (!currentFrame || currentFrame.contentWindow !== event.source) return;
+          const headerBottom = document.querySelector('.site-header')?.getBoundingClientRect().bottom ?? 88;
+          const safeTop = Math.max(88, Math.min(headerBottom, window.innerHeight / 2)) + 12;
+          const safeBottom = window.innerHeight - 20;
+          const targetTop = currentFrame.getBoundingClientRect().top + data.top;
+          const targetBottom = targetTop + data.height;
+          let delta = 0;
+          if (data.align === 'start' || targetTop < safeTop || data.height > safeBottom - safeTop) {
+            delta = targetTop - safeTop;
+          } else if (targetBottom > safeBottom) {
+            delta = targetBottom - safeBottom;
+          }
+          if (Math.abs(delta) > 1) window.scrollTo({
+            top: Math.max(0, window.scrollY + delta),
+            behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth',
+          });
+        });
       }
     };
 

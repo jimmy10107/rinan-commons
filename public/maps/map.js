@@ -155,7 +155,12 @@
   function revealSelection(positioned = true) {
     const mobile = matchMedia('(max-width:680px)').matches;
     const target = positioned ? document.querySelector('.canvas') : $('selected-detail');
-    requestAnimationFrame(()=>target.scrollIntoView({behavior:reduced?'auto':'smooth',block:mobile?'start':'nearest'}));
+    requestAnimationFrame(()=>{
+      if (embedded) {
+        const bounds = target.getBoundingClientRect();
+        post({type:'rinan-map:reveal',top:bounds.top,height:bounds.height,align:mobile?'start':'nearest'});
+      } else target.scrollIntoView({behavior:reduced?'auto':'smooth',block:mobile?'start':'nearest'});
+    });
   }
   function openRoute(id) {
     if (!routesById.has(id)) return;
