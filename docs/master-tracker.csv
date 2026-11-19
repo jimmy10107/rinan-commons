@@ -22,3 +22,4 @@ WEB-BOOKS-04,11月12日新增45本選書,Codex,2026-11-13,書目封面互動與�
 WEB-BOOKS-05,稻站書架加入主網站選單,Codex,2026-11-13,桌機手機選單與正式站回讀,入口名稱為稻站書架且可由主選單開啟116本書單,completed,https://www.rinancommons.com/books/index.html
 WEB-BOOKS-06,主網站首頁入口調整為選單末項,Codex,2026-11-13,桌機手機選單與正式站回讀,首頁文字入口在桌機最右側且在手機選單最下方,completed,https://www.rinancommons.com/
 WEB-BOOKS-07,11月16日孫珮綺新增9本選書,Codex,2026-11-17,語音推薦轉寫與書目封面及正式站驗收,書單共125本且新增9本皆標示11月16日孫珮綺種下,completed,docs/book-cover-sources-2026-11-17.json
+WEB-BOOKS-08,11月19日新增6本選書,Codex,2026-11-19,照片辨識與書目封面及正式站驗收,書單共131本且新增6本僅標示種下11月19日,completed,docs/book-cover-sources-2026-11-19.json

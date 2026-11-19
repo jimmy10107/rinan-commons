@@ -263,25 +263,27 @@ test('market starts at 16:30 and concert starts at 17:00 across official pages',
   assert.doesNotMatch(visit, /10\/24 晚間|10\.24（六）/);
 });
 
-test('standalone reading room ships all 125 books and appears immediately before home in the main navigation', () => {
+test('standalone reading room ships all 131 books and appears immediately before home in the main navigation', () => {
   const shelf = readFileSync(path.join(root, 'books/index.html'), 'utf8');
-  assert.equal((shelf.match(/class="book"/g) || []).length, 125);
+  assert.equal((shelf.match(/class="book"/g) || []).length, 131);
   assert.equal((shelf.match(/class="pending"/g) || []).length, 0);
   assert.doesNotMatch(shelf, /資料待確認|作者待補|出版社待補|待補作者與簡介/);
   for (const text of ['楊智凱、溫佑君', '胡毓豪', '齊藤勇', '蒼璧出版', '三悅文化', '奇幻深遠']) assert.ok(shelf.includes(text), text);
   assert.match(shelf, /<title>稻站書架｜/);
   assert.match(shelf, /name="robots" content="index, follow"/);
-  assert.equal((shelf.match(/class="book-cover /g) || []).length, 125);
+  assert.equal((shelf.match(/class="book-cover /g) || []).length, 131);
   assert.doesNotMatch(shelf, /第一面|第二面|第三面|第四面|書架面向|全部層位/);
   assert.match(shelf, /種下 11\/10/);
   assert.match(shelf, /種下 11\/12/);
   assert.equal((shelf.match(/11\/16・孫珮綺種下/g) || []).length, 9);
+  assert.equal((shelf.match(/種下 11\/19/g) || []).length, 6);
   for (const title of ['受傷的孩子和壞掉的大人', '廢墟少年', '被討厭的勇氣 二部曲完結篇', '判決的艱難', '心的強大，才是真正的強大', '都是溫柔的孩子', '暗夜倖存者', '你不伸手，他會在這裡躺多久？', '遍體鱗傷長大的孩子，會自己恢復正常嗎？']) assert.ok(shelf.includes(title), title);
-  for (let n = 1; n <= 125; n++) assert.ok(existsSync(path.join(root, 'books/assets/covers', String(n).padStart(3, '0') + '.webp')));
+  for (const title of ['男孩、鼴鼠、狐狸與馬', '大數據預測行銷', '文案是…我不知道．你不知道的東西', '如何在LINE、FB寫出爆款文案', '行銷4.0', '破解行銷原點']) assert.ok(shelf.includes(title), title);
+  for (let n = 1; n <= 131; n++) assert.ok(existsSync(path.join(root, 'books/assets/covers', String(n).padStart(3, '0') + '.webp')));
   const home = readFileSync(path.join(root, 'index.html'), 'utf8');
   assert.match(home, /href="\/rinan-commons\/books\/index\.html">稻站書架<\/a><a[^>]*href="\/rinan-commons\/">首頁<\/a><\/nav>/);
   assert.match(readFileSync(path.join(root, 'sitemap.xml'), 'utf8'), /https:\/\/www\.rinancommons\.com\/books\/index\.html/);
-  for (const asset of ['app.js', 'data.js', 'styles.css', 'planted.css', 'covers.js', 'covers-20261112.js', 'assets/covers/001.webp', 'assets/covers/125.webp']) {
+  for (const asset of ['app.js', 'data.js', 'styles.css', 'planted.css', 'covers.js', 'covers-20261112.js', 'assets/covers/001.webp', 'assets/covers/131.webp']) {
     assert.ok(existsSync(path.join(root, 'books', asset)), asset);
   }
 });

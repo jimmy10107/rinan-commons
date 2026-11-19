@@ -1,0 +1,12 @@
+{
+  "verifiedAt": "2026-11-19",
+  "planted": "11/19",
+  "books": [
+    {"id":126,"title":"男孩、鼴鼠、狐狸與馬","isbn":"9789863987871","bibliography":"https://books.cw.com.tw/book/834","cover":"https://s2.eslite.com/unsafe/fit-in/x900/s.eslite.com/upload/product/o/2682325077004/20230107034113982019.jpg"},
+    {"id":127,"title":"大數據預測行銷","isbn":"9789571378442","bibliography":"https://hkpolyu.ebook.hyread.com.tw/bookDetail.jsp?id=182891","cover":"https://webcdn2.ebook.hyread.com.tw/bookcover/182891978957137844220192115050701.jpg"},
+    {"id":128,"title":"文案是…我不知道．你不知道的東西","isbn":"9789869887168","bibliography":"https://www.sanmin.com.tw/product/index/007757594","cover":"https://cdnec.sanmin.com.tw/product_images/986/986988716.jpg"},
+    {"id":129,"title":"如何在LINE、FB寫出爆款文案","isbn":"9789869687393","bibliography":"https://www.eslite.com/product/1001251972724582","cover":"https://s2.eslite.com/unsafe/fit-in/x900/s.eslite.com/upload/product/o/2681680785005/ec1590882.jpg"},
+    {"id":130,"title":"行銷4.0","bibliography":"https://books.cw.com.tw/book/155","cover":"https://s2.eslite.com/unsafe/fit-in/x900/s.eslite.com/Upload/Product/201710/o/636440854139665000.jpg"},
+    {"id":131,"title":"破解行銷原點","bibliography":"https://www.kingstone.com.tw/basic/2014970054046/","cover":"https://s2.eslite.com/unsafe/fit-in/x900/s.eslite.com/Upload/Product/201908/o/637002460746102500.jpg"}
+  ]
+}
