@@ -153,9 +153,9 @@
     if (options.reveal) revealSelection(hasPosition(placesById.get(id)));
   }
   function revealSelection(positioned = true) {
-    if (!matchMedia('(max-width:680px)').matches) return;
+    const mobile = matchMedia('(max-width:680px)').matches;
     const target = positioned ? document.querySelector('.canvas') : $('selected-detail');
-    requestAnimationFrame(()=>target.scrollIntoView({behavior:reduced?'auto':'smooth',block:'start'}));
+    requestAnimationFrame(()=>target.scrollIntoView({behavior:reduced?'auto':'smooth',block:mobile?'start':'nearest'}));
   }
   function openRoute(id) {
     if (!routesById.has(id)) return;
