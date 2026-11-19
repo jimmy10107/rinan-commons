@@ -59,7 +59,12 @@
 - 已整合遠端 `main` 的 `11fb8a7`，13 個 stamp 新增檔案逐檔比對與原主線一致；地圖與該服務分屬不同檔案，本次不執行紀念章服務部署。
 - 合併後集章 Node 測試：1/1 通過。
 - 發布目標：`jimmy10107/rinan-commons` 與既有 Vercel 專案，正式網域包含 `www.rinancommons.com`。已核對連結帳號與倉庫 owner 一致，具備既有發布權限。
-- 當前狀態：`release_verification`。桌機與手機寬度瀏覽器驗收已完成；正在發布通過驗收的版本並確認正式網址。正式部署證據於發布回讀後記錄。
+- 當前狀態：`completed`。應用程式發布提交 `64518d4237448cdb7429ad88bccbddfeb9462142`，檔案樹 `20567122cd367a949a2c24749670c8780948c8ae` 與本機驗收版本一致。
+- Vercel 正式部署 `dpl_76gdGFbqBAQpivJLvXJLHvdLy3R6` 已為 READY，正式別名 `www.rinancommons.com` 已指向該版本。
+- 正式站瀏覽器回讀通過：[九里地圖](https://www.rinancommons.com/explore?view=places&place=rinan-commons) 顯示 31 筆內容，嵌入模式沒有重複入口、初始影音沒有彈出；1348px 內容寬度沒有橫向溢出。
+- 正式站實際走完「地圖中的稻站 → 空間故事 → 指定稻站的九里地圖」，最後網址與所選地點正確。正式站截圖為 `docs/evidence/2026-11-20-nine-villages/production-final.jpg`。
+- 本次預覽分享均限制在已授權 23 小時範圍內；最終驗收預覽於臺灣時間 2026-11-21 06:26:19 到期。正式網站無此預覽分享期限。
+- 後續提交僅回寫此驗收紀錄、tracker 與正式站截圖，不再改動已驗收的應用程式。
 
 ## 維護
 
