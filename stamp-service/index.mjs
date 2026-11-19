@@ -1,6 +1,11 @@
 import qr from 'qrcode-generator';
 import {api} from './api.mjs';
-export default {async fetch(req,env){
+export default {async scheduled(controller,env){
+ const cutoff=Date.parse(env.PURGE_AT);
+ if(Number.isFinite(cutoff)&&controller.scheduledTime>=cutoff){
+   await env.DB.prepare("DELETE FROM claims WHERE event=?").bind("rinan-quiz-2026").run();
+ }
+},async fetch(req,env){
  const url=new URL(req.url);
  if(url.pathname==='/config')return Response.json({liff:env.LIFF_ID||'',notice:env.PRIVACY_NOTICE||''},{headers:{'cache-control':'no-store'}});
  if(!url.pathname.startsWith('/api/'))return env.ASSETS.fetch(req);
