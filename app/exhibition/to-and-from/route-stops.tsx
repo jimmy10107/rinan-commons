@@ -11,15 +11,16 @@ function ExhibitPhoto({file,alt,width,height,caption}:{file:string;alt:string;wi
 }
 
 export function Passage() {
-  return <section className={s.band} id="underpass" aria-labelledby="passage-title">
+  return <section className={s.band} id="underpass" aria-labelledby="passage-title"><div className={s.passageSpread}><div>
     <p className={s.kicker}>日南車站地下道攝影策展</p><h2 id="passage-title">在地下道，停下來看一張照片</h2>
     <p className={s.lede}>日南車站地下道原是趕車時匆匆走過的一段路。這次把照片放在這裡，邀請你放慢腳步：哪一幕像自己的日常？又有哪一幕，是住在日南也不曾留意的風景？</p>
-    <figure className={s.passageFilm}>
+    <aside className={s.passagePrompt} aria-label="觀展提示"><strong>看展時，試著找一個細節</strong><p>看影片時，不妨在一張吸引你的照片前按下暫停。是什麼讓你多看了一眼？下次經過地下道，再回到那張照片前，看看站在現場的你，會不會注意到不同的地方。</p></aside>
+    </div><figure className={s.passageFilm}>
       <video aria-label="日南車站地下道攝影策展現場紀錄，無聲影片" controls playsInline preload="none" width={720} height={1280} poster={sitePath('/exhibit/underpass-poster.webp')}>
         <source src={sitePath('/exhibit/underpass-silent.mp4')} type="video/mp4"/>
       </video>
       <figcaption>地下道展場紀錄｜31 秒・無聲　<a href={sitePath('/exhibit/underpass-silent.mp4')}>單獨觀看影片</a></figcaption>
-    </figure>
+    </figure></div>
   </section>;
 }
 
