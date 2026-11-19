@@ -1,0 +1,50 @@
+name: Deploy stamp service to Cloudflare
+on:
+  workflow_dispatch:
+    inputs:
+      phase:
+        description: "bootstrap: 建立獨立網址；activate: 啟用 LINE 兌換"
+        type: choice
+        required: true
+        options: [bootstrap, activate]
+permissions:
+  contents: read
+concurrency:
+  group: stamp-service-production
+  cancel-in-progress: false
+jobs:
+  deploy:
+    if: github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Check required credentials
+        env:
+          TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          ACCOUNT: ${{ vars.CLOUDFLARE_ACCOUNT_ID || secrets.CLOUDFLARE_ACCOUNT_ID }}
+        run: |
+          [[ -n "$TOKEN" ]] || { echo "::error::Missing CLOUDFLARE_API_TOKEN secret"; exit 1; }
+          [[ "$ACCOUNT" =~ ^[0-9a-f]{32}$ ]] || { echo "::error::Missing or invalid CLOUDFLARE_ACCOUNT_ID"; exit 1; }
+      - name: Install pinned dependencies and run redemption tests
+        run: |
+          npm ci --ignore-scripts
+          npm ci --ignore-scripts --prefix stamp-service
+          node --test stamp-service/service.test.mjs
+      - name: Deploy dedicated Worker and D1
+        working-directory: stamp-service
+        env:
+          PHASE: ${{ inputs.phase }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ vars.CLOUDFLARE_ACCOUNT_ID || secrets.CLOUDFLARE_ACCOUNT_ID }}
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          LIFF_ID: ${{ vars.STAMP_LIFF_ID }}
+          CHANNEL_ID: ${{ vars.STAMP_CHANNEL_ID }}
+          PRIVACY_NOTICE: ${{ vars.STAMP_PRIVACY_NOTICE }}
+          IDENTITY_KEY: ${{ secrets.STAMP_IDENTITY_KEY }}
+          STAFF_KEYS: ${{ secrets.STAMP_STAFF_KEYS }}
+        run: node deploy-ci.mjs
