@@ -38,6 +38,11 @@
   function hasPosition(place) {
     return Number.isFinite(place.lat) && Number.isFinite(place.lng) && Math.abs(place.lat) <= 90 && Math.abs(place.lng) <= 180;
   }
+  function markerAnchor(place) {
+    const parent = typeof place.parentPlaceId === 'string' ? placesById.get(place.parentPlaceId) : null;
+    const anchor = parent && hasPosition(parent) ? parent : place;
+    return [anchor.lat,anchor.lng];
+  }
   function isStory(place) { return place.category === 'story' || (place.links || []).some(link => link.kind === 'story'); }
   function textMatches(place, query) {
     return [place.name,place.address,place.summary,...(place.aliases || []),...(place.passportNumbers || []).map(String)]
@@ -303,7 +308,7 @@
     if (selected && !visible.some(place=>place.id===selected.id)) visible = [...visible,selected];
     const groups = new Map();
     for (const place of visible.filter(hasPosition)) {
-      const key = `${place.lat},${place.lng}`;
+      const key = markerAnchor(place).join(',');
       if (!groups.has(key)) groups.set(key,[]);
       groups.get(key).push(place);
     }
@@ -314,7 +319,7 @@
       if (group.length > 1) iconElement.append(el('span','marker-count',group.length));
       const icon = L.divIcon({className:`place-marker${isSelected?' is-selected':''}`,html:iconElement,iconSize:[32,32],iconAnchor:[16,16],popupAnchor:[0,-13]});
       const title = group.length > 1 ? `${group.map(item=>item.name).join('／')}（同一位置 ${group.length} 項）` : place.name;
-      const marker = L.marker([place.lat,place.lng],{icon,title,alt:title,riseOnHover:true,keyboard:true});
+      const marker = L.marker(markerAnchor(place),{icon,title,alt:title,riseOnHover:true,keyboard:true});
       marker.bindPopup(popupForGroup(group),{maxWidth:290,autoPanPadding:[25,60]});
       marker.bindTooltip(el('span','',title),{className:'place-tooltip',direction:'top',offset:[0,-12]});
       marker.on('click',()=>{
@@ -329,7 +334,7 @@
     const place = placesById.get(state.place);
     $('selection').textContent = place?.name || '日南九里與周邊';
     if (map && place && hasPosition(place)) {
-      map.setView([place.lat,place.lng],Math.max(16,map.getZoom()),{animate:!reduced});
+      map.setView(markerAnchor(place),Math.max(16,map.getZoom()),{animate:!reduced});
       if (popup) markers.get(place.id)?.openPopup();
     }
   }
