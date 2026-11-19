@@ -1,8 +1,9 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { Quiz } from "./exhibition/to-and-from/quiz";
 
-type MediaView = "film" | "song" | null;
+type MediaView = "film" | "song" | "quiz" | null;
 
 const filmId = "_ydtsZWwZJk";
 const songId = "UjBET5cz8gE";
@@ -37,22 +38,23 @@ export function EntryMedia() {
   const autoplay = view === "song" || filmAutoplay;
   const videoUrl = `https://www.youtube-nocookie.com/embed/${id}?playsinline=1&rel=0&autoplay=${autoplay ? "1" : "0"}&mute=${view === "film" ? "1" : "0"}`;
 
-  return <aside className="entry-media" aria-label="日南稻站影音">
+  return <aside className="entry-media" aria-label="日南小測驗與影音">
     {view ? <div className="entry-media-panel">
       <div className="entry-media-head">
-        <div><span>RINAN / 聽見日南</span><strong>{view === "film" ? "先看一眼日南" : "讓主題曲陪你走傱"}</strong></div>
+        <div><span>RINAN / 認識日南</span><strong>{view === "quiz" ? "日南小測驗" : view === "film" ? "先看一眼日南" : "讓主題曲陪你走傱"}</strong></div>
         <button type="button" className="entry-media-close" aria-label="關閉影音視窗" onClick={() => setView(null)}>×</button>
       </div>
-      <div className="entry-media-screen">
+      {view === "quiz" ? <Quiz floating/> : <><button className="entry-quiz-action" type="button" onClick={()=>setView("quiz")}>挑戰日南 8 題｜你搭上車了嗎？</button><div className="entry-media-screen">
         <iframe key={view} title={title} src={videoUrl} allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture; web-share" allowFullScreen referrerPolicy="strict-origin-when-cross-origin" />
       </div>
       <p className="entry-media-note">{view === "film" ? "形象影片預設靜音；點播放器可調整聲音。" : "主題曲會在播放器載入後播放；若瀏覽器阻擋自動播放，請再按一次播放。"}</p>
-      <div className="entry-media-switch" aria-label="切換影音">
+      </>}<div className="entry-media-switch" aria-label="切換影音">
         <button type="button" aria-pressed={view === "film"} onClick={() => setView("film")}>形象影片</button>
         <button type="button" aria-pressed={view === "song"} onClick={() => setView("song")}>主題曲</button>
-        <a href={`https://www.youtube.com/watch?v=${id}`} target="_blank" rel="noreferrer">另開 YouTube ↗</a>
+        {view !== 'quiz' && <a href={`https://www.youtube.com/watch?v=${id}`} target="_blank" rel="noreferrer">另開 YouTube ↗</a>}
       </div>
     </div> : <div className="entry-media-launchers">
+      <button type="button" className="entry-quiz-action" onClick={()=>setView("quiz")}>挑戰日南 8 題</button>
       <button type="button" onClick={() => setView("song")}>♫ 聽主題曲</button>
       <button type="button" onClick={() => setView("film")}>▶ 看形象影片</button>
       <button type="button" className="entry-media-dismiss" aria-label="關閉影音工具" title="關閉影音工具" onClick={() => setHidden(true)}>×</button>
