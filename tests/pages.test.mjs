@@ -154,7 +154,9 @@ test('both event addresses render one shared page and exhibition has no PDF butt
 test('curatorial route follows the physical exhibition, with credited banners linking to the documentary', () => {
   const html = readFileSync(path.join(root, 'exhibition/to-and-from/index.html'), 'utf8').split('</main>')[0];
   assert.equal((html.match(/<h1\b/g) || []).length, 1);
-  const anchors = ['underpass','outdoor-maps','people','history-panels','online-gallery','living-wall','chapter-to','chapter-motion','chapter-return','chapter-ground','motion-2026','credits'];
+  const anchors = ['online-gallery','underpass','outdoor-maps','people','history-panels','living-wall','chapter-to','chapter-motion','chapter-return','chapter-ground','motion-2026','credits'];
+  assert.equal((html.match(/id="online-gallery"/g)||[]).length,1);
+  assert.match(html,/最後，換你在植生牆種下一株植物。<\/p><\/section><section id="online-gallery"/);
   const offsets = anchors.map(id => html.indexOf('id="' + id + '"'));
   assert.ok(offsets.every((n,i) => n >= 0 && (!i || n > offsets[i-1])));
   for (const id of ['underpass','outdoor-maps','people','history-panels','living-wall']) assert.ok(html.includes('href="#'+id+'"'));

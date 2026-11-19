@@ -23,7 +23,7 @@ export function People() {
 }
 export function Gallery() {
   return <section id="online-gallery" aria-labelledby="gallery-title" className={s.band}>
-    <div className={s.gallery}><div><p className={s.kicker}>延伸觀看 / 展板與展件</p><h2 id="gallery-title">線上互動展廳</h2>
+    <div className={s.gallery}><div><p className={s.kicker}>ONLINE EXHIBITION / 線上觀展入口</p><h2 id="gallery-title">線上互動展廳</h2>
       <p>走進以日南稻站展件構成的線上空間。從地方地圖、時間軸到人物掛幅，你可以自己選一條路線，慢慢看。</p>
       <p className={s.credit}>線上互動展廳製作｜大作創意・黃保翔</p><a className={s.textLink} href={makerUrl} {...ext}>認識這次的設計與製作 ↗</a></div>
       <figure><a className={s.galleryLink} href={galleryUrl} {...ext}><img alt="展廳預覽：地方地圖、時間軸與懸掛的人物布條" width={1200} height={750} src={asset('gallery',640)} srcSet={srcset('gallery',[640,1200])} sizes="(min-width: 800px) 55vw, 92vw" loading="lazy" decoding="async"/>

@@ -27,11 +27,12 @@ export default function ExhibitionPage() {
         <h2>在往返之間，認識日南。</h2>
         <p>日南車站是旅程的起點，也是許多人每天回家的地方。《往・返》從車站往外看：一條鐵路如何連起田裡的收成、工廠的上下班，還有離鄉與落腳的人？</p>
         <p>展覽以「往、走傱、返、生根」串起這些日常。從地下道的照片與戶外地圖辨認地方，聽三位日南人說自己的故事，再從展板回看地方的來路。最後，換你在植生牆種下一株植物。</p>
-        <nav aria-label="依現場順序看展" className={s.waypoints}>
-          <a href="#underpass">地下道照片</a><a href="#outdoor-maps">戶外地圖</a><a href="#people">人物與紀錄片</a><a href="#history-panels">地方文史展板</a><a href="#living-wall">植生牆與互動</a>
-        </nav>
       </section>
-      <Passage/><OutdoorMaps/><People/><HistoryPanels/><Gallery/>
+      <Gallery/>
+      <nav aria-label="依現場順序看展" className={s.waypoints}>
+          <a href="#underpass">地下道照片</a><a href="#outdoor-maps">戶外地圖</a><a href="#people">人物與紀錄片</a><a href="#history-panels">地方文史展板</a><a href="#living-wall">植生牆與互動</a>
+      </nav>
+      <Passage/><OutdoorMaps/><People/><HistoryPanels/>
       <Garden/>
       <details className={s.archive}><summary>延伸閱讀｜策展四章與展覽材料</summary>
       <section className={s.band} aria-labelledby="chapters-title">
