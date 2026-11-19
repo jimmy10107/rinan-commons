@@ -15,6 +15,7 @@ export function Passage() {
     <p className={s.kicker}>日南車站地下道攝影策展</p><h2 id="passage-title">在地下道，停下來看一張照片</h2>
     <p className={s.lede}>日南車站地下道原是趕車時匆匆走過的一段路。這次把照片放在這裡，邀請你放慢腳步：哪一幕像自己的日常？又有哪一幕，是住在日南也不曾留意的風景？</p>
     <aside className={s.passagePrompt} aria-label="觀展提示"><strong>看展時，試著找一個細節</strong><p>看影片時，不妨在一張吸引你的照片前按下暫停。是什麼讓你多看了一眼？下次經過地下道，再回到那張照片前，看看站在現場的你，會不會注意到不同的地方。</p></aside>
+    <a className={s.textLink} href={sitePath('/explore/?place=rinan-station')}>在九里地圖找到日南車站 →</a>
     </div><figure className={s.passageFilm}>
       <video aria-label="日南車站地下道攝影策展現場紀錄，無聲影片" controls playsInline preload="none" width={720} height={1280} poster={sitePath('/exhibit/underpass-poster.webp')}>
         <source src={sitePath('/exhibit/underpass-silent.mp4')} type="video/mp4"/>
@@ -32,7 +33,7 @@ export function OutdoorMaps() {
       <ExhibitPhoto file="outdoor" width={1050} height={788} alt="日南稻站外牆上的地方導覽圖" caption="站在稻站外，讀一張日南的地圖。"/>
       <ExhibitPhoto file="guide" width={1200} height={600} alt="日南九里地方導覽圖及右上角周邊位置圖" caption="點圖可放大，對照九里與周邊的位置。"/>
     </div>
-    <div className={s.actions}><a className={s.textLink} href={sitePath('/explore/')}>開啟九里互動地圖</a><a className={s.textLink} href={sitePath('/visit/')}>查周邊地點與交通</a></div>
+    <div className={s.actions}><a className={s.textLink} href={sitePath('/explore/?route=station-exhibition')}>從車站出發，查看看展路線 →</a><a className={s.textLink} href={sitePath('/explore/?view=places')}>在九里地圖找一個地方 →</a><a className={s.textLink} href={sitePath('/visit/')}>查周邊地點與交通</a></div>
     <p className={s.fine}>圖版與現場紀錄出自<a href={makerUrl}>大作創意作品頁</a>。</p>
   </section>;
 }

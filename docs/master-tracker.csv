@@ -23,3 +23,4 @@ WEB-BOOKS-05,稻站書架加入主網站選單,Codex,2026-11-13,桌機手機選�
 WEB-BOOKS-06,主網站首頁入口調整為選單末項,Codex,2026-11-13,桌機手機選單與正式站回讀,首頁文字入口在桌機最右側且在手機選單最下方,completed,https://www.rinancommons.com/
 WEB-BOOKS-07,11月16日孫珮綺新增9本選書,Codex,2026-11-17,語音推薦轉寫與書目封面及正式站驗收,書單共125本且新增9本皆標示11月16日孫珮綺種下,completed,docs/book-cover-sources-2026-11-17.json
 WEB-BOOKS-08,11月19日新增6本選書,Codex,2026-11-19,照片辨識與書目封面及正式站驗收,書單共131本且新增6本僅標示種下11月19日,completed,docs/book-cover-sources-2026-11-19.json
+WEB-MAP-01,九里地圖串接本期場所故事護照與路線,Codex,2026-11-20,來源座標核對與桌機手機及部署驗證,31筆內容29定位且三入口與來源深連結可用,in_progress,docs/nine-villages-linked-map-2026-11-20.md

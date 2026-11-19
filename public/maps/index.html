@@ -1,8 +1,73 @@
 <!doctype html>
-<html lang="zh-Hant"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>日南九里互動地圖｜日南稻站</title><script>
-// GitHub Pages 保留 /maps/，Vercel 會正規化為 /maps。從目前網址建立
-// 明確的資源根目錄，避免瀏覽器把地圖檔案錯誤解析到網站根目錄。
-window.RINAN_MAP_BASE = `${location.pathname.replace(/\/index\.html$/, '').replace(/\/$/, '')}/`;
-document.write(`<link rel="stylesheet" href="${window.RINAN_MAP_BASE}vendor/leaflet.css"><link rel="stylesheet" href="${window.RINAN_MAP_BASE}map.css"><script defer src="${window.RINAN_MAP_BASE}vendor/leaflet.js"><\/script><script defer src="${window.RINAN_MAP_BASE}map.js"><\/script>`);
-</script></head>
-<body><main class="map-app"><aside class="panel"><header><span class="eyebrow">EXPLORE RINAN</span><h1>走進日南九里</h1><p>沿著海線，看見地方的輪廓。</p></header><details open id="controls"><summary>地圖控制與九里圖層</summary><div class="settings"><fieldset><legend>底圖</legend><div class="buttons"><button id="street" aria-pressed="true">街道地圖</button><button id="satellite" aria-pressed="false">衛星影像</button></div></fieldset><label class="opacity" for="opacity">里界填色透明度 <output id="opacity-value">42%</output></label><input id="opacity" type="range" min="0" max="100" value="42"><fieldset><legend>九里圖層 <small>勾選顯示，點里名定位</small></legend><div id="villages"></div></fieldset><button id="reset" class="reset">顯示九里・回到全區</button><label class="wheel"><input type="checkbox" id="wheel"> 啟用滑鼠滾輪縮放</label></div></details><footer><p><strong>3,787.05</strong> 公頃 <span>／</span> 外圍 <strong>32.77</strong> 公里</p><p class="source">依提供地圖標示：內政部國土測繪中心村（里）界線圖資（2021）。面積與周長沿用原檔，供地方認識參考。</p></footer></aside><section class="canvas" aria-label="日南地區互動地圖"><div id="map" tabindex="0" aria-label="日南九里地圖，可使用方向鍵移動、加減鍵縮放"></div><div class="map-caption"><span class="line"></span> 日南地區外圍界線 <span id="selection" aria-live="polite">九里全區</span></div><div id="status" role="status">正在載入里界資料…</div><div class="map-help">拖曳移動・＋／− 縮放・點里名定位</div></section></main><footer class="map-site-footer"><small>© 2026 <a href="https://www.rinancommons.com/">日南稻站 Rinan Commons</a>｜<a href="https://www.rinancommons.com/copyright/">版權聲明</a>｜保留所有權利</small></footer><noscript>互動地圖需要啟用 JavaScript 才能顯示。</noscript></body></html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="從日南稻站出發，在九里地圖中看故事、找地點、選路線，連結本期策展、走傱護照與地方生活。">
+  <title>走進日南九里｜故事、地點與路線</title>
+  <script>
+    window.RINAN_MAP_BASE = location.pathname.replace(/\/index\.html$/, '').replace(/\/$/, '') + '/';
+    if (window.self !== window.top) document.documentElement.classList.add('is-embedded');
+    for (const file of ['vendor/leaflet.css', 'map.css']) {
+      const link = document.createElement('link');
+      link.rel = 'stylesheet'; link.href = window.RINAN_MAP_BASE + file; document.head.append(link);
+    }
+  </script>
+</head>
+<body>
+  <main class="map-app" id="explorer">
+    <header class="explorer-heading">
+      <div><span class="eyebrow">RINAN / NINE VILLAGES</span><h1>從故事出發，走進日南。</h1></div>
+      <p>把展覽裡的故事、護照上的店家，接回日南的街道與生活。</p>
+    </header>
+    <nav class="mode-switch" aria-label="探索日南的方式">
+      <button type="button" data-view="stories" aria-pressed="false"><span aria-hidden="true">01</span> 看故事<small>看看故事發生在哪裡</small></button>
+      <button type="button" data-view="places" aria-pressed="true"><span aria-hidden="true">02</span> 找地點<small>找店家、據點與下一站</small></button>
+      <button type="button" data-view="routes" aria-pressed="false"><span aria-hidden="true">03</span> 選路線<small>沿著一個主題認識地方</small></button>
+    </nav>
+    <div class="workspace">
+      <section class="directory" aria-label="故事與地點索引">
+        <div class="directory-head">
+          <label class="search-label" for="place-search">想找哪一個地方？</label>
+          <div class="search-box"><input id="place-search" type="search" placeholder="搜尋地點、地址或故事" autocomplete="off"><button id="clear-search" type="button" aria-label="清除搜尋" hidden>清除</button></div>
+          <div class="filters" id="place-filters">
+            <label>類別<select id="category"><option value="all">全部類別</option><option value="place">地方據點</option><option value="food">美食店家</option><option value="select">地方選物</option><option value="story">人物故事</option></select></label>
+            <label>範圍<select id="area"><option value="all">九里與周邊</option><option value="rinan">日南九里</option><option value="nearby">九里周邊</option></select></label>
+          </div>
+          <p class="result-summary" id="result-summary" role="status">正在整理地點…</p>
+        </div>
+        <div id="directory-results" class="result-list"><p class="empty-message">地點載入後，可以直接點選查看故事與前往方式。</p></div>
+        <nav class="pagination" id="pagination" aria-label="地點索引分頁" hidden><button type="button" id="previous-page">上一頁</button><span id="page-label"></span><button type="button" id="next-page">下一頁</button></nav>
+        <p class="directory-note">九里外的合作據點依實際位置標示。流動出攤與尚未確認位置的項目，保留原連結供查詢。</p>
+      </section>
+      <div class="map-column">
+        <section class="canvas" aria-label="日南地區互動地圖">
+          <div id="map" tabindex="0" aria-label="九里與地點互動地圖，可用方向鍵移動、加減鍵縮放"></div>
+          <div class="map-caption"><span class="boundary-line" aria-hidden="true"></span><span id="selection" aria-live="polite">日南九里與周邊</span><button id="reset" type="button">九里全區</button></div>
+          <div id="status" role="status">正在載入地圖…</div>
+          <div class="map-help">點選地點看內容・拖曳移動・＋／− 縮放</div>
+        </section>
+        <div class="map-legend" aria-label="地點圖例"><span><i class="legend-dot category-place"></i>地方據點</span><span><i class="legend-dot category-food"></i>美食</span><span><i class="legend-dot category-select"></i>選物</span><span><i class="legend-dot category-story"></i>人物</span></div>
+        <section id="selected-detail" class="selected-detail" tabindex="-1" aria-label="選取的地點或路線"><p class="eyebrow">NEXT STOP</p><h2>想從哪裡開始？</h2><p>在地圖或清單中選一個地方，看看它與稻站的故事有什麼關係。</p></section>
+        <details id="controls" class="map-controls">
+          <summary>查看九里範圍與地圖設定</summary>
+          <div class="settings">
+            <fieldset><legend>底圖</legend><div class="base-buttons"><button type="button" id="street" aria-pressed="true">街道地圖</button><button type="button" id="satellite" aria-pressed="false">衛星影像</button></div></fieldset>
+            <div><label class="opacity-label" for="opacity">里界填色透明度 <output id="opacity-value">16%</output></label><input id="opacity" type="range" min="0" max="100" value="16"></div>
+            <fieldset class="village-fieldset"><legend>九里圖層 <small>勾選顯示，點里名定位</small></legend><div id="villages"></div></fieldset>
+            <label class="wheel"><input type="checkbox" id="wheel"> 啟用滑鼠滾輪縮放</label>
+          </div>
+          <p class="boundary-source">里界依提供的內政部國土測繪中心村（里）界線圖資（2021）。面積 3,787.05 公頃、外圍 32.77 公里，沿用原檔，供地方認識參考。</p>
+        </details>
+        <p id="data-status" class="data-status" role="status"></p>
+      </div>
+    </div>
+  </main>
+  <footer class="map-site-footer"><a data-site-path="/" href="https://www.rinancommons.com/" target="_top">日南稻站 Rinan Commons</a><a data-site-path="/passport/" href="https://www.rinancommons.com/passport/" target="_top">走傱護照</a><a data-site-path="/visit/" href="https://www.rinancommons.com/visit/" target="_top">到訪交通</a><a data-site-path="/copyright/" href="https://www.rinancommons.com/copyright/" target="_top">版權聲明</a><small>© 2026 日南稻站・保留所有權利</small></footer>
+  <noscript><p class="no-script">互動地圖需要啟用 JavaScript。你仍可前往<a href="https://www.rinancommons.com/passport/" target="_top">走傱護照</a>查看合作據點，或查看<a href="https://www.rinancommons.com/visit/" target="_top">到訪交通</a>。</p></noscript>
+  <script>
+    function loadExplorer() { const script = document.createElement('script'); script.src = window.RINAN_MAP_BASE + 'map.js'; document.body.append(script); }
+    const leaflet = document.createElement('script'); leaflet.src = window.RINAN_MAP_BASE + 'vendor/leaflet.js'; leaflet.onload = loadExplorer; leaflet.onerror = loadExplorer; document.body.append(leaflet);
+  </script>
+</body>
+</html>

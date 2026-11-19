@@ -6,6 +6,7 @@ import { articles, photoSource } from '../../content';
 import { sitePath } from '../../site-path';
 import { SiteHeader, SiteFooter } from '../../site-shell';
 import { StoryPhoto, StoryGallery } from '../story-photo';
+import { mapPlaceHref, mapPlacesForStory } from '../../map-links';
 import '../stories.css';
 
 export const dynamicParams = false;
@@ -27,6 +28,7 @@ export default async function StoryPage({ params }: { params: Promise<{ slug: st
   const a = articles.find(a => a.slug === slug);
   if (!a) notFound();
   const people = a.category === '人物故事';
+  const storyPlaces = mapPlacesForStory(slug);
   const categoryId = people ? 'people' : a.category === '鐵道文史' ? 'railway' : 'everyday';
   const url = `https://www.rinancommons.com/stories/${a.slug}/`;
   const schema = { '@context': 'https://schema.org', '@graph': [
@@ -60,6 +62,10 @@ export default async function StoryPage({ params }: { params: Promise<{ slug: st
           {!!a.sources?.length && <ul>{a.sources.map(source => <li key={source.url}><a href={source.url} target="_blank" rel="noreferrer">{source.label} ↗</a></li>)}</ul>}
           <small>整理更新：{a.updatedAt}</small></aside>
       </div>
+      {storyPlaces.length > 0 && <nav className="article-next" aria-label="故事中的地點"><span className="kicker">把故事放回地圖</span>
+        <p>看看故事與哪些地方相連，再選擇下一個想認識的地方。</p>
+        {storyPlaces.map(place => <a key={place.id} href={mapPlaceHref(place.id)}>{place.name}・在九里地圖查看 →</a>)}
+      </nav>}
       <nav className="article-next" aria-label={people ? '走傱的日南人系列' : '延伸閱讀'}><span className="kicker">{people ? '繼續讀・走傱的日南人' : '繼續認識日南'}</span>
         {articles.filter(other => other.slug !== slug && (!people || other.category === '人物故事')).map(other => <a key={other.id} href={sitePath(`/stories/${other.slug}/`)}>{other.title} ↗</a>)}
         <a href={sitePath('/stories/')}>所有地方筆記 ↗</a>
