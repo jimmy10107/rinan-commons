@@ -60,3 +60,7 @@
 .mapSpread {display:grid;grid-template-columns:4fr 6fr;gap:clamp(16px,3vw,36px);align-items:start}
 .archive {padding-block:1rem}
 @media(max-width:799px) {.mapSpread {grid-template-columns:1fr;gap:0}.mapSpread .routePhoto {margin:.65rem 0}}
+.passageFilm { margin: 1.5rem 0 0; }
+.passageFilm video { display: block; width: min(100%, 24rem, 46vh); width: min(100%, 24rem, 46svh); height: auto; aspect-ratio: 9 / 16; background: #172821; }
+.passageFilm figcaption { margin-top: .6rem; font-size: .9rem; line-height: 1.7; }
+.passageFilm a { text-decoration: underline; text-underline-offset: .2em; }
