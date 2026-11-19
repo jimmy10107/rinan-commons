@@ -1,5 +1,7 @@
 name: Deploy stamp service to Cloudflare
 on:
+  push:
+    branches: [deploy/stamp-bootstrap-20261120]
   workflow_dispatch:
     inputs:
       phase:
@@ -14,7 +16,7 @@ concurrency:
   cancel-in-progress: false
 jobs:
   deploy:
-    if: github.ref == 'refs/heads/main'
+    if: github.ref == 'refs/heads/main' || github.ref == 'refs/heads/deploy/stamp-bootstrap-20261120'
     runs-on: ubuntu-latest
     timeout-minutes: 10
     steps:
@@ -39,7 +41,7 @@ jobs:
       - name: Deploy dedicated Worker and D1
         working-directory: stamp-service
         env:
-          PHASE: ${{ inputs.phase }}
+          PHASE: ${{ inputs.phase || 'bootstrap' }}
           CLOUDFLARE_ACCOUNT_ID: ${{ vars.CLOUDFLARE_ACCOUNT_ID || secrets.CLOUDFLARE_ACCOUNT_ID }}
           CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           LIFF_ID: ${{ vars.STAMP_LIFF_ID }}
