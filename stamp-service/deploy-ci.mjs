@@ -1,10 +1,12 @@
-import {readFileSync,writeFileSync,mkdtempSync,rmSync,appendFileSync} from 'node:fs';
+import {readFileSync,writeFileSync,mkdtempSync,rmSync,appendFileSync,copyFileSync} from 'node:fs';
 import {tmpdir} from 'node:os';
 import {join} from 'node:path';
 import {execFileSync} from 'node:child_process';
 const e=process.env, name='rinan-quiz-stamp',phase=e.PHASE;
 if(!['bootstrap','activate'].includes(phase)||!e.CLOUDFLARE_API_TOKEN||!/^\w{32}$/.test(e.CLOUDFLARE_ACCOUNT_ID||''))throw Error('Invalid deployment configuration');
 const cfg=JSON.parse(readFileSync('wrangler.example.jsonc','utf8'));
+// Bundle the same card shown on the main site into the authenticated LINE app.
+for(const file of ['pearl-card.webp','souvenir.js'])copyFileSync('../public/quiz/'+file,'public/'+file);
 if(phase==='activate'){
  if(!/^\d+-[A-Za-z0-9]+$/.test(e.LIFF_ID)||e.LIFF_ID.split('-')[0]!==e.CHANNEL_ID||!e.PRIVACY_NOTICE?.trim()||!(e.IDENTITY_KEY?.length>=32))throw Error('Set STAMP_LIFF_ID, STAMP_CHANNEL_ID, STAMP_PRIVACY_NOTICE and stable STAMP_IDENTITY_KEY before activation');
  Object.assign(cfg.vars,{LIFF_ID:e.LIFF_ID,CHANNEL_ID:e.CHANNEL_ID,PRIVACY_NOTICE:e.PRIVACY_NOTICE});

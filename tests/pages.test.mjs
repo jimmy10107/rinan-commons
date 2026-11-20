@@ -178,7 +178,11 @@ test('site-wide quiz launcher ships the eight-question LIFF handoff', () => {
   const quizSource = readFileSync(path.join(process.cwd(), 'app/exhibition/to-and-from/quiz.tsx'), 'utf8');
   assert.match(bundles, /挑戰日南 8 題/);
   assert.match(bundles, /你搭上車了嗎/);
-  assert.match(bundles, /quiz\/souvenir\.html/);
+  assert.match(bundles, /view=souvenir/);
+  assert.match(bundles, /quiz\/pearl-card\.webp/);
+  const renderer=readFileSync(path.join(root,'quiz/souvenir.js'),'utf8');
+  assert.doesNotMatch(renderer,/Math\.random|Date\.now|RC-XXXXXX/);
+  assert.match(renderer,/Asia\/Taipei/);
   assert.match(readFileSync(path.join(root,'quiz/souvenir.html'),'utf8'), /id="badge"/);
   assert.match(readFileSync(path.join(root,'quiz/souvenir.js'),'utf8'), /紀念用｜非實體章兌換憑證/);
   assert.match(bundles, /沒有紙本護照也能玩/);

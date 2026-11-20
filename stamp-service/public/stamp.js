@@ -7,11 +7,26 @@ let job,clock;
 function action(label,fn){act.textContent=label;act.hidden=false;act.disabled=false;job=fn}
 function loginAgain(){sessionStorage.setItem('line-reauth-attempted','1');try{liff.logout()}catch{}liff.login({redirectUri:location.origin+location.pathname+location.search})}
 function showError(e){statusEl.textContent=e.message;if(e.status===401)action('重新登入 LINE',loginAgain)}
+let cardSerial,cardBox;
 function showClaim(serial,redeemed=false){
  statusEl.className='claim-card';statusEl.replaceChildren();
  const title=document.createElement('strong'),number=document.createElement('span'),note=document.createElement('span');
  title.textContent='線上特殊章已收藏';number.textContent='資格編號：'+serial;note.textContent=redeemed?'活動章資格已核銷，電子紀念圖仍可儲存。':'電子圖可直接儲存。選擇到站蓋章時，才需要產生兌換碼。';statusEl.append(title,number,note)
- const save=document.createElement('a');save.href='https://www.rinancommons.com/quiz/souvenir.html';save.className='save-badge';save.textContent='儲存電子紀念章';statusEl.append(save)
+ if(cardSerial!==serial||!cardBox){
+   cardSerial=serial;cardBox=document.createElement('details');
+   const open=document.createElement('summary');open.className='save-badge';open.textContent='查看及儲存我的紀念章';
+   const contents=document.createElement('div');cardBox.append(open,contents);
+   let drawing=false,ready=false;
+   const draw=async()=>{if(drawing||ready)return;drawing=true;contents.textContent='正在製作個人紀念章…';
+     try{const {renderSouvenir}=await import('/souvenir.js');await renderSouvenir(contents,serial,'/pearl-card.webp');ready=true}
+     catch{contents.textContent='圖片未能載入。';const retry=document.createElement('button');retry.textContent='重新載入卡片';retry.onclick=draw;contents.append(retry)}
+     finally{drawing=false}};
+   const box=cardBox;box.ontoggle=()=>{if(box.open)void draw()};
+   if(new URL(location.href).searchParams.get('view')==='souvenir'){
+     box.open=true;requestAnimationFrame(()=>box.scrollIntoView({block:'start'}));
+   }
+ }
+ statusEl.append(cardBox)
 }
 act.onclick=async()=>{act.disabled=true;try{await job()}catch(e){showError(e)}finally{act.disabled=false}};
 async function post(path,body){

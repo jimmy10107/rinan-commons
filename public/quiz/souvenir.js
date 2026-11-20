@@ -1,21 +1,35 @@
-async function renderBadge(){
- const c=document.createElement('canvas');c.width=1080;c.height=1350;const g=c.getContext('2d');if(!g)throw Error('canvas');
- const gradient=g.createLinearGradient(0,0,1080,1350);gradient.addColorStop(0,'#244f73');gradient.addColorStop(.55,'#356b91');gradient.addColorStop(1,'#173f35');g.fillStyle=gradient;g.fillRect(0,0,c.width,c.height);
- g.globalAlpha=.14;g.fillStyle='#fff';for(let i=0;i<60;i++){const x=(i*197)%1080,y=(i*293)%1350,r=1+(i%3);g.beginPath();g.arc(x,y,r,0,Math.PI*2);g.fill()}g.globalAlpha=1;
- g.fillStyle='#f9dc67';g.font='700 30px system-ui';g.textAlign='left';g.fillText('日 南 稻 站',76,92);g.font='600 16px system-ui';g.letterSpacing='5px';g.fillText('RINAN COMMONS',77,124);g.letterSpacing='0px';
- g.textAlign='center';g.fillStyle='#fffdf3';g.font='700 62px serif';g.fillText('日南特別居民',540,210);g.font='700 36px serif';g.fillText('電子紀念章',540,260);g.font='24px system-ui';g.fillStyle='#dce8ee';g.fillText('八題全對・在往返之間，認識日南。',540,307);
- const medal=new Image();await new Promise((resolve,reject)=>{medal.onload=resolve;medal.onerror=reject;medal.src='./rinan-resident-medal.webp'});
- g.save();g.beginPath();g.arc(540,650,322,0,Math.PI*2);g.clip();if(medal.complete&&medal.naturalWidth)g.drawImage(medal,218,328,644,644);else{g.fillStyle='#d99a2b';g.fillRect(218,328,644,644)}g.restore();
- g.beginPath();g.arc(540,650,326,0,Math.PI*2);g.strokeStyle='#f4bd45';g.lineWidth=9;g.stroke();g.beginPath();g.arc(540,650,338,0,Math.PI*2);g.strokeStyle='#fff4c6aa';g.lineWidth=2;g.stroke();
- g.save();g.translate(540,690);g.rotate(-Math.PI/7);g.globalAlpha=.2;g.fillStyle='#fff';g.font='800 23px system-ui';for(let y=-520;y<520;y+=92)for(let x=-760;x<760;x+=520)g.fillText('日南稻站・電子紀念章',x,y);g.restore();
- g.fillStyle='#102b25dd';g.fillRect(56,1030,968,244);g.strokeStyle='#eab54a';g.lineWidth=2;g.strokeRect(56,1030,968,244);
- const date=new Intl.DateTimeFormat('zh-TW',{timeZone:'Asia/Taipei',year:'numeric',month:'2-digit',day:'2-digit'}).format(new Date()),souvenir=`RC-${Date.now().toString(36).toUpperCase().slice(-6)}-${Math.random().toString(36).slice(2,6).toUpperCase()}`;
- g.textAlign='left';g.fillStyle='#f4bd45';g.font='700 24px system-ui';g.fillText('ALL 8 CORRECT / 全題答對',92,1086);g.fillStyle='#fffdf3';g.font='700 38px serif';g.fillText('一起看見日南的鐵路、人物、植物與書架',92,1142);g.font='22px system-ui';g.fillStyle='#dce8ee';g.fillText(`製圖日期 ${date}　紀念編號 ${souvenir}`,92,1192);g.fillStyle='#f4bd45';g.font='700 22px system-ui';g.fillText('紀念用｜非實體章兌換憑證',92,1236);
- const blob=await new Promise((resolve,reject)=>c.toBlob(b=>b?resolve(b):reject(Error('PNG')),'image/png'));
- const url=URL.createObjectURL(blob),img=document.querySelector('#badge');
- img.src=url;await img.decode();img.hidden=false;
- document.querySelector('#message').textContent='手機可長按下方完整圖片，選「儲存到照片」或「下載圖片」。';
- const share=document.querySelector('#share');
- if(typeof File==='function'&&navigator.canShare){const files=[new File([blob],'日南特別居民_電子紀念章.png',{type:'image/png'})];if(navigator.canShare({files})){share.hidden=false;share.onclick=()=>navigator.share({files}).catch(e=>{if(e.name!=='AbortError')document.querySelector('#message').textContent='請長按圖片儲存。'})}}
+// The LINE collection calls this with the serial returned by the authenticated claim API.
+// Do not read a serial from the URL, browser storage or a random number generator.
+export async function renderSouvenir(container, serial, artwork, now = new Date()) {
+  if (!/^RC-\d{6,}$/.test(serial)) throw new Error('尚未取得個人紀念編號，請重新開啟 LINE 收藏頁。');
+  const art = new Image();
+  await new Promise((resolve, reject) => { art.onload=resolve; art.onerror=reject; art.src=artwork; });
+  const canvas=document.createElement('canvas');canvas.width=960;canvas.height=1430;
+  const g=canvas.getContext('2d');
+  if(!g) throw new Error('無法製作圖片');
+  g.fillStyle='#14231f'; g.fillRect(0,0,960,1430);g.drawImage(art,0,0,960,1220);
+  // Two unobtrusive signed-by-design marks straddle the pearl field and the emblem.
+  g.save();g.translate(480,645);g.rotate(-Math.PI/11);g.textAlign='center';
+  g.font='600 21px system-ui,sans-serif';g.lineWidth=1;
+  for(const y of [-131,143]){
+    const mark='日南稻站  ·  RINAN COMMONS  /  '+serial;
+    g.strokeStyle='rgba(255,255,255,.38)';g.strokeText(mark,0,y);
+    g.fillStyle='rgba(29,54,45,.23)';g.fillText(mark,0,y);
+  }
+  g.restore();
+  const date=new Intl.DateTimeFormat('zh-TW',{timeZone:'Asia/Taipei',year:'numeric',month:'2-digit',day:'2-digit'}).format(now);
+  g.font='25px system-ui,sans-serif';g.fillStyle='#dad8b4';g.fillText('紀念編號',65,1240);g.fillText('製圖日期',550,1240);
+  g.font='600 49px sans-serif';g.fillStyle='#fff8e7';g.fillText(serial,64,1309,450);g.fillText(date,548,1309,353);
+  g.strokeStyle='#668078';g.beginPath();g.moveTo(64,1340);g.lineTo(896,1340);g.stroke();
+  g.font='26px system-ui,sans-serif';g.fillStyle='#d9e5dc';g.fillText('紀念用｜非實體章兌換憑證',65,1392);
+  const blob=await new Promise((resolve,reject)=>canvas.toBlob(b=>b?resolve(b):reject(Error('PNG')),'image/png'));
+  const img=new Image();img.alt='日南稻站走傱日南紀念章，八題全對，紀念編號 '+serial;
+  img.style.cssText='width:100%;height:auto;display:block;-webkit-touch-callout:default';img.src=URL.createObjectURL(blob);
+  await img.decode();
+  const tip=document.createElement('p');tip.textContent='長按卡片可儲存到手機相簿。';container.replaceChildren(tip,img);
+  if(typeof File==='function'&&navigator.canShare){
+    const files=[new File([blob], '日南稻站走傱日南紀念章_'+serial+'.png',{type:'image/png'})];
+    if(navigator.canShare({files})){const share=document.createElement('button');share.type='button';share.textContent='分享或儲存圖片';
+      share.onclick=()=>navigator.share({files}).catch(e=>{if(e.name!=='AbortError')tip.textContent='請長按卡片儲存圖片。'});container.append(share);}
+  }
 }
-renderBadge().catch(()=>{document.querySelector('#message').textContent='圖片未能載入，請檢查網路後重新整理。';document.querySelector('#retry').hidden=false});
