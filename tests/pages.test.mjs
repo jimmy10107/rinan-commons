@@ -189,6 +189,9 @@ test('site-wide quiz launcher ships the eight-question LIFF handoff', () => {
   assert.match(bundles, /rinan-quiz-stamp\.jimmy10107-tw\.workers\.dev/);
   assert.match(bundles, /https:\/\/liff\.line\.me\/2011673526-BOtR0nd7/);
   assert.match(bundles, /#proof=/);
+  assert.doesNotMatch(bundles, /預覽互動電子活動章/);
+  assert.ok(!quizSource.includes('/quiz/souvenir.html'));
+  assert.doesNotMatch(readFileSync(path.join(root,'quiz/souvenir.html'),'utf8'), /<script|interactive-stamp|showPreview/);
   assert.doesNotMatch(quizSource, /\?a=|answers\.join/);
   assert.match(workerApi, /https:\/\/www\.tchac\.taichung\.gov\.tw\/building\?pid=22&uid=33/);
   assert.match(workerApi, /https:\/\/www\.cna\.com\.tw\/news\/ahel\/202311010163\.aspx/);
