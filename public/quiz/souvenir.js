@@ -13,16 +13,53 @@ const finishStyle=`
 .stage .tilt{animation:drift 8s ease-in-out infinite alternate}
 .stage[data-point] .tilt,.stage[data-still] .tilt{animation:none}
 .stage .card:after{display:none}
-.foil-ribbon{animation:glint 5.8s ease-in-out -2.6s infinite alternate}
-.stage[data-point] .foil-ribbon{animation:none;transform:translate(var(--glint-x,0%),var(--glint-y,0%))}
-.pearl-mote{transform-box:fill-box;transform-origin:center;animation:floatLight 4.8s ease-in-out var(--phase,0s) infinite alternate}
-.stage[data-still] .foil-ribbon{display:none}
-.stage[data-still] .pearl-mote{animation:none}
+.shell-surface{position:absolute;inset:0;width:100%;height:100%;pointer-events:none}
+.card svg{position:relative}
+#shell-print{display:none}
 @keyframes drift{from{transform:rotateY(-2deg) rotateX(1deg)}to{transform:rotateY(2deg) rotateX(-1deg)}}
-@keyframes glint{from{transform:translate(-46%,18%)}to{transform:translate(46%,-18%)}}
-@keyframes floatLight{from{transform:translate(-.45px,.72px) scale(.74);opacity:.4}to{transform:translate(.64px,-.8px) scale(1.12);opacity:1}}
-@media(prefers-reduced-motion:reduce){.stage .tilt,.foil-ribbon,.pearl-mote{animation:none}}
+@media(prefers-reduced-motion:reduce){.stage .tilt{animation:none}}
 `;
+// Fast artistic approximation: fixed relief, rough daylight reflection and
+// three wavelength samples of thin-film interference, not a ray tracer.
+function makeShell(canvas,seed){
+ const w=canvas.width=260,h=canvas.height=364,ctx=canvas.getContext('2d',{alpha:false});
+ const pixels=ctx.createImageData(w,h),out=pixels.data,n=w*h;
+ const nx=new Float32Array(n),ny=new Float32Array(n),nz=new Float32Array(n),thick=new Float32Array(n),silk=new Float32Array(n),diff=new Float32Array(n),cosFilm=new Float32Array(n);
+ const tau=2*Math.PI,cos=Math.cos,sin=Math.sin;
+ function rand(){seed=(Math.imul(seed,1664525)+1013904223)>>>0;return seed/4294967296}
+ const p=Array.from({length:7},()=>rand()*tau);
+ function relief(x,y){
+   const bend=sin(4.1*x+2.4*y+p[0])*.14+sin(7.8*y-1.6*x+p[1])*.05;
+   const arc=Math.hypot(x+.65+bend,(y-1.63)*.82)+bend+.023*sin(13*x-8*y+p[4])+.009*sin(22*y+4*x+p[3]);
+   return .050*sin(arc*9+p[2])+.019*sin(arc*20.5+.8*sin(3*y+p[3]))+.005*sin(arc*49+p[4])+.00095*sin(arc*139+p[5])+.023*sin(4*x-3*y+p[6]);
+ }
+ for(let j=0,k=0;j<h;j++)for(let i=0;i<w;i++,k++){
+   const x=i/w,y=j/w,z=relief(x,y),e=.0015;
+   const a=(z-relief(x+e,y))/e*.75,b=(z-relief(x,y+e))/e*.75,v=1/Math.hypot(a,b,1);
+   nx[k]=a*v;ny[k]=b*v;nz[k]=v;
+   thick[k]=370+72*sin(4.8*x-2.6*y+p[0])+48*cos(3.2*y+3.8*x+p[2])+235*z;
+   diff[k]=Math.max(0,(-.44*a-.31*b+.84)*v);silk[k]=rand()*3-1.5;
+   cosFilm[k]=cos(7*x+3*y+2*sin(4*y+p[0]));out[k*4+3]=255;
+ }
+ const lut=Float32Array.from({length:2048},(_,i)=>cos(i*tau/2048));
+ const gauss=Float32Array.from({length:1024},(_,i)=>Math.exp(-i/80));
+ return function shade(x,y){
+   const vv=1/Math.hypot(x,y,1),vx=x*vv,vy=y*vv;
+   const hx=vx-.44,hy=vy-.31,hz=vv+.84,iv=1/Math.hypot(hx,hy,hz);
+   const X=hx*iv,Y=hy*iv,Z=hz*iv;
+   for(let k=0;k<n;k++){
+     const nv=Math.min(1,Math.max(0,nx[k]*vx+ny[k]*vy+nz[k]*vv));
+     const nh=Math.min(1,Math.max(0,nx[k]*X+ny[k]*Y+nz[k]*Z)),edge=1-nh;
+     const spec=gauss[Math.min(1023,(edge*8800)|0)],shine=spec*spec;
+     const optical=2*1.53*thick[k]*Math.sqrt(1-(1-nv*nv)/2.34)*2048;
+     const broad=213+27*diff[k]+silk[k]-31*edge,ir=12+15*(1-nv)+7*spec+4*cosFilm[k];
+     const r=broad+5+ir*lut[(optical/625|0)&2047],g=broad+ir*lut[(optical/535|0)&2047],b=broad+1+ir*lut[(optical/455|0)&2047];
+     const hot=.53*spec+.42*shine;
+     out[k*4]=r+(255-r)*hot;out[k*4+1]=g+(253-g)*hot;out[k*4+2]=b+(246-b)*hot;
+   }
+   ctx.putImageData(pixels,0,0);
+ };
+}
 function projectPNG(img){
   const w=960,h=1344, canvas=document.createElement('canvas');
   canvas.width=w;canvas.height=h;
@@ -58,41 +95,38 @@ const style=document.createElement('style');style.textContent=finishStyle;root.a
 const plane=root.querySelector('.card'),tilt=root.querySelector('.tilt');
 function sizePose(){const w=tilt.clientWidth;if(w)plane.style.setProperty('--pose',cssPose(w,w*1.4))}
 sizePose();const ro=new ResizeObserver(sizePose);ro.observe(tilt);life.signal.addEventListener('abort',()=>ro.disconnect(),{once:true});
-// All foil is inline SVG: pigment, white nacre, streaks and flecks are below
-// the type, emblem and ticket. The static export uses the same printed layers.
-const face=root.getElementById('face'),defs=face.querySelector('defs');
-function node(tag,attrs,parent){const n=document.createElementNS('http://www.w3.org/2000/svg',tag);for(const [k,v] of Object.entries(attrs))n.setAttribute(k,v);if(parent)parent.append(n);return n}
-function gradient(tag,id,coords,stops){const g=node(tag,{id,...coords},defs);for(const [offset,color,opacity=1] of stops)node('stop',{offset,'stop-color':color,'stop-opacity':opacity},g)}
-const rings=face.querySelector('rect[fill="url(#rings)"]'),field=node('g',{'aria-hidden':'true'});rings.before(field);
-const clip=node('clipPath',{id:'foil-edge'},defs);node('rect',{x:4,y:4,width:952,height:1336,rx:44},clip);
-field.setAttribute('clip-path','url(#foil-edge)');
-for(const [id,cx,cy,r,color,peak] of [
- ['lagoon','.03','.22','.76','#51bcea','.89'],['rose','.98','.35','.68','#ff8fbd','.82'],
- ['ice','.13','.83','.50','#82c8fb','.85'],['shell','.57','.47','.37','#fffdf7','.96']
-]){
- gradient('radialGradient',id,{cx,cy,r},[[0,color,peak],[.49,color,Number(peak)*.66],[1,color,0]]);
- node('rect',{width:960,height:1344,fill:'url(#'+id+')'},field);
-}
-const axis={gradientUnits:'userSpaceOnUse',x1:0,y1:1050,x2:960,y2:180};
-gradient('linearGradient','printed-glint',axis,[[0,'#fff',0],[.27,'#a7d6ff',0],[.38,'#bdeaff',.46],[.46,'#fff',.83],[.51,'#fffcf1',.61],[.58,'#ffbbdf',.48],[.74,'#ffd8ec',0],[1,'#fff',0]]);
-node('rect',{width:960,height:1344,fill:'url(#printed-glint)'},field);
-gradient('linearGradient','floating-glint',axis,[[.30,'#80cfff',0],[.39,'#8cd4ff',.54],[.47,'#fff',.87],[.485,'#fff',.97],[.525,'#fff',.50],[.59,'#ffb2de',.64],[.70,'#ffcaec',0]]);
-node('rect',{class:'foil-ribbon','data-live-only':'',x:-960,y:-1344,width:2880,height:4032,fill:'url(#floating-glint)'},field);
-gradient('radialGradient','mote-bloom',{},[[0,'#fff',.96],[.26,'#fff',.62],[1,'#f5fcff',0]]);
-const motes=node('g',{'aria-hidden':'true'});rings.after(motes);
-for(const [x,y,size,delay] of [[135,258,13,-1],[782,258,9,-3],[851,462,14,-2],[105,656,11,-4],[776,832,12,-.5]]){
- const anchor=node('g',{transform:'translate('+x+' '+y+') scale('+size+')'},motes);
- const star=node('g',{class:'pearl-mote',style:'--phase:'+delay+'s'},anchor);
- // Animate in local star units, not in multiples of the outer scale.
- node('circle',{r:2.45,fill:'url(#mote-bloom)'},star);
- node('path',{d:'M0 -1.4 Q.13 -.17 .93 0 Q.13 .17 0 1.4 Q-.13 .17 -.93 0 Q-.13 -.17 0 -1.4Z',fill:'#fff'},star);
-}
-
-const el=id=>root.getElementById(id),stage=el('stage'),motion=el('motion'),reduce=matchMedia('(prefers-reduced-motion: reduce)');let paused=false;
-function sync(){const still=paused||reduce.matches;stage.toggleAttribute('data-still',still);motion.disabled=reduce.matches;motion.textContent=still?'動態已暫停':'暫停動態';if(paused&&!reduce.matches)motion.textContent='播放動態';motion.setAttribute('aria-pressed',String(still))}
+// The shell is HTML canvas, lit underneath the original vector artwork. A
+// pinned daylight pose is embedded in SVG for PNG, even without animation.
+const face=root.getElementById('face'),base=face.querySelector('rect[fill="url(#pearl)"]');
+const el=id=>root.getElementById(id),stage=el('stage'),motion=el('motion'),reduce=matchMedia('(prefers-reduced-motion: reduce)');
+const surface=document.createElement('canvas');surface.className='shell-surface';surface.setAttribute('aria-hidden','true');plane.prepend(surface);
+const seedText=serial||'RINAN-OYSTER',seed=[...seedText].reduce((a,c)=>Math.imul(a^c.charCodeAt(0),16777619)>>>0,2166136261);
+const film=makeShell(surface,seed),rest=[-.12,-.08];
+film(...rest);
+const print=document.createElementNS('http://www.w3.org/2000/svg','image');
+print.setAttribute('width','960');print.setAttribute('height','1344');print.setAttribute('preserveAspectRatio','none');
+print.setAttribute('href',surface.toDataURL('image/png'));print.setAttribute('id','shell-print');
+const clip=document.createElementNS(face.namespaceURI,'clipPath'),round=base.cloneNode(false);
+clip.id='shell-outline';round.removeAttribute('stroke');round.setAttribute('fill','#fff');clip.append(round);face.querySelector('defs').append(clip);print.setAttribute('clip-path','url(#shell-outline)');
+base.after(print);base.setAttribute('fill','none');face.querySelector('rect[fill="url(#rings)"]').setAttribute('opacity','.095');
+const gold=face.querySelector('#gold');gold.setAttribute('x2','.86');gold.setAttribute('y2','.69');
+gold.innerHTML='<stop stop-color="#97723d"/><stop offset=".26" stop-color="#d0aa69"/><stop offset=".40" stop-color="#f2d5a0"/><stop offset=".56" stop-color="#aa8550"/><stop offset=".83" stop-color="#856335"/><stop offset="1" stop-color="#c9a575"/>';
+const phase=crypto.getRandomValues(new Uint32Array(1))[0]/4294967296*6.283;
+let paused=false,visible=true,frame=0,last=-Infinity,point=null,ax=rest[0],ay=rest[1];
+function run(t){frame=0;if(!host.isConnected||document.hidden||!visible||paused||reduce.matches)return;
+ if(t-last>=65){const s=t*.00038+phase;
+ const tx=point?point[0]:.22*Math.sin(s)+.10*Math.sin(1.73*s+1),ty=point?point[1]:.19*Math.cos(.83*s)+.10*Math.sin(1.49*s);
+ ax+=(tx-ax)*.24;ay+=(ty-ay)*.24;film(ax,ay);last=t}
+ frame=requestAnimationFrame(run)}
+function resume(){if(!frame&&visible&&!document.hidden&&!paused&&!reduce.matches)frame=requestAnimationFrame(run)}
+function stop(){cancelAnimationFrame(frame);frame=0}
+function sync(){const still=paused||reduce.matches;stage.toggleAttribute('data-still',still);motion.disabled=reduce.matches;motion.textContent=still?(reduce.matches?'動態已暫停':'播放動態'):'暫停動態';motion.setAttribute('aria-pressed',String(still));if(still){stop();ax=rest[0];ay=rest[1];film(...rest)}else resume()}
 motion.onclick=()=>{paused=!paused;sync()};reduce.addEventListener?.('change',sync,{signal:life.signal});sync();
-function reset(){delete stage.dataset.point;for(const k of ['--rx','--ry','--x','--y'])stage.style.removeProperty(k)}
-stage.onpointermove=stage.onpointerdown=e=>{if(paused||reduce.matches)return;const r=stage.getBoundingClientRect(),x=Math.min(1,Math.max(0,(e.clientX-r.left)/r.width)),y=Math.min(1,Math.max(0,(e.clientY-r.top)/r.height));stage.dataset.point='';for(const [k,v] of Object.entries({'--rx':(.5-y)*6+'deg','--ry':(x-.5)*8+'deg','--glint-x':(x-.5)*42+'%','--glint-y':(y-.5)*28+'%'}))stage.style.setProperty(k,v)};
+const observer=new IntersectionObserver(entries=>{visible=entries[0].isIntersecting;if(visible)resume();else stop()});observer.observe(stage);
+document.addEventListener('visibilitychange',()=>document.hidden?stop():resume(),{signal:life.signal});
+life.signal.addEventListener('abort',()=>{stop();observer.disconnect()},{once:true});
+function reset(){point=null;delete stage.dataset.point;stage.style.removeProperty('--rx');stage.style.removeProperty('--ry')}
+stage.onpointermove=stage.onpointerdown=e=>{if(paused||reduce.matches)return;const r=stage.getBoundingClientRect(),x=Math.min(1,Math.max(0,(e.clientX-r.left)/r.width)),y=Math.min(1,Math.max(0,(e.clientY-r.top)/r.height));stage.dataset.point='';point=[(x-.5)*1.12,(y-.5)*.96];stage.style.setProperty('--rx',(.5-y)*6+'deg');stage.style.setProperty('--ry',(x-.5)*8+'deg')};
 stage.onpointercancel=stage.onpointerleave=reset;stage.onpointerup=e=>{if(e.pointerType!=='mouse')reset()};
 const date=new Intl.DateTimeFormat('zh-TW',{timeZone:'Asia/Taipei',year:'numeric',month:'2-digit',day:'2-digit'}).format(new Date());el('date').textContent='製圖日期｜'+date;
 // No claim is minted by this standalone preview. Production supplies the verified claim, never a URL serial.
