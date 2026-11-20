@@ -87,3 +87,43 @@
 .quizBadgePreview{display:block;width:min(180px,42vw);height:auto;aspect-ratio:960/1220;object-fit:contain;border-radius:8px;margin:0 auto 12px;box-shadow:0 8px 24px #102d2430}
 @media(max-width:620px){.quizOptions{grid-template-columns:1fr;gap:7px}.quizFloating{padding:12px 14px}.quizFloating h2{font-size:1.55rem!important;margin-bottom:.2em}.quizFloating>p:not(.kicker){font-size:.88rem;line-height:1.55;margin-bottom:.5em}.quizFeedback{margin-bottom:10px;padding:9px 11px;font-size:.86rem}.quizFeedback p{line-height:1.5}.quizActions :is(button,a){width:100%;min-height:46px}.quizJourney{grid-template-columns:repeat(3,minmax(0,1fr));gap:4px;margin:8px 0 2px}.quizJourney li{display:block;padding:6px 4px;text-align:center}.quizJourney strong{width:22px;height:22px;margin:0 auto 3px}.quizJourney span{font-size:.66rem}.quizJourney small{display:none}.quizProgress{margin:9px 0 11px}.quizOptions button{min-height:46px;padding:7px 10px;font-size:.9rem}.quizOptions span{width:27px;height:27px;flex-basis:27px}.quizFinish{padding:12px}.quizBadgePreview{width:min(142px,38vw)}}
 @media(max-width:620px) and (max-height:700px){.quizFloating>p:not(.kicker){display:none}.quizJourney{margin-top:4px}.quizBadgePreview{width:110px}}
+
+/* Keep collection, preview and replay distinct in the page and floating quiz. */
+.quizFinish {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: .75rem 1.5rem;
+}
+.quizFinish > p, .quizFinish > .quizActions {
+  flex: 0 0 100%;
+  min-width: 0;
+  margin: 0;
+}
+.quizFinish > p { line-height: 1.7; }
+.quizFinish > a, .quizFinish > .quizReset {
+  display: inline-flex;
+  align-items: center;
+  box-sizing: border-box;
+  min-height: 44px;
+  max-width: 100%;
+  margin: 0;
+  padding: .5rem .75rem;
+  font: inherit;
+  line-height: 1.5;
+  color: var(--ink);
+}
+.quizFinish > a {
+  border: 1px solid #87998f;
+  text-decoration: none;
+}
+.quizFinish > .quizReset {
+  border: 0;
+  text-decoration: underline;
+  text-underline-offset: .22em;
+}
+@media (max-width: 620px) {
+  .quizFinish { flex-direction: column; align-items: stretch; gap: .625rem; }
+  .quizFinish > p, .quizFinish > .quizActions { flex: none; }
+  .quizFinish > a, .quizFinish > .quizReset { justify-content: center; }
+}
