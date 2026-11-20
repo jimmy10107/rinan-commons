@@ -12,12 +12,16 @@ const finishStyle=`
 .stage .card{transform-origin:0 0;transform:var(--pose);animation:none;box-shadow:0 5px 11px #020d0838}
 .stage .tilt{animation:drift 8s ease-in-out infinite alternate}
 .stage[data-point] .tilt,.stage[data-still] .tilt{animation:none}
-.stage .card:after{inset:-45%;border-radius:0;background:linear-gradient(43deg,transparent 37%,#b4e8e521 43%,#ffffff78 49%,#efdeff42 54%,transparent 63%);mix-blend-mode:soft-light;opacity:.68;animation:glint 8s ease-in-out infinite alternate}
-.stage[data-point] .card:after{animation:none;transform:translate(var(--glint-x,0%),var(--glint-y,0%))}
-.stage[data-still] .card:after{animation:none;opacity:0}
+.stage .card:after{display:none}
+.foil-ribbon{animation:glint 5.8s ease-in-out -2.6s infinite alternate}
+.stage[data-point] .foil-ribbon{animation:none;transform:translate(var(--glint-x,0%),var(--glint-y,0%))}
+.pearl-mote{transform-box:fill-box;transform-origin:center;animation:floatLight 4.8s ease-in-out var(--phase,0s) infinite alternate}
+.stage[data-still] .foil-ribbon{display:none}
+.stage[data-still] .pearl-mote{animation:none}
 @keyframes drift{from{transform:rotateY(-2deg) rotateX(1deg)}to{transform:rotateY(2deg) rotateX(-1deg)}}
-@keyframes glint{from{transform:translate(-20%,14%)}to{transform:translate(20%,-14%)}}
-@media(prefers-reduced-motion:reduce){.stage .tilt,.stage .card:after{animation:none}}
+@keyframes glint{from{transform:translate(-46%,18%)}to{transform:translate(46%,-18%)}}
+@keyframes floatLight{from{transform:translate(-.45px,.72px) scale(.74);opacity:.4}to{transform:translate(.64px,-.8px) scale(1.12);opacity:1}}
+@media(prefers-reduced-motion:reduce){.stage .tilt,.foil-ribbon,.pearl-mote{animation:none}}
 `;
 function projectPNG(img){
   const w=960,h=1344, canvas=document.createElement('canvas');
@@ -54,11 +58,35 @@ const style=document.createElement('style');style.textContent=finishStyle;root.a
 const plane=root.querySelector('.card'),tilt=root.querySelector('.tilt');
 function sizePose(){const w=tilt.clientWidth;if(w)plane.style.setProperty('--pose',cssPose(w,w*1.4))}
 sizePose();const ro=new ResizeObserver(sizePose);ro.observe(tilt);life.signal.addEventListener('abort',()=>ro.disconnect(),{once:true});
-// A subdued diagonal highlight is printed behind the lettering in both versions.
-const ns='http://www.w3.org/2000/svg',face=root.getElementById('face'),grad=document.createElementNS(ns,'linearGradient');
-for(const [k,v] of Object.entries({id:'printed-glint',gradientUnits:'userSpaceOnUse',x1:'0',y1:'1050',x2:'960',y2:'180'}))grad.setAttribute(k,v);
-for(const [offset,opacity] of [['0','0'],['.38','0'],['.49','.32'],['.59','0'],['1','0']]){const stop=document.createElementNS(ns,'stop');stop.setAttribute('offset',offset);stop.setAttribute('stop-color','#fff');stop.setAttribute('stop-opacity',opacity);grad.append(stop)}
-face.querySelector('defs').append(grad);const band=face.querySelector('rect[fill="url(#rings)"]').cloneNode(false);band.setAttribute('fill','url(#printed-glint)');face.querySelector('rect[fill="url(#rings)"]').after(band);
+// All foil is inline SVG: pigment, white nacre, streaks and flecks are below
+// the type, emblem and ticket. The static export uses the same printed layers.
+const face=root.getElementById('face'),defs=face.querySelector('defs');
+function node(tag,attrs,parent){const n=document.createElementNS('http://www.w3.org/2000/svg',tag);for(const [k,v] of Object.entries(attrs))n.setAttribute(k,v);if(parent)parent.append(n);return n}
+function gradient(tag,id,coords,stops){const g=node(tag,{id,...coords},defs);for(const [offset,color,opacity=1] of stops)node('stop',{offset,'stop-color':color,'stop-opacity':opacity},g)}
+const rings=face.querySelector('rect[fill="url(#rings)"]'),field=node('g',{'aria-hidden':'true'});rings.before(field);
+const clip=node('clipPath',{id:'foil-edge'},defs);node('rect',{x:4,y:4,width:952,height:1336,rx:44},clip);
+field.setAttribute('clip-path','url(#foil-edge)');
+for(const [id,cx,cy,r,color,peak] of [
+ ['lagoon','.03','.22','.76','#51bcea','.89'],['rose','.98','.35','.68','#ff8fbd','.82'],
+ ['ice','.13','.83','.50','#82c8fb','.85'],['shell','.57','.47','.37','#fffdf7','.96']
+]){
+ gradient('radialGradient',id,{cx,cy,r},[[0,color,peak],[.49,color,Number(peak)*.66],[1,color,0]]);
+ node('rect',{width:960,height:1344,fill:'url(#'+id+')'},field);
+}
+const axis={gradientUnits:'userSpaceOnUse',x1:0,y1:1050,x2:960,y2:180};
+gradient('linearGradient','printed-glint',axis,[[0,'#fff',0],[.27,'#a7d6ff',0],[.38,'#bdeaff',.46],[.46,'#fff',.83],[.51,'#fffcf1',.61],[.58,'#ffbbdf',.48],[.74,'#ffd8ec',0],[1,'#fff',0]]);
+node('rect',{width:960,height:1344,fill:'url(#printed-glint)'},field);
+gradient('linearGradient','floating-glint',axis,[[.30,'#80cfff',0],[.39,'#8cd4ff',.54],[.47,'#fff',.87],[.485,'#fff',.97],[.525,'#fff',.50],[.59,'#ffb2de',.64],[.70,'#ffcaec',0]]);
+node('rect',{class:'foil-ribbon','data-live-only':'',x:-960,y:-1344,width:2880,height:4032,fill:'url(#floating-glint)'},field);
+gradient('radialGradient','mote-bloom',{},[[0,'#fff',.96],[.26,'#fff',.62],[1,'#f5fcff',0]]);
+const motes=node('g',{'aria-hidden':'true'});rings.after(motes);
+for(const [x,y,size,delay] of [[135,258,13,-1],[782,258,9,-3],[851,462,14,-2],[105,656,11,-4],[776,832,12,-.5]]){
+ const anchor=node('g',{transform:'translate('+x+' '+y+') scale('+size+')'},motes);
+ const star=node('g',{class:'pearl-mote',style:'--phase:'+delay+'s'},anchor);
+ // Animate in local star units, not in multiples of the outer scale.
+ node('circle',{r:2.45,fill:'url(#mote-bloom)'},star);
+ node('path',{d:'M0 -1.4 Q.13 -.17 .93 0 Q.13 .17 0 1.4 Q-.13 .17 -.93 0 Q-.13 -.17 0 -1.4Z',fill:'#fff'},star);
+}
 
 const el=id=>root.getElementById(id),stage=el('stage'),motion=el('motion'),reduce=matchMedia('(prefers-reduced-motion: reduce)');let paused=false;
 function sync(){const still=paused||reduce.matches;stage.toggleAttribute('data-still',still);motion.disabled=reduce.matches;motion.textContent=still?'動態已暫停':'暫停動態';if(paused&&!reduce.matches)motion.textContent='播放動態';motion.setAttribute('aria-pressed',String(still))}
@@ -68,7 +96,7 @@ stage.onpointermove=stage.onpointerdown=e=>{if(paused||reduce.matches)return;con
 stage.onpointercancel=stage.onpointerleave=reset;stage.onpointerup=e=>{if(e.pointerType!=='mouse')reset()};
 const date=new Intl.DateTimeFormat('zh-TW',{timeZone:'Asia/Taipei',year:'numeric',month:'2-digit',day:'2-digit'}).format(new Date());el('date').textContent='製圖日期｜'+date;
 // No claim is minted by this standalone preview. Production supplies the verified claim, never a URL serial.
-async function makePNG(){const svg=el('face').cloneNode(true);const img=new Image(),src=URL.createObjectURL(new Blob([new XMLSerializer().serializeToString(svg)],{type:'image/svg+xml;charset=utf-8'}));try{img.src=src;await img.decode();const c=projectPNG(img);return await new Promise((ok,no)=>c.toBlob(b=>b?ok(b):no(Error('PNG')),'image/png'))}finally{URL.revokeObjectURL(src)}}
+async function makePNG(){const svg=el('face').cloneNode(true);svg.querySelectorAll('[data-live-only]').forEach(n=>n.remove());const img=new Image(),src=URL.createObjectURL(new Blob([new XMLSerializer().serializeToString(svg)],{type:'image/svg+xml;charset=utf-8'}));try{img.src=src;await img.decode();const c=projectPNG(img);return await new Promise((ok,no)=>c.toBlob(b=>b?ok(b):no(Error('PNG')),'image/png'))}finally{URL.revokeObjectURL(src)}}
 
 if(serial){el('serial').textContent='活動章編號｜'+serial;el('owner-mark').textContent='RINAN COMMONS · '+serial}
 el('status').textContent=serial?'這是你的電子活動章。儲存或分享圖片不會核銷。':'這是無編號預覽，並非已領取的電子活動章。';
