@@ -1,4 +1,4 @@
-const $=s=>document.querySelector(s),act=$('#act'),statusEl=$('#status'),img=$('#qr');
+const $=s=>document.querySelector(s),act=$('#act'),statusEl=$('#status'),qrStatusEl=$('#qr-status'),img=$('#qr');
 const initial=new URL(location.href);
 // Keep short-lived handoff values in this tab; fragments never reach HTTP logs or referrers.
 if(/^#redeem=[0-9a-f]{48}$/.test(initial.hash))sessionStorage.setItem('scan',JSON.stringify([initial.hash.slice(8),Date.now()+90000]));
@@ -7,6 +7,11 @@ let job,clock;
 function action(label,fn){act.textContent=label;act.hidden=false;act.disabled=false;job=fn}
 function loginAgain(){sessionStorage.setItem('line-reauth-attempted','1');try{liff.logout()}catch{}liff.login({redirectUri:location.origin+location.pathname+location.search})}
 function showError(e){statusEl.textContent=e.message;if(e.status===401)action('重新登入 LINE',loginAgain)}
+function showClaim(serial,redeemed=false){
+ statusEl.className='claim-card';statusEl.replaceChildren();
+ const title=document.createElement('strong'),number=document.createElement('span'),note=document.createElement('span');
+ title.textContent='線上特殊章已收藏';number.textContent='資格編號：'+serial;note.textContent=redeemed?'此資格已完成兌換。':'此資格會保留至活動兌換截止。';statusEl.append(title,number,note)
+}
 act.onclick=async()=>{act.disabled=true;try{await job()}catch(e){showError(e)}finally{act.disabled=false}};
 async function post(path,body){
  const token=liff.getIDToken();
@@ -17,9 +22,9 @@ async function post(path,body){
 async function claim(present=false){
  const proof=sessionStorage.getItem('proof');const b=await post('claim',{proof,present});
  sessionStorage.removeItem('proof');const serial='RC-'+String(b.serial).padStart(6,'0');
- statusEl.textContent=serial+(b.redeemed?'｜已兌換':'｜尚未兌換');act.hidden=b.redeemed;if(b.redeemed)return;
- action('出示現場兌換碼',()=>claim(true));
- if(b.image){img.src=b.image;img.hidden=false;clearInterval(clock);const tick=()=>{const left=b.expires-Math.floor(Date.now()/1000);statusEl.textContent=serial+'｜'+(left>0?'請在 '+left+' 秒內出示':'兌換碼已過期，可以重新出示');if(left<=0){clearInterval(clock);img.hidden=true;img.removeAttribute('src')}};tick();clock=setInterval(tick,1000)}
+ showClaim(serial,!!b.redeemed);act.hidden=b.redeemed;if(b.redeemed)return;
+ action('我已帶紙本 14 章｜產生 90 秒現場兌換碼',()=>claim(true));
+ if(b.image){img.src=b.image;img.hidden=false;clearInterval(clock);const tick=()=>{const left=b.expires-Math.floor(Date.now()/1000);qrStatusEl.textContent=left>0?'現場兌換碼剩餘 '+left+' 秒':'兌換碼已過期，可重新產生。';if(left<=0){clearInterval(clock);img.hidden=true;img.removeAttribute('src')}};tick();clock=setInterval(tick,1000)}
 }
 async function init(){
  const cfg=await(await fetch('/config')).json();if(!cfg.liff||!cfg.notice)throw Error('兌換尚未開放。');$('#notice').textContent=cfg.notice;
