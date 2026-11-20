@@ -24,7 +24,7 @@ export function Quiz({floating=false}:{floating?:boolean}){
  const answered=complete?8:(question?.position||0),total=question?.total||8;
  return <section id={floating?'floating-quiz':'quiz'} className={`${s.quiz} ${floating?s.quizFloating:s.band}`} aria-label="日南八題小測驗">
    <p className={s.kicker}>RINAN QUIZ / 到站小測驗</p><h2>你搭上車了嗎？</h2>
-   <p>沒有紙本護照也能玩。八題全對後，用 LINE 收藏電子紀念章；想集紙本章，再到稻站蓋一枚活動章。</p>
+   <p>沒有紙本護照也能玩。八題全對後，用 LINE 收藏電子紀念章；想集紙本章，再到稻站蓋一枚活動章。線上答題、LINE 領取及現場兌換碼開放至 12/25（五）23:59（台灣時間）。</p>
    <ol className={s.quizJourney} aria-label="測驗與兌換流程"><li><strong>1</strong><span>完成 8 題<small>可續答</small></span></li><li><strong>2</strong><span>登入 LINE<small>收藏電子紀念章</small></span></li><li><strong>3</strong><span>到站蓋章（可選）<small>可從第一章開始</small></span></li></ol>
    <div className={s.quizProgress} aria-label={`已完成 ${answered}／${total} 題`}><span style={{width:`${answered/total*100}%`}}/></div>
    {error&&<div className={`${s.quizFeedback} ${s.quizFeedbackError}`} role="alert"><strong>{error}</strong></div>}
