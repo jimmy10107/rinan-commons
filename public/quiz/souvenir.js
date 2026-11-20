@@ -17,13 +17,13 @@ const finishStyle=`
 .stage .card svg{pointer-events:none}
 .stage .card:after{display:none}
 .shell-surface{position:absolute;inset:0;z-index:1;width:100%;height:100%;border-radius:inherit;pointer-events:none;opacity:.96;transition:filter .22s ease-out,opacity .35s ease-out}
-.contact-glaze{position:absolute;inset:0;z-index:3;border-radius:inherit;pointer-events:none;opacity:.08;transition:opacity .5s ease-out;mix-blend-mode:screen;
+.contact-glaze{position:absolute;inset:0;z-index:2;border-radius:inherit;pointer-events:none;opacity:.08;transition:opacity .5s ease-out;mix-blend-mode:screen;
  background:radial-gradient(ellipse 7% 4% at var(--hx,50%) var(--hy,50%),#fff 0%,#fffdf5f5 15%,#fffaf2a6 36%,transparent 100%),
  radial-gradient(ellipse 26% 19% at var(--hx,50%) var(--hy,50%),#fff9 .5%,#fff5 24%,#e3f8ff50 43%,#f6cfe83a 65%,transparent 92%)}
 .stage[data-point] .shell-surface{filter:brightness(1.055) saturate(1.08)}
 .stage[data-point] .contact-glaze{opacity:.82;transition-duration:.09s}
 .stage[data-still] .contact-glaze{opacity:0;transition:none}
-.card svg{position:relative;z-index:2}
+.card svg{position:relative;z-index:3}
 #shell-print{display:none}
 @media(prefers-reduced-motion:reduce){.stage .tilt{animation:none}.shell-surface{filter:none}}
 `;
