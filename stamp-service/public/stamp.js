@@ -10,7 +10,7 @@ function showError(e){statusEl.textContent=e.message;if(e.status===401)action('�
 function showClaim(serial,redeemed=false){
  statusEl.className='claim-card';statusEl.replaceChildren();
  const title=document.createElement('strong'),number=document.createElement('span'),note=document.createElement('span');
- title.textContent='線上特殊章已收藏';number.textContent='資格編號：'+serial;note.textContent=redeemed?'此資格已完成兌換。':'此資格會保留至活動兌換截止。';statusEl.append(title,number,note)
+ title.textContent='線上特殊章已收藏';number.textContent='資格編號：'+serial;note.textContent=redeemed?'活動章資格已核銷，電子紀念圖仍可儲存。':'電子圖可直接儲存。選擇到站蓋章時，才需要產生兌換碼。';statusEl.append(title,number,note)
  const save=document.createElement('a');save.href='https://www.rinancommons.com/quiz/souvenir.html';save.className='save-badge';save.textContent='儲存電子紀念章';statusEl.append(save)
 }
 act.onclick=async()=>{act.disabled=true;try{await job()}catch(e){showError(e)}finally{act.disabled=false}};
@@ -24,7 +24,7 @@ async function claim(present=false){
  const proof=sessionStorage.getItem('proof');const b=await post('claim',{proof,present});
  sessionStorage.removeItem('proof');const serial='RC-'+String(b.serial).padStart(6,'0');
  showClaim(serial,!!b.redeemed);act.hidden=b.redeemed;if(b.redeemed)return;
- action('我已帶紙本 14 章｜產生 90 秒現場兌換碼',()=>claim(true));
+ action('到站換一枚活動章｜產生 90 秒兌換碼',()=>claim(true));
  if(b.image){img.src=b.image;img.hidden=false;clearInterval(clock);const tick=()=>{const left=b.expires-Math.floor(Date.now()/1000);qrStatusEl.textContent=left>0?'現場兌換碼剩餘 '+left+' 秒':'兌換碼已過期，可重新產生。';if(left<=0){clearInterval(clock);img.hidden=true;img.removeAttribute('src')}};tick();clock=setInterval(tick,1000)}
 }
 async function init(){
@@ -33,8 +33,8 @@ async function init(){
  if(!liff.isLoggedIn()){action('使用 LINE 登入',()=>liff.login({redirectUri:location.origin+location.pathname+location.search}));return}
  const scan=JSON.parse(sessionStorage.getItem('scan')||'null');
  if(scan){if(scan[1]<Date.now()){sessionStorage.removeItem('scan');throw Error('兌換碼逾時，請重新掃描。')}
- statusEl.textContent='請先確認旅客在場，再按下核銷。';
- action('工作人員：確認核銷',async()=>{const b=await post('redeem',{token:scan[0]});sessionStorage.removeItem('scan');statusEl.textContent='核銷成功，可以發章。流水號 RC-'+String(b.serial).padStart(6,'0');act.hidden=true});return}
+ statusEl.textContent='請確認本人在場，且紙本護照有一格空白活動章欄位。不需先有 14 章；本次只核銷一枚活動章。';
+ action('工作人員：核銷一枚活動章',async()=>{const b=await post('redeem',{token:scan[0]});sessionStorage.removeItem('scan');statusEl.textContent='核銷成功。請在紙本護照的空白活動章格蓋一章。居民徽章另依護照 15 格集滿規則兌換。流水號 RC-'+String(b.serial).padStart(6,'0');act.hidden=true});return}
  if(initial.searchParams.has('staff')){action('顯示我的工作人員申請代碼',async()=>{statusEl.textContent=(await post('staff-key',{})).key;act.hidden=true});return}
  statusEl.textContent='正在登入 LINE 並領取電子紀念章…';act.hidden=true;
  try{await claim();sessionStorage.removeItem('line-reauth-attempted')}

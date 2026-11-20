@@ -181,7 +181,7 @@ test('site-wide quiz launcher ships the eight-question LIFF handoff', () => {
   assert.match(bundles, /quiz\/souvenir\.html/);
   assert.match(readFileSync(path.join(root,'quiz/souvenir.html'),'utf8'), /id="badge"/);
   assert.match(readFileSync(path.join(root,'quiz/souvenir.js'),'utf8'), /紀念用｜非實體章兌換憑證/);
-  assert.match(bundles, /每題由伺服器即時驗證/);
+  assert.match(bundles, /沒有紙本護照也能玩/);
   assert.match(bundles, /rinan-quiz-stamp\.jimmy10107-tw\.workers\.dev/);
   assert.match(bundles, /https:\/\/liff\.line\.me\/2011673526-BOtR0nd7/);
   assert.match(bundles, /#proof=/);
