@@ -16,65 +16,89 @@ const finishStyle=`
 .stage[data-still] .tilt{transform:none;transition:none}
 .stage .card svg{pointer-events:none}
 .stage .card:after{display:none}
-.shell-surface{position:absolute;inset:0;width:100%;height:100%;pointer-events:none}
-.contact-glaze{position:absolute;inset:0;z-index:0;border-radius:inherit;pointer-events:none;opacity:.10;transition:opacity .5s ease-out;mix-blend-mode:screen;
+.shell-surface{position:absolute;inset:0;z-index:1;width:100%;height:100%;border-radius:inherit;pointer-events:none;opacity:.96;transition:filter .22s ease-out,opacity .35s ease-out}
+.contact-glaze{position:absolute;inset:0;z-index:3;border-radius:inherit;pointer-events:none;opacity:.08;transition:opacity .5s ease-out;mix-blend-mode:screen;
  background:radial-gradient(ellipse 7% 4% at var(--hx,50%) var(--hy,50%),#fff 0%,#fffdf5f5 15%,#fffaf2a6 36%,transparent 100%),
  radial-gradient(ellipse 26% 19% at var(--hx,50%) var(--hy,50%),#fff9 .5%,#fff5 24%,#e3f8ff50 43%,#f6cfe83a 65%,transparent 92%)}
-.stage[data-point] .contact-glaze{opacity:.94;transition-duration:.09s}
+.stage[data-point] .shell-surface{filter:brightness(1.055) saturate(1.08)}
+.stage[data-point] .contact-glaze{opacity:.82;transition-duration:.09s}
 .stage[data-still] .contact-glaze{opacity:0;transition:none}
-.card svg{position:relative;z-index:1}
+.card svg{position:relative;z-index:2}
 #shell-print{display:none}
-@media(prefers-reduced-motion:reduce){.stage .tilt{animation:none}}
+@media(prefers-reduced-motion:reduce){.stage .tilt{animation:none}.shell-surface{filter:none}}
 `;
-// Fast artistic approximation: fixed relief, rough daylight reflection and
-// three wavelength samples of thin-film interference, not a ray tracer.
-function makeShell(canvas,seed){
- const w=canvas.width=260,h=canvas.height=364,ctx=canvas.getContext('2d',{alpha:false});
- const pixels=ctx.createImageData(w,h),out=pixels.data,n=w*h;
- const nx=new Float32Array(n),ny=new Float32Array(n),nz=new Float32Array(n),thick=new Float32Array(n),silk=new Float32Array(n),diff=new Float32Array(n),cosFilm=new Float32Array(n);
- const tau=2*Math.PI,cos=Math.cos,sin=Math.sin;
- function rand(){seed=(Math.imul(seed,1664525)+1013904223)>>>0;return seed/4294967296}
- const p=Array.from({length:7},()=>rand()*tau);
- function relief(x,y){
-   const bend=sin(4.1*x+2.4*y+p[0])*.14+sin(7.8*y-1.6*x+p[1])*.05;
-   const arc=Math.hypot(x+.65+bend,(y-1.63)*.82)+bend+.023*sin(13*x-8*y+p[4])+.009*sin(22*y+4*x+p[3]);
-   return .050*sin(arc*9+p[2])+.019*sin(arc*20.5+.8*sin(3*y+p[3]))+.005*sin(arc*49+p[4])+.00095*sin(arc*139+p[5])+.023*sin(4*x-3*y+p[6]);
+// The live layer is derived from the supplied photograph itself. A Sobel
+// normal map follows its folds; Snell dispersion, Schlick Fresnel and thin-film
+// phase then respond to an autonomous daylight sweep and to the card pose.
+function makeOptics(canvas,source){
+ const w=canvas.width=240,h=canvas.height=336,ctx=canvas.getContext('2d',{alpha:false,desynchronized:true});
+ const noop={aim(){},rest(){},pause(){},destroy(){}};if(!ctx)return noop;
+ const tau=2*Math.PI,L=4096,maskL=L-1,cosLut=Float32Array.from({length:L},(_,i)=>Math.cos(i*tau/L));
+ const gauss=Float32Array.from({length:2048},(_,i)=>Math.exp(-i/96));
+ const nr=1.522,ng=1.530,nb=1.542,er=1/nr,eg=1/ng,eb=1/nb;
+ const sr=new Float32Array(1024),sg=new Float32Array(1024),sb=new Float32Array(1024);
+ for(let i=0;i<1024;i++){const c=i/1023,q=1-c*c;sr[i]=Math.sqrt(1-er*er*q);sg[i]=Math.sqrt(1-eg*eg*q);sb[i]=Math.sqrt(1-eb*eb*q)}
+ const src=document.createElement('canvas');src.width=w;src.height=h;const sctx=src.getContext('2d',{alpha:false,willReadFrequently:true});
+ let base,nx,ny,nz,film,protect,pixels,out,ready=false,raf=0,painted=0,paused=false,visible=true,dead=false;
+ const target={x:.5,y:.42,yaw:0,pitch:0,contact:0},current={...target};
+ function prepare(img){
+  if(ready||dead)return;sctx.drawImage(img,0,0,w,h);base=sctx.getImageData(0,0,w,h).data;
+  const n=w*h,lum=new Float32Array(n);nx=new Float32Array(n);ny=new Float32Array(n);nz=new Float32Array(n);film=new Float32Array(n);protect=new Float32Array(n);
+  pixels=ctx.createImageData(w,h);out=pixels.data;
+  for(let k=0;k<n;k++){const p=k*4;lum[k]=base[p]*.2126+base[p+1]*.7152+base[p+2]*.0722}
+  for(let y=0,k=0;y<h;y++)for(let x=0;x<w;x++,k++){
+   const xm=Math.max(0,x-1),xp=Math.min(w-1,x+1),ym=Math.max(0,y-1),yp=Math.min(h-1,y+1);
+   const a=lum[ym*w+xm],b=lum[ym*w+x],c=lum[ym*w+xp],d=lum[y*w+xm],f=lum[y*w+xp],g=lum[yp*w+xm],q=lum[yp*w+x],r=lum[yp*w+xp];
+   const gx=(-a-2*d-g+c+2*f+r)*.0032,gy=(-a-2*b-c+g+2*q+r)*.0032,u=(x+.5)/w,v=(y+.5)/h;
+   const ax=gx+.11*Math.cos(11*u+5*v)+.045*Math.cos(27*v-7*u),ay=gy+.085*Math.cos(8*v-4*u)+.035*Math.cos(24*u+9*v);
+   const z=1/Math.hypot(ax,ay,1);nx[k]=-ax*z;ny[k]=-ay*z;nz[k]=z;
+   film[k]=382+82*Math.sin(5.4*u-3.1*v)+58*Math.sin(13.2*v+2.7*u)+lum[k]*.30;
+   const lower=Math.max(0,Math.min(1,(v-.68)/.11));protect[k]=1-lower*lower*(3-2*lower)*.66;
+   out[k*4+3]=255;
+  }
+  ready=true;queue();
  }
- for(let j=0,k=0;j<h;j++)for(let i=0;i<w;i++,k++){
-   const x=i/w,y=j/w,z=relief(x,y),e=.0015;
-   const a=(z-relief(x+e,y))/e*.75,b=(z-relief(x,y+e))/e*.75,v=1/Math.hypot(a,b,1);
-   nx[k]=a*v;ny[k]=b*v;nz[k]=v;
-   thick[k]=370+72*sin(4.8*x-2.6*y+p[0])+48*cos(3.2*y+3.8*x+p[2])+235*z;
-   diff[k]=Math.max(0,(-.44*a-.31*b+.84)*v);silk[k]=rand()*3-1.5;
-   cosFilm[k]=cos(7*x+3*y+2*sin(4*y+p[0]));out[k*4+3]=255;
+ function surfaceLight(x,y,z,yaw,pitch){
+  const cy=Math.cos(yaw),sy=Math.sin(yaw),cp=Math.cos(pitch),sp=Math.sin(pitch);
+  const X=cy*x-sy*z,Z=sy*x+cy*z,Y=cp*y+sp*Z,ZZ=-sp*y+cp*Z,m=1/Math.hypot(X,Y,ZZ);
+  return [X*m,Y*m,ZZ*m];
  }
- const lut=Float32Array.from({length:2048},(_,i)=>cos(i*tau/2048));
- const gauss=Float32Array.from({length:1024},(_,i)=>Math.exp(-i/80));
- // No contact parameter means the original neutral print exposure.
- return function shade(x,y,contact){
-   const live=!!contact,energy=contact?.power||0,px=contact?.x||0,py=contact?.y||0;
-   const vv=1/Math.hypot(x,y,1),vx=x*vv,vy=y*vv;
-   const hx=vx-.44,hy=vy-.31,hz=vv+.84,iv=1/Math.hypot(hx,hy,hz);
-   const X=hx*iv,Y=hy*iv,Z=hz*iv;
-   for(let j=0,k=0;j<h;j++){const dy=(j/h-py)*1.4;
-     for(let i=0;i<w;i++,k++){
-     const nv=Math.min(1,Math.max(0,nx[k]*vx+ny[k]*vy+nz[k]*vv));
-     const nh=Math.min(1,Math.max(0,nx[k]*X+ny[k]*Y+nz[k]*Z)),edge=1-nh;
-     const spec=gauss[Math.min(1023,(edge*8800)|0)],shine=spec*spec;
-     const optical=2*1.53*thick[k]*Math.sqrt(1-(1-nv*nv)/2.34)*2048;
-     // A local softbox reflection, bent along the fixed shell relief. Its
-     // warm core and coloured rim follow the point, never the text overlay.
-     const dx=i/w-px,lx=dx+.045*nx[k],ly=dy+.045*ny[k],dist=lx*lx+ly*ly;
-     const halo=energy*gauss[Math.min(1023,(dist*1040)|0)];
-     const core=energy*gauss[Math.min(1023,(dist*9600)|0)];
-     const seam=.45+.55*lut[((nx[k]*2.3+ny[k]*1.6+lx*1.8-ly*2.1)*570|0)&2047];
-     const broad=213+27*diff[k]+silk[k]-31*edge-(live?18:0)+halo*12;
-     const ir=(12+15*(1-nv)+7*spec+4*cosFilm[k])*(live ? .78+halo*1.65 : 1);
-     const r=broad+5+ir*lut[(optical/625|0)&2047],g=broad+ir*lut[(optical/535|0)&2047],b=broad+1+ir*lut[(optical/455|0)&2047];
-     const hot=live?Math.min(.985,.14*spec+.075*shine+halo*(.24+.48*seam*seam)+core*.78):.53*spec+.42*shine;
-     out[k*4]=r+(255-r)*hot;out[k*4+1]=g+((live?255:253)-g)*hot;out[k*4+2]=b+((live?251:246)-b)*hot;
-   }}
-   ctx.putImageData(pixels,0,0);
+ function shade(t,dt){
+  const ease=1-Math.exp(-Math.min(.12,dt)*7.5);for(const p of ['x','y','yaw','pitch','contact'])current[p]+=(target[p]-current[p])*ease;
+  const phase=t*tau/10.8,travel=.72*Math.sin(phase)+.10*Math.sin(2*phase+.8),lift=.24*Math.cos(.73*phase-.45)+.06*Math.sin(1.7*phase);
+  const light=surfaceLight(travel,lift,.78,current.yaw,current.pitch),view=surfaceLight(0,0,1,current.yaw,current.pitch);
+  const hx=light[0]+view[0],hy=light[1]+view[1],hz=light[2]+view[2],hi=1/Math.hypot(hx,hy,hz),H0=hx*hi,H1=hy*hi,H2=hz*hi;
+  const centre=.5+.36*travel,warp=2.0+2.6*Math.abs(current.yaw)+2.1*current.contact;
+  for(let y=0,k=0;y<h;y++)for(let x=0;x<w;x++,k++){
+   const N0=nx[k],N1=ny[k],N2=nz[k],nv=Math.max(.002,Math.min(1,N0*view[0]+N1*view[1]+N2*view[2])),ni=Math.min(1023,(nv*1023)|0);
+   const rr=er*nv-sr[ni],rg=eg*nv-sg[ni],rb=eb*nv-sb[ni];
+   const txr=-er*view[0]+rr*N0,tyr=-er*view[1]+rr*N1,txg=-eg*view[0]+rg*N0,tyg=-eg*view[1]+rg*N1,txb=-eb*view[0]+rb*N0,tyb=-eb*view[1]+rb*N1;
+   const xr=Math.max(0,Math.min(w-1,(x+txr*warp)|0)),yr=Math.max(0,Math.min(h-1,(y+tyr*warp)|0));
+   const xg=Math.max(0,Math.min(w-1,(x+txg*warp)|0)),yg=Math.max(0,Math.min(h-1,(y+tyg*warp)|0));
+   const xb=Math.max(0,Math.min(w-1,(x+txb*warp)|0)),yb=Math.max(0,Math.min(h-1,(y+tyb*warp)|0));
+   let R=base[(yr*w+xr)*4],G=base[(yg*w+xg)*4+1],B=base[(yb*w+xb)*4+2];
+   const nl=Math.max(0,N0*light[0]+N1*light[1]+N2*light[2]),nh=Math.max(0,N0*H0+N1*H1+N2*H2),n2=nh*nh,n4=n2*n2,n8=n4*n4,n16=n8*n8,n32=n16*n16,n64=n32*n32;
+   const spec=.14*n16*n8+.58*n64*n32,fres=.044+.956*(1-nv)*(1-nv)*(1-nv)*(1-nv)*(1-nv),u=(x+.5)/w,v=(y+.5)/h;
+   const band=u+N0*.09+N1*.025-centre,sweep=gauss[Math.min(2047,(band*band*7600)|0)];
+   const dx=u-current.x,dy=(v-current.y)*1.38,dist=dx*dx+dy*dy,local=gauss[Math.min(2047,(dist*1100)|0)],core=gauss[Math.min(2047,(dist*7800)|0)];
+   const optical=film[k]*sg[ni],ir=.5+.5*cosLut[((2*nr*optical/650*L)|0)&maskL],ig=.5+.5*cosLut[((2*ng*optical/535*L)|0)&maskL],ib=.5+.5*cosLut[((2*nb*optical/455*L)|0)&maskL],mean=(ir+ig+ib)/3;
+   const shield=protect[k],colour=shield*(8+25*sweep+18*spec+current.contact*(21*local+15*core)),shine=shield*Math.min(.72,.012+.085*sweep*(.45+.55*nl)+.15*spec+.055*fres+current.contact*(.15*local+.34*core+.08*sweep));
+   R+=(ir-mean)*colour;G+=(ig-mean)*colour;B+=(ib-mean)*colour;
+   out[k*4]=R+(255-R)*shine;out[k*4+1]=G+(254-G)*shine;out[k*4+2]=B+(252-B)*shine;
+  }
+  ctx.putImageData(pixels,0,0);
+ }
+ function frame(ts){raf=0;if(dead||paused||!visible||document.hidden||!ready)return;if(!painted||ts-painted>=1000/26){const dt=painted?(ts-painted)/1000:1/30;shade(ts/1000,dt);painted=ts}queue()}
+ function queue(){if(!raf&&!dead&&!paused&&visible&&!document.hidden&&ready)raf=requestAnimationFrame(frame)}
+ function visibility(){if(!document.hidden){painted=0;queue()}}
+ document.addEventListener('visibilitychange',visibility);
+ const io=typeof IntersectionObserver==='function'?new IntersectionObserver(([e])=>{visible=e.isIntersecting;if(visible){painted=0;queue()}else if(raf){cancelAnimationFrame(raf);raf=0}}):null;io?.observe(canvas);
+ const img=new Image();img.decoding='async';img.onload=()=>prepare(img);img.src=source;if(img.complete&&img.naturalWidth)prepare(img);
+ return {
+  aim(x,y,on=true){target.x=x;target.y=y;target.yaw=(x-.5)*.73;target.pitch=(.5-y)*.28;target.contact=on?1:0;queue()},
+  rest(){target.yaw=0;target.pitch=0;target.contact=0;queue()},
+  pause(value){paused=value;if(paused&&raf){cancelAnimationFrame(raf);raf=0}else if(!paused){painted=0;queue()}},
+  destroy(){dead=true;if(raf)cancelAnimationFrame(raf);io?.disconnect();document.removeEventListener('visibilitychange',visibility)}
  };
 }
 function projectPNG(img){
@@ -117,6 +141,8 @@ sizePose();const ro=new ResizeObserver(sizePose);ro.observe(tilt);life.signal.ad
 const face=root.getElementById('face'),base=face.querySelector('rect[fill="url(#pearl)"]');
 const el=id=>root.getElementById(id),stage=el('stage'),motion=el('motion'),reduce=matchMedia('(prefers-reduced-motion: reduce)');
 plane.style.backgroundImage='url("'+shellPhoto+'")';plane.style.backgroundSize='100% 100%';plane.style.backgroundRepeat='no-repeat';
+const opticalCanvas=document.createElement('canvas');opticalCanvas.className='shell-surface';opticalCanvas.setAttribute('aria-hidden','true');plane.prepend(opticalCanvas);
+const optics=makeOptics(opticalCanvas,shellPhoto);life.signal.addEventListener('abort',()=>optics.destroy(),{once:true});
 const glaze=document.createElement('span');glaze.className='contact-glaze';glaze.setAttribute('aria-hidden','true');plane.prepend(glaze);
 const print=document.createElementNS('http://www.w3.org/2000/svg','image');
 print.setAttribute('width','960');print.setAttribute('height','1344');print.setAttribute('preserveAspectRatio','none');
@@ -127,9 +153,9 @@ base.after(print);base.setAttribute('fill','none');face.querySelector('rect[fill
 const gold=face.querySelector('#gold');gold.setAttribute('x2','.86');gold.setAttribute('y2','.69');
 gold.innerHTML='<stop stop-color="#97723d"/><stop offset=".26" stop-color="#d0aa69"/><stop offset=".40" stop-color="#f2d5a0"/><stop offset=".56" stop-color="#aa8550"/><stop offset=".83" stop-color="#856335"/><stop offset="1" stop-color="#c9a575"/>';
 let paused=false,point=null;
-function sync(){const still=paused||reduce.matches;stage.toggleAttribute('data-still',still);motion.disabled=reduce.matches;motion.textContent=still?(reduce.matches?'動態已暫停':'播放互動'):'暫停互動';motion.setAttribute('aria-pressed',String(still));if(still)reset()}
+function sync(){const still=paused||reduce.matches;stage.toggleAttribute('data-still',still);motion.disabled=reduce.matches;motion.textContent=still?(reduce.matches?'動態已暫停':'播放互動'):'暫停互動';motion.setAttribute('aria-pressed',String(still));optics.pause(still);if(still)reset()}
 motion.onclick=()=>{paused=!paused;sync()};reduce.addEventListener?.('change',sync,{signal:life.signal});sync();
-function reset(){point=null;delete stage.dataset.point;for(const p of ['--rx','--ry','--shift'])stage.style.removeProperty(p)}
+function reset(){point=null;delete stage.dataset.point;optics.rest();for(const p of ['--rx','--ry','--shift'])stage.style.removeProperty(p)}
 function track(e){
  if(paused||reduce.matches||!e.isPrimary||(e.pointerType==='touch'&&e.type!=='pointerdown'&&!e.buttons))return;
  // SVG and canvas pass hit-testing through to the transformed plane, so
@@ -139,6 +165,7 @@ function track(e){
  const r=stage.getBoundingClientRect(),u=clamp((e.clientX-r.left)/r.width),v=clamp((e.clientY-r.top)/r.height);
  point={x,y};stage.dataset.point='';
  glaze.style.setProperty('--hx',(x*100)+'%');glaze.style.setProperty('--hy',(y*100)+'%');
+ optics.aim(x,y,true);
  stage.style.setProperty('--rx',((.5-v)*16)+'deg');stage.style.setProperty('--ry',((u-.5)*42)+'deg');
  stage.style.setProperty('--shift',((u-.5)*Math.min(26,r.width*.065))+'px');
 }
