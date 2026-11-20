@@ -1,6 +1,7 @@
 'use client';
 
 import {useCallback, useEffect, useState} from 'react';
+import {sitePath} from '../../site-path';
 import s from './exhibit.module.css';
 
 const quizApi=process.env.NEXT_PUBLIC_STAMP_API_URL||'https://rinan-quiz-stamp.jimmy10107-tw.workers.dev';
@@ -29,7 +30,7 @@ export function Quiz({floating=false}:{floating?:boolean}){
    {error&&<div className={`${s.quizFeedback} ${s.quizFeedbackError}`} role="alert"><strong>{error}</strong></div>}
    {wrong&&<div className={`${s.quizFeedback} ${s.quizFeedbackError}`} role="alert"><strong>答錯了，請再選一次。</strong><p>{wrong.explanation}</p>{wrong.sourceUrl&&<a href={wrong.sourceUrl} target="_blank" rel="noreferrer">{wrong.sourceLabel} ↗</a>}</div>}
    <div aria-live="polite">{busy&&!question&&!complete?<h3>正在建立安全測驗…</h3>:complete?<h3>全數答對，到站了！</h3>:question?<h3>第 {question.position+1}／{question.total} 題｜{question.prompt}</h3>:null}</div>
-   {complete?<div className={s.quizFinish}><p>{claimed?'電子活動章已收藏。開啟 LINE 即可儲存印有你個人編號的卡片。想在紙本護照蓋一枚活動章，再開啟 LINE 查看兌換狀態。':'登入 LINE 就能收藏電子活動章，不必到場。想再集一枚紙本活動章？帶護照到稻站即可，不限已有章數。'}</p><div className={s.quizActions}>{claimed&&<a href={`${liffUrl}?view=souvenir`}>儲存電子活動章</a>}<button type="button" disabled={busy} onClick={openLine}>{claimed?'開啟 LINE 查看兌換資格':'登入 LINE，收藏電子活動章'} ↗</button></div><button className={s.quizReset} type="button" onClick={reset}>重新挑戰</button></div>:
+   {complete?<div className={s.quizFinish}><p>{claimed?'電子活動章已收藏。開啟 LINE 即可儲存印有你個人編號的卡片。想在紙本護照蓋一枚活動章，再開啟 LINE 查看兌換狀態。':'登入 LINE 就能收藏電子活動章，不必到場。想再集一枚紙本活動章？帶護照到稻站即可，不限已有章數。'}</p><div className={s.quizActions}>{claimed&&<a href={`${liffUrl}?view=souvenir`}>儲存電子活動章</a>}<button type="button" disabled={busy} onClick={openLine}>{claimed?'開啟 LINE 查看兌換資格':'登入 LINE，收藏電子活動章'} ↗</button></div><a href={sitePath('/quiz/souvenir.html')}>預覽互動電子活動章</a><button className={s.quizReset} type="button" onClick={reset}>重新挑戰</button></div>:
    question?<div className={s.quizOptions} key={question.position}>{question.options.map((option,i)=><button type="button" disabled={busy} key={option} onClick={()=>void choose(i)}><span>{'ABCD'[i]}</span>{option}</button>)}</div>:error?<button className={s.quizReset} type="button" onClick={reset}>重新建立測驗</button>:null}
  </section>;
 }

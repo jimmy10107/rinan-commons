@@ -6,7 +6,6 @@ const e=process.env, name='rinan-quiz-stamp',phase=e.PHASE;
 if(!['bootstrap','activate'].includes(phase)||!e.CLOUDFLARE_API_TOKEN||!/^\w{32}$/.test(e.CLOUDFLARE_ACCOUNT_ID||''))throw Error('Invalid deployment configuration');
 const cfg=JSON.parse(readFileSync('wrangler.example.jsonc','utf8'));
 // Bundle the same card shown on the main site into the authenticated LINE app.
-copyFileSync('../design/quiz/pearl-card.webp','public/pearl-card.webp');
 copyFileSync('../public/quiz/souvenir.js','public/souvenir.js');
 if(phase==='activate'){
  if(!/^\d+-[A-Za-z0-9]+$/.test(e.LIFF_ID)||e.LIFF_ID.split('-')[0]!==e.CHANNEL_ID||!e.PRIVACY_NOTICE?.trim()||!(e.IDENTITY_KEY?.length>=32))throw Error('Set STAMP_LIFF_ID, STAMP_CHANNEL_ID, STAMP_PRIVACY_NOTICE and stable STAMP_IDENTITY_KEY before activation');

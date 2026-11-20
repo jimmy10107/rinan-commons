@@ -18,7 +18,7 @@ function showClaim(serial,redeemed=false){
    const contents=document.createElement('div');cardBox.append(open,contents);
    let drawing=false,ready=false;
    const draw=async()=>{if(drawing||ready)return;drawing=true;contents.textContent='正在製作個人電子活動章…';
-     try{const {renderSouvenir}=await import('/souvenir.js');await renderSouvenir(contents,serial,'/pearl-card.webp');ready=true}
+     try{const {renderSouvenir}=await import('/souvenir.js?v=tilt1');await renderSouvenir(contents,serial);ready=true}
      catch{contents.textContent='圖片未能載入。';const retry=document.createElement('button');retry.textContent='重新載入卡片';retry.onclick=draw;contents.append(retry)}
      finally{drawing=false}};
    const box=cardBox;box.ontoggle=()=>{if(box.open)void draw()};
