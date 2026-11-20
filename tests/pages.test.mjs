@@ -172,6 +172,14 @@ test('curatorial route follows the physical exhibition, with credited banners li
   assert.doesNotMatch(html, /<iframe|#\/play|youtube-nocookie|開啟 PDF/);
 });
 
+test('site-wide quiz launcher ships the eight-question LIFF handoff', () => {
+  const bundles = walk(path.join(root, '_next/static')).filter(f => f.endsWith('.js')).map(f => readFileSync(f, 'utf8')).join('\n');
+  assert.match(bundles, /挑戰日南 8 題/);
+  assert.match(bundles, /你搭上車了嗎/);
+  assert.match(bundles, /紀念用・非兌換憑證/);
+  assert.match(bundles, /https:\/\/liff\.line\.me\/2011673526-BOtR0nd7/);
+});
+
 test('published market is discoverable and retains the corrected vendor information', () => {
   const market = readFileSync(path.join(root, 'motion2026/market/index.html'), 'utf8');
   const preview = readFileSync(path.join(root, 'motion2026/market-preview/index.html'), 'utf8');

@@ -3,6 +3,11 @@ import assert from 'node:assert/strict';
 import {DatabaseSync} from 'node:sqlite';
 import {readFileSync} from 'node:fs';
 import {api} from './api.mjs';
+test('QR image remains hidden until a short-lived code is generated',()=>{
+ const html=readFileSync(new URL('./public/index.html',import.meta.url),'utf8');
+ assert.match(html,/<img id="qr"[^>]* hidden>/);
+ assert.match(html,/img\[hidden\]\{display:none\}/);
+});
 test('LINE claim and short-lived, staff-only, single-use redemption',async()=>{
  const sql=new DatabaseSync(':memory:');sql.exec(readFileSync(new URL('./schema.sql',import.meta.url),'utf8'));
  const DB={prepare:s=>({bind:(...v)=>({run:()=>({meta:sql.prepare(s).run(...v)}),first:()=>sql.prepare(s).get(...v)})})};

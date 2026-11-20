@@ -38,6 +38,7 @@ jobs:
         env:
           GITHUB_PAGES: "true"
           NEXT_PUBLIC_BASE_PATH: /rinan-commons
+          NEXT_PUBLIC_STAMP_LIFF_URL: https://liff.line.me/2011673526-BOtR0nd7
       - name: Verify exported routes and assets
         run: npm run test:pages && npm run test:plants
       - name: Upload Pages artifact
