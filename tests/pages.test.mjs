@@ -179,7 +179,8 @@ test('site-wide quiz launcher ships the eight-question LIFF handoff', () => {
   assert.match(bundles, /紀念用・非兌換憑證/);
   assert.match(bundles, /https:\/\/liff\.line\.me\/2011673526-BOtR0nd7/);
   assert.match(bundles, /https:\/\/www\.tchac\.taichung\.gov\.tw\/building\?pid=22&uid=33/);
-  assert.match(bundles, /https:\/\/www\.railway\.gov\.tw\/tra-tip-web\/adr\/about-timeline\?selectIndex=3/);
+  assert.match(bundles, /https:\/\/www\.cna\.com\.tw\/news\/ahel\/202311010163\.aspx/);
+  assert.doesNotMatch(bundles, /railway\.gov\.tw\/tra-tip-web\/adr\/about-timeline\?selectIndex=3/);
   assert.doesNotMatch(bundles, /eycc\.ey\.gov\.tw\/Page\/9FAC64F67005E355/);
 });
 
