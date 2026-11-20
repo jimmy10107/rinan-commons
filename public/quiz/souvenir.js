@@ -12,10 +12,10 @@ async function renderBadge(){
  const date=new Intl.DateTimeFormat('zh-TW',{timeZone:'Asia/Taipei',year:'numeric',month:'2-digit',day:'2-digit'}).format(new Date()),souvenir=`RC-${Date.now().toString(36).toUpperCase().slice(-6)}-${Math.random().toString(36).slice(2,6).toUpperCase()}`;
  g.textAlign='left';g.fillStyle='#f4bd45';g.font='700 24px system-ui';g.fillText('ALL 8 CORRECT / 全題答對',92,1086);g.fillStyle='#fffdf3';g.font='700 38px serif';g.fillText('一起看見日南的鐵路、人物、植物與書架',92,1142);g.font='22px system-ui';g.fillStyle='#dce8ee';g.fillText(`製圖日期 ${date}　紀念編號 ${souvenir}`,92,1192);g.fillStyle='#f4bd45';g.font='700 22px system-ui';g.fillText('紀念用｜非實體章兌換憑證',92,1236);
  const blob=await new Promise((resolve,reject)=>c.toBlob(b=>b?resolve(b):reject(Error('PNG')),'image/png'));
- const url=URL.createObjectURL(blob),img=document.querySelector('#badge'),save=document.querySelector('#save');
- img.src=url;await img.decode();img.hidden=false;save.href=url;save.hidden=false;
+ const url=URL.createObjectURL(blob),img=document.querySelector('#badge');
+ img.src=url;await img.decode();img.hidden=false;
  document.querySelector('#message').textContent='手機可長按下方完整圖片，選「儲存到照片」或「下載圖片」。';
  const share=document.querySelector('#share');
- if(typeof File==='function'&&navigator.canShare){const files=[new File([blob],save.download,{type:'image/png'})];if(navigator.canShare({files})){share.hidden=false;share.onclick=()=>navigator.share({files}).catch(e=>{if(e.name!=='AbortError')document.querySelector('#message').textContent='請長按圖片儲存，或使用下載 PNG。'})}}
+ if(typeof File==='function'&&navigator.canShare){const files=[new File([blob],'日南特別居民_電子紀念章.png',{type:'image/png'})];if(navigator.canShare({files})){share.hidden=false;share.onclick=()=>navigator.share({files}).catch(e=>{if(e.name!=='AbortError')document.querySelector('#message').textContent='請長按圖片儲存。'})}}
 }
 renderBadge().catch(()=>{document.querySelector('#message').textContent='圖片未能載入，請檢查網路後重新整理。';document.querySelector('#retry').hidden=false});
