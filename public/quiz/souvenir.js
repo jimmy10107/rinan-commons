@@ -17,11 +17,11 @@ const finishStyle=`
 .stage .card svg{pointer-events:none}
 .stage .card:after{display:none}
 .shell-surface{position:absolute;inset:0;z-index:1;width:100%;height:100%;border-radius:inherit;pointer-events:none;opacity:.96;transition:filter .22s ease-out,opacity .35s ease-out}
-.contact-glaze{position:absolute;inset:0;z-index:2;border-radius:inherit;pointer-events:none;opacity:.08;transition:opacity .5s ease-out;mix-blend-mode:screen;
- background:radial-gradient(ellipse 7% 4% at var(--hx,50%) var(--hy,50%),#fff 0%,#fffdf5f5 15%,#fffaf2a6 36%,transparent 100%),
- radial-gradient(ellipse 26% 19% at var(--hx,50%) var(--hy,50%),#fff9 .5%,#fff5 24%,#e3f8ff50 43%,#f6cfe83a 65%,transparent 92%)}
-.stage[data-point] .shell-surface{filter:brightness(1.055) saturate(1.08)}
-.stage[data-point] .contact-glaze{opacity:.82;transition-duration:.09s}
+.contact-glaze{position:absolute;inset:0;z-index:2;border-radius:inherit;pointer-events:none;opacity:.05;transition:opacity .5s ease-out;mix-blend-mode:screen;
+ background:radial-gradient(ellipse 4.5% 2.7% at var(--hx,50%) var(--hy,50%),#fffc 0%,#fffdf5b8 15%,#fffaf266 36%,transparent 100%),
+ radial-gradient(ellipse 15% 11% at var(--hx,50%) var(--hy,50%),#fff6 .5%,#fff3 24%,#e3f8ff36 43%,#f6cfe824 65%,transparent 90%)}
+.stage[data-point] .shell-surface{filter:saturate(1.04)}
+.stage[data-point] .contact-glaze{opacity:.44;transition-duration:.09s}
 .stage[data-still] .contact-glaze{opacity:0;transition:none}
 .card svg{position:relative;z-index:3}
 #shell-print{display:none}
@@ -80,9 +80,9 @@ function makeOptics(canvas,source){
    const nl=Math.max(0,N0*light[0]+N1*light[1]+N2*light[2]),nh=Math.max(0,N0*H0+N1*H1+N2*H2),n2=nh*nh,n4=n2*n2,n8=n4*n4,n16=n8*n8,n32=n16*n16,n64=n32*n32;
    const spec=.14*n16*n8+.58*n64*n32,fres=.044+.956*(1-nv)*(1-nv)*(1-nv)*(1-nv)*(1-nv),u=(x+.5)/w,v=(y+.5)/h;
    const band=u+N0*.09+N1*.025-centre,sweep=gauss[Math.min(2047,(band*band*7600)|0)];
-   const dx=u-current.x,dy=(v-current.y)*1.38,dist=dx*dx+dy*dy,local=gauss[Math.min(2047,(dist*1100)|0)],core=gauss[Math.min(2047,(dist*7800)|0)];
+   const dx=u-current.x,dy=(v-current.y)*1.38,dist=dx*dx+dy*dy,local=gauss[Math.min(2047,(dist*3400)|0)],core=gauss[Math.min(2047,(dist*22000)|0)];
    const optical=film[k]*sg[ni],ir=.5+.5*cosLut[((2*nr*optical/650*L)|0)&maskL],ig=.5+.5*cosLut[((2*ng*optical/535*L)|0)&maskL],ib=.5+.5*cosLut[((2*nb*optical/455*L)|0)&maskL],mean=(ir+ig+ib)/3;
-   const shield=protect[k],colour=shield*(8+25*sweep+18*spec+current.contact*(21*local+15*core)),shine=shield*Math.min(.72,.012+.085*sweep*(.45+.55*nl)+.15*spec+.055*fres+current.contact*(.15*local+.34*core+.08*sweep));
+   const shield=protect[k],colour=shield*(8+25*sweep+18*spec+current.contact*(12*local+9*core)),shine=shield*Math.min(.48,.012+.085*sweep*(.45+.55*nl)+.15*spec+.055*fres+current.contact*(.075*local+.18*core+.02*sweep));
    R+=(ir-mean)*colour;G+=(ig-mean)*colour;B+=(ib-mean)*colour;
    out[k*4]=R+(255-R)*shine;out[k*4+1]=G+(254-G)*shine;out[k*4+2]=B+(252-B)*shine;
   }
