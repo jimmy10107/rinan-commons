@@ -10,13 +10,19 @@ function cssPose(w,h){
 }
 const finishStyle=`
 .stage .card{transform-origin:0 0;transform:var(--pose);animation:none;box-shadow:0 5px 11px #020d0838}
-.stage .tilt{animation:drift 8s ease-in-out infinite alternate}
-.stage[data-point] .tilt,.stage[data-still] .tilt{animation:none}
+.stage .tilt{animation:none;transform:translateX(var(--shift,0px)) rotateY(var(--ry,0deg)) rotateX(var(--rx,0deg));transition:transform .48s cubic-bezier(.16,.75,.28,1)}
+.stage[data-point] .tilt{transition-duration:.16s}
+.stage[data-still] .tilt{transform:none;transition:none}
+.stage .card svg{pointer-events:none}
 .stage .card:after{display:none}
 .shell-surface{position:absolute;inset:0;width:100%;height:100%;pointer-events:none}
+.contact-glaze{position:absolute;inset:0;pointer-events:none;opacity:0;transition:opacity .5s ease-out;
+ background:radial-gradient(ellipse 7% 4% at var(--hx,50%) var(--hy,50%),#fff 0%,#fffdf5f5 15%,#fffaf2a6 36%,transparent 100%),
+ radial-gradient(ellipse 26% 19% at var(--hx,50%) var(--hy,50%),#fff9 .5%,#fff5 24%,#e3f8ff50 43%,#f6cfe83a 65%,transparent 92%)}
+.stage[data-point] .contact-glaze{opacity:.94;transition-duration:.09s}
+.stage[data-still] .contact-glaze{opacity:0;transition:none}
 .card svg{position:relative}
 #shell-print{display:none}
-@keyframes drift{from{transform:rotateY(-2deg) rotateX(1deg)}to{transform:rotateY(2deg) rotateX(-1deg)}}
 @media(prefers-reduced-motion:reduce){.stage .tilt{animation:none}}
 `;
 // Fast artistic approximation: fixed relief, rough daylight reflection and
@@ -43,20 +49,30 @@ function makeShell(canvas,seed){
  }
  const lut=Float32Array.from({length:2048},(_,i)=>cos(i*tau/2048));
  const gauss=Float32Array.from({length:1024},(_,i)=>Math.exp(-i/80));
- return function shade(x,y){
+ // No contact parameter means the original neutral print exposure.
+ return function shade(x,y,contact){
+   const live=!!contact,energy=contact?.power||0,px=contact?.x||0,py=contact?.y||0;
    const vv=1/Math.hypot(x,y,1),vx=x*vv,vy=y*vv;
    const hx=vx-.44,hy=vy-.31,hz=vv+.84,iv=1/Math.hypot(hx,hy,hz);
    const X=hx*iv,Y=hy*iv,Z=hz*iv;
-   for(let k=0;k<n;k++){
+   for(let j=0,k=0;j<h;j++){const dy=(j/h-py)*1.4;
+     for(let i=0;i<w;i++,k++){
      const nv=Math.min(1,Math.max(0,nx[k]*vx+ny[k]*vy+nz[k]*vv));
      const nh=Math.min(1,Math.max(0,nx[k]*X+ny[k]*Y+nz[k]*Z)),edge=1-nh;
      const spec=gauss[Math.min(1023,(edge*8800)|0)],shine=spec*spec;
      const optical=2*1.53*thick[k]*Math.sqrt(1-(1-nv*nv)/2.34)*2048;
-     const broad=213+27*diff[k]+silk[k]-31*edge,ir=12+15*(1-nv)+7*spec+4*cosFilm[k];
+     // A local softbox reflection, bent along the fixed shell relief. Its
+     // warm core and coloured rim follow the point, never the text overlay.
+     const dx=i/w-px,lx=dx+.045*nx[k],ly=dy+.045*ny[k],dist=lx*lx+ly*ly;
+     const halo=energy*gauss[Math.min(1023,(dist*1040)|0)];
+     const core=energy*gauss[Math.min(1023,(dist*9600)|0)];
+     const seam=.45+.55*lut[((nx[k]*2.3+ny[k]*1.6+lx*1.8-ly*2.1)*570|0)&2047];
+     const broad=213+27*diff[k]+silk[k]-31*edge-(live?18:0)+halo*12;
+     const ir=(12+15*(1-nv)+7*spec+4*cosFilm[k])*(live ? .78+halo*1.65 : 1);
      const r=broad+5+ir*lut[(optical/625|0)&2047],g=broad+ir*lut[(optical/535|0)&2047],b=broad+1+ir*lut[(optical/455|0)&2047];
-     const hot=.53*spec+.42*shine;
-     out[k*4]=r+(255-r)*hot;out[k*4+1]=g+(253-g)*hot;out[k*4+2]=b+(246-b)*hot;
-   }
+     const hot=live?Math.min(.985,.14*spec+.075*shine+halo*(.24+.48*seam*seam)+core*.78):.53*spec+.42*shine;
+     out[k*4]=r+(255-r)*hot;out[k*4+1]=g+((live?255:253)-g)*hot;out[k*4+2]=b+((live?251:246)-b)*hot;
+   }}
    ctx.putImageData(pixels,0,0);
  };
 }
@@ -100,6 +116,7 @@ sizePose();const ro=new ResizeObserver(sizePose);ro.observe(tilt);life.signal.ad
 const face=root.getElementById('face'),base=face.querySelector('rect[fill="url(#pearl)"]');
 const el=id=>root.getElementById(id),stage=el('stage'),motion=el('motion'),reduce=matchMedia('(prefers-reduced-motion: reduce)');
 const surface=document.createElement('canvas');surface.className='shell-surface';surface.setAttribute('aria-hidden','true');plane.prepend(surface);
+const glaze=document.createElement('span');glaze.className='contact-glaze';glaze.setAttribute('aria-hidden','true');surface.after(glaze);
 const seedText=serial||'RINAN-OYSTER',seed=[...seedText].reduce((a,c)=>Math.imul(a^c.charCodeAt(0),16777619)>>>0,2166136261);
 const film=makeShell(surface,seed),rest=[-.12,-.08];
 film(...rest);
@@ -113,21 +130,38 @@ const gold=face.querySelector('#gold');gold.setAttribute('x2','.86');gold.setAtt
 gold.innerHTML='<stop stop-color="#97723d"/><stop offset=".26" stop-color="#d0aa69"/><stop offset=".40" stop-color="#f2d5a0"/><stop offset=".56" stop-color="#aa8550"/><stop offset=".83" stop-color="#856335"/><stop offset="1" stop-color="#c9a575"/>';
 const phase=crypto.getRandomValues(new Uint32Array(1))[0]/4294967296*6.283;
 let paused=false,visible=true,frame=0,last=-Infinity,point=null,ax=rest[0],ay=rest[1];
+const contact={x:.5,y:.5,power:0};
 function run(t){frame=0;if(!host.isConnected||document.hidden||!visible||paused||reduce.matches)return;
- if(t-last>=65){const s=t*.00038+phase;
- const tx=point?point[0]:.22*Math.sin(s)+.10*Math.sin(1.73*s+1),ty=point?point[1]:.19*Math.cos(.83*s)+.10*Math.sin(1.49*s);
- ax+=(tx-ax)*.24;ay+=(ty-ay)*.24;film(ax,ay);last=t}
+ if(t-last>=(point||contact.power>.015?32:80)){const s=t*.00038+phase;
+ const tx=point?(point.x-.5)*2:.09*Math.sin(s),ty=point?(point.y-.5)*1.55:.07*Math.cos(.83*s);
+ if(point){contact.x+=(point.x-contact.x)*.65;contact.y+=(point.y-contact.y)*.65}
+ contact.power+=((point?point.strength:0)-contact.power)*(point ? .50 : .18);
+ ax+=(tx-ax)*.38;ay+=(ty-ay)*.38;film(ax,ay,contact);last=t}
  frame=requestAnimationFrame(run)}
 function resume(){if(!frame&&visible&&!document.hidden&&!paused&&!reduce.matches)frame=requestAnimationFrame(run)}
 function stop(){cancelAnimationFrame(frame);frame=0}
-function sync(){const still=paused||reduce.matches;stage.toggleAttribute('data-still',still);motion.disabled=reduce.matches;motion.textContent=still?(reduce.matches?'動態已暫停':'播放動態'):'暫停動態';motion.setAttribute('aria-pressed',String(still));if(still){stop();ax=rest[0];ay=rest[1];film(...rest)}else resume()}
+function sync(){const still=paused||reduce.matches;stage.toggleAttribute('data-still',still);motion.disabled=reduce.matches;motion.textContent=still?(reduce.matches?'動態已暫停':'播放動態'):'暫停動態';motion.setAttribute('aria-pressed',String(still));if(still){stop();reset();contact.power=0;ax=rest[0];ay=rest[1];film(ax,ay,contact)}else resume()}
 motion.onclick=()=>{paused=!paused;sync()};reduce.addEventListener?.('change',sync,{signal:life.signal});sync();
 const observer=new IntersectionObserver(entries=>{visible=entries[0].isIntersecting;if(visible)resume();else stop()});observer.observe(stage);
 document.addEventListener('visibilitychange',()=>document.hidden?stop():resume(),{signal:life.signal});
 life.signal.addEventListener('abort',()=>{stop();observer.disconnect()},{once:true});
-function reset(){point=null;delete stage.dataset.point;stage.style.removeProperty('--rx');stage.style.removeProperty('--ry')}
-stage.onpointermove=stage.onpointerdown=e=>{if(paused||reduce.matches)return;const r=stage.getBoundingClientRect(),x=Math.min(1,Math.max(0,(e.clientX-r.left)/r.width)),y=Math.min(1,Math.max(0,(e.clientY-r.top)/r.height));stage.dataset.point='';point=[(x-.5)*1.12,(y-.5)*.96];stage.style.setProperty('--rx',(.5-y)*6+'deg');stage.style.setProperty('--ry',(x-.5)*8+'deg')};
-stage.onpointercancel=stage.onpointerleave=reset;stage.onpointerup=e=>{if(e.pointerType!=='mouse')reset()};
+function reset(){point=null;delete stage.dataset.point;for(const p of ['--rx','--ry','--shift'])stage.style.removeProperty(p)}
+function track(e){
+ if(paused||reduce.matches||!e.isPrimary||(e.pointerType==='touch'&&e.type!=='pointerdown'&&!e.buttons))return;
+ // SVG and canvas pass hit-testing through to the transformed plane, so
+ // offsetX/Y are in its unprojected local space. Tilt uses the stable stage.
+ if(e.target!==plane)return;
+ const clamp=v=>Math.max(0,Math.min(1,v)),x=clamp(e.offsetX/plane.clientWidth),y=clamp(e.offsetY/plane.clientHeight);
+ const r=stage.getBoundingClientRect(),u=clamp((e.clientX-r.left)/r.width),v=clamp((e.clientY-r.top)/r.height);
+ if(!point){contact.x=x;contact.y=y;contact.power=Math.max(.48,contact.power);last=-Infinity}
+ point={x,y,strength:e.buttons?1:.88};stage.dataset.point='';
+ glaze.style.setProperty('--hx',(x*100)+'%');glaze.style.setProperty('--hy',(y*100)+'%');
+ stage.style.setProperty('--rx',((.5-v)*16)+'deg');stage.style.setProperty('--ry',((u-.5)*42)+'deg');
+ stage.style.setProperty('--shift',((u-.5)*Math.min(26,r.width*.065))+'px');
+}
+stage.onpointerover=stage.onpointermove=stage.onpointerdown=track;
+plane.onpointerleave=reset;
+stage.onpointercancel=stage.onpointerleave=reset;stage.onpointerup=e=>{if(e.pointerType!=='mouse')reset();else if(point)point.strength=.88};
 const date=new Intl.DateTimeFormat('zh-TW',{timeZone:'Asia/Taipei',year:'numeric',month:'2-digit',day:'2-digit'}).format(new Date());el('date').textContent='製圖日期｜'+date;
 // No claim is minted by this standalone preview. Production supplies the verified claim, never a URL serial.
 async function makePNG(){const svg=el('face').cloneNode(true);svg.querySelectorAll('[data-live-only]').forEach(n=>n.remove());const img=new Image(),src=URL.createObjectURL(new Blob([new XMLSerializer().serializeToString(svg)],{type:'image/svg+xml;charset=utf-8'}));try{img.src=src;await img.decode();const c=projectPNG(img);return await new Promise((ok,no)=>c.toBlob(b=>b?ok(b):no(Error('PNG')),'image/png'))}finally{URL.revokeObjectURL(src)}}
