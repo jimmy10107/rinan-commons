@@ -67,7 +67,7 @@ export function EntryMedia({ autoOpen = true }: { autoOpen?: boolean }) {
         <strong>你搭上車了嗎？</strong>
         <p>答 8 題認識日南，立即下載紀念章；想領實體章，再用 LINE 驗證即可。</p>
         <ol aria-label="活動流程"><li>答題</li><li>存紀念章</li><li>LINE 領實體章</li></ol>
-        <button type="button" className="entry-quiz-action" onClick={()=>setView("quiz")}>開始挑戰 8 題</button>
+        <button type="button" className="entry-quiz-action" onClick={()=>setView("quiz")}>開始挑戰日南 8 題</button>
       </div>
       <div className="entry-media-secondary">
         <button type="button" onClick={() => setView("song")}>♫ 聽主題曲</button>
