@@ -1,6 +1,6 @@
 "use client";
 
-import {useState} from "react";
+import {useEffect, useState} from "react";
 import {Quiz} from "./exhibition/to-and-from/quiz";
 
 /** A site-wide, dismissible entry point for the Rinan eight-question game. */
@@ -8,9 +8,26 @@ export function EntryMedia({autoOpen: _autoOpen = true}: {autoOpen?: boolean}) {
   const [open, setOpen] = useState(false);
   const [hidden, setHidden] = useState(false);
 
+  useEffect(() => {
+    if (!open) return;
+    const previousOverflow = document.body.style.overflow;
+    const previousOverscroll = document.body.style.overscrollBehavior;
+    document.body.style.overflow = "hidden";
+    document.body.style.overscrollBehavior = "none";
+    const closeOnEscape = (event: KeyboardEvent) => {
+      if (event.key === "Escape") setOpen(false);
+    };
+    window.addEventListener("keydown", closeOnEscape);
+    return () => {
+      document.body.style.overflow = previousOverflow;
+      document.body.style.overscrollBehavior = previousOverscroll;
+      window.removeEventListener("keydown", closeOnEscape);
+    };
+  }, [open]);
+
   if (hidden) return null;
 
-  return <aside className="entry-media entry-quiz-only" aria-label="日南到站互動問答">
+  return <aside className={`entry-media entry-quiz-only${open ? " is-open" : ""}`} aria-label="日南到站互動問答">
     {open ? <div className="entry-media-panel">
       <div className="entry-media-head">
         <div><span>RINAN QUIZ / 到站互動</span><strong>日南到站小測驗</strong></div>

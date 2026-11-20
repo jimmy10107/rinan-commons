@@ -176,7 +176,8 @@ test('site-wide quiz launcher ships the eight-question LIFF handoff', () => {
   const bundles = walk(path.join(root, '_next/static')).filter(f => f.endsWith('.js')).map(f => readFileSync(f, 'utf8')).join('\n');
   assert.match(bundles, /挑戰日南 8 題/);
   assert.match(bundles, /你搭上車了嗎/);
-  assert.match(bundles, /紀念用・非兌換憑證/);
+  assert.match(bundles, /紀念用｜非實體章兌換憑證/);
+  assert.match(bundles, /八題全部答對/);
   assert.match(bundles, /https:\/\/liff\.line\.me\/2011673526-BOtR0nd7/);
   assert.match(bundles, /https:\/\/www\.tchac\.taichung\.gov\.tw\/building\?pid=22&uid=33/);
   assert.match(bundles, /https:\/\/www\.cna\.com\.tw\/news\/ahel\/202311010163\.aspx/);

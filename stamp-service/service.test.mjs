@@ -17,7 +17,8 @@ test('LINE claim and short-lived, staff-only, single-use redemption',async()=>{
   const r=await api(req,e,async()=>Response.json({sub,iss:'https://access.line.me',aud:'123',exp:Date.now()/1000+600}));return [r.status,await r.json()];
  }
  assert.equal((await call('claim',{}))[0],403);
- const form={answers:Array(8).fill(0)};
+ assert.equal((await call('claim',{answers:[0,0,0,0,0,0,0,0]}))[0],403);
+ const form={answers:[2,2,1,0,3,1,3,0]};
  const [,first]=await call('claim',form);assert.equal(first.serial,(await call('claim',form))[1].serial);
  e.STAFF_KEYS=(await call('staff-key',{},'staff'))[1].key;
  const ticket=async()=>(await call('claim',{present:true}))[1].token;

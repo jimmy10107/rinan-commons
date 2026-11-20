@@ -1,4 +1,5 @@
 const event='rinan-quiz-2026';
+const correctAnswers=[2,2,1,0,3,1,3,0];
 const enc=new TextEncoder();
 const hex=b=>Array.from(new Uint8Array(b),x=>x.toString(16).padStart(2,'0')).join('');
 const hash=async v=>hex(await crypto.subtle.digest('SHA-256',enc.encode(v)));
@@ -25,7 +26,7 @@ export async function api(req,e,verify=fetch){
  }
  if(p.pathname==='/api/staff-key')return reply({key:holder});
  if(p.pathname!=='/api/claim')return reply({},404);
- if(Array.isArray(body.answers)&&body.answers.length===8&&body.answers.every(x=>Number.isInteger(x)&&x>=0&&x<4))
+ if(Array.isArray(body.answers)&&body.answers.length===correctAnswers.length&&body.answers.every((x,i)=>x===correctAnswers[i]))
    await db.prepare(issueSQL).bind(event,holder,now).run();
  const row=await db.prepare('SELECT serial,redeemed FROM claims WHERE event=? AND holder=?').bind(event,holder).first();
  if(!row)return reply({error:'請先完成官網八題'},403);
