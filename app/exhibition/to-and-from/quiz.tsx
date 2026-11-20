@@ -13,21 +13,6 @@ class ApiError extends Error{status:number;constructor(message:string,status:num
 async function post(path:string,body:Record<string,unknown>){const response=await fetch(`${quizApi}/api/quiz/${path}`,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(body),cache:'no-store'});const data=await response.json() as QuizReply;if(!response.ok)throw new ApiError(data.error||'連線失敗，請稍後再試',response.status);return data}
 const asQuestion=(data:QuizReply):Question=>({position:data.position||0,total:data.total||8,prompt:data.prompt||'',options:data.options||[]});
 
-async function downloadBadge(){
- const c=document.createElement('canvas');c.width=1080;c.height=1350;const g=c.getContext('2d');if(!g)return;
- const gradient=g.createLinearGradient(0,0,1080,1350);gradient.addColorStop(0,'#244f73');gradient.addColorStop(.55,'#356b91');gradient.addColorStop(1,'#173f35');g.fillStyle=gradient;g.fillRect(0,0,c.width,c.height);
- g.globalAlpha=.14;g.fillStyle='#fff';for(let i=0;i<60;i++){const x=(i*197)%1080,y=(i*293)%1350,r=1+(i%3);g.beginPath();g.arc(x,y,r,0,Math.PI*2);g.fill()}g.globalAlpha=1;
- g.fillStyle='#f9dc67';g.font='700 30px system-ui';g.textAlign='left';g.fillText('日 南 稻 站',76,92);g.font='600 16px system-ui';g.letterSpacing='5px';g.fillText('RINAN COMMONS',77,124);g.letterSpacing='0px';
- g.textAlign='center';g.fillStyle='#fffdf3';g.font='700 62px serif';g.fillText('日南特別居民',540,210);g.font='700 36px serif';g.fillText('電子紀念章',540,260);g.font='24px system-ui';g.fillStyle='#dce8ee';g.fillText('八題全對・在往返之間，認識日南。',540,307);
- const medal=new Image();medal.src=sitePath('/quiz/rinan-resident-medal.webp');await new Promise<void>(resolve=>{medal.onload=()=>resolve();medal.onerror=()=>resolve()});
- g.save();g.beginPath();g.arc(540,650,322,0,Math.PI*2);g.clip();if(medal.complete&&medal.naturalWidth)g.drawImage(medal,218,328,644,644);else{g.fillStyle='#d99a2b';g.fillRect(218,328,644,644)}g.restore();
- g.beginPath();g.arc(540,650,326,0,Math.PI*2);g.strokeStyle='#f4bd45';g.lineWidth=9;g.stroke();g.beginPath();g.arc(540,650,338,0,Math.PI*2);g.strokeStyle='#fff4c6aa';g.lineWidth=2;g.stroke();
- g.save();g.translate(540,690);g.rotate(-Math.PI/7);g.globalAlpha=.2;g.fillStyle='#fff';g.font='800 23px system-ui';for(let y=-520;y<520;y+=92)for(let x=-760;x<760;x+=520)g.fillText('日南稻站・電子紀念章',x,y);g.restore();
- g.fillStyle='#102b25dd';g.fillRect(56,1030,968,244);g.strokeStyle='#eab54a';g.lineWidth=2;g.strokeRect(56,1030,968,244);
- const date=new Intl.DateTimeFormat('zh-TW',{timeZone:'Asia/Taipei',year:'numeric',month:'2-digit',day:'2-digit'}).format(new Date()),souvenir=`RC-${Date.now().toString(36).toUpperCase().slice(-6)}-${Math.random().toString(36).slice(2,6).toUpperCase()}`;
- g.textAlign='left';g.fillStyle='#f4bd45';g.font='700 24px system-ui';g.fillText('ALL 8 CORRECT / 全題答對',92,1086);g.fillStyle='#fffdf3';g.font='700 38px serif';g.fillText('一起看見日南的鐵路、人物、植物與書架',92,1142);g.font='22px system-ui';g.fillStyle='#dce8ee';g.fillText(`完成日期 ${date}　紀念編號 ${souvenir}`,92,1192);g.fillStyle='#f4bd45';g.font='700 22px system-ui';g.fillText('紀念用｜非實體章兌換憑證',92,1236);
- const a=document.createElement('a');a.href=c.toDataURL('image/png');a.download='日南特別居民_電子紀念章.png';a.click();
-}
 
 export function Quiz({floating=false}:{floating?:boolean}){
  const [challenge,setChallenge]=useState(''),[question,setQuestion]=useState<Question|null>(null),[complete,setComplete]=useState(false),[claimed,setClaimed]=useState(false),[wrong,setWrong]=useState<QuizReply|null>(null),[busy,setBusy]=useState(true),[error,setError]=useState('');
@@ -45,7 +30,7 @@ export function Quiz({floating=false}:{floating?:boolean}){
    {error&&<div className={`${s.quizFeedback} ${s.quizFeedbackError}`} role="alert"><strong>{error}</strong></div>}
    {wrong&&<div className={`${s.quizFeedback} ${s.quizFeedbackError}`} role="alert"><strong>答錯了，請再選一次。</strong><p>{wrong.explanation}</p>{wrong.sourceUrl&&<a href={wrong.sourceUrl} target="_blank" rel="noreferrer">{wrong.sourceLabel} ↗</a>}</div>}
    <div aria-live="polite">{busy&&!question&&!complete?<h3>正在建立安全測驗…</h3>:complete?<h3>全數答對，到站了！</h3>:question?<h3>第 {question.position+1}／{question.total} 題｜{question.prompt}</h3>:null}</div>
-   {complete?<div className={s.quizFinish}><img className={s.quizBadgePreview} src={sitePath('/quiz/rinan-resident-medal.webp')} alt="日南特別居民電子紀念章徽章圖樣"/><p>{claimed?'電子紀念章已綁定 LINE，並已取得一枚實體活動章兌換資格。':'完成資格已安全保留到活動截止。登入 LINE 後，即可收藏電子紀念章，並取得一枚實體活動章兌換資格。'}</p><div className={s.quizActions}>{claimed&&<button type="button" onClick={downloadBadge}>下載電子紀念章 PNG</button>}<button type="button" disabled={busy} onClick={openLine}>{claimed?'開啟 LINE 查看電子紀念章與資格':'登入 LINE，領取電子紀念章並取得一枚實體活動章資格'} ↗</button></div><button className={s.quizReset} type="button" onClick={reset}>重新挑戰</button></div>:
+   {complete?<div className={s.quizFinish}><img className={s.quizBadgePreview} src={sitePath('/quiz/rinan-resident-medal.webp')} alt="日南特別居民電子紀念章徽章圖樣"/><p>{claimed?'電子紀念章已綁定 LINE，並已取得一枚實體活動章兌換資格。':'完成資格已安全保留到活動截止。登入 LINE 後，即可收藏電子紀念章，並取得一枚實體活動章兌換資格。'}</p><div className={s.quizActions}>{claimed&&<a href={sitePath('/quiz/souvenir.html')}>儲存電子紀念章</a>}<button type="button" disabled={busy} onClick={openLine}>{claimed?'開啟 LINE 查看兌換資格':'登入 LINE，領取電子紀念章並取得一枚實體活動章資格'} ↗</button></div><button className={s.quizReset} type="button" onClick={reset}>重新挑戰</button></div>:
    question?<div className={s.quizOptions} key={question.position}>{question.options.map((option,i)=><button type="button" disabled={busy} key={option} onClick={()=>void choose(i)}><span>{'ABCD'[i]}</span>{option}</button>)}</div>:error?<button className={s.quizReset} type="button" onClick={reset}>重新建立測驗</button>:null}
  </section>;
 }

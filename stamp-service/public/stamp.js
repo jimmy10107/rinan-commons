@@ -11,6 +11,7 @@ function showClaim(serial,redeemed=false){
  statusEl.className='claim-card';statusEl.replaceChildren();
  const title=document.createElement('strong'),number=document.createElement('span'),note=document.createElement('span');
  title.textContent='線上特殊章已收藏';number.textContent='資格編號：'+serial;note.textContent=redeemed?'此資格已完成兌換。':'此資格會保留至活動兌換截止。';statusEl.append(title,number,note)
+ const save=document.createElement('a');save.href='https://www.rinancommons.com/quiz/souvenir.html';save.className='save-badge';save.textContent='儲存電子紀念章';statusEl.append(save)
 }
 act.onclick=async()=>{act.disabled=true;try{await job()}catch(e){showError(e)}finally{act.disabled=false}};
 async function post(path,body){

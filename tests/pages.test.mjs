@@ -47,13 +47,13 @@ test('passport preview stays private while the production passport is indexable 
 });
 
 test('all public and preview routes export headings, main content and indexable metadata', () => {
-  assert.equal(htmlFiles.length, 18);
+  assert.equal(htmlFiles.length, 19);
   for (const file of htmlFiles) {
     const html=readFileSync(file,'utf8');
     assert.equal((html.match(/<h1[\s>]/g)||[]).length, 1, file);
     assert.match(html, /id="content"/);
     // 預覽頁不被搜尋引擎收錄，其餘公開頁維持可收錄
-    if (file.includes(`${path.sep}market-preview${path.sep}`)) assert.match(html, /name="robots" content="noindex, nofollow"/);
+    if (file.includes(`${path.sep}market-preview${path.sep}`) || file.endsWith('/quiz/souvenir.html')) assert.match(html, /name="robots" content="noindex, nofollow"/);
     else assert.match(html, /name="robots" content="index, follow"/);
     assert.doesNotMatch(html, /從一粒米出發/);
     assert.doesNotMatch(html, /中山路二段\s*1\s*號對面/, file);
@@ -64,7 +64,7 @@ test('copyright notice and working footer links appear on all published pages', 
   const sitemap = readFileSync(path.join(root, 'sitemap.xml'), 'utf8');
   for (const file of htmlFiles) {
     const html = readFileSync(file, 'utf8');
-    if (file.endsWith(`${path.sep}passport${path.sep}index.html`)) {
+    if (file.endsWith(`${path.sep}passport${path.sep}index.html`) || file.endsWith('/quiz/souvenir.html')) {
       assert.match(html, /href="\.\.\/copyright\/"[^>]*>版權聲明<\/a>/, file);
       assert.match(html, /href="\.\.\/"[^>]*>日南稻站 Rinan Commons<\/a>/, file);
     } else {
@@ -178,7 +178,9 @@ test('site-wide quiz launcher ships the eight-question LIFF handoff', () => {
   const quizSource = readFileSync(path.join(process.cwd(), 'app/exhibition/to-and-from/quiz.tsx'), 'utf8');
   assert.match(bundles, /挑戰日南 8 題/);
   assert.match(bundles, /你搭上車了嗎/);
-  assert.match(bundles, /紀念用｜非實體章兌換憑證/);
+  assert.match(bundles, /quiz\/souvenir\.html/);
+  assert.match(readFileSync(path.join(root,'quiz/souvenir.html'),'utf8'), /id="badge"/);
+  assert.match(readFileSync(path.join(root,'quiz/souvenir.js'),'utf8'), /紀念用｜非實體章兌換憑證/);
   assert.match(bundles, /每題由伺服器即時驗證/);
   assert.match(bundles, /rinan-quiz-stamp\.jimmy10107-tw\.workers\.dev/);
   assert.match(bundles, /https:\/\/liff\.line\.me\/2011673526-BOtR0nd7/);
