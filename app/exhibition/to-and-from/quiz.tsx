@@ -43,6 +43,11 @@ export function Quiz({floating=false}:{floating?:boolean}){
  return <section id={floating?'floating-quiz':'quiz'} className={`${s.quiz} ${floating?s.quizFloating:s.band}`} aria-label="日南八題小測驗">
    <p className={s.kicker}>RINAN QUIZ / 到站小測驗</p><h2>你搭上車了嗎？</h2>
    <p>從守橋營房出發，沿途認人、看稻穗，最後到書架坐坐。八題、不限時，也不設及格門檻。</p>
+   <ol className={s.quizJourney} aria-label="測驗與兌換流程">
+    <li><strong>1</strong><span>完成 8 題<small>不用登入</small></span></li>
+    <li><strong>2</strong><span>下載紀念章<small>可存入手機</small></span></li>
+    <li><strong>3</strong><span>選擇 LINE 兌換<small>每個帳號一次</small></span></li>
+   </ol>
    <div className={s.quizProgress} aria-label={`已完成 ${answered}／8 題`}><span style={{width:`${answered/questions.length*100}%`}}/></div>
    <div aria-live="polite">
     {answered>0&&<div className={s.quizFeedback}><strong>{answers[answered-1]===last[2]?'答對了！':`答案是 ${last[1][last[2]]}。`}</strong><p>{last[3]}</p><a href={last[4]==='#people'?sitePath('/exhibition/to-and-from/')+'#people':last[4]} target="_blank" rel="noreferrer">{last[5]} ↗</a></div>}
