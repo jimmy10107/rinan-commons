@@ -174,13 +174,18 @@ test('curatorial route follows the physical exhibition, with credited banners li
 
 test('site-wide quiz launcher ships the eight-question LIFF handoff', () => {
   const bundles = walk(path.join(root, '_next/static')).filter(f => f.endsWith('.js')).map(f => readFileSync(f, 'utf8')).join('\n');
+  const workerApi = readFileSync(path.join(process.cwd(), 'stamp-service/api.mjs'), 'utf8');
+  const quizSource = readFileSync(path.join(process.cwd(), 'app/exhibition/to-and-from/quiz.tsx'), 'utf8');
   assert.match(bundles, /挑戰日南 8 題/);
   assert.match(bundles, /你搭上車了嗎/);
   assert.match(bundles, /紀念用｜非實體章兌換憑證/);
-  assert.match(bundles, /八題全部答對/);
+  assert.match(bundles, /每題由伺服器即時驗證/);
+  assert.match(bundles, /rinan-quiz-stamp\.jimmy10107-tw\.workers\.dev/);
   assert.match(bundles, /https:\/\/liff\.line\.me\/2011673526-BOtR0nd7/);
-  assert.match(bundles, /https:\/\/www\.tchac\.taichung\.gov\.tw\/building\?pid=22&uid=33/);
-  assert.match(bundles, /https:\/\/www\.cna\.com\.tw\/news\/ahel\/202311010163\.aspx/);
+  assert.match(bundles, /#proof=/);
+  assert.doesNotMatch(quizSource, /\?a=|answers\.join/);
+  assert.match(workerApi, /https:\/\/www\.tchac\.taichung\.gov\.tw\/building\?pid=22&uid=33/);
+  assert.match(workerApi, /https:\/\/www\.cna\.com\.tw\/news\/ahel\/202311010163\.aspx/);
   assert.doesNotMatch(bundles, /railway\.gov\.tw\/tra-tip-web\/adr\/about-timeline\?selectIndex=3/);
   assert.doesNotMatch(bundles, /eycc\.ey\.gov\.tw\/Page\/9FAC64F67005E355/);
 });
