@@ -11,13 +11,13 @@ let cardSerial,cardBox;
 function showClaim(serial,redeemed=false){
  statusEl.className='claim-card';statusEl.replaceChildren();
  const title=document.createElement('strong'),number=document.createElement('span'),note=document.createElement('span');
- title.textContent='線上特殊章已收藏';number.textContent='資格編號：'+serial;note.textContent=redeemed?'活動章資格已核銷，電子紀念圖仍可儲存。':'電子圖可直接儲存。選擇到站蓋章時，才需要產生兌換碼。';statusEl.append(title,number,note)
+ title.textContent='電子活動章已收藏';number.textContent='資格編號：'+serial;note.textContent=redeemed?'活動章資格已核銷，電子活動章圖片仍可儲存。':'電子圖可直接儲存。選擇到站蓋章時，才需要產生兌換碼。';statusEl.append(title,number,note)
  if(cardSerial!==serial||!cardBox){
    cardSerial=serial;cardBox=document.createElement('details');
-   const open=document.createElement('summary');open.className='save-badge';open.textContent='查看及儲存我的紀念章';
+   const open=document.createElement('summary');open.className='save-badge';open.textContent='查看及儲存我的電子活動章';
    const contents=document.createElement('div');cardBox.append(open,contents);
    let drawing=false,ready=false;
-   const draw=async()=>{if(drawing||ready)return;drawing=true;contents.textContent='正在製作個人紀念章…';
+   const draw=async()=>{if(drawing||ready)return;drawing=true;contents.textContent='正在製作個人電子活動章…';
      try{const {renderSouvenir}=await import('/souvenir.js');await renderSouvenir(contents,serial,'/pearl-card.webp');ready=true}
      catch{contents.textContent='圖片未能載入。';const retry=document.createElement('button');retry.textContent='重新載入卡片';retry.onclick=draw;contents.append(retry)}
      finally{drawing=false}};
@@ -51,7 +51,7 @@ async function init(){
  statusEl.textContent='請確認本人在場，且紙本護照有一格空白活動章欄位。不需先有 14 章；本次只核銷一枚活動章。';
  action('工作人員：核銷一枚活動章',async()=>{const b=await post('redeem',{token:scan[0]});sessionStorage.removeItem('scan');statusEl.textContent='核銷成功。請在紙本護照的空白活動章格蓋一章。居民徽章另依護照 15 格集滿規則兌換。流水號 RC-'+String(b.serial).padStart(6,'0');act.hidden=true});return}
  if(initial.searchParams.has('staff')){action('顯示我的工作人員申請代碼',async()=>{statusEl.textContent=(await post('staff-key',{})).key;act.hidden=true});return}
- statusEl.textContent='正在登入 LINE 並領取電子紀念章…';act.hidden=true;
+ statusEl.textContent='正在登入 LINE 並領取電子活動章…';act.hidden=true;
  try{await claim();sessionStorage.removeItem('line-reauth-attempted')}
  catch(e){
   if(e.status===401&&!sessionStorage.getItem('line-reauth-attempted')){loginAgain();return}

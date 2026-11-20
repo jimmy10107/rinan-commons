@@ -38,7 +38,7 @@ export function EntryMedia({autoOpen: _autoOpen = true}: {autoOpen?: boolean}) {
       <button type="button" className="entry-quiz-card-main" onClick={() => setOpen(true)}>
         <span className="entry-quiz-eyebrow">到站互動・約 2–3 分鐘</span>
         <strong>你搭上車了嗎？</strong>
-        <p>沒有護照也能玩。八題全對，用 LINE 收藏電子紀念章。</p>
+        <p>沒有護照也能玩。八題全對，用 LINE 收藏電子活動章。</p>
         <ol aria-label="活動流程"><li>答 8 題</li><li>LINE 收藏</li><li>到站蓋章（可選）</li></ol>
         <span className="entry-quiz-action">開始挑戰日南 8 題</span>
       </button>

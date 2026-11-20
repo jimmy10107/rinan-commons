@@ -1,7 +1,7 @@
 // Build the numbered card's unnumbered artwork. The exact gold emblem is from the supplied exhibition artwork.
 const path = require('node:path');
 const sharp = require('sharp');
-const dir = path.join(__dirname,'../public/quiz');
+const dir = path.join(__dirname,'../design/quiz');
 async function build() {
 const emblem = (await sharp(path.join(dir,'pearl-emblem.webp')).png().toBuffer()).toString('base64');
 const svg = `<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="960" height="1220" viewBox="0 0 960 1220">
@@ -18,7 +18,7 @@ const svg = `<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.
  <g font-family="Noto Sans CJK TC,sans-serif" fill="#173d32">
  <text x="93" y="133" font-family="sans-serif" font-size="24" font-weight="bold" letter-spacing="4">RINAN COMMONS</text>
  <rect x="684" y="91" width="183" height="58" rx="29" fill="#22473b"/><text x="775" y="131" text-anchor="middle" fill="#fff8d8" font-size="30" font-weight="bold">八題全對</text>
- <text x="89" y="215" font-family="Noto Serif CJK TC,serif" font-size="57" font-weight="bold">日南稻站走傱日南紀念章</text>
+ <text x="89" y="215" font-family="Noto Serif CJK TC,serif" font-size="57" font-weight="bold">日南稻站走傱日南電子活動章</text>
  <text x="94" y="267" font-size="32" fill="#3b5a50">在往返之間認識日南</text>
  <image x="89" y="297" width="782" height="697" preserveAspectRatio="xMidYMid slice" clip-path="url(#window)" xlink:href="data:image/png;base64,${emblem}"/>
  <rect x="89" y="297" width="782" height="697" rx="15" fill="none" stroke="#b5afa1" stroke-width="2"/>

@@ -1,7 +1,6 @@
 'use client';
 
 import {useCallback, useEffect, useState} from 'react';
-import {sitePath} from '../../site-path';
 import s from './exhibit.module.css';
 
 const quizApi=process.env.NEXT_PUBLIC_STAMP_API_URL||'https://rinan-quiz-stamp.jimmy10107-tw.workers.dev';
@@ -24,13 +23,13 @@ export function Quiz({floating=false}:{floating?:boolean}){
  const answered=complete?8:(question?.position||0),total=question?.total||8;
  return <section id={floating?'floating-quiz':'quiz'} className={`${s.quiz} ${floating?s.quizFloating:s.band}`} aria-label="日南八題小測驗">
    <p className={s.kicker}>RINAN QUIZ / 到站小測驗</p><h2>你搭上車了嗎？</h2>
-   <p>沒有紙本護照也能玩。八題全對後，用 LINE 收藏電子紀念章；想集紙本章，再到稻站蓋一枚活動章。線上答題、LINE 領取及現場兌換碼開放至 12/25（五）23:59（台灣時間）。</p>
-   <ol className={s.quizJourney} aria-label="測驗與兌換流程"><li><strong>1</strong><span>完成 8 題<small>可續答</small></span></li><li><strong>2</strong><span>登入 LINE<small>收藏電子紀念章</small></span></li><li><strong>3</strong><span>到站蓋章（可選）<small>可從第一章開始</small></span></li></ol>
+   <p>沒有紙本護照也能玩。八題全對後，用 LINE 收藏電子活動章；想集紙本章，再帶護照到稻站兌換一枚實體活動章。線上答題、LINE 領取及現場兌換碼開放至 12/25（五）23:59（台灣時間）。</p>
+   <ol className={s.quizJourney} aria-label="測驗與兌換流程"><li><strong>1</strong><span>完成 8 題<small>可續答</small></span></li><li><strong>2</strong><span>登入 LINE<small>收藏電子活動章</small></span></li><li><strong>3</strong><span>到站蓋章（可選）<small>可從第一章開始</small></span></li></ol>
    <div className={s.quizProgress} aria-label={`已完成 ${answered}／${total} 題`}><span style={{width:`${answered/total*100}%`}}/></div>
    {error&&<div className={`${s.quizFeedback} ${s.quizFeedbackError}`} role="alert"><strong>{error}</strong></div>}
    {wrong&&<div className={`${s.quizFeedback} ${s.quizFeedbackError}`} role="alert"><strong>答錯了，請再選一次。</strong><p>{wrong.explanation}</p>{wrong.sourceUrl&&<a href={wrong.sourceUrl} target="_blank" rel="noreferrer">{wrong.sourceLabel} ↗</a>}</div>}
    <div aria-live="polite">{busy&&!question&&!complete?<h3>正在建立安全測驗…</h3>:complete?<h3>全數答對，到站了！</h3>:question?<h3>第 {question.position+1}／{question.total} 題｜{question.prompt}</h3>:null}</div>
-   {complete?<div className={s.quizFinish}><img className={s.quizBadgePreview} src={sitePath('/quiz/pearl-card.webp')} alt="日南稻站走傱日南紀念章｜八題全對珍珠閃卡預覽"/><p>{claimed?'電子紀念章已收藏。開啟 LINE 即可儲存印有你個人編號的卡片。想在紙本護照蓋一枚活動章，再開啟 LINE 查看兌換狀態。':'登入 LINE 就能收藏電子紀念章，不必到場。想再集一枚紙本活動章？帶護照到稻站即可，不限已有章數。'}</p><div className={s.quizActions}>{claimed&&<a href={`${liffUrl}?view=souvenir`}>儲存電子紀念章</a>}<button type="button" disabled={busy} onClick={openLine}>{claimed?'開啟 LINE 查看兌換資格':'登入 LINE，收藏電子紀念章'} ↗</button></div><button className={s.quizReset} type="button" onClick={reset}>重新挑戰</button></div>:
+   {complete?<div className={s.quizFinish}><p>{claimed?'電子活動章已收藏。開啟 LINE 即可儲存印有你個人編號的卡片。想在紙本護照蓋一枚活動章，再開啟 LINE 查看兌換狀態。':'登入 LINE 就能收藏電子活動章，不必到場。想再集一枚紙本活動章？帶護照到稻站即可，不限已有章數。'}</p><div className={s.quizActions}>{claimed&&<a href={`${liffUrl}?view=souvenir`}>儲存電子活動章</a>}<button type="button" disabled={busy} onClick={openLine}>{claimed?'開啟 LINE 查看兌換資格':'登入 LINE，收藏電子活動章'} ↗</button></div><button className={s.quizReset} type="button" onClick={reset}>重新挑戰</button></div>:
    question?<div className={s.quizOptions} key={question.position}>{question.options.map((option,i)=><button type="button" disabled={busy} key={option} onClick={()=>void choose(i)}><span>{'ABCD'[i]}</span>{option}</button>)}</div>:error?<button className={s.quizReset} type="button" onClick={reset}>重新建立測驗</button>:null}
  </section>;
 }
