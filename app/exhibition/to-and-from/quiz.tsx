@@ -36,7 +36,9 @@ export function Quiz({floating=false}:{floating?:boolean}){
  const [answers,setAnswers]=useState<number[]>([]);const answered=answers.length,complete=answered===questions.length;
  const current=questions[Math.min(answered,questions.length-1)],last=questions[Math.max(0,answered-1)];
  const score=useMemo(()=>answers.filter((answer,i)=>answer===questions[i][2]).length,[answers]);
- const liffUrl=process.env.NEXT_PUBLIC_STAMP_LIFF_URL;
+ // The LIFF URL is public configuration, not a secret. Keep a production fallback so
+ // every deployment target (GitHub Pages and the custom-domain build) uses one LIFF.
+ const liffUrl=process.env.NEXT_PUBLIC_STAMP_LIFF_URL||'https://liff.line.me/2011673526-BOtR0nd7';
  const claimUrl=liffUrl?`${liffUrl}?a=${answers.join('')}`:'';
  return <section id={floating?'floating-quiz':'quiz'} className={`${s.quiz} ${floating?s.quizFloating:s.band}`} aria-label="日南八題小測驗">
    <p className={s.kicker}>RINAN QUIZ / 到站小測驗</p><h2>你搭上車了嗎？</h2>
