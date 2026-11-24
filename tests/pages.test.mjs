@@ -106,7 +106,7 @@ test('approved homepage and about review stays linked and keeps planned services
   assert.match(home, /車站旁，一個可以停下來休息的地方。/);
   assert.match(home, /href="\/rinan-commons\/about\/#place"/);
   assert.match(home, /href="\/rinan-commons\/explore\/"/);
-  assert.match(home, /最新活動公告/);
+  assert.match(home, /回顧活動的資訊/);
   assert.match(home, /11\.21<small>六・19:00–21:00<\/small>/);
   assert.match(home, /11\.22<small>日・14:00–16:00<\/small>/);
   assert.match(home, /11\.23<small>一・18:30–20:30<\/small>/);
@@ -237,7 +237,7 @@ test('passport leads both navigation systems and the annual event lives under th
   assert.match(desktop, /href="\/rinan-commons\/">首頁<\/a>\s*$/);
   assert.match(mobile, /href="\/rinan-commons\/">首頁<span[^>]*>↗<\/span><\/a>\s*$/);
   assert.doesNotMatch(desktop, /href="\/rinan-commons\/motion2026\/"/);
-  for (const label of ['最新活動公告', '02 / 活動', 'class="event-feature home-events-feature"']) {
+  for (const label of ['回顧活動的資訊', '02 / 活動', 'class="event-feature home-events-feature"']) {
     const start = home.indexOf(label);
     assert.ok(start > -1, label);
     assert.match(home.slice(Math.max(0, start - 240), start + 240), /\/rinan-commons\/passport\/#events/);
