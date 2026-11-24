@@ -2,6 +2,11 @@ import data from './generated/content.json';
 import type { StoryArticle } from './stories/story-types';
 
 export const site = data.settings[0];
+export const railwayStation = {
+  name: '臺鐵日南車站',
+  address: '臺中市大甲區孟春里中山路二段 140 巷 8 號',
+  officialUrl: 'https://www.railway.gov.tw/tra-tip-web/tip/tip00H/tipH41/viewStaInfo/2190',
+};
 export const chapters = data.chapters;
 export const materials = data.materials;
 export const articles = data.articles as StoryArticle[];
